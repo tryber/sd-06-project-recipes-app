@@ -124,3 +124,13 @@ describe('Tela de Login - Salvar o email no LocalStorage', () => {
 //     expect(history.location.pathname).toBe('/comidas');
 //   });
 // });
+
+// describe('Header - Verifica os data-testid', () => {
+//   beforeEach(cleanup);
+
+//   it('Na pagina /comidas, deve haver os data-testid profile-top-btn, page-title, search-top-btn', () => {
+//     const { getByTestId } = renderWithRouter(<App />);
+
+
+//   });
+// });

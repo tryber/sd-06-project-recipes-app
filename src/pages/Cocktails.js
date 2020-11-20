@@ -1,13 +1,13 @@
 import React from 'react';
 import Header from '../components/Header';
 
-function Recipes() {
+function Cocktails() {
   const TRUE = true;
   return (
     <div>
-      <Header title="Comidas" search={ TRUE } />
+      <Header title="Bebidas" search={ TRUE } />
     </div>
   );
 }
 
-export default Recipes;
+export default Cocktails;
