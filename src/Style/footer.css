@@ -1,0 +1,17 @@
+.footer {
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  width: 100%;
+}
+
+button {
+  background-color: white;
+  border: none;
+}
+
+a {
+  font-size: 14px;
+  text-decoration: none;
+}

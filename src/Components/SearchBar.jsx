@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import propTypes from 'prop-types';
+import recipeRequest from '../services/recipeRequest';
 
 const SearchBar = ({ history }) => {
   const { pathname } = history.location;
-  const [ingredients, setIngredients] = useState(false);
-  const [name, setName] = useState(false);
-  const [firstLetter, setFirstLetter] = useState(false);
   const [text, setText] = useState('');
   const [defaultUrl, setDefaultUrl] = useState('');
   const [API_URL, setApiUrl] = useState('');
   const [type, setType] = useState('');
+
+  const handleSearch = ({ target }) => {
+    setText(target.value);
+  };
 
   useEffect(() => {
     if (pathname === '/comidas') {
@@ -21,27 +23,15 @@ const SearchBar = ({ history }) => {
     }
   }, []);
 
-  const everyFalse = () => {
-    setFirstLetter(false);
-    setName(false);
-    setIngredients(false);
-  };
-
   const handleRadio = async ({ target }) => {
     switch (target.id) {
       case 'ingredients':
-        everyFalse();
-        setIngredients(true);
         setApiUrl(`${defaultUrl}filter.php?i=`);
         break;
       case 'name':
-        everyFalse();
-        setName(true);
         setApiUrl(`${defaultUrl}search.php?s=`);
         break;
       case 'firstLetter':
-        everyFalse();
-        setFirstLetter(true);
         setApiUrl(`${defaultUrl}search.php?f=`);
         break;
       default:
@@ -50,25 +40,24 @@ const SearchBar = ({ history }) => {
     return true;
   };
 
-  const handleSearch = ({ target }) => {
-    setText(target.value);
+  const redirectToIdProduct = (data, idType) => {
+    history.push(`${pathname}/${data[type][0][idType]}`);
   };
 
   const handleButton = async () => {
-    if (text.length > 1 && firstLetter === true) {
+    const firstLetter = `${defaultUrl}search.php?f=`;
+    if (text.length > 1 && API_URL === firstLetter) {
       return alert('Sua busca deve conter somente 1 (um) caracter');
     }
     const url = `${API_URL}${text}`;
-    const api = await fetch(url);
-    const data = await api.json();
-    console.log(data);
+    const data = await recipeRequest(url);
     if (data[type] === null) {
       return alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
     }
     if (type === 'meals' && data[type].length === 1) {
-      history.push(`${pathname}/${data[type][0].idMeal}`);
-    } else if (type === 'drink' && data[type].length === 1) {
-      history.push(`${pathname}/${data[type][0].idDrink}`);
+      redirectToIdProduct(data, 'idMeal');
+    } else if (type === 'drinks' && data[type].length === 1) {
+      redirectToIdProduct(data, 'idDrink');
     }
     return data;
   };
@@ -87,7 +76,6 @@ const SearchBar = ({ history }) => {
       <label>
         <input
           id="ingredients"
-          checked={ingredients}
           onChange={handleRadio}
           name="kind-of-search"
           type="radio"
@@ -99,9 +87,8 @@ const SearchBar = ({ history }) => {
         <input
           data-testid="name-search-radio"
           id="name"
-          checked={name}
           onChange={handleRadio}
-          ame="kind-of-search"
+          name="kind-of-search"
           type="radio"
         />
         Nome
@@ -109,7 +96,6 @@ const SearchBar = ({ history }) => {
       <label>
         <input
           id="firstLetter"
-          checked={firstLetter}
           onChange={handleRadio}
           name="kind-of-search"
           type="radio"
@@ -117,7 +103,13 @@ const SearchBar = ({ history }) => {
         />
         Primeira letra
       </label>
-      <button data-testid="exec-search-btn" onClick={handleButton} type="button">Buscar</button>
+      <button
+        data-testid="exec-search-btn"
+        onClick={handleButton}
+        type="button"
+      >
+        Buscar
+      </button>
     </div>
   );
 };
