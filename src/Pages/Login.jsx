@@ -30,7 +30,7 @@ function Login({ history }) {
           type="text"
           data-testid="email-input"
           id="email-input"
-          onChange={ checkButton }
+          onChange={checkButton}
         />
       </label>
       <label htmlFor="password-input">
@@ -39,14 +39,14 @@ function Login({ history }) {
           type="password"
           data-testid="password-input"
           id="password-input"
-          onChange={ checkButton }
+          onChange={checkButton}
         />
       </label>
       <button
         type="submit"
         data-testid="login-submit-btn"
-        disabled={ !buttonDisable }
-        onClick={ handleButton }
+        disabled={!buttonDisable}
+        onClick={handleButton}
       >
         Entrar
       </button>

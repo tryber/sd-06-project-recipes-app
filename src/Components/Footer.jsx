@@ -12,7 +12,7 @@ function Footer() {
         <button type="button">
           <img
             data-testid="drinks-bottom-btn"
-            src={ drinkIcon }
+            src={drinkIcon}
             alt="drink-icon"
           />
           Drinks
@@ -22,7 +22,7 @@ function Footer() {
         <button type="button">
           <img
             data-testid="explore-bottom-btn"
-            src={ exploreIcon }
+            src={exploreIcon}
             alt="explore-icon"
           />
           Explore
@@ -32,7 +32,7 @@ function Footer() {
         <button type="button">
           <img
             data-testid="food-bottom-btn"
-            src={ mealIcon }
+            src={mealIcon}
             alt="meal-icon"
           />
           Foods
