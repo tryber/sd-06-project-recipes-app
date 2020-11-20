@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Login from './Pages/Login';
@@ -24,15 +23,15 @@ function App() {
       <Route exact path="/" component={Login} />
       <Route exact path="/comidas" component={Comidas} />
       <Route exact path="/bebidas" component={Bebidas} />
-      <Route path="/comidas/:id" render={(props) => <ComidasDetails {...props} />} />
-      <Route path="/bebidas/:id" render={(props) => <BebidasDetails {...props} />} />
+      <Route path="/comidas/:id" render={() => <ComidasDetails />} />
+      <Route path="/bebidas/:id" render={() => <BebidasDetails />} />
       <Route
         path="/comidas/:id/in-progress"
-        render={(props) => <ComidasInProgress {...props} />}
+        render={() => <ComidasInProgress />}
       />
       <Route
         path="/bebidas/:id/in-progress"
-        render={(props) => <BebidasInProgress {...props} />}
+        render={() => <BebidasInProgress />}
       />
       <Route path="/explorar" component={Explorar} />
       <Route path="/explorar/comidas" component={ExplorarComidas} />
