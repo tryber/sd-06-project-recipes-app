@@ -25,17 +25,17 @@ const SearchBar = ({ history }) => {
 
   const handleRadio = async ({ target }) => {
     switch (target.id) {
-      case 'ingredients':
-        setApiUrl(`${defaultUrl}filter.php?i=`);
-        break;
-      case 'name':
-        setApiUrl(`${defaultUrl}search.php?s=`);
-        break;
-      case 'firstLetter':
-        setApiUrl(`${defaultUrl}search.php?f=`);
-        break;
-      default:
-        return false;
+    case 'ingredients':
+      setApiUrl(`${defaultUrl}filter.php?i=`);
+      break;
+    case 'name':
+      setApiUrl(`${defaultUrl}search.php?s=`);
+      break;
+    case 'firstLetter':
+      setApiUrl(`${defaultUrl}search.php?f=`);
+      break;
+    default:
+      return false;
     }
     return true;
   };
@@ -68,35 +68,35 @@ const SearchBar = ({ history }) => {
         Lupa
       </button>
       <input
-        value={text}
-        onChange={handleSearch}
+        value={ text }
+        onChange={ handleSearch }
         type="text"
         data-testid="search-input"
       />
-      <label>
+      <label htmlFor="ingredients">
         <input
           id="ingredients"
-          onChange={handleRadio}
+          onChange={ handleRadio }
           name="kind-of-search"
           type="radio"
           data-testid="ingredient-search-radio"
         />
         Ingrediente
       </label>
-      <label>
+      <label htmlFor="name">
         <input
           data-testid="name-search-radio"
           id="name"
-          onChange={handleRadio}
+          onChange={ handleRadio }
           name="kind-of-search"
           type="radio"
         />
         Nome
       </label>
-      <label>
+      <label htmlFor="firstLetter">
         <input
           id="firstLetter"
-          onChange={handleRadio}
+          onChange={ handleRadio }
           name="kind-of-search"
           type="radio"
           data-testid="first-letter-search-radio"
@@ -105,7 +105,7 @@ const SearchBar = ({ history }) => {
       </label>
       <button
         data-testid="exec-search-btn"
-        onClick={handleButton}
+        onClick={ handleButton }
         type="button"
       >
         Buscar

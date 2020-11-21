@@ -6,7 +6,7 @@ import Footer from '../Components/Footer';
 function Comidas({ history }) {
   return (
     <div>
-      <SearchBar history={history} />
+      <SearchBar history={ history } />
       <h1>COmidas</h1>
       <Footer />
     </div>

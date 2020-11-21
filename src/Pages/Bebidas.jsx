@@ -6,7 +6,7 @@ import Footer from '../Components/Footer';
 function Bebidas({ history }) {
   return (
     <div>
-      <SearchBar history={history} />
+      <SearchBar history={ history } />
       <h1>Bebidas</h1>
       <Footer />
     </div>
