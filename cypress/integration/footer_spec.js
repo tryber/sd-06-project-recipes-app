@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe(('19 - Implemente os elementos do menu inferior respeitando os atributos descritos no protótipo', () => {
+describe('19 - Implemente os elementos do menu inferior respeitando os atributos descritos no protótipo', () => {
   it('Tem os data-testids footer, drinks-bottom-btn, explore-bottom-btn e food-bottom-btn', () => {
     cy.visit('http://localhost:3000/comidas');
 
@@ -9,9 +9,9 @@ describe(('19 - Implemente os elementos do menu inferior respeitando os atributo
     cy.get('[data-testid="explore-bottom-btn"]');
     cy.get('[data-testid="food-bottom-btn"]');
   });
-}));
+});
 
-describe(('20 - Posicione o menu inferior de forma fixa e apresente 3 ícones: um para comidas, um para bebidas e outro para exploração', () => {
+describe('20 - Posicione o menu inferior de forma fixa e apresente 3 ícones: um para comidas, um para bebidas e outro para exploração', () => {
   it('O menu inferior deve ficar fixado sempre ao final da página', () => {
     cy.visit('http://localhost:3000/comidas');
 
@@ -34,9 +34,9 @@ describe(('20 - Posicione o menu inferior de forma fixa e apresente 3 ícones: u
       .should('have.attr', 'src')
       .should('include', 'mealIcon');
   });
-}));
+});
 
-describe(('21 - Exiba o menu inferior apenas nas telas indicadas pelo protótipo', () => {
+describe('21 - Exiba o menu inferior apenas nas telas indicadas pelo protótipo', () => {
   const hasNoFooter = () => {
     cy.get('[data-testid="footer"]').should('not.exist');
     cy.get('[data-testid="drinks-bottom-btn"]').should('not.exist');
@@ -146,31 +146,31 @@ describe(('21 - Exiba o menu inferior apenas nas telas indicadas pelo protótipo
 
     hasNoFooter();
   });
-}));
+});
 
-describe(('22 - Redirecione a pessoa usuária para uma lista de cocktails ao clicar no ícone de bebidas', () => {
+describe('22 - Redirecione a pessoa usuária para uma lista de cocktails ao clicar no ícone de bebidas', () => {
   it('Redireciona para a rota correta', () => {
     cy.visit('http://localhost:3000/comidas');
 
     cy.get('[data-testid="drinks-bottom-btn"]').click();
     cy.location().should((loc) => expect(loc.pathname).to.eq('/bebidas'));
   });
-}));
+});
 
-describe(('23 - Redirecione a pessoa usuária para a tela de explorar ao clicar no ícone de exploração', () => {
+describe('23 - Redirecione a pessoa usuária para a tela de explorar ao clicar no ícone de exploração', () => {
   it('Redireciona para a rota correta', () => {
     cy.visit('http://localhost:3000/comidas');
 
     cy.get('[data-testid="explore-bottom-btn"]').click();
     cy.location().should((loc) => expect(loc.pathname).to.eq('/explorar'));
   });
-}));
+});
 
-describe(('24 - Redirecione a pessoa usuárua para uma lista de comidas ao clicar no ícone de comidas', () => {
+describe('24 - Redirecione a pessoa usuárua para uma lista de comidas ao clicar no ícone de comidas', () => {
   it('Redireciona para a rota correta', () => {
     cy.visit('http://localhost:3000/bebidas');
 
     cy.get('[data-testid="food-bottom-btn"]').click();
     cy.location().should((loc) => expect(loc.pathname).to.eq('/comidas'));
   });
-}));
+});
