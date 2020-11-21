@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe.skip('Favorite recipes screen', () => {
+describe('Favorite recipes screen', () => {
   const favoriteRecipes = [
     {
       id: '52771',
@@ -36,7 +36,7 @@ describe.skip('Favorite recipes screen', () => {
     });
   });
 
-  describe.skip('60 - Implemente os elementos da tela de receitas favoritas (cumulativo com os atributos em comum com a tela de receitas feitas) respeitando os atributos descritos no protótipo', () => {
+  describe('60 - Implemente os elementos da tela de receitas favoritas (cumulativo com os atributos em comum com a tela de receitas feitas) respeitando os atributos descritos no protótipo', () => {
     it('Todos os data-testids, cumulativo com os atributos em comum com a tela de receitas feitas, estão disponíveis', () => {
       cy.get('[data-testid="filter-by-all-btn"]');
       cy.get('[data-testid="filter-by-food-btn"]');
@@ -54,7 +54,7 @@ describe.skip('Favorite recipes screen', () => {
     });
   });
 
-  describe.skip('61 - Desenvolva a tela de maneira que, caso a receita do card seja uma comida, ela deve possuir: a foto da receita, o nome, a categoria, a area, um botão de compartilhar e um de "desfavoritar"', () => {
+  describe('61 - Desenvolva a tela de maneira que, caso a receita do card seja uma comida, ela deve possuir: a foto da receita, o nome, a categoria, a area, um botão de compartilhar e um de "desfavoritar"', () => {
     it('O card possui os atributos corretos de uma comida', () => {
       cy.get('[data-testid="0-horizontal-image"]')
         .should('have.attr', 'src')
@@ -71,7 +71,7 @@ describe.skip('Favorite recipes screen', () => {
     });
   });
 
-  describe.skip('62 - Desenvolva a tela de maneira que, caso a receita do card seja uma bebida, ela deve possuir: a foto da receita, o nome, se é alcoólica ou não, um botão de compartilhar e um de "desfavoritar"', () => {
+  describe('62 - Desenvolva a tela de maneira que, caso a receita do card seja uma bebida, ela deve possuir: a foto da receita, o nome, se é alcoólica ou não, um botão de compartilhar e um de "desfavoritar"', () => {
     it('O card possui os atributos corretos de uma bebida', () => {
       cy.get('[data-testid="1-horizontal-image"]')
         .should('have.attr', 'src')
@@ -87,7 +87,7 @@ describe.skip('Favorite recipes screen', () => {
     });
   });
 
-  describe.skip('63 - Desenvolva a solução de maneira que o botão de compartilhar deve copiar a URL da tela de detalhes da receita para o clipboard', () => {
+  describe('63 - Desenvolva a solução de maneira que o botão de compartilhar deve copiar a URL da tela de detalhes da receita para o clipboard', () => {
     it('Ao clicar no botão de compartilhar deve aparecer a mensagem "Link copiado!"', () => {
       cy.get('[data-testid="0-horizontal-share-btn"]').click();
 
@@ -104,7 +104,7 @@ describe.skip('Favorite recipes screen', () => {
     });
   });
 
-  describe.skip('64 - Desenvolva a solução de maneira que o botão de "desfavoritar" deve remover a receita da lista de receitas favoritas do `localStorage` e da tela', () => {
+  describe('64 - Desenvolva a solução de maneira que o botão de "desfavoritar" deve remover a receita da lista de receitas favoritas do `localStorage` e da tela', () => {
     it('Ao clicar no botão de "desfavoritar" a respectiva receita é removida da tela', () => {
       cy.get('[data-testid="0-horizontal-name"]').contains(favoriteRecipes[0].name);
       cy.get('[data-testid="1-horizontal-name"]').contains(favoriteRecipes[1].name);
@@ -135,7 +135,7 @@ describe.skip('Favorite recipes screen', () => {
     });
   });
 
-  describe.skip('65 - Implemente 2 botões que filtram as receitas por comida ou bebida e um terceiro que remove todos os filtros', () => {
+  describe('65 - Implemente 2 botões que filtram as receitas por comida ou bebida e um terceiro que remove todos os filtros', () => {
     it('Ao clicar no botão "Food" as receitas devem ser filtradas por comidas', () => {
       cy.get('[data-testid="filter-by-food-btn"]').click();
 
@@ -158,7 +158,7 @@ describe.skip('Favorite recipes screen', () => {
     });
   });
 
-  describe.skip('66 - Redirecione a pessoa usuária ao clicar na foto ou no nome da receita, a rota deve mudar para a tela de detalhes daquela receita', () => {
+  describe('66 - Redirecione a pessoa usuária ao clicar na foto ou no nome da receita, a rota deve mudar para a tela de detalhes daquela receita', () => {
     it('Ao clicar na foto da receita, a rota deve mudar para a tela de detalhes daquela receita', () => {
       cy.get('[data-testid="0-horizontal-image"]').click();
 

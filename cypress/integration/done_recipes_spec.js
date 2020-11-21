@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe.skip('Done recipes screen', () => {
+describe('Done recipes screen', () => {
   const doneRecipes = [
     {
       id: '52771',
@@ -40,7 +40,7 @@ describe.skip('Done recipes screen', () => {
     });
   });
 
-  describe.skip('54 - Implemente os elementos da tela de receitas feitas respeitando os atributos descritos no protótipo', () => {
+  describe('54 - Implemente os elementos da tela de receitas feitas respeitando os atributos descritos no protótipo', () => {
     it('Todos os data-testids estão disponíveis', () => {
       cy.get('[data-testid="filter-by-all-btn"]');
       cy.get('[data-testid="filter-by-food-btn"]');
@@ -60,7 +60,7 @@ describe.skip('Done recipes screen', () => {
     });
   });
 
-  describe.skip('55 - Desenvolva a tela de maneira que, caso a receita do card seja uma comida, ela deve possuir: a foto da receita, o nome, a categoria, a area, a data em que a pessoa fez a receita, as 2 primeiras tags retornadas pela API e um botão de compartilhar', () => {
+  describe('55 - Desenvolva a tela de maneira que, caso a receita do card seja uma comida, ela deve possuir: a foto da receita, o nome, a categoria, a area, a data em que a pessoa fez a receita, as 2 primeiras tags retornadas pela API e um botão de compartilhar', () => {
     it('O card possui os atributos corretos de uma comida', () => {
       cy.get('[data-testid="0-horizontal-image"]')
         .should('have.attr', 'src')
@@ -77,7 +77,7 @@ describe.skip('Done recipes screen', () => {
     });
   });
 
-  describe.skip('56 - Desenvolva a tela de maneira que, caso a receita do card seja uma bebida, ela deve possuir: a foto da receita, o nome, se é alcoólica, a data em que a pessoa fez a receita e um botão de compartilhar', () => {
+  describe('56 - Desenvolva a tela de maneira que, caso a receita do card seja uma bebida, ela deve possuir: a foto da receita, o nome, se é alcoólica, a data em que a pessoa fez a receita e um botão de compartilhar', () => {
     it('O card possui os atributos corretos de uma bebida', () => {
       cy.get('[data-testid="1-horizontal-image"]')
         .should('have.attr', 'src')
@@ -91,7 +91,7 @@ describe.skip('Done recipes screen', () => {
     });
   });
 
-  describe.skip('57 - Desenvolva a solução de maneira que o botão de compartilhar deve copiar a URL da tela de detalhes da receita para o clipboard', () => {
+  describe('57 - Desenvolva a solução de maneira que o botão de compartilhar deve copiar a URL da tela de detalhes da receita para o clipboard', () => {
     it('Ao clicar no botão de compartilhar deve aparecer a mensagem "Link copiado!"', () => {
       cy.get('[data-testid="0-horizontal-share-btn"]').click();
 
@@ -108,7 +108,7 @@ describe.skip('Done recipes screen', () => {
     });
   });
 
-  describe.skip('58 - Implemente 2 botões que filtram as receitas por comida ou bebida e um terceiro que remove todos os filtros', () => {
+  describe('58 - Implemente 2 botões que filtram as receitas por comida ou bebida e um terceiro que remove todos os filtros', () => {
     it('Ao clicar no botão "Food" as receitas devem ser filtradas por comidas', () => {
       cy.get('[data-testid="filter-by-food-btn"]').click();
 
@@ -131,7 +131,7 @@ describe.skip('Done recipes screen', () => {
     });
   });
 
-  describe.skip('59 - Redirecione para a tela de detalhes da receita caso seja clicado na foto ou no nome da receita', () => {
+  describe('59 - Redirecione para a tela de detalhes da receita caso seja clicado na foto ou no nome da receita', () => {
     it('Ao clicar na foto da receita, a rota deve mudar para a tela de detalhes daquela receita', () => {
       cy.get('[data-testid="0-horizontal-image"]').click();
 
