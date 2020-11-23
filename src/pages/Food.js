@@ -7,7 +7,7 @@ import useRequestFood from '../hooks/useRequestFood';
 import NavigationMenu from '../components/NavigationMenu';
 
 function Food() {
-  const { setHeader, options, setOptions,  } = useContext(AppContext);
+  const { setHeader, options, setOptions } = useContext(AppContext);
   const [apiResponse, setFilter] = useRequestFood([]);
   const maxShow = 12;
 

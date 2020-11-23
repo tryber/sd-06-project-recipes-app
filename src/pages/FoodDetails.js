@@ -5,13 +5,13 @@ function FoodDetails(props) {
   const { id } = props.match.params;
   const [requestDetails, setrequestDetails] = useState([]);
   const [ingredients, setIngredients] = useState([]);
-  const fetchFunction = async (response) =>{
+  const fetchFunction = async (response) => {
     await setrequestDetails(response.meals[0]);
-  }
+  };
   const requestDetailsAPI = async () => {
     const response = await fetchRecipes(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
     // setrequestDetails(response.meals[0]);
-    await fetchFunction(response)
+    await fetchFunction(response);
     const TheIngredients = [];
     for (let i = 1; i < 21; i++) {
       if (requestDetails.length > 0) {
