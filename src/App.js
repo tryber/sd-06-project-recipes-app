@@ -10,6 +10,7 @@ import {
   ExplorarBebidas, ExplorarComidas,
 } from './pages';
 import store from './redux/store';
+import './visual_identity/styles/main.scss';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route exact path="/perfil" component={ Perfil } />
 
         </Switch>
+
       </BrowserRouter>
     </Provider>
   );

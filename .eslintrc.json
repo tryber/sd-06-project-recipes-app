@@ -16,7 +16,6 @@
     "linebreak-style": 0,
     "quotes": ["error", "single"],
     "semi": ["error", "always"],
-    "class-methods-use-this": ["off"],
     "complexity": ["off", 11],
     "no-magic-numbers": [
       "error",
@@ -27,6 +26,9 @@
         "detectObjects": false
       }
     ],
+    "react/jsx-curly-spacing": [2, {"when": "always", "allowMultiline": false}],
+    "arrow-parens": [2, "always"],
+    "class-methods-use-this": ["off"],
     "react/button-has-type": [
       "error",
       {
@@ -81,7 +83,6 @@
     "react/jsx-fragments": ["error"],
     "react/jsx-max-depth": ["error", {"max": 8}],
     "react/jsx-no-useless-fragment": ["error"],
-    "react/jsx-curly-spacing": ["error", {"when": "always"}],
     "react/jsx-equals-spacing": ["error", "never"],
     "react/jsx-first-prop-new-line": ["error", "multiline"],
     "react/jsx-indent": [
