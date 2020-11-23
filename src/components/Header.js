@@ -7,7 +7,7 @@ import searchIcon from '../images/searchIcon.svg';
 function Header() {
   const { header: { page, search }, setOptions, options } = useContext(AppContext);
   const [searchBar, setSearchBar] = useState(false);
-  const [inputs, setInputs] = useState({ text: '', option: '' });
+  const [inputs, setInputs] = useState({ text: '', option: '', category: '' });
   const handleChange = (event) => {
     setInputs({ ...inputs, [event.target.id]: event.target.value });
   };

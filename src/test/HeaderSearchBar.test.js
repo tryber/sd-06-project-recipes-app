@@ -3,10 +3,10 @@ import { fireEvent } from '@testing-library/react';
 import renderWithRouter from './renderWithRouter';
 import AppProvider from '../provider/AppProvider';
 import Header from '../components/Header';
-import Food from '../pages/Food';
-import Drink from '../pages/Drink';
+import BodyResponseFood from '../components/BodyResponseFood';
+import BodyResponseDrink from '../components/BodyResponseDrink';
 
-describe('testando os elementos da barra de busca', () => {
+describe.only('testando os elementos da barra de busca', () => {
   it('existir os data-testids tanto da barra de busca quanto de todos os buttons', () => {
     const { queryByTestId } = renderWithRouter(
       <AppProvider>
@@ -32,7 +32,7 @@ describe('testando a barra de busca logo abaixo do header', () => {
   it('Se o radio selecionado for Ingrediente, na pagina de comidas', async () => {
     const { queryByTestId, findByTestId } = renderWithRouter(
       <AppProvider>
-        <Food />
+        <BodyResponseFood />
       </AppProvider>,
     );
     const answer = { meals: [
@@ -61,7 +61,7 @@ describe('testando a barra de busca logo abaixo do header', () => {
   it('se o radio selecionado for Nome, na pagina de comidas', async () => {
     const { queryByTestId, findByTestId } = renderWithRouter(
       <AppProvider>
-        <Food />
+        <BodyResponseFood />
       </AppProvider>,
     );
     const answer = { meals: [
@@ -90,7 +90,7 @@ describe('testando a barra de busca logo abaixo do header', () => {
   it('se o radio selecionado for Primeira letra, na pagina de comidas', async () => {
     const { queryByTestId, findByTestId } = renderWithRouter(
       <AppProvider>
-        <Food />
+        <BodyResponseFood />
       </AppProvider>,
     );
     const answer = { meals: [
@@ -119,7 +119,7 @@ describe('testando a barra de busca logo abaixo do header', () => {
   it('se o radio selecionado for Primeira letra e escrever mais de 1 letra', () => {
     const { queryByTestId } = renderWithRouter(
       <AppProvider>
-        <Food />
+        <BodyResponseFood />
       </AppProvider>,
     );
     global.alert = jest.fn();
@@ -140,7 +140,7 @@ describe('testando a barra de busca logo abaixo do header', () => {
   it('Se o radio selecionado for Ingrediente na pagina de bebidas', async () => {
     const { queryByTestId, findByTestId } = renderWithRouter(
       <AppProvider>
-        <Drink />
+        <BodyResponseDrink />
       </AppProvider>,
     );
     const answer = { drinks: [
@@ -169,7 +169,7 @@ describe('testando a barra de busca logo abaixo do header', () => {
   it('se o radio selecionado for Nome  na pagina de bebidas', async () => {
     const { queryByTestId, findByTestId } = renderWithRouter(
       <AppProvider>
-        <Drink />
+        <BodyResponseDrink />
       </AppProvider>,
     );
     const answer = { drinks: [
@@ -198,7 +198,7 @@ describe('testando a barra de busca logo abaixo do header', () => {
   it('se o radio selecionado for Primeira letra  na pagina de bebidas', async () => {
     const { queryByTestId, findByTestId } = renderWithRouter(
       <AppProvider>
-        <Drink />
+        <BodyResponseDrink />
       </AppProvider>,
     );
     const answer = { drinks: [
@@ -227,7 +227,7 @@ describe('testando a barra de busca logo abaixo do header', () => {
   it('se o radio selecionado for Primeira letra e digitado mais de 1 letra', () => {
     const { queryByTestId } = renderWithRouter(
       <AppProvider>
-        <Drink />
+        <BodyResponseDrink />
       </AppProvider>,
     );
     global.alert = jest.fn();
@@ -247,7 +247,7 @@ describe('Mostre as receitas em cards caso mais de uma receita seja encontrada',
   it('se mais de uma comida seja encontrada, mostrar as 12 primeiras', async () => {
     const { queryByTestId, findByTestId } = renderWithRouter(
       <AppProvider>
-        <Food />
+        <BodyResponseFood />
       </AppProvider>,
     );
     const answer = { meals: [
@@ -293,7 +293,7 @@ describe('Mostre as receitas em cards caso mais de uma receita seja encontrada',
   it('se mais de uma bebida seja encontrada, mostrar as 12 primeiras', async () => {
     const { queryByTestId, findByTestId } = renderWithRouter(
       <AppProvider>
-        <Drink />
+        <BodyResponseDrink />
       </AppProvider>,
     );
     const answer = { drinks: [
@@ -372,7 +372,7 @@ describe('testando um alert caso nenhuma receita seja encontrada', () => {
   it('Caso nenhuma comida seja encontrada o alert deve ser exibido;', async () => {
     const { queryByTestId } = renderWithRouter(
       <AppProvider>
-        <Food />
+        <BodyResponseFood />
       </AppProvider>,
     );
     const answer = { meals: null };
