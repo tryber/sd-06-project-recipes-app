@@ -18,8 +18,11 @@ class DrinkCard extends React.Component {
     // pegando uma comida e uma bebida como exemplo
     // estas comidas/bebidas vão vir de outra tela
     // basta pegar do estado
-    const drinks = await fetchDrinksById('178319');
-    this.setDrinkState(drinks);
+    const { stateId } = this.props;
+    if (stateId) {
+      const drinks = await fetchDrinksById(stateId);
+      this.setDrinkState(drinks);
+    }
   }
 
   handleShareDrink({ idDrink }) {
@@ -46,48 +49,58 @@ class DrinkCard extends React.Component {
   render() {
     const { Drink } = this.state;
     const { history } = this.props;
+    if (Drink) {
+      return (
+        <div>
+          {Drink.map((element, index) => (
+            <div key={ index }>
+              <input
+                type="image"
+                data-testid={ `${index}-horizontal-image` }
+                src={ element.strDrinkThumb }
+                width="200px"
+                alt="horizontal"
+                onClick={ () => history.push(`/bebidas/${element.idDrink}`) }
+              />
+
+              <p data-testid={ `${index}-horizontal-top-text` }>
+                {element.strAlcoholic}
+              </p>
+              <input
+                type="button"
+                data-testid={ `${index}-horizontal-name` }
+                onClick={ () => history.push(`/bebidas/${element.idDrink}`) }
+                value={ element.strDrink }
+              />
+              <p data-testid={ `${index}-horizontal-done-date` }>
+                {element.dateModified}
+              </p>
+
+              <input
+                type="image"
+                data-testid={ `${index}-horizontal-share-btn` }
+                src={ shareIcon }
+                alt="share"
+                onClick={ () => this.handleShareDrink(element) }
+              />
+
+            </div>))}
+        </div>
+      );
+    }
     return (
-      <div>
-        {Drink.map((element, index) => (
-          <div key={ index }>
-            <input
-              type="image"
-              data-testid={ `${index}-horizontal-image` }
-              src={ element.strDrinkThumb }
-              width="200px"
-              alt="horizontal"
-              onClick={ () => history.push(`/bebidas/${element.idDrink}`) }
-            />
-
-            <p data-testid={ `${index}-horizontal-top-text` }>
-              {element.strAlcoholic}
-            </p>
-            <input
-              type="button"
-              data-testid={ `${index}-horizontal-name` }
-              onClick={ () => history.push(`/bebidas/${element.idDrink}`) }
-              value={ element.strDrink }
-            />
-            <p data-testid={ `${index}-horizontal-done-date` }>
-              {element.dateModified}
-            </p>
-
-            <input
-              type="image"
-              data-testid={ `${index}-horizontal-share-btn` }
-              src={ shareIcon }
-              alt="share"
-              onClick={ () => this.handleShareDrink(element) }
-            />
-
-          </div>))}
-      </div>
+      <div />
     );
   }
 }
 
 DrinkCard.propTypes = {
+  stateId: PropTypes.string.isRequired,
   history: PropTypes.shape().isRequired,
 };
 
-export default connect(null, null)(DrinkCard);
+const mapStateToProps = (state) => ({
+  stateId: state.menu.currentID,
+});
+
+export default connect(mapStateToProps, null)(DrinkCard);

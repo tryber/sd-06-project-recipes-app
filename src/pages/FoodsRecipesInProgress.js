@@ -13,6 +13,7 @@ class FoodsRecipesInProgress extends React.Component {
       Ingredients: [],
       Measures: [],
     };
+    this.handleClick = this.handleClick.bind(this);
     this.handleIngredients = this.handleIngredients.bind(this);
     this.setIngredients = this.setIngredients.bind(this);
     this.setMealState = this.setMealState.bind(this);
@@ -25,6 +26,11 @@ class FoodsRecipesInProgress extends React.Component {
     console.log(mealRecipe);
     this.setMealState(mealRecipe);
     this.handleIngredients();
+  }
+
+  handleClick() {
+    const { history } = this.props;
+    history.push('/receitas-feitas');
   }
 
   handleIngredients() {
@@ -121,7 +127,11 @@ class FoodsRecipesInProgress extends React.Component {
             <div className="detail-instructions">{recipe.strInstructions}</div>
             <p data-testid={ `${index}-card-name` }>{recipe.strMeal}</p>
             <div>
-              <button type="button" data-testid="start-recipe-btn">
+              <button
+                type="button"
+                data-testid="start-recipe-btn"
+                onClick={ () => this.handleClick() }
+              >
                 Finalizar Receita
               </button>
             </div>
@@ -137,6 +147,7 @@ const mapStateToProps = (state) => ({
 
 FoodsRecipesInProgress.propTypes = {
   idCurrent: PropTypes.string.isRequired,
+  history: PropTypes.shape().isRequired,
 };
 
 export default connect(mapStateToProps, null)(FoodsRecipesInProgress);
