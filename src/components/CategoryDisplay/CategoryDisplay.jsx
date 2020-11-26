@@ -5,7 +5,7 @@ import './CategoryDisplay.css';
 
 const CategoryDisplay = () => {
   const [categoryes, setCategoryes] = useState([]);
-  const { selectedCategory, setSelectedCategory } = useContext(Context);
+  const { setSelectedCategory } = useContext(Context);
 
   const { pageTitle } = useContext(Context);
 
@@ -24,11 +24,7 @@ const CategoryDisplay = () => {
   function handleSelectCategory(event) {
     const { target } = event;
     const { value } = target;
-    if (selectedCategory === '' || value !== selectedCategory) {
-      setSelectedCategory(value);
-    } else {
-      setSelectedCategory('');
-    }
+    setSelectedCategory(value);
   }
 
   return (
@@ -36,17 +32,6 @@ const CategoryDisplay = () => {
       <table className="category-table">
         <thead>
           <tr>
-            <th key="All-categories" className="th-category">
-              <button
-                className="category-btn"
-                type="button"
-                value=""
-                data-testid="All-category-filter"
-                onClick={ (event) => handleSelectCategory(event) }
-              >
-                All
-              </button>
-            </th>
             {categoryes
               .map(
                 (category, index) => {
