@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Context from '../../context/Context';
 import { getMealsAPI, getDrinksApi } from '../../services/API';
 import CategoryDisplay from '../CategoryDisplay/CategoryDisplay';
@@ -54,13 +55,22 @@ const Recipes = () => {
       if (selectedCategory === '') {
         return (
           recipes.map((recipe, index) => {
+            let url = '';
+            if (recipe.idMeal) {
+              url = 'comidas';
+            } else {
+              url = 'bebidas';
+            }
+            const recipeId = recipe.idMeal || recipe.idDrink;
             while (index <= MAX_CARDS) {
               return (
-                <RecipeCard
-                  key={ recipe.idMeal || recipe.idDrink }
-                  recipe={ recipe }
-                  index={ index }
-                />
+                <Link to={ `/${url}/${recipeId}` }>
+                  <RecipeCard
+                    key={ recipe.idMeal || recipe.idDrink }
+                    recipe={ recipe }
+                    index={ index }
+                  />
+                </Link>
               );
             }
             return undefined;
@@ -70,13 +80,22 @@ const Recipes = () => {
       if (selectedCategory !== '') {
         return (
           newRecipes.map((recipe, index) => {
+            let url = '';
+            if (recipe.idMeal) {
+              url = 'comidas';
+            } else {
+              url = 'bebidas';
+            }
+            const recipeId = recipe.idMeal || recipe.idDrink;
             while (index <= MAX_CARDS) {
               return (
-                <RecipeCard
-                  key={ recipe.idMeal || recipe.idDrink }
-                  recipe={ recipe }
-                  index={ index }
-                />
+                <Link to={ `/${url}/${recipeId}` }>
+                  <RecipeCard
+                    key={ recipe.idMeal || recipe.idDrink }
+                    recipe={ recipe }
+                    index={ index }
+                  />
+                </Link>
               );
             }
             return undefined;
@@ -91,7 +110,7 @@ const Recipes = () => {
     <div className="wrapper">
       <CategoryDisplay />
       <div className="recipes-container">
-        { renderCards() }
+        {renderCards()}
       </div>
     </div>
   );
