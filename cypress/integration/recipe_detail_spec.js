@@ -563,7 +563,7 @@ describe('45 - Ao clicar no botão de favoritar, o ícone do coração deve muda
   });
 });
 
-describe('46 - Salve as receitas favoritas no `localStorage` na chave `favoriteRecipes`', () => {
+describe.only('46 - Salve as receitas favoritas no `localStorage` na chave `favoriteRecipes`', () => {
   it('Verifica se após favoritar receita de uma comida, ela é salva corretamente no localStorage', () => {
     cy.visit('http://localhost:3000/comidas/52771', {
       onBeforeLoad(win) {

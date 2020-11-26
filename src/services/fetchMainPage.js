@@ -2,7 +2,14 @@ export const fetchMainPage = (foodOrDrink) => {
   const foods = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
   const drinks = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
   if (foodOrDrink === '/comidas') {
-    return fetch(foods).then((response) => (response.json()));
+    return fetch(foods)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('não deu certo');
+        }
+        return response.json();
+      })
+      .catch((error) => error);
   }
   return fetch(drinks).then((response) => (response.json()));
 };
