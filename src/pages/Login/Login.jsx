@@ -5,6 +5,7 @@ import Context from '../../context/Context';
 function Login(props) {
   const [validation, setValidation] = useState(true);
   const { email, setemail } = useContext(Context);
+  console.log(email);
   const [password, setPassword] = useState('');
 
   const loginValidation = () => {

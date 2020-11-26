@@ -21,6 +21,7 @@ const Recipes = () => {
     if (pageTitle === 'Comidas') {
       setLoading(true);
       getMealsAPI().then((data) => {
+        console.log(data);
         setRecipes(data);
         setLoading(false);
       });
@@ -69,6 +70,7 @@ const Recipes = () => {
                     key={ recipe.idMeal || recipe.idDrink }
                     recipe={ recipe }
                     index={ index }
+                    alt={ pageTitle }
                   />
                 </Link>
               );

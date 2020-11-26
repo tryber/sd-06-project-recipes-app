@@ -8,6 +8,7 @@ import Explore from './pages/Explore';
 import ExploreMealsDrinks from './pages/ExploreMealsDrinks';
 import ExploreByIngredient from './pages/ExploreByIngredient';
 import Provider from './context/Provider';
+import Details from './pages/Details';
 import DoneRecipes from './pages/DoneRecipes/DoneRecipes';
 
 function App() {
@@ -17,6 +18,8 @@ function App() {
         <Switch>
           <Route exact path="/comidas" component={ Home } />
           <Route exact path="/bebidas" component={ Home } />
+          <Route exact path="/comidas/:id" component={ Details } />
+          <Route exact path="/bebidas/:id" component={ Details } />
           <Route exact path="/explorar/comidas" component={ ExploreMealsDrinks } />
           <Route
             exact

@@ -12,6 +12,8 @@ function Provider({ children }) {
   const [pageTitle, setPageTitle] = useState('');
   const [loading, setLoading] = useState(false);
   const [recipes, setRecipes] = useState([]);
+  const [details, setdetails] = useState([]);
+  const [recomendations, setRecomendations] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
 
@@ -28,6 +30,10 @@ function Provider({ children }) {
     setLoading,
     pageTitle,
     setPageTitle,
+    setdetails,
+    details,
+    recomendations,
+    setRecomendations,
     ingredients,
     setIngredients,
     selectedCategory,
