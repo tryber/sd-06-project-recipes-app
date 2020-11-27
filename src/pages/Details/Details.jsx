@@ -35,9 +35,13 @@ const Details = (props) => {
   useEffect(() => {
     RandomDetails();
   }, []);
-  let url = '/comidas';
-  if (details.idDrink) {
-    url = '/bebidas';
+
+  function getUrl() {
+    let url = '/comidas';
+    if (details.idDrink) {
+      url = '/bebidas';
+    }
+    return url;
   }
 
   return (
@@ -130,7 +134,9 @@ const Details = (props) => {
         data-testid="start-recipe-btn"
         onClick={ () => console.log(details)}
       >
-        <Link to={`${url}/${id}/in-progress`}> Start recipe</Link>
+        <Link to={ `${getUrl()}/${id}/in-progress` }>
+          Start recipe
+        </Link>
       </button>
     </div>
   );
