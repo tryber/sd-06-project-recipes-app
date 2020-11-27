@@ -17,6 +17,7 @@ export default function Header({ pageName, renderSearch }) {
     <button
       type="button"
       onClick={ () => setShowSearchBar(!showSearchBar) }
+      className="search-button"
     >
       <img
         className="header-icon"
@@ -31,7 +32,7 @@ export default function Header({ pageName, renderSearch }) {
     <header>
       <Link to="/perfil">
         <img
-          className="header-icon"
+          className="header-icon profile-icon"
           src={ profileIcon }
           alt="profileIcon"
           data-testid="profile-top-btn"

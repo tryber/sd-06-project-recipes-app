@@ -1,0 +1,26 @@
+@import '../0.helpers/variables';
+
+* {
+  font-size: calc(10px + 0.8vw);
+}
+
+h1 {
+  font-size: calc(20px + 1.5vw);
+  color: $darkBlue2;
+}
+
+h2 {
+  font-size: calc(18px + 1.2vw);
+}
+
+h3 {
+  font-size: calc(14px + 1.0vw);
+}
+
+h4 {
+  font-size: calc(14px + 0.8vw);
+}
+
+h5 {
+  font-size: calc(12px + 0.8vw);
+}

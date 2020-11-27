@@ -2,6 +2,7 @@
 @import './0.helpers/functions';
 @import './0.helpers/mixins';
 @import './0.helpers/variables';
+@import './0.helpers/keyframes';
 
 // Base
 @import './1.Base/base';
@@ -10,13 +11,22 @@
 @import './1.Base/forms';
 @import './1.Base/links';
 @import './1.Base/reset';
+@import './1.Base/icons';
 
 // Layouts
 @import './2.Layout/footer';
 @import './2.Layout/header';
 @import './2.Layout/main';
 @import './2.Layout/navigation';
-@import './2.Layout/sidebar';
+@import './2.Layout/searchbar';
+
+// Modules
+@import './3.Modules/recipecards';
+@import './3.Modules/defaultPage';
+
+
+// Pages
+@import './4.Pages/Login.scss';
 
 // Pages
 @import './4.Pages/RecipeDetails.scss'

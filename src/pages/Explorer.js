@@ -20,7 +20,7 @@ const Explorer = (props) => {
   }
 
   return (
-    <>
+    <main className="default-page">
       <Link to={ `${pathname}/ingredientes` }>
         <button
           type="button"
@@ -58,7 +58,7 @@ const Explorer = (props) => {
       >
         Me Surpreenda!
       </button>
-    </>
+    </main>
   );
 };
 

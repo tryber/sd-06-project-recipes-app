@@ -1,0 +1,23 @@
+@import '../0.helpers/mixins';
+
+#login-form {
+  animation: delayedAppear 1.5s ease 3s forwards;
+  opacity: 0;
+  @include flexBox(column, space-between, center);
+  height: 5vh;
+  margin-top: 3vh;
+
+  & p {
+    margin: 0;
+  }
+}
+
+#app-name {
+  animation: pulse 2s infinite ease-in, delayedAppear 1.5s ease 3s forwards;
+  -webkit-animation: pulse 2s infinite ease-in, delayedAppear 1.5s ease 3s forwards;
+  -moz-animation: pulse 2s infinite ease-in, delayedAppear 1.5s ease 3s forwards;
+  -ms-animation: pulse 2s infinite ease-in, delayedAppear 1.5s ease 3s forwards;
+  -o-animation: pulse 2s infinite ease-in, delayedAppear 1.5s ease 3s forwards;
+  opacity: 0
+}
+

@@ -1,0 +1,22 @@
+@import '../0.helpers/mixins';
+@import '../0.helpers/variables';
+
+.recipes-display {
+  @include flexBox(row, center, center, wrap);
+  height: 100%;
+  margin: 10% 0;
+
+  & .recipe-card {
+    @include flexBox(column, center, center);
+    border: 1px solid $darkBlue3;
+    margin: 2%;
+
+    & img {
+      width: calc(100px + 30vw);
+    }
+
+    & h5 {
+      font-size: calc(10px + 0.8vw);
+    }
+  }
+}

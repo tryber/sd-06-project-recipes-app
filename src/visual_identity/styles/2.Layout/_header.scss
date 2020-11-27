@@ -1,5 +1,33 @@
+@import '../0.helpers/mixins';
+@import '../0.helpers/variables';
+
 header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 10%;
+  background-color: $darkBlue3;
+  text-align: center;
+  @include flexBox(row, space-around);
+  color: white;
+
   & .header-icon {
     cursor: pointer;
+    filter: invert(1);
+  }
+
+  & .profile-icon {
+    align-self: flex-start;
+  }
+
+  & .search-button {
+    background-color: none;
+    border: none;
+
+    &:active {
+      background-color: transparent;
+      filter: opacity(0.6)
+    }
   }
 }

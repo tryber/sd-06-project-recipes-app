@@ -1,0 +1,21 @@
+@import '../0.helpers/mixins';
+
+.flex-center {
+  @include flexBox(column)
+}
+
+.full-height {
+  height: 100%;
+}
+
+.light-blue-bg {
+  background-color: $lightBlue1;
+}
+
+.header-icon {
+  width: calc(15px + 2vw);
+}
+
+.footer-icon {
+  width: calc(25px + 2vw);
+}

@@ -23,16 +23,18 @@ const MainPage = (props) => {
       );
     } else {
       return (
-        recipesToRender.map(({ name, image, id }, index) => (
-          <RecipeCard
-            key={ id }
-            recipeName={ name }
-            recipeImage={ image }
-            id={ id }
-            foodOrDrink={ pathname }
-            index={ index }
-          />
-        ))
+        <main className="recipes-display">
+          { recipesToRender.map(({ name, image, id }, index) => (
+            <RecipeCard
+              key={ id }
+              recipeName={ name }
+              recipeImage={ image }
+              id={ id }
+              foodOrDrink={ pathname }
+              index={ index }
+            />
+          ))}
+        </main>
       );
     }
   };

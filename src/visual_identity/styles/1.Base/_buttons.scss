@@ -1,0 +1,23 @@
+@import '../0.helpers/variables';
+
+button {
+  background-color: $darkBlue3;
+  color: white;
+  border-radius: 15px;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+    transition: 1.5s;
+  }
+
+  &:active {
+    background-color: white;
+    color: $darkBlue3;
+  }
+
+  & img {
+    filter: invert(1)
+  }
+
+}

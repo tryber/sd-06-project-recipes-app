@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-curly-spacing */
 import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
+import { ReactComponent as Logo } from '../visual_identity/logo.svg';
 
 const checkLogin = (email, passwordInput) => {
   const validEmail = email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{3})$/i);
@@ -37,9 +38,10 @@ function Login() {
   if (redirect) return <Redirect to="/comidas" />;
 
   return (
-    <main>
-      <p>Login</p>
-      <div>
+    <main className="flex-center full-height light-blue-bg">
+      <h1 id="app-name">iChef</h1>
+      <Logo />
+      <div id="login-form">
         <input
           type="email"
           name="email"
