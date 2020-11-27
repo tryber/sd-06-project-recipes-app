@@ -10,16 +10,16 @@ jobs:
       - uses: actions/setup-node@v1.4.4
         with:
           node-version: '12'
-      - name: Static code analysis step
-        uses: betrybe/eslint-linter-action@v2.1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+#       - name: Static code analysis step
+#         uses: betrybe/eslint-linter-action@v2.1
+#         with:
+#           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Evaluator step
         id: evaluator
         uses: betrybe/cypress-evaluator-action@v5
         with:
           repository-test-name: 'betrybe/sd-0x-recipes-app-n-tests'
-          repository-test-branch: 'master'
+          repository-test-branch: 'master' #disable-dev-shm-usage  
           npm-start: true
           browser: 'electron'
       - name: Store evaluation step
