@@ -1,13 +1,13 @@
 import React, { useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import PropTypes, { func } from 'prop-types';
 import { foodDetails, drinkDetails, getDrinksApi, getMealsAPI } from '../../services/API';
 import Context from '../../context/Context';
 import './Details.css';
 
 const Details = (props) => {
   const { details, setdetails } = useContext(Context);
-  const { recomendations, setRecomendations, setInProgressId } = useContext(Context);
+  const { recomendations, setRecomendations, setInProgressRecipe } = useContext(Context);
   const { match } = props;
   const { params } = match;
   const { id } = params;
@@ -42,6 +42,14 @@ const Details = (props) => {
       url = '/bebidas';
     }
     return url;
+  }
+
+  async function contextData() {
+    const type = getUrl();
+    await setInProgressRecipe({
+      id,
+      type,
+    });
   }
 
   return (
@@ -132,7 +140,7 @@ const Details = (props) => {
         className="btn-start"
         type="button"
         data-testid="start-recipe-btn"
-        onClick={ () => setInProgressId(id) }
+        onClick={ () => contextData() }
       >
         <Link to={ `${getUrl()}/${id}/in-progress` }>
           Start recipe

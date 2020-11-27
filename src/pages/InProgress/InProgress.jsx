@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Context from '../../context/Context';
 import './InProgress.css';
 
 const InProgress = () => {
-  const { inProgressId } = useContext(Context);
+  const { inProgressRecipe } = useContext(Context);
+
   return (
     <div>
       In progress
-      <p>{ inProgressId }</p>
     </div>
   );
 };
