@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes, { func } from 'prop-types';
+import PropTypes from 'prop-types';
 import { foodDetails, drinkDetails, getDrinksApi, getMealsAPI } from '../../services/API';
 import Context from '../../context/Context';
 import './Details.css';
