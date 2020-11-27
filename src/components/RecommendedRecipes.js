@@ -34,17 +34,35 @@ export default function RecommendedRecipes() {
             if (i < SETE) {
               return (
                 <Carousel.Item>
-                  <img
-                    width="350px"
-                    src={ recommendedItem[`str${recommendParam}Thumb`] }
-                    alt={ recommendedItem[`str${recommendParam}`] }
-                  />
-                  <h6 data-testid="recipe-category">
-                    { searchParam === 'Drink'
-                      ? recommendedItem.strCategory
-                      : recommendedItem.strAlcoholic }
-                  </h6>
-                  <h1>{ recommendedItem[`str${recommendParam}`] }</h1>
+                  <div className="d-flex row-cols-2 align-content-around">
+                    <div>
+                      <img
+                        width="150px"
+                        src={ recommendedItem[`str${recommendParam}Thumb`] }
+                        alt={ recommendedItem[`str${recommendParam}`] }
+                      />
+                      <h6 data-testid="recipe-category">
+                        { searchParam === 'Drink'
+                          ? recommendedItem.strCategory
+                          : recommendedItem.strAlcoholic }
+                      </h6>
+                      <h1>{ recommendedItem[`str${recommendParam}`] }</h1>
+                    </div>
+                    <div>
+                      <img
+                        width="150px"
+                        src={ recommendedItem[`str${recommendParam}Thumb`] }
+                        alt={ recommendedItem[`str${recommendParam}`] }
+                      />
+                      <h6 data-testid="recipe-category">
+                        { searchParam === 'Drink'
+                          ? recommendedItem.strCategory
+                          : recommendedItem.strAlcoholic }
+                      </h6>
+                      <h1>{ recommendedItem[`str${recommendParam}`] }</h1>
+                    </div>
+                  </div>
+
                 </Carousel.Item>
               );
             }
