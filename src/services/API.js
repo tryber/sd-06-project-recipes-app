@@ -47,6 +47,9 @@ export const getMealsAPI = async (searchText, searchType) => {
   if (searchType === 'list-all-ingredients') {
     return fetchData(LIST_INGREDIENTS_MEAL_API, searchText, 'meals');
   }
+  if (searchType === 'details') {
+    return fetchData(FOOD_DETAILSAPI, searchText, 'meals');
+  }
 };
 
 export const getDrinksApi = async (searchText, searchType) => {
@@ -73,6 +76,9 @@ export const getDrinksApi = async (searchText, searchType) => {
   }
   if (searchType === 'list-all-ingredients') {
     return fetchData(LIST_INGREDIENTS_DRINK_API, searchText, 'drinks');
+  }
+  if (searchType === 'details') {
+    return fetchData(DRINK_DETAILSAPI, searchText, 'drinks');
   }
 };
 
