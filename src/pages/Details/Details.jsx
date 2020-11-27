@@ -7,7 +7,7 @@ import './Details.css';
 
 const Details = (props) => {
   const { details, setdetails } = useContext(Context);
-  const { recomendations, setRecomendations } = useContext(Context);
+  const { recomendations, setRecomendations, setInProgressId } = useContext(Context);
   const { match } = props;
   const { params } = match;
   const { id } = params;
@@ -132,7 +132,7 @@ const Details = (props) => {
         className="btn-start"
         type="button"
         data-testid="start-recipe-btn"
-        onClick={ () => console.log(details)}
+        onClick={ () => setInProgressId(id) }
       >
         <Link to={ `${getUrl()}/${id}/in-progress` }>
           Start recipe
