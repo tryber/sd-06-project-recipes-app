@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import RecipesContext from '../context/RecipesContext';
 import CategoriesButtons from './CategoriesButtons';
+import '../style/RecipeCards.css';
 
 function RecipesMealsCards({ categories }) {
   const { data } = useContext(RecipesContext);
@@ -13,33 +14,38 @@ function RecipesMealsCards({ categories }) {
   }
 
   return (
-    <div>
+    <div className="div-bttn-category">
       {
         categories === 'none'
           ? ''
           : <CategoriesButtons categories={ categories } />
       }
-      {
-        data[0].meals.filter((_, index) => index < DOZE)
-          .map(({ idMeal, strMeal, strMealThumb }, index) => (
-            <Link
-              key={ idMeal }
-              to={ `/comidas/${idMeal}` }
-            >
-              <div
-                data-testid={ `${index}-recipe-card` }
-                className="card-recipe"
+      <div className="card-div">
+        {
+          data[0].meals.filter((_, index) => index < DOZE)
+            .map(({ idMeal, strMeal, strMealThumb }, index) => (
+              <Link
+                key={ idMeal }
+                to={ `/comidas/${idMeal}` }
               >
-                <img
-                  data-testid={ `${index}-card-img` }
-                  src={ strMealThumb }
-                  alt={ strMeal }
-                />
-                <h1 data-testid={ `${index}-card-name` }>{ strMeal }</h1>
-              </div>
-            </Link>
-          ))
-      }
+                <div
+                  type="button"
+                  data-testid={ `${index}-recipe-card` }
+                  className="card-recipe"
+                >
+                  <img
+                    data-testid={ `${index}-card-img` }
+                    src={ strMealThumb }
+                    alt={ strMeal }
+                  />
+                  <h1 data-testid={ `${index}-card-name` }>
+                    { strMeal }
+                  </h1>
+                </div>
+              </Link>
+            ))
+        }
+      </div>
     </div>
   );
 }

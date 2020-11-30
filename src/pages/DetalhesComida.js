@@ -23,7 +23,6 @@ function DetalhesComida() {
       continuar = ids.includes(idMeal);
     }
   }
-
   useEffect(() => {
     async function fetchAPI() {
       const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`);
@@ -73,100 +72,110 @@ function DetalhesComida() {
               src={ dataMeal.strMealThumb }
               alt={ dataMeal.strMeal }
             />
-            <h1 data-testid="recipe-title">{ dataMeal.strMeal }</h1>
-            <p data-testid="recipe-category">{ dataMeal.strCategory }</p>
-            <span>
-              <button
-                data-testid="share-btn"
-                type="button"
-                onClick={ () => handleCopy(`/comidas/${idMeal}`) }
-              >
-                <img
-                  src={ shareIcon }
-                  alt="Botão de Compartilhar"
-                  className="icons"
-                />
-              </button>
-              { isCopied ? <p>Link copiado!</p> : true }
-            </span>
-            <button
-              type="button"
-              onClick={ handleClick }
-            >
-              <img
-                data-testid="favorite-btn"
-                src={ isFavorite ? blackHeartIcon : whiteHeartIcon }
-                alt="Botão de Favorito"
-                className="icons"
-              />
-            </button>
-            <h2>Ingredientes</h2>
-            <ul>
-              {
-                Object.keys(dataMeal)
-                  .filter((keys) => keys.includes('Ingredient'))
-                  .map((ingredient, index) => {
-                    const measure = Object.keys(dataMeal)
-                      .filter((keys) => keys.includes('Measure'));
-                    const measureIndex = measure[index];
-                    if (dataMeal[ingredient] !== '' && dataMeal[ingredient] !== null) {
-                      return (
-                        <li
-                          key={ index }
-                          data-testid={ `${index}-ingredient-name-and-measure` }
-                        >
-                          { `${dataMeal[ingredient]} - ${dataMeal[measureIndex]} ` }
-                        </li>
-                      );
-                    }
-                    return '';
-                  })
-              }
-            </ul>
-            <br />
-            <h2>Instruções</h2>
-            <p data-testid="instructions">{ dataMeal.strInstructions }</p>
-            <br />
-            <h2>Vídeo</h2>
-            <video data-testid="video" width="300" height="250" controls>
-              <source src={ dataMeal.strYoutube } type="video/mp4" />
-              <track src="" kind="captions" />
-            </video>
-
-            <h2>Recomendadas</h2>
-            <div className="cards">
-              <div className="scroller">
-                {
-                  data[1] && data[1].drinks
-                    .filter((_, index) => index < SEIS)
-                    .map(({ strDrink, strDrinkThumb }, index) => (
-                      <div
-                        className="card"
-                        key={ strDrink }
-                        data-testid={ `${index}-recomendation-card` }
-                      >
-                        <img src={ strDrinkThumb } alt={ strDrink } />
-                        <h2
-                          data-testid={ `${index}-recomendation-title` }
-                        >
-                          { strDrink }
-                        </h2>
-                      </div>
-                    ))
-                }
+            <div className="div-header">
+              <div className="div-title">
+                <h1 data-testid="recipe-title">{ dataMeal.strMeal }</h1>
+                <p data-testid="recipe-category">{ dataMeal.strCategory }</p>
+              </div>
+              <div className="div-icon">
+                <span>
+                  <button
+                    data-testid="share-btn"
+                    type="button"
+                    onClick={ () => handleCopy(`/comidas/${idMeal}`) }
+                  >
+                    <img
+                      src={ shareIcon }
+                      alt="Botão de Compartilhar"
+                    />
+                  </button>
+                  {isCopied ? <p>Link copiado!</p> : true}
+                </span>
+                <button
+                  type="button"
+                  onClick={ handleClick }
+                >
+                  <img
+                    data-testid="favorite-btn"
+                    src={ isFavorite ? blackHeartIcon : whiteHeartIcon }
+                    alt="Botão de Favorito"
+                  />
+                </button>
               </div>
             </div>
+            <div className="div-recipes">
+              <h2>Ingredientes</h2>
+              <ul>
+                {
+                  Object.keys(dataMeal)
+                    .filter((keys) => keys.includes('Ingredient'))
+                    .map((ingredient, index) => {
+                      const measure = Object.keys(dataMeal)
+                        .filter((keys) => keys.includes('Measure'));
+                      const measureIndex = measure[index];
+                      if (dataMeal[ingredient] !== '' && dataMeal[ingredient] !== null) {
+                        return (
+                          <li
+                            key={ index }
+                            data-testid={ `${index}-ingredient-name-and-measure` }
+                          >
+                            { `${dataMeal[ingredient]} - ${dataMeal[measureIndex]} ` }
+                          </li>
+                        );
+                      }
+                      return '';
+                    })
+                }
+              </ul>
+              <br />
+              <h2>Instruções</h2>
+              <p data-testid="instructions">{ dataMeal.strInstructions }</p>
+              <br />
+              <h2>Vídeo</h2>
+              <video data-testid="video" width="300" height="250" controls>
+                <source src={ dataMeal.strYoutube } type="video/mp4" />
+                <track src="" kind="captions" />
+              </video>
 
+              <h2>Recomendadas</h2>
+
+              <div className="cards">
+                <div className="scroller">
+                  {
+                    data[1] && data[1].drinks
+                      .filter((_, index) => index < SEIS)
+                      .map(({ strDrink, strDrinkThumb }, index) => (
+                        <div
+                          className="card"
+                          key={ strDrink }
+                          data-testid={ `${index}-recomendation-card` }
+                        >
+                          <img
+                            src={ strDrinkThumb }
+                            alt={ strDrink }
+                          />
+                          <h2
+                            data-testid={ `${index}-recomendation-title` }
+                          >
+                            { strDrink }
+                          </h2>
+                        </div>
+                      ))
+                  }
+                </div>
+              </div>
+            </div>
             <Link to={ `/comidas/${idMeal}/in-progress` }>
               <button
                 className="start-recipe"
                 data-testid="start-recipe-btn"
                 type="button"
               >
-                { continuar ? 'Continuar Receita' : 'Iniciar Receita' }
+                {continuar ? 'Continuar Receita' : 'Iniciar Receita'}
               </button>
             </Link>
-          </div>) }
+          </div>
+        )}
     </div>
   );
 }

@@ -10,3 +10,66 @@ body {
   height: 640px;
   width: 360px;
 }
+
+.div-profile {
+  align-items: center;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  margin: auto;
+  margin-top: 40%;
+}
+
+.email {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.bttn-recipe {
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  height: 40px;
+  margin-top: 5px;
+  width: 305px;
+}
+
+.bttn-make {
+  background-color: #009670;
+}
+
+.bttn-make:hover {
+  background-color: #00af83;
+  cursor: pointer;
+}
+
+.bttn-favorite {
+  background-color: #960000;
+}
+
+.bttn-favorite:hover {
+  background-color: #b30101;
+  cursor: pointer;
+}
+
+.bttn-logout {
+  background-color: #960051;
+}
+
+.bttn-logout:hover {
+  background-color: #bd0165;
+  cursor: pointer;
+}
+
+.bttn-logout {
+  background-color: #960051;
+}
+
+.bttn-logout:hover {
+  background-color: #bd0165;
+  cursor: pointer;
+}

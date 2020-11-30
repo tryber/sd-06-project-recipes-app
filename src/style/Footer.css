@@ -1,4 +1,4 @@
-.footer {
+footer {
   align-items: center;
   background-color: #960051;
   bottom: 0px;
@@ -8,43 +8,40 @@
   height: 70px;
   position: fixed;
   width: 360px;
+  z-index: 100;
+}
+
+footer button {
+  border: none;
+  border-radius: 50%;
+  height: 65px;
+  width: 65px; 
+}
+
+footer button:hover {
+  cursor: pointer;
 }
 
 .button-drink {
   background-color: #f1e510;
-  border: none;
-  border-radius: 50%;
-  height: 65px;
-  width: 65px;
 }
 
 .button-drink:hover {
   background-color: #e4cd03;
-  cursor: pointer;
 }
 
 .button-explore {
   background-color: #b6b6b1;
-  border: none;
-  border-radius: 50%;
-  height: 65px;
-  width: 65px;
 }
 
 .button-explore:hover {
   background-color: #92928f;
-  cursor: pointer;
 }
 
-.button-food {
+.button-meal {
   background-color: #fac001;
-  border: none;
-  border-radius: 50%;
-  height: 65px;
-  width: 65px;
 }
 
-.button-food:hover {
+.button-meal:hover {
   background-color: #e9b304;
-  cursor: pointer;
 }

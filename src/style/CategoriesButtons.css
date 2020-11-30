@@ -4,7 +4,7 @@
   flex-flow: row wrap;
   justify-content: center;
   margin: auto;
-  margin-top: 20%;
+  margin-top: 10%;
 }
 
 .div-bttn-category button {
@@ -35,37 +35,4 @@
 
 .bttn-category-meals:hover {
   background-color: #fac001;
-}
-
-.card-div {
-  display: flex;
-  flex-flow: row wrap;
-  margin: auto;
-  margin-bottom: 100px;
-  margin-top: 30px;
-  width: 360px;
-}
-
-.card-div div {
-  height: 0%;
-  margin: 0 auto;
-  width: 50%;
-}
-
-.card-div img {
-  border-radius: 25%;
-  width: 100%;
-}
-
-.card-div h1 {
-  background-color: #ffffff;
-  bottom: 60px;
-  color: #960051;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  left: 10px;
-  position: relative;
-  text-decoration: none !important;
-  width: 80%;
 }

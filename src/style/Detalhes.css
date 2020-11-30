@@ -1,26 +1,111 @@
-.container-details {
+body {
+  height: 640px;
   position: relative;
+  width: 360px;
+}
+
+.container-details {
+  background-color: #f5f5f5;
+  border: 1px solid #cecccc;
+  margin: auto;
+  width: 360px;
 }
 
 .container-details img{
-  width: 200px;
+  margin: 0;
+  width: 360px;
 }
 
-.container-details .icons {
+.div-header {
+  align-items: flex-start;
+  display: flex;
+  flex-flow: row wrap;
+  height: 100px;
+  justify-content: space-between;
+  width: 360px;
+}
+
+.div-title h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  margin: 0;
+  margin-left: 15%;
+}
+.div-title p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  margin: 0;
+  margin-left: 15%;
+}
+
+.div-icon {
+  align-items: flex-start;
+  display: flex;
+  flex-flow: row wrap;
+  margin-right: 2%;
+  justify-content: flex-end;
+  width: 150px;
+}
+
+.div-icon button {
+  margin-left: 5%;
+}
+
+.div-icon img {
   width: 25px;
 }
 
+.div-recipes {
+  align-items: flex-start;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  margin: auto;
+  width: 320px;
+}
+
+.div-recipes h2{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.div-recipes ul, {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+}
+
+.div-recipes p, 
+.div-recipes ul {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+}
+
 .start-recipe {
-  background: #6CE34F;
-  width: 20%;
-  padding: 10px;
-  position: fixed;
+  background-color: #960051;
+  border: none;
+  border-radius: 5px;
   bottom: 0px;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  height: 40px;
+  margin-top: 5px;
+  position: fixed;
+  width: 360px;
+}
+
+.start-recipe:hover {
+  background-color: #bd0165;
+  cursor: pointer;
 }
 
 .cards {
-  min-width: 420px;
   margin: auto;
+  margin-bottom: 50px;
+  width: 300px;
 }
 
 .scroller {
@@ -34,4 +119,8 @@
   min-height: 100px;
   background-color: #EDF2F7;
   /* scroll-snap-align: center; */
+}
+
+.card img{
+  width: 170px;
 }

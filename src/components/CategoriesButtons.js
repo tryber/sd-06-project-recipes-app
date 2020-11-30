@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import RecipesContext from '../context/RecipesContext';
+import '../style/CategoriesButtons.css';
 
 function RecipesMealsCards({ categories }) {
   const { data, setData } = useContext(RecipesContext);
@@ -25,8 +26,9 @@ function RecipesMealsCards({ categories }) {
   }
 
   return (
-    <div>
+    <div className="div-bttn-category">
       <button
+        className="bttn-category-meals"
         data-testid="All-category-filter"
         type="button"
         onClick={ ({ target }) => selectCategorie(target) }
@@ -36,6 +38,7 @@ function RecipesMealsCards({ categories }) {
       {categories[0].meals.filter((_, index) => index < CINCO)
         .map(({ strCategory }) => (
           <button
+            className="bttn-category-meals"
             key={ strCategory }
             data-testid={ `${strCategory}-category-filter` }
             type="button"

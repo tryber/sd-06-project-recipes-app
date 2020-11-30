@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import RecipesContext from '../context/RecipesContext';
+import '../style/RecipeCards.css';
 
 function RecipesDrinksCards({ categories }) {
   const { data, setData } = useContext(RecipesContext);
@@ -27,8 +28,9 @@ function RecipesDrinksCards({ categories }) {
   }
 
   return (
-    <div>
+    <div className="div-bttn-category">
       <button
+        className="bttn-category-drink"
         data-testid="All-category-filter"
         type="button"
         onClick={ ({ target }) => selectCategorie(target) }
@@ -38,6 +40,7 @@ function RecipesDrinksCards({ categories }) {
       {categories[1].drinks.filter((_, index) => index < CINCO)
         .map(({ strCategory }) => (
           <button
+            className="bttn-category-drink"
             data-testid={ `${strCategory}-category-filter` }
             key={ strCategory }
             type="button"
@@ -45,27 +48,28 @@ function RecipesDrinksCards({ categories }) {
           >
             { strCategory }
           </button>)) }
-      {
-        data[1].drinks.filter((_, index) => index < DOZE)
-          .map(({ idDrink, strDrink, strDrinkThumb }, index) => (
-            <Link
-              key={ idDrink }
-              to={ `/bebidas/${idDrink}` }
-            >
-              <div
-                data-testid={ `${index}-recipe-card` }
-                className="card-recipe"
+      <div className="card-div">
+        {
+          data[1].drinks.filter((_, index) => index < DOZE)
+            .map(({ idDrink, strDrink, strDrinkThumb }, index) => (
+              <Link
+                key={ idDrink }
+                to={ `/bebidas/${idDrink}` }
               >
-                <img
-                  data-testid={ `${index}-card-img` }
-                  src={ strDrinkThumb }
-                  alt={ strDrink }
-                />
-                <h1 data-testid={ `${index}-card-name` }>{ strDrink }</h1>
-              </div>
-            </Link>
-          ))
-      }
+                <div data-testid={ `${index}-recipe-card` }>
+                  <img
+                    data-testid={ `${index}-card-img` }
+                    src={ strDrinkThumb }
+                    alt={ strDrink }
+                  />
+                  <h1 data-testid={ `${index}-card-name` }>
+                    { strDrink }
+                  </h1>
+                </div>
+              </Link>
+            ))
+        }
+      </div>
     </div>
   );
 }

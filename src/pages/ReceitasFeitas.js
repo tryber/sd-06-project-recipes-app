@@ -34,30 +34,35 @@ function ReceitasFeitas() {
   };
 
   return (
-    <div>
+    <div className="recipes-maked">
       <Header title="Receitas Feitas" />
-      <button
-        type="button"
-        data-testid="filter-by-all-btn"
-        onClick={ ({ target }) => { filterRecipes(target); } }
-      >
-        All
-      </button>
-      <button
-        type="button"
-        data-testid="filter-by-food-btn"
-        onClick={ ({ target }) => { filterRecipes(target); } }
-      >
-        Food
-      </button>
-      <button
-        type="button"
-        data-testid="filter-by-drink-btn"
-        onClick={ ({ target }) => { filterRecipes(target); } }
-      >
-        Drinks
-      </button>
-      <div>
+      <div className="button-recipes-maked">
+        <button
+          className="button-all"
+          type="button"
+          data-testid="filter-by-all-btn"
+          onClick={ ({ target }) => { filterRecipes(target); } }
+        >
+          All
+        </button>
+        <button
+          className="button-meal"
+          type="button"
+          data-testid="filter-by-food-btn"
+          onClick={ ({ target }) => { filterRecipes(target); } }
+        >
+          Food
+        </button>
+        <button
+          className="button-drink"
+          type="button"
+          data-testid="filter-by-drink-btn"
+          onClick={ ({ target }) => { filterRecipes(target); } }
+        >
+          Drinks
+        </button>
+      </div>
+      <div className="recipes-recipes-maked">
         { doneRecipes
           .map((
             { id,
@@ -83,51 +88,55 @@ function ReceitasFeitas() {
                   data-testid={ `${index}-horizontal-image` }
                 />
               </Link>
-              {
-                (type === 'comida')
-                  ? (
-                    <p
-                      data-testid={ `${index}-horizontal-top-text` }
+              <div className="title-recipes-maked">
+                <div>
+                  <Link to={ `/${type}s/${id}` }>
+                    <h1
+                      data-testid={ `${index}-horizontal-name` }
                     >
-                      { `${area} - ${category}` }
-                    </p>)
-                  : (
-                    <p data-testid={ `${index}-horizontal-top-text` }>
-                      { alcoholicOrNot }
-                    </p>)
-              }
-              <Link to={ `/${type}s/${id}` }>
-                <p
-                  data-testid={ `${index}-horizontal-name` }
+                      { name }
+                    </h1>
+                  </Link>
+                  {
+                    (type === 'comida')
+                      ? (
+                        <p
+                          data-testid={ `${index}-horizontal-top-text` }
+                        >
+                          { `${area} - ${category}` }
+                        </p>)
+                      : (
+                        <p data-testid={ `${index}-horizontal-top-text` }>
+                          { alcoholicOrNot }
+                        </p>)
+                  }
+                  <p
+                    data-testid={ `${index}-horizontal-done-date` }
+                  >
+                    { doneDate }
+                  </p>
+                </div>
+                <button
+                  data-testid="share-btn"
+                  type="button"
+                  onClick={ () => handleCopy(`/${type}s/${id}`) }
                 >
-                  { name }
-                </p>
-              </Link>
-              <p
-                data-testid={ `${index}-horizontal-done-date` }
-              >
-                { doneDate }
-              </p>
-              <button
-                data-testid="share-btn"
-                type="button"
-                onClick={ () => handleCopy(`/${type}s/${id}`) }
-              >
-                <img
-                  src={ shareIcon }
-                  alt="Compatilhar Receita"
-                  data-testid={ `${index}-horizontal-share-btn` }
-                />
-              </button>
-              { isCopied ? <p>Link copiado!</p> : true }
-              {tags.map((tag) => (
-                <p
-                  key={ tag }
-                  data-testid={ `${index}-${tag}-horizontal-tag` }
-                >
-                  {tag }
-                </p>
-              )) }
+                  <img
+                    src={ shareIcon }
+                    alt="Compatilhar Receita"
+                    data-testid={ `${index}-horizontal-share-btn` }
+                  />
+                </button>
+                { isCopied ? <p>Link copiado!</p> : true }
+                {tags.map((tag) => (
+                  <p
+                    key={ tag }
+                    data-testid={ `${index}-${tag}-horizontal-tag` }
+                  >
+                    { tag }
+                  </p>
+                ))}
+              </div>
             </span>
           )) }
       </div>
