@@ -1,55 +1,66 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { addRecipeDetail } from '../redux/actions/searchRecipes';
 import { filterMatchInKeys } from '../helpers/assets';
 import shareIcon from '../images/shareIcon.svg';
-import whiteHeartIcon from '../images/whiteHeartIcon.svg';
+// whiteHeartIcon blackHeartIcon
 
 import '../css/details.css';
 
 function FoodDetail(props) {
-  const { match: { path, params: { id } }, fetchId: { Comidas, Bebidas } } = props;
+  const { match: { url, path,
+    params: { id } }, fetchId: { Comidas, Bebidas }, dispatchRecipeDetail } = props;
   const [objResponse, setObjResponse] = useState({});
   const [ingredientsItem, setIngredientsItem] = useState([]);
   const [mesuresItem, setMesuresItem] = useState([]);
   const [recomendation, setRecomendation] = useState([]);
+  const [shareMessege, setShareMessege] = useState('');
+  const [buttonState, setButtonState] = useState(false);
+  const [buttonImg, setButtonImg] = useState();
+  const [objectRecipe, setObjectRecipe] = useState({});
 
-  const settingResponseType = (response, nameType, idType, changeCategory) => {
-    setObjResponse({
-      img: response[idType][0][`str${nameType}Thumb`],
-      title: response[idType][0][`str${nameType}`],
-      category: response[idType][0][changeCategory],
-      instruction: response[idType][0].strInstructions,
-    });
-  };
+  const modifyResponse = (response, nameType, recipeType, changeCategory) => ({
+    id: response[recipeType][0][`id${nameType}`],
+    img: response[recipeType][0][`str${nameType}Thumb`],
+    title: response[recipeType][0][`str${nameType}`],
+    category: response[recipeType][0][changeCategory],
+    instruction: response[recipeType][0].strInstructions,
+  });
 
   const getIngredientsAndMesures = (object) => {
     const ingredients = filterMatchInKeys(/strIngredient/i, object);
     const showIngredients = ingredients.map((ingred) => object[ingred])
-      .filter((eachIngredient) => eachIngredient !== '');
+      .filter((eachIngredient) => eachIngredient !== '' && eachIngredient !== null);
     setIngredientsItem(showIngredients);
     const mesures = filterMatchInKeys(/strMeasure/i, object);
     const showMesures = mesures.map((mesu) => object[mesu])
-      .filter((eachMesure) => eachMesure !== '');
+      .filter((eachMesure) => eachMesure !== '' && eachMesure !== null);
     setMesuresItem(showMesures);
   };
 
   const fetchRecipe = async () => {
     if (path === '/bebidas/:id') {
-      const idType = 'drinks';
+      const recipeType = 'drinks';
       const nameType = 'Drink';
       const changeCategory = 'strAlcoholic';
       const response = await Bebidas.idDrink(id);
-      settingResponseType(response, nameType, idType, changeCategory);
+      console.log('detalhe do objeto', response);
+      setObjectRecipe(response);
+      setObjResponse(modifyResponse(response, nameType, recipeType, changeCategory));
       getIngredientsAndMesures(response.drinks[0]);
     } else {
-      const idType = 'meals';
+      const recipeType = 'meals';
       const nameType = 'Meal';
       const changeCategory = 'strCategory';
       const response = await Comidas.idFood(id);
-      settingResponseType(response, nameType, idType, changeCategory);
+      console.log('detalhe do objeto', response);
+      // setFavoriteRecipe(response);
+      setObjResponse(modifyResponse(response, nameType, recipeType, changeCategory));
       getIngredientsAndMesures(response.meals[0]);
     }
+    console.log(setButtonImg, objectRecipe);
   };
 
   const filterRecomendation = (response) => {
@@ -90,25 +101,45 @@ function FoodDetail(props) {
     }
   };
 
+  const shareLinkButton = async () => {
+    navigator.clipboard.writeText(`http://localhost:3000${url}`);
+    setShareMessege('Link copiado!');
+  };
+
+  const favoriteButtonState = () => {
+    setButtonState(!buttonState);
+  };
+
+  const handleClick = () => {
+    dispatchRecipeDetail(objResponse);
+  };
+
   const fetchRecomendation = async () => {
     if (path === '/bebidas/:id') {
       const URL = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
       const getRecomendation = await fetch(URL);
       const response = await getRecomendation.json();
+      console.log(response);
       const filterResult = filterRecomendation(response);
       setRecomendation(randomName(filterResult));
     } else {
       const URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
       const getRecomendation = await fetch(URL);
       const response = await getRecomendation.json();
+      console.log(response);
       const filterResult = filterRecomendation(response);
       setRecomendation(randomName(filterResult));
     }
   };
 
   useEffect(() => {
+    // const { }
+  }, [buttonState]);
+
+  useEffect(() => {
     fetchRecipe();
     fetchRecomendation();
+    // setFavoriteRecipe(objResponse)
   }, []);
 
   const showVideo = () => {
@@ -125,8 +156,6 @@ function FoodDetail(props) {
       </video>
     );
   };
-  console.log(recomendation);
-  console.log(path);
   return (
     <div>
       <img
@@ -137,11 +166,21 @@ function FoodDetail(props) {
         width="150"
       />
       <h1 data-testid="recipe-title">{objResponse.title}</h1>
-      <button data-testid="share-btn" type="button">
+      <button
+        data-testid="share-btn"
+        type="button"
+        onClick={ () => shareLinkButton() }
+      >
         <img src={ shareIcon } alt="share" />
       </button>
-      <button data-testid="favorite-btn" type="button">
-        <img src={ whiteHeartIcon } alt="favorite" />
+      <p>{shareMessege}</p>
+      <button
+        data-testid="favorite-btn"
+        type="button"
+        onClick={ () => favoriteButtonState() }
+        src={ buttonImg }
+      >
+        <img src={ buttonImg } alt="favorite" />
       </button>
       <h4 data-testid="recipe-category">{objResponse.category}</h4>
       <ul>
@@ -163,15 +202,23 @@ function FoodDetail(props) {
             </li>
           ))}
       </ul>
-      <button
-        data-testid="start-recipe-btn"
-        className="button-position"
-        type="button"
-      >
-        Iniciar Receita
-      </button>
+      <Link to={ `${url}/in-progress` }>
+        <button
+          onClick={ () => handleClick() }
+          data-testid="start-recipe-btn"
+          className="button-position"
+          type="button"
+        >
+          Iniciar Receita
+        </button>
+      </Link>
+
     </div>);
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  dispatchRecipeDetail: (recipeDetail) => dispatch(addRecipeDetail(recipeDetail)),
+});
 
 const mapStateToProps = (state) => ({
   index: state.searchRecipes.recipes.results,
@@ -182,11 +229,15 @@ FoodDetail.propTypes = {
   match: PropTypes.shape({
     path: PropTypes.string.isRequired,
     params: PropTypes.objectOf(PropTypes.object).isRequired,
+    url: PropTypes.string.isRequired,
+
   }).isRequired,
   fetchId: PropTypes.shape({
     Bebidas: PropTypes.objectOf(PropTypes.func).isRequired,
     Comidas: PropTypes.objectOf(PropTypes.func).isRequired,
   }).isRequired,
+  dispatchRecipeDetail: PropTypes.func.isRequired,
+
 };
 
-export default connect(mapStateToProps)(FoodDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(FoodDetail);

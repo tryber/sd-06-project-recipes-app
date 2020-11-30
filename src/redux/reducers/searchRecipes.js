@@ -1,5 +1,5 @@
 import { ADD_RECIPES,
-
+  ADD_RECIPE_DETAIL,
   CHANGE_FETCH,
   GET_FOOD_CATEGORIES,
   GET_DRINK_CATEGORIES,
@@ -18,9 +18,10 @@ const initialState = {
   },
 
   isFetchin: false,
-  isRecipesFetching: false,
+  isRecipesFetching: true,
   iscategoriesFetching: true,
   foodCategories: [],
+  foodInProgress: [],
   drinkCategories: [],
   data: {
     inputText: '',
@@ -34,6 +35,11 @@ export default function searchRecipesReducer(state = initialState, action) {
   case ADD_RECIPES:
     return {
       ...state, recipes: action.recipes, isRecipesFetching: false,
+    };
+
+  case ADD_RECIPE_DETAIL:
+    return {
+      ...state, foodInProgress: [...state.foodInProgress, action.recipeDetail],
     };
 
   case CHANGE_FETCH:

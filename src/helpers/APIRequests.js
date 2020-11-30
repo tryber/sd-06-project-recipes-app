@@ -6,7 +6,6 @@ export const fetchAPI = async (endpoint) => {
   try {
     const response = await fetch(endpoint);
     data = await response.json();
-    console.log(data);
   } catch (err) {
     console.error(err);
   }
@@ -47,14 +46,12 @@ export const getDrinkRecipeIdEndPoint = (id) => (
 
 const handleSucessAPIResponse = (recipesData, dispatchRecipes, type) => {
   if (recipesData && recipesData[type] !== null) {
-    console.log('after response: ', recipesData);
     const recipesResults = recipesData;
     dispatchRecipes(recipesResults);
   }
 };
 
 const handleNullAPIResponse = (recipesData, _dispatchRecipes, type) => {
-  console.log('testNull', recipesData, type);
   if (recipesData === null || recipesData[type] === null) {
     alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
   }

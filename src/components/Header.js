@@ -13,7 +13,7 @@ function Header({ pathname, componentConfig }) {
     if (profileButton) {
       return (
 
-        <Link to="/perfil">
+        <Link to="/perfil" replace>
           <button
             type="button"
           >

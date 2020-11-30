@@ -1,5 +1,6 @@
 import { fetchAPI } from '../../helpers/APIRequests';
 
+export const ADD_RECIPE_DETAIL = 'ADD_RECIPE_DETAIL';
 export const ADD_RECIPES = 'ADD_RECIPES';
 export const CHANGE_FETCH = 'CHANGE_FETCH';
 export const SEND_DATA = 'SEND_DATA';
@@ -17,6 +18,11 @@ const allDrinkRecipesEndPoint = 'https://www.thecocktaildb.com/api/json/v1/1/sea
 
 const zero = 0;
 const maxLength = 5;
+
+export const addRecipeDetail = (recipeDetail) => ({
+  type: ADD_RECIPE_DETAIL,
+  recipeDetail,
+});
 
 export const addRecipes = (recipes) => ({
   type: ADD_RECIPES,

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import Footer from '../components/Footer';
 import Header from '../components/Header';
@@ -11,7 +12,12 @@ function Explore(props) {
   return (
     <div>
       <Header pathname={ pathname } componentConfig={ header } />
-      <p>Página de explorar</p>
+      <Link to="/explorar/comidas" data-testid="explore-food">
+        Explorar Comidas
+      </Link>
+      <Link to="/explorar/bebidas" data-testid="explore-drinks">
+        Explorar Bebidas
+      </Link>
       <Footer />
     </div>
 

@@ -10,14 +10,14 @@ function ExploreFoodByIngredients(props) {
   return (
     <div>
       <Header pathname={ pathname } componentConfig={ header } />
-      <p>pagina de explorar comida por ingrediente</p>
+      <p>pagina de explorar bebidas por ingrediente</p>
       <Footer />
     </div>
   );
 }
 
 const mapStateToProps = (state) => ({
-  pageConfig: state.sitemap.explorarComidasIngredientes,
+  pageConfig: state.sitemap.explorarBebidasIngredientes,
 });
 
 export default connect(mapStateToProps, null)(ExploreFoodByIngredients);

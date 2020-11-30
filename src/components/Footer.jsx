@@ -9,13 +9,13 @@ import '../css/footer.css';
 function Footer() {
   return (
     <footer data-testid="footer">
-      <Link to="bebidas">
+      <Link to="/bebidas" replace>
         <img data-testid="drinks-bottom-btn" src={ drinkIcon } alt="drink" />
       </Link>
-      <Link to="explorar">
+      <Link to="/explorar" replace>
         <img data-testid="explore-bottom-btn" src={ exploreIcon } alt="explore" />
       </Link>
-      <Link to="comidas">
+      <Link to="/comidas" replace>
         <img data-testid="food-bottom-btn" src={ mealIcon } alt="food" />
       </Link>
     </footer>

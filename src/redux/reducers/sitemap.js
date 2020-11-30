@@ -42,6 +42,8 @@ const initialState = {
       searchButton: false,
       title: 'Explorar Bebidas',
     },
+    recipeType: 'drinks',
+
   },
   explorarComidas: {
     header: {
@@ -50,6 +52,7 @@ const initialState = {
       searchButton: false,
       title: 'Explorar Comidas',
     },
+    recipeType: 'meals',
   },
   explorarComidasIngredientes: {
     header: {
