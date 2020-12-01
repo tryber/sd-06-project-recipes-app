@@ -28,11 +28,14 @@ const Header = ({ title, searchBtn = false }) => {
       {searchBtn ? (
         <button
           type="button"
-          data-testid="search-top-btn"
           className="border-0 bg-transparent"
           onClick={ showSearchBar }
         >
-          <img src={ searchIcon } alt="show-hide-sbr" />
+          <img
+            data-testid="search-top-btn"
+            src={ searchIcon }
+            alt="show-hide-sbr"
+          />
         </button>
       ) : (
         <div />

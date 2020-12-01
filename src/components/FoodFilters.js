@@ -1,34 +1,18 @@
 import React, { useContext } from 'react';
 import ReceitasContext from '../context/ReceitasContext';
-import { foodByCategoryApi, foodAPI } from '../services/foodAPI';
 
 function FoodFilters() {
-  const {
-    filtersData, setMeals, selectedFilter, setSelectedFilter,
-  } = useContext(ReceitasContext);
+  const { filtersData, selectedFilter, setSelectedFilter } = useContext(ReceitasContext);
 
-  async function fetchFood() {
-    const responseFoodApi = await foodAPI();
-    setMeals(responseFoodApi);
-  }
-
-  const filters = (category) => {
-    if (category === 'All') {
-      fetchFood();
+  const filterByCategory = ({ target }) => {
+    if (target.innerHTML === 'All') {
+      setSelectedFilter('');
     } else {
-      foodByCategoryApi(category).then((response) => {
-        setMeals(response.meals);
-      });
-    }
-  };
-
-  const filterByCategory = (category) => {
-    if (category !== selectedFilter) {
-      filters(category);
-      setSelectedFilter(category);
-    } else {
-      fetchFood();
-      setSelectedFilter('All');
+      return (
+        (selectedFilter === target.innerHTML)
+          ? setSelectedFilter('')
+          : setSelectedFilter(target.innerHTML)
+      );
     }
   };
 
@@ -41,7 +25,7 @@ function FoodFilters() {
           data-testid={ `${filter}-category-filter` }
           className="btn btn-secondary btn-sm m-1 w-25"
           style={ { background: '#6CDC3E', color: 'black' } }
-          onClick={ (event) => filterByCategory(event.target.innerHTML) }
+          onClick={ filterByCategory }
         >
           {filter}
         </button>

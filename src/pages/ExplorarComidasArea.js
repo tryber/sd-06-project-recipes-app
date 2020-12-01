@@ -43,7 +43,7 @@ const ExplorarComidasArea = () => {
 
   return (
     <div>
-      <Header title="Explorar por Local de Origem" />
+      <Header title="Explorar Origem" searchBtn />
       <label htmlFor="area-dropdown">
         Locais:
         <select

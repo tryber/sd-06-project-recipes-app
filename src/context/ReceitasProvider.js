@@ -11,7 +11,7 @@ const ReceitasProvider = ({ children }) => {
   const [searchBox, setSearchBox] = useState(false);
   const [fetching, setFetching] = useState(true);
   const [filtersData, setFiltersData] = useState(['All']);
-  const [selectedFilter, setSelectedFilter] = useState('All');
+  const [selectedFilter, setSelectedFilter] = useState('');
   const [randomDrinkID, setRandomDrink] = useState();
   const [randomMealID, setRandomMeal] = useState();
   const [fetchById, setFetchById] = useState();

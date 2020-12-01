@@ -1,0 +1,7 @@
+.ingredient-done {
+  text-decoration: line-through;
+}
+
+.ingredient-not-done {
+  text-decoration: none solid rgb(0, 0, 0);
+}

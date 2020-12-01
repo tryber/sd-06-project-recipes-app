@@ -4,7 +4,6 @@ import './App.css';
 import Bebidas from './pages/Bebidas';
 import BebidasInProgress from './pages/BebidasInProgress';
 import Comidas from './pages/Comidas';
-import ComidasInProgress from './pages/ComidasInProgress';
 import DetalhesBebida from './pages/DetalhesBebida';
 import DetalhesComida from './pages/DetalhesComida';
 import Explorar from './pages/Explorar';
@@ -17,6 +16,7 @@ import ExplorarComidasArea from './pages/ExplorarComidasArea';
 import NotFound from './pages/NotFound';
 import Perfil from './pages/Perfil';
 import ReceitasFeitas from './pages/ReceitasFeitas';
+import ComidasInProgress from './pages/ComidasInProgress';
 import FavoriteRecipes from './pages/FavoriteRecipes';
 
 function App() {
