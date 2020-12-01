@@ -11,8 +11,9 @@ const ExplorarComidasIng = () => {
 
   useEffect(() => {
     listIngredients().then((response) => setIngredientList(response));
+    setMeals([{ a: 'b' }]);
   }, []);
-  console.log(ingredientList);
+
   const zero = 0;
   const twelve = 12;
 

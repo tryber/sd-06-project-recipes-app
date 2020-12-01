@@ -6,13 +6,13 @@ import ReceitasContext from '../context/ReceitasContext';
 import { listIngredients, drinkAPI } from '../services/drinkAPI';
 
 const ExplorarBebidasIng = () => {
-  const { setMeals, drinksIngredientList,
+  const { setDrinks, drinksIngredientList,
     setDrinksIngredientList, setStopApi } = useContext(ReceitasContext);
 
   useEffect(() => {
     listIngredients().then((response) => setDrinksIngredientList(response));
+    setDrinks([{ a: 'b' }]);
   }, []);
-  console.log(drinksIngredientList);
   const zero = 0;
   const twelve = 12;
 
@@ -27,7 +27,7 @@ const ExplorarBebidasIng = () => {
           key={ ingred.strIngredient1 }
           onClick={ () => {
             drinkAPI('ingredient', ingred.strIngredient1)
-              .then((response) => setMeals(response));
+              .then((response) => setDrinks(response));
             setStopApi(true);
           } }
         >
