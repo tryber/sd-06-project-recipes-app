@@ -1,8 +1,13 @@
 import React from 'react';
+import Header from '../components/header';
 
 function RecipesMade() {
   return (
-    <span>Receitas feitas</span>
+    <>
+      <Header title="Receitas Feitas" />
+      <span>Receitas feitas</span>
+      <span>Explorar Comida por lugar de origem</span>
+    </>
   );
 }
 

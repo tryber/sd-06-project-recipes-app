@@ -5,6 +5,7 @@ import blackHeartIcon from '../images/blackHeartIcon.svg';
 import FavoriteFilters from '../components/FavoriteFilters';
 import shareIcon from '../images/shareIcon.svg';
 import RecipesAppContext from '../context/RecipesAppContext';
+import Header from '../components/header';
 
 function FavoriteRecipes() {
   const {
@@ -48,10 +49,11 @@ function FavoriteRecipes() {
 
   return (
     <div>
+      <Header title="Receitas Favoritas" />
       <div>
         <FavoriteFilters />
       </div>
-      {renderFavoriteRecipes.map((recipe, index) => (
+      {renderFavoriteRecipes && renderFavoriteRecipes.map((recipe, index) => (
         <div
           key={ index }
         >
