@@ -243,7 +243,7 @@ function DetalhesComida(props) {
           {!doneRecipes.includes(meal.idMeal) && (
             <Link to={ `/comidas/${meal.idMeal}/in-progress` }>
               <button
-                className="start-recipe-btn btn btn-block btn-success fixed-bottom"
+                className="btn btn-block btn-success fixed-bottom"
                 data-testid="start-recipe-btn"
                 type="button"
                 onClick={ () => startRecipe(meal.idMeal) }
