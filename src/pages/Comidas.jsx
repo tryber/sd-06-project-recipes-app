@@ -69,6 +69,7 @@ export default function Comidas({ history }) {
     <div>
       <Header titulo={ titulo } />
       <Lupa onClick={ onClick } />
+
       <button
         type="button"
         onClick={ () => fetchFoods() }
