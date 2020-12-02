@@ -4,8 +4,12 @@ import searchImage from '../images/searchIcon.svg';
 
 export default function Lupa({ onClick }) {
   return (
-    <div>
-      <button type="button" onClick={ onClick }>
+    <div className="lupa">
+      <button 
+        type="button"
+        onClick={ onClick }
+        className="btn-warning"
+      >
         <img
           data-testid="search-top-btn"
           src={ searchImage }

@@ -45,29 +45,36 @@ export default function ExplorarComidasingredientes({ history }) {
   return (
     <div>
       <Header titulo={ titulo } />
-      {loading ? <p>Loading</p>
-        : (
-          ingredients.filter((ingredient, index) => ingredient && index < twelve)
-            .map((ingredient, index) => (
-              <button
-                data-testid={ `${index}-ingredient-card` }
-                onClick={ () => handleClick(ingredient.strIngredient) }
-                key={ index }
-                type="button"
-              >
-                <p
-                  data-testid={ `${index}-card-name` }
+      <div className="d-flex flex-wrap">
+        {loading ? <p>Loading</p>
+          : (
+            ingredients.filter((ingredient, index) => ingredient && index < twelve)
+              .map((ingredient, index) => (
+                <button
+                  className="btn font-weight-bold flex-grow-1 border-2 border-warning m-1"
+                  data-testid={ `${index}-ingredient-card` }
+                  onClick={ () => handleClick(ingredient.strIngredient) }
+                  key={ index }
+                  type="button"
                 >
-                  { ingredient.strIngredient }
-                </p>
-                <img
-                  data-testid={ `${index}-card-img` }
-                  src={ `https://www.themealdb.com/images/ingredients/${ingredient.strIngredient}-Small.png` }
-                  alt={ `${ingredient.strIngredient}-pic` }
-                />
-              </button>
-            ))
-        )}
+                  <p
+                    className="toast-header bg-warning"
+                    data-testid={ `${index}-card-name` }
+                  >
+                    { ingredient.strIngredient }
+                  </p>
+                  <img
+                    className="toast-body"
+                    data-testid={ `${index}-card-img` }
+                    src={ `https://www.themealdb.com/images/ingredients/${ingredient.strIngredient}-Small.png` }
+                    alt={ `${ingredient.strIngredient}-pic` }
+                  />
+                </button>
+              ))
+          )}
+      </div>
+      <br />
+      <br />
       <Footer />
     </div>
   );

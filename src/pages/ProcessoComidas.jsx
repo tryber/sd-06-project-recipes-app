@@ -88,64 +88,73 @@ export default function ProcessoComidas() {
 
   return (
     <div className="container-processo-comida">
-      <h1>{titulo}</h1>
+      <h1 className="bg-warning pl-3 pb-1">{titulo}</h1>
       {loading ? <p>Loading...</p>
         : (
-          <div>
+          <div className="d-flex flex-column">
             <img
+              className="rounded align-self-center"
               src={ selectedMeal.strMealThumb }
               data-testid="recipe-photo"
               alt="foto-recipe"
               width="200px"
             />
-            <h2 data-testid="recipe-title">{selectedMeal.strMeal}</h2>
+            <h2 className="text-warning align-self-center font-weight-bold" data-testid="recipe-title">{selectedMeal.strMeal}</h2>
             <div>
               <button
+                className="btn btn-warning"
                 type="button"
                 src={ ShareIcon }
                 alt="compartilhar"
                 data-testid="share-btn"
                 onClick={ urlToClipboard }
               >
-                Compartilhar
+                <img src={ ShareIcon } alt="compartilhar" />
               </button>
-              {sharedURL ? <p>Link copiado!</p> : null}
-            </div>
-            <button
-              type="button"
-              src={ HeartIcon }
-              alt="favoritar"
-              data-testid="favorite-btn"
-            >
-              Favoritar
-            </button>
-            <h3 data-testid="recipe-category">{selectedMeal.strCategory}</h3>
-            { arrayIngredients.map((ingredient, index) => (
-              <label
-                htmlFor={ index }
-                key={ index }
-                data-testid={ `${index}-ingredient-step` }
+              <button
+                className="btn btn-warning"
+                type="button"
+                src={ HeartIcon }
+                alt="favoritar"
+                data-testid="favorite-btn"
               >
-                <input
-                  type="checkbox"
-                  id={ index }
-                  nome={ ingredient }
-                  value={ ingredient }
-                  onClick={ (e) => onClick(e) }
-                />
-                { ingredient }
-              </label>
-            ))}
-            <p
-              data-testid="instructions"
-              className="riscado"
-            >
-              Instructions
-              {selectedMeal.strInstructions}
-            </p>
+                <img src={ HeartIcon } alt="favoritar" />
+              </button>
+            </div>
+            {sharedURL ? <p className="text-warning">Link copiado!</p> : null}
+            <h3 className="text-warning mt-2 font-weight-bold" data-testid="recipe-category">{selectedMeal.strCategory}</h3>
+            <div className="bg-warning ml-3 mr-3 rounded">
+              { arrayIngredients.map((ingredient, index) => (
+                <label
+                  className="mr-1 ml-1"
+                  htmlFor={ index }
+                  key={ index }
+                  data-testid={ `${index}-ingredient-step` }
+                >
+                  <input
+                    type="checkbox"
+                    id={ index }
+                    nome={ ingredient }
+                    value={ ingredient }
+                    onClick={ (e) => onClick(e) }
+                  />
+                  { ingredient }
+                </label>
+              ))}
+            </div>
+            <h3 className="text-warning align-self-center font-weight-bold mt-2">Instructions</h3>
+            <div className="bg-warning ml-3 mr-3 rounded">
+              <p
+                data-testid="instructions"
+                className="riscado"
+              >
+                {selectedMeal.strInstructions}
+              </p>
+            </div>
             <Link to="/receitas-feitas">
               <button
                 type="button"
+                className="btn btn-warning mt-2"
                 data-testid="finish-recipe-btn"
                 disabled={ check }
               >

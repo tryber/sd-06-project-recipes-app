@@ -87,38 +87,42 @@ export default function ProcessoBebidas() {
 
   return (
     <div>
-      <h1>{titulo}</h1>
+      <h1 className="bg-warning pl-3 pb-1">>{titulo}</h1>
       {loading ? <p>Loading...</p>
         : (
-          <div>
+          <div className="d-flex flex-column">
             <img
+              className="rounded align-self-center"
               src={ selectedDrink.strDrinkThumb }
               data-testid="recipe-photo"
               alt="foto-recipe"
               width="200px"
             />
-            <h2 data-testid="recipe-title">{selectedDrink.strDrink}</h2>
+            <h2 className="text-warning align-self-center font-weight-bold" data-testid="recipe-title">{selectedDrink.strDrink}</h2>
             <div>
               <button
+                className="btn btn-warning"
                 type="button"
                 src={ ShareIcon }
                 alt="compartilhar"
                 data-testid="share-btn"
                 onClick={ urlToClipboard }
               >
-                Compartilhar
+                <img src={ ShareIcon } alt="compartilhar" />
               </button>
-              {sharedURL ? <p>Link copiado!</p> : null}
+              <button
+                className="btn btn-warning"
+                type="button"
+                src={ HeartIcon }
+                alt="favoritar"
+                data-testid="favorite-btn"
+              >
+                <img src={ HeartIcon } alt="favoritar" />
+              </button>
             </div>
-            <button
-              type="button"
-              src={ HeartIcon }
-              alt="favoritar"
-              data-testid="favorite-btn"
-            >
-              Favoritar
-            </button>
-            <h3 data-testid="recipe-category">{selectedDrink.strCategory}</h3>
+              {sharedURL ? <p className="text-warning">Link copiado!</p> : null}
+            <h3 className="text-warning mt-2 font-weight-bold" data-testid="recipe-category">{selectedDrink.strCategory}</h3>
+            <div className="bg-warning ml-3 mr-3 rounded">
             { arrayIngredients.map((ingredient, index) => (
               <label
                 htmlFor={ index }
@@ -135,15 +139,18 @@ export default function ProcessoBebidas() {
                 { ingredient }
               </label>
             ))}
+            </div>
+            <h3 className="text-warning align-self-center font-weight-bold mt-2">Instructions</h3>
+            <div className="bg-warning ml-3 mr-3 rounded">
             <p data-testid="instructions">
-              Instructions
               {selectedDrink.strInstructions}
             </p>
-          </div>
+          </div></div>
         )}
       <Link to="/receitas-feitas">
         <button
           type="button"
+          className="btn btn-warning mt-2"
           data-testid="finish-recipe-btn"
           disabled={ check }
         >

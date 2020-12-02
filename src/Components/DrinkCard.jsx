@@ -9,6 +9,8 @@ export default function DrinkCard({ drink, index }) {
         src={ `${drink.strDrinkThumb}/preview` }
         alt="drink-pic"
         height="60px"
+        className="rounded"
+
       />
       <p data-testid={ `${index}-card-name` }>{ drink.strDrink }</p>
     </div>

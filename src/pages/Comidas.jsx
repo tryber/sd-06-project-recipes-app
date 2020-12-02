@@ -17,6 +17,7 @@ export default function Comidas({ history }) {
     meals,
     mealsByIngredient,
     setMeals,
+    setMealsByIngredient,
     showMealsByIngredient,
     search } = useContext(Context);
   const [hidden, setHidden] = useState(true);
@@ -69,53 +70,62 @@ export default function Comidas({ history }) {
     <div>
       <Header titulo={ titulo } />
       <Lupa onClick={ onClick } />
-      <button
-        type="button"
-        onClick={ () => fetchFoods() }
-        data-testid="All-category-filter"
-      >
-        All
-      </button>
-      {
-        categories.map((categorie) => (
-          <button
-            data-testid={ `${categorie}-category-filter` }
-            selected={ selected }
-            key={ categorie }
-            type="button"
-            value={ categorie }
-            onClick={ clickCategory }
-          >
-            {categorie}
-          </button>
-        ))
-      }
-      { hidden ? '' : <SearchBar /> }
-      {/* <h1>{ titulo }</h1> */ }
-      {
-        loading || showMealsByIngredient ? <p>Loading</p>
-          : meals.filter((meal, index) => meal && index < twelve)
-            .map((meal, index) => (
-              <button
-                type="button"
-                key={ meal.idMeal }
-                onClick={ () => clickDetails(meal.idMeal) }
-              >
-                <FoodCard food={ meal } index={ index } />
-              </button>))
-      }
-      {
-        !mealsByIngredient ? <p>Loading</p>
-          : mealsByIngredient
-            .map((meal, index) => (
-              <button
-                type="button"
-                key={ meal.idMeal }
-                onClick={ () => clickDetails(meal.idMeal) }
-              >
-                <FoodCard food={ meal } index={ index } />
-              </button>))
-      }
+      <div className="container d-flex flex-wrap justify-content-around mb-1">
+        <button
+          type="button"
+          onClick={ () => fetchFoods() }
+          data-testid="All-category-filter"
+          className="btn btn-warning flex-grow-1 m-1"
+        >
+          All
+        </button>
+        {
+          categories.map((categorie) => (
+            <button
+              data-testid={ `${categorie}-category-filter` }
+              selected={ selected }
+              key={ categorie }
+              type="button"
+              value={ categorie }
+              onClick={ clickCategory }
+              className="btn btn-warning flex-grow-1 m-1"
+            >
+              {categorie}
+            </button>
+          ))
+        }
+        { hidden ? '' : <SearchBar /> }
+      </div>
+      <div className="container d-flex flex-wrap">
+        {
+          loading || showMealsByIngredient ? <p> Loading </p>
+            : meals.filter((meal, index) => meal && index < twelve)
+              .map((meal, index) => (
+                <button
+                  className="btn text-warning font-weight-bold flex-grow-1"
+                  type="button"
+                  key={ meal.idMeal }
+                  onClick={ () => clickDetails(meal.idMeal) }
+                >
+                  <FoodCard food={ meal } index={ index } />
+                </button>))
+        }
+        {
+          !mealsByIngredient ? <p>Loading</p>
+            : mealsByIngredient
+              .map((meal, index) => (
+                <button
+                  className="btn text-warning font-weight-bold flex-grow-1"
+                  type="button"
+                  key={ meal.idMeal }
+                  onClick={ () => clickDetails(meal.idMeal) }
+                >
+                  <FoodCard food={ meal } index={ index } />
+                </button>))
+        }
+      </div>
+      <br />
+      <br />
       <Footer />
     </div>
   );

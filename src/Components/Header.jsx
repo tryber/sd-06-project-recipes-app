@@ -7,7 +7,7 @@ export default function Header() {
   const { titulo } = useContext(Context);
 
   return (
-    <header className="header">
+    <header className="d-flex w-100 bg-warning mb-2">
       <div>
         <Link to="/perfil">
           <button
@@ -15,12 +15,13 @@ export default function Header() {
             data-testid="profile-top-btn"
             src="../images/profileIcon.svg"
             alt="profile"
+            className="btn-warning mr-5 mt-2"
           >
             <img src={ profileImage } alt="profile" />
           </button>
         </Link>
-        <h1 data-testid="page-title">{ titulo }</h1>
       </div>
+      <h1 className=" title" data-testid="page-title">{ titulo }</h1>
     </header>
   );
 }

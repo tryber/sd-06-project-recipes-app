@@ -9,6 +9,7 @@ export default function FoodCard({ food, index }) {
         data-testid={ `${index}-card-img` }
         alt="food-pic"
         height="60px"
+        className="rounded"
       />
       <p data-testid={ `${index}-card-name` }>{ food.strMeal }</p>
     </div>

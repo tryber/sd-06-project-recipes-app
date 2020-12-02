@@ -74,48 +74,57 @@ export default function Bebidas({ history }) {
     <div>
       <Header titulo={ titulo } />
       <Lupa onClick={ onClick } />
-      <button
-        type="button"
-        onClick={ () => fetchDrinks() }
-        data-testid="All-category-filter"
-      >
-        All
-      </button>
-      {categories.map((categorie) => (
+      <div className="container d-flex flex-wrap justify-content-around mb-1">
         <button
-          data-testid={ `${categorie}-category-filter` }
-          selected={ selected }
-          key={ categorie }
           type="button"
-          value={ categorie }
-          onClick={ clickCategory }
+          onClick={ () => fetchDrinks() }
+          data-testid="All-category-filter"
+          className="btn btn-warning flex-grow-1 m-1"
         >
-          {categorie}
+          All
         </button>
-      ))}
-      {hidden ? '' : <SearchBar />}
-      {/* <h1>{ titulo }</h1> */}
-      {loading || showDrinksByIngredient ? <p>Loading</p>
-        : drinks.filter((drink, index) => drink && index < twelve)
-          .map((drink, index) => (
-            <button
-              type="button"
-              key={ drink.idDrink }
-              onClick={ () => clickDetails(drink.idDrink) }
-            >
-              <DrinkCard drink={ drink } index={ index } />
-            </button>))}
-      {!drinksByIngredient ? <p>Loading</p>
-        : drinksByIngredient
-          .filter((drink, index) => drink && index < twelve)
-          .map((drink, index) => (
-            <button
-              type="button"
-              key={ drink.idDrink }
-              onClick={ () => clickDetails(drink.idDrink) }
-            >
-              <DrinkCard drink={ drink } key={ drink.idDrink } index={ index } />
-            </button>))}
+        {categories.map((categorie) => (
+          <button
+            data-testid={ `${categorie}-category-filter` }
+            selected={ selected }
+            key={ categorie }
+            type="button"
+            value={ categorie }
+            onClick={ clickCategory }
+            className="btn btn-warning flex-grow-1 m-1 mb-0"
+          >
+            {categorie}
+          </button>
+        ))}
+        {hidden ? '' : <SearchBar />}
+      </div>
+      <div className="container d-flex flex-wrap">
+        {loading || showDrinksByIngredient ? <p> </p>
+          : drinks.filter((drink, index) => drink && index < twelve)
+            .map((drink, index) => (
+              <button
+                className="btn text-warning font-weight-bold flex-grow-1"
+                type="button"
+                key={ drink.idDrink }
+                onClick={ () => clickDetails(drink.idDrink) }
+              >
+                <DrinkCard drink={ drink } index={ index } />
+              </button>))}
+        {!drinksByIngredient ? <p>Loading</p>
+          : drinksByIngredient
+            .filter((drink, index) => drink && index < twelve)
+            .map((drink, index) => (
+              <button
+                className="btn text-warning font-weight-bold flex-grow-1"
+                type="button"
+                key={ drink.idDrink }
+                onClick={ () => clickDetails(drink.idDrink) }
+              >
+                <DrinkCard drink={ drink } key={ drink.idDrink } index={ index } />
+              </button>))}
+      </div>
+      <br />
+      <br />
       <Footer />
     </div>
   );

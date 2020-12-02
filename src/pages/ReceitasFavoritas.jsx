@@ -56,79 +56,95 @@ export default function ReceitasFavoritas({ history }) {
   const renderCard = (card, index) => {
     if (card.type === 'comida') {
       return (
-        <div>
+        <div className="border border-warning d-flex flex-column mt-1">
           <p
+            className="text-warning pl-2 pr-2 font-weight-bold"
             data-testid={ `${index}-horizontal-top-text` }
           >
             {`${card.area} - ${card.category}`}
           </p>
-          <button type="button" onClick={ () => goToDetails(card) }>
+          <button className="btn" type="button" onClick={ () => goToDetails(card) }>
             <img
               src={ card.image }
               alt={ card.name }
               height="60px"
               data-testid={ `${index}-horizontal-image` }
             />
-            <p data-testid={ `${index}-horizontal-name` }>{card.name}</p>
+            <p
+              className="text-warning font-weight-bold"
+              data-testid={ `${index}-horizontal-name` }
+            >
+              {card.name}
+            </p>
           </button>
-          <button
-            type="button"
-            alt="compartilhar"
-            data-testid={ `${index}-horizontal-share-btn` }
-            src={ ShareIcon }
-            onClick={ () => copyToClipboard(card) }
-          >
-            <img src={ ShareIcon } alt="compartilhar" />
-          </button>
-          <button
-            type="button"
-            src={ favoriteImg }
-            alt="favoritar"
-            data-testid={ `${index}-horizontal-favorite-btn` }
-            onClick={ () => removeFavorite(card) }
-          >
-            <img src={ favoriteImg } alt="favoritar" />
-          </button>
+          <div className="d-flex justify-content-between">
+            <button
+              type="button"
+              alt="compartilhar"
+              data-testid={ `${index}-horizontal-share-btn` }
+              src={ ShareIcon }
+              onClick={ () => copyToClipboard(card) }
+            >
+              <img src={ ShareIcon } alt="compartilhar" />
+            </button>
+            <button
+              type="button"
+              src={ favoriteImg }
+              alt="favoritar"
+              data-testid={ `${index}-horizontal-favorite-btn` }
+              onClick={ () => removeFavorite(card) }
+            >
+              <img src={ favoriteImg } alt="favoritar" />
+            </button>
+          </div>
         </div>
       );
     }
     if (card.type === 'bebida') {
       return (
-        <div>
+        <div className="border border-warning d-flex flex-column mt-1">
           <p
+            className="text-warning pl-2 pr-2 font-weight-bold"
             data-testid={ `${index}-horizontal-top-text` }
           >
             {card.alcoholicOrNot}
           </p>
-          <button type="button" onClick={ () => goToDetails(card) }>
+          <button className="btn" type="button" onClick={ () => goToDetails(card) }>
             <img
               src={ card.image }
               alt={ card.name }
               height="60px"
               data-testid={ `${index}-horizontal-image` }
             />
-            <p data-testid={ `${index}-horizontal-name` }>{card.name}</p>
+            <p
+              className="text-warning font-weight-bold"
+              data-testid={ `${index}-horizontal-name` }
+            >
+              {card.name}
+            </p>
           </button>
-          <button
-            type="button"
-            alt="compartilhar"
-            data-testid={ `${index}-horizontal-share-btn` }
-            src={ ShareIcon }
-            onClick={ () => copyToClipboard(card) }
+          <div className="d-flex justify-content-between">
+            <button
+              type="button"
+              alt="compartilhar"
+              data-testid={ `${index}-horizontal-share-btn` }
+              src={ ShareIcon }
+              onClick={ () => copyToClipboard(card) }
 
-          >
-            <img src={ ShareIcon } alt="compartilhar" />
-          </button>
-          <button
-            type="button"
-            src={ favoriteImg }
-            alt="favoritar"
-            data-testid={ `${index}-horizontal-favorite-btn` }
-            onClick={ () => removeFavorite(card) }
+            >
+              <img src={ ShareIcon } alt="compartilhar" />
+            </button>
+            <button
+              type="button"
+              src={ favoriteImg }
+              alt="favoritar"
+              data-testid={ `${index}-horizontal-favorite-btn` }
+              onClick={ () => removeFavorite(card) }
 
-          >
-            <img src={ favoriteImg } alt="favoritar" />
-          </button>
+            >
+              <img src={ favoriteImg } alt="favoritar" />
+            </button>
+          </div>
         </div>
       );
     }
@@ -160,8 +176,9 @@ export default function ReceitasFavoritas({ history }) {
   return (
     <div>
       <Header titulo={ titulo } />
-      <div>
+      <div className="mb-3">
         <button
+          className="btn btn-warning ml-3 mr-2"
           onClick={ handleFilter }
           type="button"
           data-testid="filter-by-all-btn"
@@ -170,6 +187,7 @@ export default function ReceitasFavoritas({ history }) {
           All
         </button>
         <button
+          className="btn btn-warning mr-2"
           onClick={ handleFilter }
           type="button"
           data-testid="filter-by-food-btn"
@@ -178,6 +196,7 @@ export default function ReceitasFavoritas({ history }) {
           Food
         </button>
         <button
+          className="btn btn-warning"
           onClick={ handleFilter }
           type="button"
           data-testid="filter-by-drink-btn"
@@ -186,10 +205,12 @@ export default function ReceitasFavoritas({ history }) {
           Drinks
         </button>
       </div>
-      {filter === 'all' ? favorites.map((recipe, index) => (renderCard(recipe, index)))
-        : favorites.filter((recipe) => recipe.type === filter)
-          .map((recipe, index) => (renderCard(recipe, index)))}
-      {shared ? <p>Link copiado!</p> : ''}
+      <div className="d-flex flex-column align-items-center">
+        {filter === 'all' ? favorites.map((recipe, index) => (renderCard(recipe, index)))
+          : favorites.filter((recipe) => recipe.type === filter)
+            .map((recipe, index) => (renderCard(recipe, index)))}
+        {shared ? <p>Link copiado!</p> : ''}
+      </div>
     </div>
   );
 }

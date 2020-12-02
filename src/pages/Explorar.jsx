@@ -12,12 +12,14 @@ export default function Explorar() {
   }, []);
 
   return (
-    <div>
+    <div className="d-flex flex-column align-items-center">
       <Header titulo={ titulo } />
       <Link to="/explorar/comidas">
         <button
           type="button"
           data-testid="explore-food"
+          className="btn btn-warning mt-3 mb-3"
+
         >
           Explorar Comidas
         </button>
@@ -26,6 +28,7 @@ export default function Explorar() {
         <button
           type="button"
           data-testid="explore-drinks"
+          className="btn btn-warning"
         >
           Explorar Bebidas
         </button>

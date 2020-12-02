@@ -111,20 +111,22 @@ export default function DetalhesBebidas({ history }) {
 
   return (
     <div>
-      <h1>Detalhes Bebidas</h1>
+      <h1 className="bg-warning pl-3 pb-1">Detalhes Bebidas</h1>
       {loading ? <p>Loading...</p>
         : (
-          <div>
+          <div className="d-flex flex-column">
             <img
+              className="rounded align-self-center"
               data-testid="recipe-photo"
               src={ selectedDrink.strDrinkThumb }
               height="200px"
               alt="foto-recipe"
             />
-            <h2 data-testid="recipe-title">{selectedDrink.strDrink}</h2>
+            <h2 className="text-warning align-self-center font-weight-bold" data-testid="recipe-title">{selectedDrink.strDrink}</h2>
 
-            <div>
+            <div className="d-flex">
               <button
+                className="btn btn-warning"
                 type="button"
                 alt="compartilhar"
                 data-testid="share-btn"
@@ -132,47 +134,52 @@ export default function DetalhesBebidas({ history }) {
               >
                 <img src={ ShareIcon } alt="compartilhar" />
               </button>
-              {sharedURL ? <p>Link copiado!</p> : null}
+              <button
+                className="btn btn-warning"
+                type="button"
+                src={ favoriteImg }
+                alt="favoritar"
+                data-testid="favorite-btn"
+                onClick={ clickFavorite }
+              >
+                <img src={ favoriteImg } alt="favoritar" />
+              </button>
             </div>
-
-            <button
-              type="button"
-              src={ favoriteImg }
-              alt="favoritar"
-              data-testid="favorite-btn"
-              onClick={ clickFavorite }
-            >
-              <img src={ favoriteImg } alt="favoritar" />
-            </button>
-            <h3 data-testid="recipe-category">
+            {sharedURL ? <p className="text-warning" >Link copiado!</p> : null}
+            <h3 className="text-warning mt-2 font-weight-bold" data-testid="recipe-category">
               {selectedDrink.strCategory}
               ,
               {selectedDrink.strAlcoholic}
             </h3>
-            <h3>Ingredients </h3>
-            { arrayIngredients.map((ingredient, index) => (
-              <p
-                key={ index }
-                data-testid={ `${index}-ingredient-name-and-measure` }
-              >
-                { ingredient }
+            <h3 className="text-warning align-self-center font-weight-bold">Ingredients </h3>
+            <div className="bg-warning ml-3 mr-3 rounded">
+              { arrayIngredients.map((ingredient, index) => (
+                <p
+                  className="font-weight-bold"
+                  key={ index }
+                  data-testid={ `${index}-ingredient-name-and-measure` }
+                >
+                  { ingredient }
+                </p>
+              )) }
+            </div>
+            <h3 className="text-warning align-self-center font-weight-bold mt-2">Instructions</h3>
+            <div className="bg-warning ml-3 mr-3 rounded">
+              <p data-testid="instructions">
+                { selectedDrink.strInstructions }
               </p>
-            )) }
-            <p data-testid="instructions">
-              Instructions
-              { selectedDrink.strInstructions }
-            </p>
-            <p data-testid="video"><a href={ selectedDrink.strVideo }>Vídeo</a></p>
+            </div>
+            <p className="mt-3 btn btn-danger ml-3 mr-3" data-testid="video"><a href={ selectedDrink.strVideo }>Vídeo</a></p>
             <h3>Recomendadas</h3>
             { recomendedMeals.filter((meal, index) => meal && index < seis)
               .map((meal, index) => (
-                <div key={ index } data-testid={ `${index}-recomendation-card` }>
-                  <p data-testid={ `${index}-recomendation-title` }>{meal.strMeal}</p>
-                  <img src={ meal.strMealThumb } alt={ index } width="200px" />
+                <div className="align-self-center border-warning border mb-1 rounded" key={ index } data-testid={ `${index}-recomendation-card` }>
+                  <p className="text-warning" data-testid={ `${index}-recomendation-title` }>{meal.strMeal}</p>
+                  <img src={ meal.strMealThumb } alt={ index } width="100px" />
                 </div>))}
             <button
               type="button"
-              className="iniciar-receita"
+              className="btn btn-warning iniciar-receita border border-dark"
               data-testid="start-recipe-btn"
               onClick={ () => clickDetails(selectedDrink.idDrink) }
             >

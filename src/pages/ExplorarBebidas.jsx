@@ -19,12 +19,13 @@ export default function ExplorarBebidas({ history }) {
   };
 
   return (
-    <div>
+    <div className="d-flex flex-column align-items-center">
       <Header titulo={ titulo } />
       <Link to="/explorar/bebidas/ingredientes">
         <button
           type="button"
           data-testid="explore-by-ingredient"
+          className="btn btn-warning mt-2 mb-3"
         >
           Por Ingredientes
         </button>
@@ -33,6 +34,7 @@ export default function ExplorarBebidas({ history }) {
         type="button"
         data-testid="explore-surprise"
         onClick={ onClick }
+        className="btn btn-warning"
       >
         Me Surpreenda!
       </button>

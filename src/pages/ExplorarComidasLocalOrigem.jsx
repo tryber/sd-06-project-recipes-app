@@ -43,6 +43,9 @@ export default function ExplorarComidasLocalOrigem({ history }) {
     setLoading(true);
     setValue(target.value);
     const response = await api.fetchFoodByArea(target.value);
+    if (!response) {
+      return fetchFoods();
+    }
     setMealsByArea(response);
     setLoading(false);
   };
@@ -61,12 +64,13 @@ export default function ExplorarComidasLocalOrigem({ history }) {
         : (
           <div>
             <select
+              className="form-control mt-2 mb-2"
               data-testid="explore-by-area-dropdown"
               id="explore-by-area-dropdown"
               onChange={ onChange }
               value={ value }
             >
-              <option data-testid="All-option" key="all" value="all">All</option>
+              <option data-testid="All-option" key="all" value="">All</option>
               {areas.map((area, index) => (
                 <option
                   key={ index }
@@ -76,15 +80,18 @@ export default function ExplorarComidasLocalOrigem({ history }) {
                   {area.strArea}
                 </option>))}
             </select>
-            {mealsByArea.filter((meal, index) => meal && index < twelve)
-              .map((meal, index) => (
-                <button
-                  key={ meal.idMeal }
-                  type="button"
-                  onClick={ () => onClick(meal.idMeal) }
-                >
-                  <FoodCard food={ meal } index={ index } />
-                </button>))}
+            <div className="container d-flex flex-wrap">
+              {mealsByArea.filter((meal, index) => meal && index < twelve)
+                .map((meal, index) => (
+                  <button
+                    className="btn text-warning font-weight-bold flex-grow-1"
+                    key={ meal.idMeal }
+                    type="button"
+                    onClick={ () => onClick(meal.idMeal) }
+                  >
+                    <FoodCard food={ meal } index={ index } />
+                  </button>))}
+            </div>
           </div>
         )}
       <Footer />

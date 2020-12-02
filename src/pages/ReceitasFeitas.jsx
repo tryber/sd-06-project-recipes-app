@@ -22,11 +22,12 @@ export default function ReceitasFeitas() {
   return (
     <div>
       <Header titulo={ titulo } />
-      <button type="button" data-testid="filter-by-all-btn">All</button>
-      <button type="button" data-testid="filter-by-food-btn">Food</button>
-      <button type="button" data-testid="filter-by-drink-btn">Drinks</button>
+      <button className="btn btn-warning ml-3 mt-2 mr-2" type="button" data-testid="filter-by-all-btn">All</button>
+      <button className="btn btn-warning mt-2 mr-2" type="button" data-testid="filter-by-food-btn">Food</button>
+      <button className="btn btn-warning mt-2" type="button" data-testid="filter-by-drink-btn">Drinks</button>
       <div>
         <button
+          className="btn btn-warning ml-3 mt-2 mr-2"
           type="button"
           alt="compartilhar"
           data-testid="share-btn"

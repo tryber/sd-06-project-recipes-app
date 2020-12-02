@@ -82,39 +82,55 @@ function SearchBar() {
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        name="search"
-        value={ termoBusca }
-        data-testid="search-input"
-        onChange={ (evento) => setTermoBusca(evento.target.value) }
-      />
-      <input
-        type="radio"
-        name="search"
-        data-testid="ingredient-search-radio"
-        value="ingredient"
-        onChange={ handleChange }
-      />
-      Ingrediente
-      <input
-        type="radio"
-        name="search"
-        data-testid="name-search-radio"
-        value="name"
-        onChange={ handleChange }
-      />
-      Nome
-      <input
-        type="radio"
-        name="search"
-        data-testid="first-letter-search-radio"
-        value="first-letter"
-        onChange={ handleChange }
-      />
-      Primeira letra
+    <div className="d-flex flex-column">
+      <div>
+        <input
+          className="form-control mt-1"
+          type="text"
+          name="search"
+          value={ termoBusca }
+          data-testid="search-input"
+          onChange={ (evento) => setTermoBusca(evento.target.value) }
+          placeholder="Insira aqui"
+        />
+        <br />
+        <label className="text-warning mr-1 font-weight-bold">
+          <input
+            type="radio"
+            name="search"
+            data-testid="ingredient-search-radio"
+            value="ingredient"
+            onChange={ handleChange }
+          />
+          Ingrediente
+        </label>
+        <label className="text-warning mr-1 font-weight-bold">
+          <input
+            className="text-warning"
+            type="radio"
+            name="search"
+            data-testid="name-search-radio"
+            value="name"
+            onChange={ handleChange }
+          />
+          Nome
+        </label>
+        <label className="text-warning mr-1 font-weight-bold">
+
+          <input
+            className="text-warning"
+            type="radio"
+            name="search"
+            data-testid="first-letter-search-radio"
+            value="first-letter"
+            onChange={ handleChange }
+          />
+          Primeira letra
+        </label>
+      </div>
+      <br />
       <button
+        className="btn btn-warning"
         type="button"
         data-testid="exec-search-btn"
         onClick={ onClick }

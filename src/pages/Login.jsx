@@ -40,7 +40,8 @@ export default function Login({ history }) {
   };
 
   return (
-    <div>
+    <div className=" container-sm d-flex flex-column login align-items-center">
+      <h1 className="mb-3 text-warning font-weight-bold">App de Receitas</h1>
       <label htmlFor="input-email">
         <input
           type="email"
@@ -48,6 +49,8 @@ export default function Login({ history }) {
           data-testid="email-input"
           onChange={ handleEmail }
           value={ email }
+          className="form-control"
+          placeholder="Email"
         />
       </label>
       <label htmlFor="input-password">
@@ -57,6 +60,8 @@ export default function Login({ history }) {
           data-testid="password-input"
           onChange={ handlePass }
           value={ pass }
+          className="form-control"
+          placeholder="Password"
         />
       </label>
       <button
@@ -64,6 +69,7 @@ export default function Login({ history }) {
         type="submit"
         data-testid="login-submit-btn"
         onClick={ handleClick }
+        className="btn btn-warning text-dark"
       >
         Entrar
       </button>

@@ -28,30 +28,40 @@ export default function Perfil({ history }) {
   return (
     <div>
       <Header titulo={ titulo } />
-      {email2
-        ? (
-          <p data-testid="profile-email">
-            { email2.email }
-          </p>)
-        : <p data-testid="profile-email">email@email.com</p>}
-      <Link to="/receitas-feitas">
-        <button type="button" data-testid="profile-done-btn">
-          Receitas Feitas
+      <div className="container d-flex flex-column">
+        {email2
+          ? (
+            <p data-testid="profile-email" className=" btn btn-warning font-weight-bold align-self-center lead">
+              {`Usuario: ${email2.email}` }
+            </p>)
+          : <p data-testid="profile-email">email@email.com</p>}
+        <Link to="/receitas-feitas">
+          <button
+            className="btn btn-warning form-control mb-3"
+            type="button"
+            data-testid="profile-done-btn"
+          >
+            Receitas Feitas
+          </button>
+        </Link>
+        <Link to="/receitas-favoritas">
+          <button
+            className="btn btn-warning form-control mb-3"
+            type="button"
+            data-testid="profile-favorite-btn"
+          >
+            Receitas Favoritas
+          </button>
+        </Link>
+        <button
+          className="btn btn-warning"
+          type="button"
+          data-testid="profile-logout-btn"
+          onClick={ onClick }
+        >
+          Sair
         </button>
-      </Link>
-      <Link to="/receitas-favoritas">
-        <button type="button" data-testid="profile-favorite-btn">
-          Receitas Favoritas
-        </button>
-      </Link>
-      <button
-        type="button"
-        data-testid="profile-logout-btn"
-        onClick={ onClick }
-      >
-        Sair
-      </button>
-
+      </div>
       <Footer />
     </div>
   );
