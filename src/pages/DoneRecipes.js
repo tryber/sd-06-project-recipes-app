@@ -22,6 +22,8 @@ export default function DoneRecipes() {
     setFilter(target.innerHTML);
   }
 
+  console.log(recipesArray);
+
   return (
     <div>
       <Header title="Receitas Feitas" />
