@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
-import { shareIcon } from '../images/shareIcon.svg';
+import shareIcon from '../images/shareIcon.svg';
 
 function ReceitasFeitas() {
   const [doneRecipes, setdoneRecipes] = useState('');

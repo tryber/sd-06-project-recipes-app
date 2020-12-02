@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { getIngredients } from '../services/mealsAPI';
 import { getIngredientsDrinks } from '../services/drinksAPI';
 import MealsContext from '../context/MealsContext';
@@ -19,6 +19,7 @@ function IngredientsList() {
           const myIngredient = {
             ingredientName: item.strIngredient,
             ingredientThumb: `https://www.themealdb.com/images/ingredients/${item.strIngredient}-Small.png`,
+            redirect: '/comidas',
           };
           return myIngredient;
         });
@@ -28,6 +29,7 @@ function IngredientsList() {
           const myIngredient = {
             ingredientName: item.strIngredient1,
             ingredientThumb: `https://www.thecocktaildb.com/images/ingredients/${item.strIngredient1}-Small.png`,
+            redirect: '/bebidas',
           };
           return myIngredient;
         });
@@ -40,27 +42,31 @@ function IngredientsList() {
   return (
     ingredientsExplorer && ingredientsExplorer.slice(inicio, fim)
       .map((item, index) => (
-        <div
-          data-testid={ `${index}-ingredient-card` }
-          className="ingredient-card"
-          key={ index }
+        <Link
+          to={ `${item.redirect}` }
+          key={ item.ingredientName }
         >
-          {console.log(item)}
-          <div className="img-container">
-            <img
-              src={ item.ingredientThumb }
-              className="card-img"
-              alt="Card"
-              data-testid={ `${index}-card-img` }
-            />
-          </div>
-          <p
-            data-testid={ `${index}-card-name` }
-            className="card-name"
+          <div
+            data-testid={ `${index}-ingredient-card` }
+            className="ingredient-card"
+            key={ index }
           >
-            { item.ingredientName }
-          </p>
-        </div>
+            <div className="img-container">
+              <img
+                src={ item.ingredientThumb }
+                className="card-img"
+                alt="Card"
+                data-testid={ `${index}-card-img` }
+              />
+            </div>
+            <p
+              data-testid={ `${index}-card-name` }
+              className="card-name"
+            >
+              { item.ingredientName }
+            </p>
+          </div>
+        </Link>
       ))
   );
 }
