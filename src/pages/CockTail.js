@@ -1,22 +1,28 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
 import RecipesList from '../components/RecipesList';
 import Footer from '../components/Footer';
-import { addDrinkRecipes,
+import { addDrinkRecipes, addRecipes,
   changeIsFetchin, addDrinkCategories } from '../redux/actions/searchRecipes';
 import useFetch from '../helpers/effects/useFetch';
 import DrinkCategoriesButtons from '../components/DrinkCategoriesButtons';
 
 function CockTail(props) {
   const { history: { location: { pathname } },
-    pageConfig, fetchmap, dispatchRecipes, data,
+    pageConfig,
+    fetchmap,
+    dispatchRecipes,
+    dispatchInitialRecipes,
+    data,
     isFetchin,
     dispatchFetching,
     dispatchCategories,
     drinkRecipes,
     categoriesFilterActive } = props;
+
+  const componentIsMounted = useRef(true);
 
   const { header, recipe } = pageConfig;
   const { title } = header;
@@ -30,13 +36,14 @@ function CockTail(props) {
     dispatchFetching,
     fetchmap,
     recipe,
+    componentIsMounted,
   );
 
   useEffect(() => {
     dispatchCategories();
 
     if (!drinkRecipes || !drinkRecipes.length) {
-      dispatchRecipes();
+      dispatchInitialRecipes();
     }
   }, []);
 
@@ -75,9 +82,12 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  dispatchRecipes: () => dispatch(addDrinkRecipes()),
+  dispatchRecipes: (recipes) => dispatch(addRecipes(recipes)),
   dispatchFetching: (isFetchin) => dispatch(changeIsFetchin(isFetchin)),
   dispatchCategories: (categories) => dispatch(addDrinkCategories(categories)),
+  dispatchInitialRecipes: () => (
+    dispatch(addDrinkRecipes())
+  ),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CockTail);
@@ -94,6 +104,7 @@ CockTail.propTypes = {
   isFetchin: PropTypes.bool.isRequired,
   dispatchCategories: PropTypes.func.isRequired,
   dispatchFetching: PropTypes.func.isRequired,
+  dispatchInitialRecipes: PropTypes.func.isRequired,
   dispatchRecipes: PropTypes.func.isRequired,
   drinkRecipes: PropTypes.arrayOf(PropTypes.any).isRequired,
   pageConfig: PropTypes.shape({
