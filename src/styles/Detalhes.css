@@ -1,0 +1,15 @@
+.btn-footer {
+  position: fixed;
+  bottom: 0px;
+}
+
+.carrossel {
+  width: 100%;
+  overflow: auto;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.carrossel-iten {
+  width: 55%;
+}

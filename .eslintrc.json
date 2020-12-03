@@ -18,6 +18,8 @@
     "semi": ["error", "always"],
     "class-methods-use-this": ["off"],
     "complexity": ["off", 11],
+    "jsx-a11y/label-has-associated-control": "off",
+    "jsx-a11y/label-has-for":"off",
     "no-magic-numbers": [
       "error",
       {

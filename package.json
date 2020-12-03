@@ -12,11 +12,13 @@
     "history": "^5.0.0",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-logger": "^1.1.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "video-react": "^0.14.1",
     "websocket-extensions": ">=0.1.4"
   },
   "scripts": {
@@ -46,7 +48,7 @@
   },
   "devDependencies": {
     "clipboardy": "^2.1.0",
-    "cypress": "^3.7.0",
+    "cypress": "^3.8.3",
     "cypress-multi-reporters": "^1.4.0",
     "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.2.0",

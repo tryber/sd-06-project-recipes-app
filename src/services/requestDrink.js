@@ -1,4 +1,4 @@
-const urlDrink = 'https://www.thecocktaildb.com/api/json/v1/1/';
+export const urlDrink = 'https://www.thecocktaildb.com/api/json/v1/1/';
 
 async function randomRequestApiDrink(urlParameter = '') {
   const url = `${urlDrink}${urlParameter}`;
@@ -8,22 +8,40 @@ async function randomRequestApiDrink(urlParameter = '') {
   return arrayDrink;
 }
 
-export async function requestApiDrinkFilterIngredient(ingredient) {
+export function requestApiDrinkFilterIngredient(ingredient) {
   return randomRequestApiDrink(`filter.php?i=${ingredient}`);
 }
 
-export async function requestApiDrinkFilterName(name) {
+export function requestApiDrinkFilterName(name = '') {
   return randomRequestApiDrink(`search.php?s=${name}`);
 }
 
-export async function requestApiDrinkFilterFirstLetter(firstLetter) {
+export function requestApiDrinkFilterFirstLetter(firstLetter) {
   return randomRequestApiDrink(`search.php?f=${firstLetter}`);
 }
 
-export async function requestApiDrinkDetails(id) {
+export function requestApiDrinkFilterCategories(category) {
+  return randomRequestApiDrink(`filter.php?c=${category}`);
+}
+
+export function requestApiDrinkDetails(id) {
   return randomRequestApiDrink(`lookup.php?i=${id}`);
 }
 
-export async function requestApiDrinkListIngredients() {
+export function requestApiDrinkListCategories() {
+  return randomRequestApiDrink('list.php?c=list');
+}
+
+export function requestApiDrinkListIngredients() {
   return randomRequestApiDrink('list.php?i=list');
+}
+
+export async function recommendDrinksList() {
+  const recomendDrinks = await fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=');
+  const response = await recomendDrinks.json();
+  return response;
+}
+
+export function requestApiDrinkSurprise() {
+  return randomRequestApiDrink('random.php');
 }

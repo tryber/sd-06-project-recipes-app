@@ -83,7 +83,7 @@ Nesse projeto você será capaz de:
 
   <details>
     <summary>Menu inferior</summary>
-  
+
     - [19 - Implemente os elementos do menu inferior respeitando os atributos descritos no protótipo](#19---implemente-os-elementos-do-menu-inferior-respeitando-os-atributos-descritos-no-protótipo)
     - [20 - Posicione o menu inferior de forma fixa e apresente 3 ícones: um para comidas, um para bebidas e outro para exploração](#20---posicione-o-menu-inferior-de-forma-fixa-e-apresente-3-ícones-um-para-comidas-um-para-bebidas-e-outro-para-exploração)
     - [21 - Exiba o menu inferior apenas nas telas indicadas pelo protótipo](#21---exiba-o-menu-inferior-apenas-nas-telas-indicadas-pelo-protótipo)
@@ -98,7 +98,7 @@ Nesse projeto você será capaz de:
     - [25 - Implemente os elementos da tela principal de receitas respeitando os atributos descritos no protótipo](#25---implemente-os-elementos-da-tela-principal-de-receitas-respeitando-os-atributos-descritos-no-protótipo)
     - [26 - Carregue as 12 primeiras receitas de comidas ou bebidas, uma em cada card](#26---carregue-as-12-primeiras-receitas-de-comidas-ou-bebidas-uma-em-cada-card)
     - [27 - Implemente os botões de categoria para serem utilizados como filtro](#27---implemente-os-botões-de-categoria-para-serem-utilizados-como-filtro)
-    - [28 - Implemente o filtro das receitas através da API ao clicar no filtro de categoria](#28---implemente-o-filtro-das-receitas-através-da-api-ao-clicar-no-filtro-de-categoria) 
+    - [28 - Implemente o filtro das receitas através da API ao clicar no filtro de categoria](#28---implemente-o-filtro-das-receitas-através-da-api-ao-clicar-no-filtro-de-categoria)
     - [29 - Implemente o filtro como um toggle, que se for selecionado de novo, o app deve retornar as receitas sem nenhum filtro](#29---implemente-o-filtro-como-um-toggle-que-se-for-selecionado-de-novo-o-app-deve-retornar-as-receitas-sem-nenhum-filtro)
     - [30 - Implemente o filtro de categoria para que apenas um seja selecionado por vez](#30---implemente-o-filtro-de-categoria-para-que-apenas-um-seja-selecionado-por-vez)
     - [31 - Desenvolva o filtro de categorias com a opção de filtrar por todas as categorias](#31---desenvolva-o-filtro-de-categorias-com-a-opção-de-filtrar-por-todas-as-categorias)
@@ -123,7 +123,7 @@ Nesse projeto você será capaz de:
     - [45 - Implemente a lógica no botão de favoritar, caso seja clicado, o ícone do coração deve mudar seu estado atual, caso esteja preenchido deve mudar para "despreenchido" e vice-versa](#45---implemente-a-lógica-no-botão-de-favoritar-caso-seja-clicado-o-ícone-do-coração-deve-mudar-seu-estado-atual-caso-esteja-preenchido-deve-mudar-para-despreenchido-e-vice-versa)
     - [46 - Salve as receitas favoritas no `localStorage` na chave `favoriteRecipes`](#46---salve-as-receitas-favoritas-no-localstorage-na-chave-favoriterecipes)
     </details>
-  
+
   <details>
     <summary>Tela de receita em progresso</summary>
 
@@ -167,7 +167,7 @@ Nesse projeto você será capaz de:
     - [69 - Redirecione a pessoa usuária ao clicar em um dos botões, a rota deve mudar para a página de explorar comidas ou de explorar bebidas](#69---redirecione-a-pessoa-usuária-ao-clicar-em-um-dos-botões-a-rota-deve-mudar-para-a-página-de-explorar-comidas-ou-de-explorar-bebidas)
 
   </details>
-  
+
   <details>
     <summary>Tela de explorar bebidas ou comidas</summary>
 
@@ -621,7 +621,7 @@ No `localStorage` do navegador:
 }
 ```
 
-**Observações técnicas** 
+**Observações técnicas**
 
 * `id-da-bebida` e `id-da-comida` representam o ID de uma bebida e comida, respectivamente, e cada item da lista de ingredientes da respectiva receita deve ser representado apenas pelo número do ingrediente no formato numérico.
 
@@ -737,7 +737,7 @@ Todas as [rotas](#rotas) serão verificadas. Os ícones podem ser encontrados em
 ### 12 - Desenvolva o botão de busca que, ao ser clicado, a barra de busca deve aparecer. O mesmo serve para escondê-la
 
   **Observações técnicas**
-  
+
   * Ao clicar no botão de busca pela primeira vez a barra de busca aparece;
   * Ao clicar no botão de busca pela segunda vez a barra de busca desaparece.
 
@@ -751,7 +751,9 @@ Deve existir os data-testids tanto da barra de busca quanto de todos os radio-bu
 
   * O input de busca deve possuir o atributo `data-testid="search-input"`;
   * O radio button de busca de ingrediente deve possuir o atributo `data-testid="ingredient-search-radio"`;
-  * O radio button de busca da primeira letra deve possuir o atributo `"data-testid="first-letter-search-radio"`.
+  * O radio button de busca por nome deve possuir o atributo `data-testid="name-search-radio"`;
+  * O radio button de busca da primeira letra deve possuir o atributo `data-testid="first-letter-search-radio"`.
+  * O botão de busca deve possuir o atributo `data-testid="exec-search-btn"`
 
 ### 14 - Posicione a barra logo abaixo do header e implemente 3 radio buttons: Ingrediente, Nome e Primeira letra
 
@@ -939,7 +941,7 @@ A verificação será feita a partir dos atributos data-testids:
   * A foto deve possuir o atributo `data-testid="recipe-photo"`;
   * O título deve possuir o atributo `data-testid="recipe-title"`;
   * O botão de compartilhar deve possuir o atributo `data-testid="share-btn"`;
-  * O botão de compartilhar deve possuir o atributo `data-testid="favorite-btn"`;
+  * O botão de favoritar deve possuir o atributo `data-testid="favorite-btn"`;
   * O texto da categoria deve possuir o atributo `data-testid="recipe-category"`;
   * Os ingredientes devem possuir o atributo `data-testid="${index}-ingredient-name-and-measure"`;
   * O texto de instruções deve possuir o atributo `data-testid="instructions"`;
@@ -1048,9 +1050,9 @@ Os ícones dos botões podem ser encontrados em `src/images/whiteHeartIcon.svg` 
   * Favorita a bebida;
   * Desfavorita a bebida.
 
-### 46 - Salve as receitas favoritas no `localStorage` na chave `favoriteRecipes` 
+### 46 - Salve as receitas favoritas no `localStorage` na chave `favoriteRecipes`
 
-  * O formato deve ser `[{ id, type, area, category, alcoholicOrNot, name, image }]`. 
+  * O formato deve ser `[{ id, type, area, category, alcoholicOrNot, name, image }]`.
   * As receitas feitas devem ser salvas em `localStorage` na chave `doneRecipes` no formato `[{ id, type, area, category, alcoholicOrNot, name, image, doneDate, tags }]`.
 
   **Observações técnicas**
@@ -1096,7 +1098,7 @@ Ao clicar no checkbox, o item deve ser riscado, mostrando que esse passo foi fin
   * Verifica se é possível marcar todos os passos da receita de comida;
   * Verifica se é possível marcar todos os passos da receita de bebida.
 
-### 50 - Salve o estado do progresso, que deve ser mantido caso a pessoa atualize a página ou volte para a mesma receita 
+### 50 - Salve o estado do progresso, que deve ser mantido caso a pessoa atualize a página ou volte para a mesma receita
 
 O progresso das receitas devem ser salvos em `localStorage` na chave` inProgressRecipes` no formato especificado na seção [`localStorage`](#localStorage);
 
@@ -1256,11 +1258,11 @@ Os nomes dos botões devem ser "Food", "Drinks" e "All", respectivamente
 
   **Observações técnicas**
 
-  * Tem os data-testids explore-food e explore-drinks. 
+  * Tem os data-testids explore-food e explore-drinks.
 
 ### 68 - Desenvolva a tela de maneira que tenha 2 botões: um para explorar comidas e o outro para explorar bebidas
 
-Verifica se o atributo `data-testid="explore-drinks"` possui o texto "Explorar Comidas" e se o `data-testid="explore-drinks"` possui o texto "Explorar Bebidas".
+Verifica se o atributo `data-testid="explore-food"` possui o texto "Explorar Comidas" e se o `data-testid="explore-drinks"` possui o texto "Explorar Bebidas".
 
   **Observações técnicas**
 
@@ -1296,8 +1298,8 @@ Obs: se a opção escolhida for explorar bebidas, o botão para explorar por loc
 
   **Observações técnicas**
 
-  * Ao clicar no botão "Por Ingredientes" da tela de explorar comidas a rota muda para a página de explorar comidas por ingrediente;
-  * Ao clicar no botão "Explorar Bebidas" da tela de explorar bebidas a rota muda para a página de explorar bebidas por ingrediente.
+  * Ao clicar no botão "Por Ingredientes" da tela de *explorar comidas* a rota muda para a página de explorar comidas por ingrediente;
+  * Ao clicar no botão "Por Ingredientes" da tela de *explorar bebidas* a rota muda para a página de explorar bebidas por ingrediente.
 
 ### 73 - Redirecione a pessoa usuária ao clicar em "Por Local de Origem", a rota deve mudar para tela de explorar por local de origem
 
@@ -1305,8 +1307,8 @@ Obs: se a opção escolhida for explorar bebidas, o botão para explorar por loc
 
   **Observações técnicas**
 
-  * Ao clicar no botão "Por Ingredientes" da tela de explorar comidas a rota muda para a página de detalhes de uma comida aleatória obtida através do endpoint `https://www.themealdb.com/api/json/v1/1/random.php`;
-  * Ao clicar no botão "Explorar Bebidas" da tela de explorar bebidas a rota muda para a página de detalhes de uma bebida aleatória obtida através do endpoint `https://www.thecocktaildb.com/api/json/v1/1/random.php`.
+  * Ao clicar no botão "Por Ingredientes" da tela de *explorar comidas* a rota muda para a página de detalhes de uma comida aleatória obtida através do endpoint `https://www.themealdb.com/api/json/v1/1/random.php`;
+  * Ao clicar no botão "Por Ingredientes" da tela de *explorar bebidas* a rota muda para a página de detalhes de uma bebida aleatória obtida através do endpoint `https://www.thecocktaildb.com/api/json/v1/1/random.php`.
 
 ## Tela de explorar ingredientes
 

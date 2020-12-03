@@ -1,4 +1,4 @@
-const urlFood = 'https://www.themealdb.com/api/json/v1/1/';
+export const urlFood = 'https://www.themealdb.com/api/json/v1/1/';
 
 async function randomRequestApiFood(urlParameter = '') {
   const url = `${urlFood}${urlParameter}`;
@@ -8,30 +8,48 @@ async function randomRequestApiFood(urlParameter = '') {
   return arrayFood;
 }
 
-export async function requestApiFoodFilterIngredient(ingredient) {
+export function requestApiFoodFilterIngredient(ingredient) {
   return randomRequestApiFood(`filter.php?i=${ingredient}`);
 }
 
-export async function requestApiFoodFilterName(name) {
+export function requestApiFoodFilterName(name = '') {
   return randomRequestApiFood(`search.php?s=${name}`);
 }
 
-export async function requestApiFoodFilterFirstLetter(firstLetter) {
+export function requestApiFoodFilterFirstLetter(firstLetter) {
   return randomRequestApiFood(`search.php?f=${firstLetter}`);
 }
 
-export async function requestApiFoodFilterArea(area) {
+export function requestApiFoodFilterArea(area) {
   return randomRequestApiFood(`filter.php?a=${area}`);
 }
 
-export async function requestApiFoodDetails(id) {
+export function requestApiFoodFilterCategories(category) {
+  return randomRequestApiFood(`filter.php?c=${category}`);
+}
+
+export function requestApiFoodDetails(id) {
   return randomRequestApiFood(`lookup.php?i=${id}`);
 }
 
-export async function requestApiFoodListIngredients() {
+export function requestApiFoodListCategories() {
+  return randomRequestApiFood('list.php?c=list');
+}
+
+export function requestApiFoodListIngredients() {
   return randomRequestApiFood('list.php?i=list');
 }
 
-export async function requestApiFoodListArea() {
+export function requestApiFoodListArea() {
   return randomRequestApiFood('list.php?a=list');
+}
+
+export async function recommendFoodsList() {
+  const recomendFoods = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=');
+  const response = await recomendFoods.json();
+  return response;
+}
+
+export function requestApiMealSurprise() {
+  return randomRequestApiFood('random.php');
 }
