@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import FavoriteButton from '../components/FavoriteButton';
 import ShareButton from '../components/ShareButton';
 import {
@@ -12,7 +13,7 @@ import '../css/recipeProgress.css';
 function RecipeInProgress(props) {
   const { fetchId: { Comidas, Bebidas },
     match: { path, params: { id } },
-    location } = props;
+  } = props;
   const [recipeDetail, setRecipeDetail] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [ingredientsItem, setIngredientsItem] = useState([]);
@@ -26,6 +27,7 @@ function RecipeInProgress(props) {
   const [type, setType] = useState();
   const [withLocalStorage, setWithLocalStorage] = useState({});
   const [favoriteResponseModified, setFavoriteResponseModified] = useState();
+  const [isDisable, setIsDisable] = useState(true);
 
   const getIngredientsAndMesures = (object) => {
     const ingredients = filterMatchInKeys(/strIngredient/i, object);
@@ -86,6 +88,12 @@ function RecipeInProgress(props) {
     setCheckedClass(joinObject);
   };
 
+  const disableButton = () => {
+    const allItems = Object.keys(listState);
+    const checked = allItems.every((item) => listState[item] === true);
+    setIsDisable(!checked);
+  };
+
   const saveProgress = () => {
     if (path === '/bebidas/:id/in-progress') {
       localStorage.setItem('inProgressRecipes', JSON.stringify({
@@ -124,6 +132,12 @@ function RecipeInProgress(props) {
   }, [mesuresItem]);
 
   useEffect(() => {
+    if (filterFlag) {
+      saveProgress();
+    }
+  }, [checkedClass]);
+
+  useEffect(() => {
     if (recipeDetail) setIsLoading(false);
     console.log(recipeDetail);
   }, [recipeDetail]);
@@ -147,9 +161,7 @@ function RecipeInProgress(props) {
   }, [isChecked]);
 
   useEffect(() => {
-    if (filterFlag) {
-      saveProgress();
-    }
+    disableButton();
   }, [listState]);
 
   const handleOnClick = (event) => {
@@ -223,7 +235,7 @@ function RecipeInProgress(props) {
       <div>
         <img data-testid="recipe-photo" src={ img } alt={ title } width="150" />
         <h1 data-testid="recipe-title">{title}</h1>
-        <ShareButton location={ location } />
+        <ShareButton type={ type } id={ id } />
         <FavoriteButton recipe={ favoriteResponseModified } id={ id } />
         <h3 data-testid="recipe-category">{category}</h3>
         <h2>Ingredients</h2>
@@ -232,7 +244,15 @@ function RecipeInProgress(props) {
         </ul>
         <h2>Instruction</h2>
         <p data-testid="instructions">{instruction}</p>
-        <button data-testid="finish-recipe-btn" type="button">Finalizar Receita</button>
+        <Link to="/receitas-feitas">
+          <button
+            data-testid="finish-recipe-btn"
+            type="button"
+            disabled={ isDisable }
+          >
+            Finalizar Receita
+          </button>
+        </Link>
       </div>
     );
   };

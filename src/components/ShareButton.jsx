@@ -2,12 +2,17 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import shareIcon from '../images/shareIcon.svg';
 
-function ShareButton() {
+function ShareButton({ type, id }) {
   const [messegeShareLink, setMessegeShareLink] = useState('');
-  // { match: { url } }
-  const shareLinkButton = async () => {
-    // navigator.clipboard.writeText(`http://localhost:3000${RecipeUrl}`);
-    setMessegeShareLink('Link copiado!');
+
+  const shareLinkButton = (idRecipe) => {
+    if (type === 'meals') {
+      navigator.clipboard.writeText(`http://localhost:3000/comidas/${idRecipe}`);
+      setMessegeShareLink('Link copiado!');
+    } else {
+      navigator.clipboard.writeText(`http://localhost:3000/bebidas/${idRecipe}`);
+      setMessegeShareLink('Link copiado!');
+    }
   };
 
   return (
@@ -15,7 +20,7 @@ function ShareButton() {
       <button
         data-testid="share-btn"
         type="button"
-        onClick={ () => shareLinkButton() }
+        onClick={ () => shareLinkButton(id) }
       >
         <img src={ shareIcon } alt="share" />
       </button>
@@ -25,9 +30,8 @@ function ShareButton() {
 }
 
 ShareButton.propTypes = {
-  match: PropTypes.shape({
-    url: PropTypes.string.isRequired,
-  }).isRequired,
+  type: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default ShareButton;
