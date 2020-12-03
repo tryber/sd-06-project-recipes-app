@@ -17,9 +17,9 @@ import './stylesCSS/InitialPages.css';
 import './stylesCSS/PageDetalhada.css';
 import './stylesCSS/ExplorarPages.css';
 import './stylesCSS/ResponsiveApp.css';
-import './stylesCSS/ReceitasDoneFav.css';
 import './stylesCSS/DetalhesResponsive.css';
 import './stylesCSS/RecomendedResponsive.css';
+import './stylesCSS/ReceitasDoneFav.css';
 import ReceitaEmProgresso from './pages/ReceitaEmProgresso';
 
 function App() {

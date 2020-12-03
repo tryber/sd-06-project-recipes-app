@@ -168,9 +168,9 @@ function ListaIngredientesEmProgresso({ recipe, type }) {
   );
 }
 
-export default ListaIngredientesEmProgresso;
-
 ListaIngredientesEmProgresso.propTypes = {
   recipe: propTypes.objectOf(propTypes.string).isRequired,
   type: propTypes.string.isRequired,
 };
+
+export default ListaIngredientesEmProgresso;

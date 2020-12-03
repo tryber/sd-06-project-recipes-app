@@ -53,7 +53,7 @@ function ReceitasFeitas() {
             </button>
           </section>
         </section>
-        <section className="cards-list">
+        <section className="cards-done-fav">
           {isFetching
             ? <p>Nenhuma Receita Feita</p>
             : (

@@ -79,9 +79,9 @@ function IngredientsList({ recipe, type }) {
   );
 }
 
-export default IngredientsList;
-
 IngredientsList.propTypes = {
   recipe: propTypes.objectOf(propTypes.string).isRequired,
   type: propTypes.string.isRequired,
 };
+
+export default IngredientsList;

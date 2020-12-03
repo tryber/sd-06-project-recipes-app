@@ -22,10 +22,10 @@ function ReceitasFeitas() {
     .filter((recipe) => recipe.type === typeByFilter[filter]);
 
   return (
-    <main className="receitas-container">
+    <main className="favoritas-container">
       <Header />
-      <section className="receitas-body">
-        <section className="receitas-filters">
+      <section className="favoritas-body">
+        <section className="favoritas-filters">
           <section className="done-fav-container">
             <button
               data-testid="filter-by-all-btn"
@@ -53,7 +53,7 @@ function ReceitasFeitas() {
             </button>
           </section>
         </section>
-        <section className="cards-list">
+        <section className="cards-done-fav">
           {isFetching && feitas === []
             ? <p>Nenhuma Receita Favorita</p>
             : (

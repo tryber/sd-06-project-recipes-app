@@ -1,4 +1,4 @@
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 812px) {
   .header-icons {
     display: flex;
     flex-direction: row;
@@ -13,7 +13,6 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 50px;
-    overflow: scroll;
     padding: 180px 0;
   }
 

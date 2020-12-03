@@ -15,11 +15,10 @@ function Card({ imagePath, itemName, id, itemType, titlePage, pageType,
   const iconsAccordingPage = (title) => {
     if (title === 'Receitas Favoritas') {
       return (
-        <section className="card-buttons">
+        <section>
           <button
             data-testid={ `${indexId}-horizontal-share-btn` }
             type="button"
-            className="card-share"
             src={ shareIcon }
             onClick={ () => setClipboard(`/${urlByType}/${id}`) }
           >
@@ -29,7 +28,6 @@ function Card({ imagePath, itemName, id, itemType, titlePage, pageType,
           <button
             data-testid={ `${indexId}-${cardType}-favorite-btn` }
             type="button"
-            className="card-fav"
             src={ heartIcon }
           >
             <img src={ heartIcon } alt="compartilhe" />
@@ -38,7 +36,7 @@ function Card({ imagePath, itemName, id, itemType, titlePage, pageType,
       );
     }
     return (
-      <section className="card-buttons">
+      <section>
         <FavoriteShareButtons
           recipeId={ id }
           type={ itemType === 'comidas' ? 'meal' : 'drink' }

@@ -1,12 +1,10 @@
 .receitas-container, .favoritas-container {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 .receitas-body, .favoritas-body {
   align-items: center;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   padding-top: 70px;
@@ -54,6 +52,21 @@
   box-shadow: 1px 2px 4px #2b7869ff;
 }
 
+.cards-done-fav {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100vh;
+  justify-content: space-around;
+}
+
+.cards-done-fav:after {
+  content: "";
+  height: 70px;
+  width: 100%;
+}
+
 @media only screen and (max-width: 812px) {
   .receitas-container, .favoritas-container {
     box-sizing: border-box;
@@ -66,7 +79,6 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    overflow: scroll;
     padding-top: 70px;
   }
   
