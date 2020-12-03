@@ -1,0 +1,13 @@
+.SearchBar {
+    background-color:gold;
+    font-family: 'Fredoka One', cursive;
+}
+.SearchBar button {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2px;
+}
+.SearchBar input {
+    background-color: white;
+    border-radius: 10px;
+}

@@ -45,7 +45,7 @@ function HeaderFood() {
   };
 
   return (
-    <div className="header-container">
+    <div className="Header">
       <Link to="/perfil">
         <img
           data-testid="profile-top-btn"
@@ -62,6 +62,7 @@ function HeaderFood() {
         src={ searchIcon }
         alt="search"
       /> : null}
+      <br />
       { showBar ? <SearchBar /> : null}
     </div>
   );

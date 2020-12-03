@@ -3,7 +3,6 @@ import FetchApiFood from '../services/FetchApiFood';
 
 import RecipesContext from '../context/RecipesContext';
 
-import '../styles/mainFoodCard.css';
 
 function MainFoodCard() {
   const {
