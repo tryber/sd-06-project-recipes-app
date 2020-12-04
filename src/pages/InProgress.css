@@ -1,0 +1,24 @@
+.body-recipe {
+  position: relative;
+  width: 360px;
+  height: 550px;
+  background: #FFFFFF;
+  text-align: center;
+}
+
+.recipe-img {
+  width: 360px;
+}
+
+.start-recipe-btn {
+  bottom: 0px;
+  position: fixed;
+}
+
+button {
+  margin-top: 20px;
+}
+
+.ingredient-checkbox:checked + label {
+  text-decoration: line-through;
+}

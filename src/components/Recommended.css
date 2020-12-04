@@ -1,0 +1,22 @@
+.cards-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.recipe-card {
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.329);
+  border-radius: 10px;
+  box-shadow: 5px 4px 14px -4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 200px;
+  margin: 10px;
+  width: 150px;
+}
+
+.card-img {
+  width: 120px;
+}

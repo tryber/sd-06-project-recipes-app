@@ -1,0 +1,13 @@
+.fav-card {
+  border: solid 1px;
+  width: 360px;
+}
+
+.fav-img {
+  height: 50px;
+  width: 50px;
+}
+
+.favorite-filters {
+  margin-left: 130px;
+}

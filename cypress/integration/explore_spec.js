@@ -19,7 +19,7 @@ describe('68 - Desenvolva a tela de maneira que tenha 2 botões: um para explora
 });
 
 
-describe('69 - Redirecione a pessoa usuária ao clicar em um dos botões, a rota deve mudar para a página de explorar comidas ou de explorar bebidas', () => {
+describe.only('69 - Redirecione a pessoa usuária ao clicar em um dos botões, a rota deve mudar para a página de explorar comidas ou de explorar bebidas', () => {
   it('Os nomes dos botões devem ser "Explorar Comidas" e "Explorar Bebidas"', () => {
     cy.visit('http://localhost:3000/explorar');
 

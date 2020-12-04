@@ -1,0 +1,11 @@
+.body-perfil {
+  position: relative;
+  width: 360px;
+  height: 550px;
+  background: #FFFFFF;
+  text-align: center;
+}
+
+button {
+  margin-top: 20px;
+}
