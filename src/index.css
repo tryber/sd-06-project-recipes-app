@@ -5,9 +5,103 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+}
+.link-copy {
+  font-size: 0.6em;
+}
+
+.card {
+  margin: 0.5%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: white;
+  width: 48%;
+}
+
+.food-details {
+  width: 95%;
+  margin: 10px;
+  text-align: justify;
+  font-size: 1.5em;
+}
+
+.pictureDetail {
+  width: 100%;
+}
+
+.bodier {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+.categories {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 1.5em;
+  margin: 10px;
+}
+
+.categ-buttons {
+  background-color: rgb(57, 58, 58);
+  color: white;
+}
+
+.search-bar {
+  font-size: 1.2em;
+}
+
+
+
+.text {
+  background-color: rgb(70, 59, 59);
+  padding: 5px;
+  width: 100%;
+  color: white;
+  border-radius: 10px;
+}
+
+.mini-card {
+  text-align: center;
+}
+
+.mini-picture {
+  border-radius: 30px;
+  width: 170px;
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(184,175,184,1);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(184,175,184,1);
+  box-shadow: 0px 3px 5px 0px rgba(184,175,184,1);
+  margin: 5px;
+}
+
+.recomended {
+  display: flex;
+  font-size: 1em;
+  overflow-x: scroll;
+}
+
+.picture {
+  border-radius: 30px;
+  max-width: 85%;
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(184,175,184,1);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(184,175,184,1);
+  box-shadow: 0px 3px 5px 0px rgba(184,175,184,1);
+  margin-bottom: 10px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.text-area {
+  opacity: .01;
+  height:0;
+  position:absolute;
+  z-index: -1;
 }

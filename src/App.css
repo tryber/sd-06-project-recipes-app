@@ -10,6 +10,62 @@
   color: #464646;
 }
 
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.button-favorite {
+  border: 0px;
+  background-color: transparent;
+}
+
+.button-favorite:focus{
+  outline-style: none;
+}
+.done-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.search-button {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+}
+
+.bodier p {
+  color: black;
+}
+
+.bodier span {
+  color: black;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(204, 203, 203);
+  padding: 10px;
+  font-size: 1.8em;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(204, 203, 203);
+  padding: 10px;
+  font-size: 1.8em;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
 #rocksGlass {
   max-height: 80vh;
   animation: shake 1s infinite ease;
