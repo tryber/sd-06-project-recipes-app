@@ -1,0 +1,83 @@
+:root {
+  --input-colorr: rgba(223, 217, 217, 0.904);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@media (max-width: 640px) {
+  body {
+    background-attachment: fixed;
+    /* background-image: url("../../images/style/recipes-background.jpg"); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+  }
+
+  .login-container {
+    align-items: center;
+    background-color: rgb(217, 227, 231, 0.7);
+    border-radius: 10%;
+    display: flex;
+    height: 250px;
+    flex-direction: column;
+    margin: 25% auto;
+    width: 60%;
+  }
+  
+  .login-container div {
+    margin: 10px 0;
+  }
+
+  .login-input {
+    background-position: -200px 0;
+    background-repeat: no-repeat;
+    background-size: 200px 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #1abc9c 4%);
+    border-bottom: solid 1px #1abc9c;
+    border: none;
+    color: darken(#1abc9c, 20%);
+    display: block;
+    font-size: 14px;
+    padding: 20px 0;
+    transition: all 0.3s cubic-bezier(.64, .09, .08, 1);
+    width: 200px;
+  }
+
+  .login-input:focus:valid {
+    background-position: 0 0;
+    box-shadow: none;
+    font-size: 14px;
+    outline: none;
+    font-weight: 700;
+  }
+
+  .login-input::placeholder {
+    color: var --input-color;
+    font-size: 16px;
+  }
+
+  .login-input:focus::placeholder {
+    color: #1abc9c;
+    transform: translateY(-20px);
+  }
+
+  .submit-button {
+    background: #1abc9c;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+    color: grey;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 20px;
+    padding: 6px;
+    width: 200px;
+  }
+
+  .submit-button:hover {
+    box-shadow: 0 6px 6px 0 rgba(0,0,0,0.2);
+    transform: translateY(-3px);
+  }
+}
