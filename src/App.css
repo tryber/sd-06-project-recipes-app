@@ -60,3 +60,138 @@
     transform: rotate(-10deg);
   }
 }
+
+.loading {
+  align-items: center;
+  display: grid;
+  justify-content: center;
+  margin: auto;
+  margin-top: 50px;
+  width: 85%;
+}
+
+.loading-text {
+  width: auto;
+}
+
+.recipes-page {
+  align-items: center;
+  background-color: rgb(230,230,230);
+  justify-content: center;
+  margin: auto;
+  width: 85%;
+}
+
+.categories {
+  display: grid;
+  /* grid-template-columns: repeat(auto-fit, minmax(30px, auto)); */
+  justify-content: center;
+  margin: auto;
+  width: auto;
+}
+
+.header {
+  align-items: center;
+  background-color: orangered;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.btn-header {
+  background-color: orangered;
+  border:none;
+}
+
+.searchBar {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+  width: 100%;
+}
+
+.footerComponent {
+  position: fixed;
+  bottom: 0;
+}
+
+.inputForm {
+  display: flex;
+  justify-content: space-around;
+  margin-right: 10px;
+  width: 100%;
+}
+
+.radioBtns {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-right: 10px;
+  margin-top: 8px;
+  width: 50%;
+}
+
+.btnForm {
+  display: flex;
+  margin-top: 8px;
+  width: 20%;
+}
+
+.login-center {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.category-button {
+  background-color: rgb(240,240,240);
+  margin-top: 25px;
+  padding: 5px;
+  width: auto;
+}
+
+.recipes-section {
+  align-items: center;
+  display: grid;
+  flex-direction: unset;
+  grid-template-columns: repeat(auto-fit, minmax(270px, auto));
+  justify-content: center;
+  margin: auto;
+  width: 90%;
+}
+
+.recipe-card {
+  background-color: rgb(240,240,240);
+  border-radius: 8%;
+  height: 250px;
+  margin: 10px;
+  position: relative;
+  width: 250px;
+}
+
+.recipe-card .recipe-name {
+  bottom: 10px;
+  color: rgb(240,240,240);
+  font-size: x-large;
+  left: 10px;
+  margin: 0 auto;
+  position: absolute;
+  right: 10px;
+  -webkit-text-stroke: 1px rgb(40, 40, 40);
+  z-index: 999;
+
+}
+
+.recipe-thumb {
+  border-radius: inherit;
+}
+
+.selected {
+  text-decoration: line-through;
+  }
+  

@@ -1,0 +1,26 @@
+.button-container {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+}
+
+.start-recipe {
+  position: fixed;
+  bottom: 0px;
+}
+
+.recommendation-container {
+  max-width: 500px;
+  margin-bottom: 50px;
+}
+.scroller {
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  display: flex;
+}
+.recommendation-card {
+  min-width: 100%;
+  min-height: 200px;
+  scroll-snap-align: center;
+  margin: 2px;
+}

@@ -604,7 +604,7 @@ describe('46 - Salve as receitas favoritas no `localStorage` na chave `favoriteR
           type: 'bebida',
           area: '',
           category: 'Cocktail',
-          alcoholicOrNot:  'Alcoholic',
+          alcoholicOrNot: 'Alcoholic',
           name: 'Aquamarine',
           image: 'https://www.thecocktaildb.com/images/media/drink/zvsre31572902738.jpg',
         },
