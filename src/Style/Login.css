@@ -1,0 +1,73 @@
+.login-container {
+  align-items: center;
+  background-color: rgba(41, 41, 41, 1);
+  font-family: 'Cinzel Decorative', cursive;
+  display: flex;
+  flex-direction: column;
+  height: 657px;
+  justify-content: center;
+}
+
+header {
+  position: absolute;
+  width: 191px;
+  height: 81px;
+  left: 84px;
+  top: 79px;
+}
+
+h1 {
+  color: #FFFFFF;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 81px;
+  text-align: center;  
+}
+
+.chef-img {
+  position: absolute;
+  width: 155px;
+  height: 155px;
+  left: 102px;
+  top: 221px;
+}
+
+input {
+  background: #D3494E;
+  border-radius: 193px;
+  color: rgba(255, 255, 255, 0.51);
+  font-family: 'Cinzel Decorative', cursive;
+  position: absolute;
+}
+
+.email-input {
+  width: 248px;
+  height: 46px;
+  left: 51px;
+  top: 463px;
+}
+
+.password-input {
+  width: 162px;
+  height: 46px;
+  left: 51px;
+  top: 533px;
+}
+
+.login-container button {
+  position: absolute;
+  width: 53px;
+  height: 53px;
+  left: 236px;
+  top: 530px;
+  border-radius: 36px;
+
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+}
+
+.arrow-img {
+  width: 30px;
+}

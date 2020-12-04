@@ -1,0 +1,43 @@
+.header {
+  position: absolute;
+  width: 360px;
+  height: 72px;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  justify-content: space-around;
+
+  background: #D3494E;
+  border-radius: 0px 0px 36px 36px;
+}
+
+.header img {
+  margin-top: 15px;
+  align-self: center;
+}
+
+.page-title {
+  font-family: 'Cinzel Decorative', cursive;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 40px;
+  align-self: center;
+
+  color: #FFFFFF;
+}
+
+.button-search {
+  align-self: center;
+  background-color: #D3494E;
+  border-width: 0;
+  border-style: none;
+  border-image: none;
+  border-radius: 15px;
+  height: 69px;
+  text-decoration: none;
+  outline: none;
+}
+
+.show {display:block}
+.hide {display:none}

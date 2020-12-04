@@ -1,4 +1,12 @@
-#meals {
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap');
+
+body {
+  height: 667px;
+  width: 357px;
+  background-color: rgba(41, 41, 41, 1);
+}
+
+.meals {
   height: 100vh;
   width: 100%;
   background: #0fa36b;

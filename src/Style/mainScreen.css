@@ -1,0 +1,47 @@
+.filter-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 360px;
+  height: 80px;
+  margin-top: 70px;
+  align-items: center;
+  background-color: rgba(41, 41, 41, 1);
+}
+
+.filter-button {
+  height: 27px;
+  border-radius: 13.5px;
+  margin: 5px;
+}
+
+.recipes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: rgba(41, 41, 41, 1);
+  width: 360px;
+}
+
+.card-container {
+  background: #FEE6B3;
+  border-radius: 17px;
+  width: 30%;
+  margin-bottom: 15px;
+}
+
+.card-container img {
+  width: 80%;
+  margin-bottom: 10px;
+  border-radius: 36px;
+}
+
+.details-link {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-size: 12px;
+  font-family: 'Cinzel Decorative', cursive;
+}
