@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import copy from 'clipboard-copy';
 import ReceitasContext from '../context/ReceitasContext';
+import DrinksCard from '../components/DrinksCard';
 import Header from '../components/Header';
 import { drinkAPI } from '../services/drinkAPI';
 import { fetchFoodAPI } from '../services/foodAPI';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
-import share from '../images/shareIcon.svg';
 import '../style/Detalhes.css';
 import load from '../images/load.png';
 import '../style/Loading.css';
@@ -49,7 +49,6 @@ function DetalhesComida(props) {
       const favoriteRecipes = JSON.parse(
         localStorage.getItem('favoriteRecipes'),
       );
-      console.log(favoriteRecipes);
 
       if (!favoriteRecipes || !favoriteRecipes.length) {
         setIsFavorite(false);
@@ -196,120 +195,62 @@ function DetalhesComida(props) {
     <section>
       <Header title="Detalhes Comidas" />
       {fetchById.map((meal, index) => (
-        <div className="detail-container" key={ index }>
-          <div className="detail-card">
+        <div key={ index }>
+          <img data-testid="recipe-photo" src={ meal.strMealThumb } width="200" alt="" />
+          <h2 data-testid="recipe-title">{meal.strMeal}</h2>
+          <div>
+            <button data-testid="share-btn" type="button" onClick={ copyToCB }>
+              Compartilhar
+            </button>
+            {copied ? 'Link copiado!' : null}
+          </div>
+          <button type="button" onClick={ () => setFavorite(meal.idMeal) }>
             <img
-              data-testid="recipe-photo"
-              src={ meal.strMealThumb }
-              width="40%"
-              alt="recipe"
-              className="rounded"
+              data-testid="favorite-btn"
+              id="favorite-img"
+              src={ !isFavorite ? whiteHeartIcon : blackHeartIcon }
+              alt=""
             />
-            <h3 data-testid="recipe-title">{ meal.strMeal }</h3>
-            <div className="detail-btn my-2">
-              <button
-                className="btn"
-                data-testid="share-btn"
-                type="button"
-                onClick={ copyToCB }
-              >
-                <img src={ share } alt="" />
-              </button>
-              {copied ? 'Link copiado!' : null}
-              <button
-                className="btn"
-                type="button"
-                onClick={ () => setFavorite(meal.idMeal) }
-              >
-                <img
-                  data-testid="favorite-btn"
-                  id="favorite-img"
-                  src={ !isFavorite ? whiteHeartIcon : blackHeartIcon }
-                  alt=""
-                />
-              </button>
-            </div>
-            <div className="container justify-content-center">
-              <div className="text-center">
-                <h5 data-testid="recipe-category">{ meal.strCategory }</h5>
-                <hr className="card-hr" />
-                <h5>Ingredientes</h5>
-                <div className="flex-wrap d-flex">
-                  {getIngredients(meal, /strIngredient/).map((item, indx) => {
-                    const measure = getIngredients(meal, /strMeasure/);
-                    return (
-                      <p
-                        className="col-6"
-                        key={ indx }
-                        data-testid={ `${indx}-ingredient-name-and-measure` }
-                      >
-                        {`- ${item} - ${measure[indx]} `}
-                      </p>
-                    );
-                  }) }
-                </div>
-                <h5 className="mt-3">Instructions</h5>
-                <p
-                  className="text-justify"
-                  data-testid="instructions"
-                >
-                  { meal.strInstructions }
-                </p>
-                <iframe
-                  data-testid="video"
-                  src={ meal.strYoutube.replace('watch?v=', 'embed/') }
-                  title="frame"
-                />
-                <div className="row mb-3">
-                  <div className="col">
-                    <h5>Recomendadas</h5>
-                    <div className="carousel">
-                      {drinks
-                        .filter((_, indx) => indx < seis)
-                        .map((drink, i) => (
-                          <div
-                            key={ i }
-                            data-testid={ `${i}-recomendation-card` }
-                          >
-                            <div className="card">
-                              <img
-                                src={ drink.strDrinkThumb }
-                                className="card-img-top"
-                                alt={ drink.strDrink }
-                              />
-                              <div className="card-body">
-                                <p className="card-subtitle text-muted">
-                                  {drink.strAlcoholic}
-                                </p>
-                                <h5
-                                  data-testid={ `${i}-recomendation-title` }
-                                  className="card-title text-center fonte"
-                                >
-                                  {drink.strDrink}
-                                </h5>
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                    </div>
+          </button>
+          <p data-testid="recipe-category">{meal.strCategory}</p>
+          {getIngredients(meal, /strIngredient/).map((item, indx) => {
+            const measure = getIngredients(meal, /strMeasure/);
+            return (
+              <p key={ indx } data-testid={ `${indx}-ingredient-name-and-measure` }>
+                {`- ${item} - ${measure[indx]} `}
+              </p>
+            );
+          })}
+          <p data-testid="instructions">{meal.strInstructions}</p>
+          <iframe
+            data-testid="video"
+            src={ meal.strYoutube.replace('watch?v=', 'embed/') }
+            title="frame"
+          />
+          <h4>Receitas Recomendadas</h4>
+          <div className="carousel">
+            {drinks
+              .filter((_, indx) => indx < seis)
+              .map((drink, i) => (
+                <div key={ i } data-testid={ `${i}-recomendation-card` }>
+                  <div data-testid={ `${i}-recomendation-title` }>
+                    <DrinksCard key={ drink } drink={ drink } index={ i } />
                   </div>
                 </div>
-              </div>
-            </div>
-            {!doneRecipes.includes(meal.idMeal) && (
-              <Link to={ `/comidas/${meal.idMeal}/in-progress` }>
-                <button
-                  className="btn btn-block fixed-bottom"
-                  style={ { background: '#7850B8', color: 'white' } }
-                  data-testid="start-recipe-btn"
-                  type="button"
-                  onClick={ () => startRecipe(meal.idMeal) }
-                >
-                  {!startedRecipes ? 'Iniciar Receita' : verifyState(meal.idMeal)}
-                </button>
-              </Link>
-            )}
+              ))}
           </div>
+          {!doneRecipes.includes(meal.idMeal) && (
+            <Link to={ `/comidas/${meal.idMeal}/in-progress` }>
+              <button
+                className="start-recipe-btn btn btn-block btn-success fixed-bottom"
+                data-testid="start-recipe-btn"
+                type="button"
+                onClick={ () => startRecipe(meal.idMeal) }
+              >
+                {!startedRecipes ? 'Iniciar Receita' : verifyState(meal.idMeal)}
+              </button>
+            </Link>
+          )}
         </div>
       ))}
     </section>

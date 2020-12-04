@@ -1,21 +1,10 @@
 .loading {
   animation:spin 4s linear infinite;
-  margin-top: 60%;
-  width: 80px;
-}
-
-@media (min-width: 700px) {
-  .loading {
-    margin-top: 25%;
-    width: 100px;
-  }
+  margin-top: 30%;
 }
 
 @keyframes spin { 100% { transform:rotate(360deg); } }
 
 html, body {
   background-color:lightgoldenrodyellow;
-  /* background-image: url('../images/bg3.jpg');
-  background-size: cover;
-  background-repeat: no-repeat; */
 }
