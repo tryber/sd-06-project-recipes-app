@@ -1,26 +1,26 @@
 import React from 'react';
 import { fireEvent, waitForElement } from '@testing-library/react';
 import renderWithRouter from '../services/renderWithRouter';
-// import Foods from '../pages/Foods';
+import Foods from '../pages/Foods';
 import App from '../App';
 import * as API from '../services/index';
 import foodsOnRender from './mocks/foodsOnRender';
-// import meals from '../../cypress/mocks/meals';
+import mockedFetch from '../../cypress/mocks/fetch';
 
 describe('Testar a tela de detalhes de comidas', () => {
   it('Verifica se ao clicar em uma comida ela redireciona para os detalhes', async () => {
     const { getByTestId, history } = renderWithRouter(<App />);
-    beforeEach(() => {
-      history.push('/comidas');
+    jest.spyOn(global, 'fetch').mockImplementation(mockedFetch);
+    history.push('/comidas');
+    expect(history.location.pathname).toBe('/comidas');
+    await waitForElement(() => {
+      const element = getByTestId('0-card-img');
+      expect(element).toBeInTheDocument();
     });
-    jest.spyOn(API, 'foodsOnRender').mockImplementation(() => foodsOnRender.meals);
-    const firstCard = await waitForElement(() => {
-      console.log(history.location.pathname);
-      getByTestId('0-card-img');
-    });
-    expect(firstCard).toBeInTheDocument();
-    fireEvent.click(firstCard);
-    expect(history.location.pathname).toBe('/comidas/52977');
+
+    // fireEvent.click(element);
+    // expect(history.location.pathname).toBe('/comidas/52977');
+    // console.log(history.location.pathname);
   });
   // it('Verifica se os elementos de detalhe estão na tela', async () => {
   //   const { getByTestId, history } = renderWithRouter(<App />);
