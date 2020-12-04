@@ -1,0 +1,14 @@
+body {
+  height: 640px;
+  position: relative;
+  width: 360px;
+}
+
+.food {
+  background-color: #f5f5f5;
+  border: 1px solid #cecccc;
+  height: 640px;
+  width: 360px;
+}
+
+/* font-family: 'Montserrat', sans-serif; */

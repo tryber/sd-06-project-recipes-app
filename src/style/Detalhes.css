@@ -1,0 +1,37 @@
+.container-details {
+  position: relative;
+}
+
+.container-details img{
+  width: 200px;
+}
+
+.container-details .icons {
+  width: 25px;
+}
+
+.start-recipe {
+  background: #6CE34F;
+  width: 20%;
+  padding: 10px;
+  position: fixed;
+  bottom: 0px;
+}
+
+.cards {
+  min-width: 420px;
+  margin: auto;
+}
+
+.scroller {
+  overflow-x: scroll;
+  display: flex;
+  /* scroll-snap-type: x mandatory; */
+}
+
+.card {
+  min-width: 50%;
+  min-height: 100px;
+  background-color: #EDF2F7;
+  /* scroll-snap-align: center; */
+}
