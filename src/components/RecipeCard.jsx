@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './recipeCard.css';
 import { Link } from 'react-router-dom';
+import './recipeCard.css';
 
 const RecipeCard = ({ recipeName, recipeImage, id, foodOrDrink, index }) => (
   <Link to={ `${foodOrDrink}/${id}` }>

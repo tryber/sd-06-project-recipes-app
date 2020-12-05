@@ -39,7 +39,7 @@ function App() {
           <Route exact path="/explorar" component={ Explorar } />
           <Route exact path="/explorar/comidas" component={ Explorer } />
           <Route exact path="/explorar/bebidas" component={ Explorer } />
-          <Route exact path="/receitas-feitas" component={ ReceitasFeitas } />
+          <Route exact path="/receitas-feitas" component={ DoneRecipes } />
           <Route exact path="/receitas-favoritas" component={ ReceitasFavoritas } />
           <Route exact path="/perfil" component={ Perfil } />
 

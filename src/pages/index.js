@@ -1,4 +1,5 @@
 export { default as MainPage } from './MainPage';
+export { default as DoneRecipes } from './DoneRecipes';
 export { default as Explorar } from './Explorar';
 export { default as Login } from './Login';
 export { default as Perfil } from './Perfil';

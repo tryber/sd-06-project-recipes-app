@@ -39,7 +39,6 @@ function RecipeDetails(
   useEffect(() => {
     checkSavedRecipe(recipe, setdisableButton);
     checkRecipeInProgress(path, recipe, setWasStarted);
-    setIsFav(checkFavoriteRecipe(id));
   }, [recipe]);
 
   return (
