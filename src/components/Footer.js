@@ -5,7 +5,7 @@ import '../style/Footer.css';
 
 function Footer() {
   return (
-    <div className="footer" data-testid="footer">
+    <footer data-testid="footer">
       <Link to="/bebidas">
         <button
           className="button-drink"
@@ -36,7 +36,7 @@ function Footer() {
       </Link>
       <Link to="/comidas">
         <button
-          className="button-food"
+          className="button-meal"
           data-testid="food-bottom-btn"
           type="button"
           src={ mealIcon }
@@ -48,7 +48,7 @@ function Footer() {
           />
         </button>
       </Link>
-    </div>
+    </footer>
   );
 }
 

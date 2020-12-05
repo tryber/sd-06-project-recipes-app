@@ -1,0 +1,38 @@
+body {
+  background-color: #272c35;
+}
+
+.loading {
+  animation: rotate .4s linear infinite;
+  align-items: center;
+  align-content: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: auto;
+  margin-top: 150px;
+  width: 50px;
+  z-index: 80;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  25% {
+    transform: rotate(90deg)
+  }
+
+  50% {
+    transform: rotate(180deg)
+  }
+
+  75% {
+    transform: rotate(270deg)
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
+}

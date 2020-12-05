@@ -1,3 +1,164 @@
+.button-recipes {
+  align-items: center;
+  align-content: center;
+  background-color: #272c35;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin-top: 70px;
+  padding: 15px 0px;
+  width: 100%;
+  z-index: 100;
+}
+
+.button-recipes button {
+  border: none;
+  border-radius: 50%;
+  color: #272c35;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14pt;
+  font-weight: 700;
+  height: 75px;
+  width: 75px; 
+}
+
+.button-recipes button:hover {
+  cursor: pointer;
+}
+
+.button-drink {
+  background-color: #f1e510;
+}
+
+.button-drink:hover {
+  background-color: #e4cd03;
+}
+
+.button-all {
+  background-color: #b6b6b1;
+}
+
+.button-all:hover {
+  background-color: #92928f;
+}
+
+.button-meal {
+  background-color: #fac001;
+}
+
+.button-meal:hover {
+  background-color: #e9b304;
+}
+
+.recipes-cards  {
+  padding: 0px 0px 0px;
+  width: 100%;
+}
+
+.recipes-card {
+  align-items: center;
+  align-content: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.recipes-card span {
+  align-items: center;
+  align-content: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin-top: 50px;
+  width: 250px;
+}
+
 .receipe-img {
-  width: 200px;
+  border-radius: 25% 25% 25% 0%;
+  cursor: pointer;
+  width: 100%;
+}
+
+.receipe-icon {
+  align-items: flex-start;
+  align-content: flex-start;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  height: 40px;
+  margin: -5px;
+  padding: 5px 0px;
+  width: 250px;
+}
+
+.receipe-icon button {
+  height: 30px;
+  margin: 2px;
+  padding: 2px;
+  width: 30px;
+}
+
+.receipe-icon img {
+  width: 20px !important;
+}
+
+.receipe-icon p {
+  color: #272c35;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10pt;
+}
+
+.title-recipes-card {
+  align-items: center;
+  align-content: center;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  width: 300px;
+}
+
+.title-recipes-card h1 {
+  color: #272c35 !important; 
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16pt !important;
+  font-weight: 900;
+  margin: 0;
+  text-align: center;
+}
+
+.title-recipes-card a {
+  text-decoration: none !important;
+}
+
+.title-recipes-card a:hover {
+  text-decoration: none !important;
+}
+
+.title-recipes-card p {
+  color: #272c35 !important; 
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12pt !important;
+  margin: 0;
+}
+
+.recipes-card h1 {
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20pt;
+  font-weight: 900;
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .button-recipes {
+    position: fixed;
+  }
+
+  .recipes-cards  {
+    padding: 150px 0px 0px;
+    width: 100%;
+  }
 }

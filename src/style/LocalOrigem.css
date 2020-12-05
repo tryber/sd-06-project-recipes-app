@@ -1,0 +1,11 @@
+.explore-by-area {
+  margin-top: 75px;
+}
+
+.explore-by-area select {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16pt;
+  margin-top: -5px;
+  position: fixed;
+  width: 100%;
+}

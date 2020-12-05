@@ -1,54 +1,36 @@
-body {
-  height: 640px;
-  position: relative;
-  width: 360px;
-}
-
-.explore {
-  background-color: #f5f5f5;
-  border: 1px solid #cecccc;
-  height: 640px;
-  width: 360px;
-}
-
-.div-buttons{
+.div-buttons {
   align-items: center;
+  align-content: center;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   margin: auto;
-  margin-top: 50%;
+  margin-top: 200px;
 }
 
-.button-drink-page {
-  background-color: #fffb00;
+.div-buttons button {
   border: none;
   border-radius: 5px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 16pt;
   height: 40px;
   margin: auto;
   margin-top: 10px;
-  width: 305px;
+  width: 285px;
+}
+
+.button-drink-page {
+  background-color: #fffb00;
 }
 
 .button-drink-page:hover {
-  background-color: #ece802;
+  background-color: #f6eb11;
   cursor: pointer;
 }
 
 .button-food-page {
   background-color: #fac001;
-  border: none;
-  border-radius: 5%;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  height: 40px;
-  margin: auto;
-  margin-top: 5px;
-  width: 305px;
 }
 
 .button-food-page:hover {
@@ -58,15 +40,6 @@ body {
 
 .button-ingredient {
   background-color: #4fd401;
-  border: none;
-  border-radius: 5%;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  height: 40px;
-  margin: auto;
-  margin-top: 5px;
-  width: 305px;
 }
 
 .button-ingredient:hover {
@@ -76,15 +49,6 @@ body {
 
 .button-area {
   background-color: #02bbdb;
-  border: none;
-  border-radius: 5%;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  height: 40px;
-  margin: auto;
-  margin-top: 5px;
-  width: 305px;
 }
 
 .button-area:hover {
@@ -94,15 +58,6 @@ body {
 
 .button-surprise {
   background-color: #bd0165;
-  border: none;
-  border-radius: 5%;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  height: 40px;
-  margin: auto;
-  margin-top: 5px;
-  width: 305px;
 }
 
 .button-surprise:hover {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header, Footer, RecipesCards } from '../components';
-import '../style/Bebidas.css';
+import '../style/ComidaBebida.css';
 
 function Bebidas() {
   return (

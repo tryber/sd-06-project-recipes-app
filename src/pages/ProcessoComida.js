@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import useCopyToClipboard from '../hooks/useCopyToClipboard';
-import { shareIcon, whiteHeartIcon, blackHeartIcon } from '../images';
-import '../style/Processo.css';
+import { shareIcon, whiteHeartIcon, blackHeartIcon, loading } from '../images';
+import '../style/DetalheProcesso.css';
 
 function ProcessoComida() {
   const timeoutTextCopy = 3000;
@@ -14,16 +14,6 @@ function ProcessoComida() {
   const [checked, setChecked] = useState([]);
   const history = useHistory();
   const idMeal = history.location.pathname.split('/')[2];
-
-  useEffect(() => {
-    async function fetchAPI() {
-      const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`);
-      const responseJson = await response.json();
-      setDataMeal(responseJson.meals[0]);
-      setIsLoading(false);
-    }
-    fetchAPI();
-  }, [idMeal]);
 
   useEffect(() => {
     if (localStorage.favoriteRecipes) {
@@ -43,7 +33,14 @@ function ProcessoComida() {
         }
       }
     } else setChecked([]);
-  }, []);
+    async function fetchAPI() {
+      const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`);
+      const responseJson = await response.json();
+      setDataMeal(responseJson.meals[0]);
+      setIsLoading(false);
+    }
+    fetchAPI();
+  }, [idMeal]);
 
   const handleChange = (target, index) => {
     if (target.checked) {
@@ -82,12 +79,12 @@ function ProcessoComida() {
     } else {
       setIsDisable(true);
     }
-  }, [checked]);
+  }, [checked, dataMeal, idMeal]);
 
   const handleClick = () => {
     setIsFavorite(!isFavorite);
+    let favoriteRecipes = [];
     if (!isFavorite) {
-      let favoriteRecipes = [];
       if (localStorage.favoriteRecipes) {
         favoriteRecipes = JSON.parse(localStorage.favoriteRecipes);
       }
@@ -101,7 +98,9 @@ function ProcessoComida() {
         image: dataMeal.strMealThumb,
       }]);
     } else {
-      localStorage.removeItem('favoriteRecipes');
+      favoriteRecipes = JSON.parse(localStorage.favoriteRecipes)
+        .filter(({ id }) => id !== dataMeal.idMeal);
+      localStorage.favoriteRecipes = JSON.stringify(favoriteRecipes);
     }
   };
 
@@ -125,75 +124,102 @@ function ProcessoComida() {
     }]);
   };
 
-  return (isLoading) ? <p>Loading</p> : (
-    <div className="container-progress">
+  return (isLoading) ? <img className="loading" src={ loading } alt="loading" /> : (
+    <div className="container-details-progress">
       <img
+        className="img-details-progress"
         data-testid="recipe-photo"
         src={ dataMeal.strMealThumb }
         alt="Foto da receita"
-        className="food-image"
       />
-      <h1 data-testid="recipe-title">{ dataMeal.strMeal }</h1>
-      <span>
-        <button
-          type="button"
-          data-testid="share-btn"
-          onClick={ () => handleCopy(`/comidas/${idMeal}`) }
-        >
-          <img
-            src={ shareIcon }
-            alt="Botão de Compartilhar"
-          />
-        </button>
-        { isCopied ? <p>Link copiado!</p> : true }
-      </span>
-      <button
-        type="button"
-        onClick={ handleClick }
-      >
-        <img
-          data-testid="favorite-btn"
-          src={ isFavorite ? blackHeartIcon : whiteHeartIcon }
-          alt="Botão de Favorito"
-        />
-      </button>
-      <p data-testid="recipe-category">
-        Categoria
-      </p>
-      { Object.keys(dataMeal)
-        .filter((keys) => keys.includes('Ingredient'))
-        .map((ingredient, index) => {
-          if (dataMeal[ingredient] !== '' && dataMeal[ingredient] !== null) {
-            return (
-              <div
-                key={ index }
-                data-testid={ `${index}-ingredient-step` }
-              >
-                <input
-                  type="checkbox"
-                  name={ dataMeal[ingredient] }
-                  checked={ checked.includes(index) }
-                  onChange={ ({ target }) => { handleChange(target, index); } }
-                />
-                { dataMeal[ingredient] }
-              </div>
-            );
-          }
-          return '';
-        }) }
-      <p data-testid="instructions">
-        Instruções
-      </p>
-      <Link to="/receitas-feitas">
-        <button
-          type="button"
-          data-testid="finish-recipe-btn"
-          disabled={ isDisable }
-          onClick={ saveDoneRecipes }
-        >
-          Finalizar Receita
-        </button>
-      </Link>
+      <div className="div-header">
+        <div className="div-icon">
+          <button
+            type="button"
+            onClick={ handleClick }
+          >
+            <img
+              data-testid="favorite-btn"
+              src={ isFavorite ? blackHeartIcon : whiteHeartIcon }
+              alt="Botão de Favorito"
+            />
+          </button>
+          <button
+            type="button"
+            data-testid="share-btn"
+            onClick={ () => handleCopy(`/comidas/${idMeal}`) }
+          >
+            <img
+              src={ shareIcon }
+              alt="Botão de Compartilhar"
+            />
+          </button>
+          { isCopied ? <span className="copy">Link copiado!</span> : true }
+        </div>
+        <div className="div-title">
+          <h1 className="h1" data-testid="recipe-title">
+            { dataMeal.strMeal }
+          </h1>
+        </div>
+      </div>
+      <div className="div-recipes">
+        <h2 data-testid="recipe-category">
+          Categoria
+        </h2>
+        { Object.keys(dataMeal)
+          .filter((keys) => keys.includes('Ingredient'))
+          .map((ingredient, index) => {
+            if (dataMeal[ingredient] !== '' && dataMeal[ingredient] !== null) {
+              return (
+                <div
+                  key={ index }
+                  data-testid={ `${index}-ingredient-step` }
+                  className="container-checkbox"
+                >
+                  <label htmlFor={ `check${index}` }>
+                    <input
+                      id={ `check${index}` }
+                      type="checkbox"
+                      name={ dataMeal[ingredient] }
+                      checked={ checked.includes(index) }
+                      // hidden={true}
+                      onChange={ ({ target }) => { handleChange(target, index); } }
+                    />
+                    <span className="checkmark">{ dataMeal[ingredient] }</span>
+                  </label>
+                </div>
+              );
+            }
+            return '';
+          }) }
+        <h2 data-testid="instructions">
+          Instruções
+        </h2>
+        <p>{ dataMeal.strInstructions }</p>
+      </div>
+      <div className="buttons-footer">
+        <div>
+          <Link to="/comidas">
+            <button
+              className="back"
+              type="button"
+            >
+              Ver Outras Receitas
+            </button>
+          </Link>
+          <Link to="/receitas-feitas">
+            <button
+              className="finish-recipe"
+              type="button"
+              data-testid="finish-recipe-btn"
+              disabled={ isDisable }
+              onClick={ saveDoneRecipes }
+            >
+              Finalizar Receita
+            </button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }
