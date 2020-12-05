@@ -6,8 +6,8 @@ import {
 
 const INITIAL_STATE = {
   id: '',
-  ingredients: [],
-  isLoading: false,
+  ingredients: ['Chicken'],
+  isLoading: true,
 };
 
 function exploreReducer(state = INITIAL_STATE, action) {
@@ -20,10 +20,11 @@ function exploreReducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         id: action.ingredients[0].idMeal || action.ingredients[0].idDrink,
+        isLoading: false,
       };
     }
 
-    return { ...state, ingredients: action.ingredients };
+    return { id: '', ingredients: action.ingredients, isLoading: false };
   }
   case RESET_ID:
     return { ...state, id: '' };

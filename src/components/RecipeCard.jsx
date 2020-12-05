@@ -1,11 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { clearState } from '../redux/actions/mainPageFetcher';
 import './recipeCard.css';
 
-const RecipeCard = ({ recipeName, recipeImage, id, foodOrDrink, index }) => (
-  <Link to={ `${foodOrDrink}/${id}` }>
-    <div data-testid={ `${index}-recipe-card` } className="recipe-card">
+const RecipeCard = ({ recipeName, recipeImage, id, foodOrDrink, index, limpar }) => (
+  <Link to={ `${foodOrDrink}/${id}` } onClick={ () => limpar() }>
+    <div data-testid={ `${index}-recipe-card` }>
+      {
+        console.log(recipeImage)
+      }
       <img
         data-testid={ `${index}-card-img` }
         className="smallIMG"
@@ -19,7 +24,12 @@ const RecipeCard = ({ recipeName, recipeImage, id, foodOrDrink, index }) => (
   </Link>
 );
 
+const mapDispatchToProps = (dispatch) => ({
+  limpar: () => dispatch(clearState()),
+});
+
 RecipeCard.propTypes = {
+  limpar: PropTypes.func.isRequired,
   recipeName: PropTypes.string.isRequired,
   recipeImage: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
@@ -27,4 +37,4 @@ RecipeCard.propTypes = {
   index: PropTypes.number.isRequired,
 };
 
-export default RecipeCard;
+export default connect(null, mapDispatchToProps)(RecipeCard);

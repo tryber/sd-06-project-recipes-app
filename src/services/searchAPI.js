@@ -1,4 +1,4 @@
-function formatInput(input) {
+export function formatInput(input) {
   const str = input.replace(/\s+/g, '_').toLowerCase();
   return str;
 }

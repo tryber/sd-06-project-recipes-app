@@ -5,8 +5,24 @@ export const SUCCESS_INGREDIENTS = 'SUCCESS_INGREDIENTS';
 export const ERROR_INGREDIENTS = 'ERROR_INGREDIENTS';
 export const RESET_ID = 'RESET_ID';
 
-function successIngredients(data) {
-  const ingredients = data.meals || data.drinks;
+export function successIngredients(data) {
+  const processing = data.meals || data.drinks;
+  let ingredients = [];
+
+  if (processing) {
+    const maxLength = 12;
+    const increment = 1;
+    const zero = 0;
+    const lengthLimit = processing.length > maxLength ? maxLength : processing.length;
+    for (let i = zero; i < lengthLimit; i += increment) {
+      ingredients.push(processing[i]);
+    }
+    ingredients = ingredients.map((ingredient) => (
+      ingredient.strIngredient || ingredient.strIngredient1
+    ));
+  } else {
+    ingredients = null;
+  }
 
   return {
     type: SUCCESS_INGREDIENTS,
