@@ -584,7 +584,6 @@ describe('46 - Salve as receitas favoritas no `localStorage` na chave `favoriteR
           image: 'https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg',
         },
       ];
-
       expect(favoriteRecipes).to.deep.eq(expectedFavoriteRecipes);
     });
   });

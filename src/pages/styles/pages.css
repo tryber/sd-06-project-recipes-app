@@ -1,0 +1,9 @@
+.iniciar-receita {
+  position: fixed;
+  bottom: 0px;
+};
+
+.riscado {
+  text-decoration: line-through;
+  /* text-decoration: none solid rgb(0, 0, 0); */
+}
