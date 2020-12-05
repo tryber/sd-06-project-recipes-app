@@ -1,0 +1,33 @@
+/* single recipe */
+
+.start-recipe-btn {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.recipe-details-page > img {
+  height: 10vh;
+}
+
+.recommendations-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  row-gap: 20px;
+  column-gap: 10px;
+  overflow-x: auto;
+  margin: 30px 0 0;
+}
+
+.recommendations-container a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.recommendations-container a img {
+  height: 10vh;
+  width: 60vw;
+  object-fit: cover;
+}

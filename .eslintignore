@@ -1,3 +1,6 @@
 src/App.test.js
-src/serviceWorker.js 
+src/serviceWorker.js
 cypress/*
+cpverage/*
+
+src/fakes/*

@@ -1,0 +1,103 @@
+.profile-page {
+  min-height: 100vh;
+}
+
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 80vh;
+
+  padding: 40px 20px;
+}
+
+.profile-content .user-info-container {
+  text-align: center;
+}
+
+.user-info-container h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.user-info-container h2 img {
+  height: 30px;
+  margin-right: 12px;
+}
+
+
+.profile-content a {
+  background-color: rgb(127, 196, 121);
+  width: 220px;
+  height: 50px;
+  border-radius: 5px;
+  padding: 4px;
+  color: #fff;
+  font-size: 18px;
+
+  display: flex;
+  align-items: center;
+
+  transition: background-color 0.2s;
+}
+
+.profile-content a:hover {
+  background-color: rgba(127, 196, 121, 0.857);
+}
+
+.profile-content a svg {
+  margin: 0 12px;
+}
+
+.profile-page .logout-container {
+  display: flex;
+  width: 220px;
+
+}
+
+.profile-page .profile-content button {
+  width: 220px;
+  height: 50px;
+  border-radius: 0 5px 5px 0;
+  border: none;
+  background-color: #ef4438;
+  color: #fff;
+  padding: 4px;
+
+  font-size: 18px;
+
+  transition: background-color 0.2s;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-page .profile-content button:hover {
+  background-color: #d03f35;
+}
+
+.profile-page .logout-container .logout-icon {
+  height: 50px;
+  border-radius: 5px 0 0 5px;
+  border: none;
+  background-color: #ef4438;
+  color: #fff;
+  padding: 4px 4px 4px 10px;
+
+  font-size: 18px;
+
+  transition: background-color 0.2s;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-page .logout-container svg {
+  font-size: 18px;
+  transform: rotateY(180deg);
+}

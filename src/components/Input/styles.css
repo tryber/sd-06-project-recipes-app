@@ -1,0 +1,42 @@
+.input-container {
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  padding: 0 12px;
+  background-color: white;
+  border: 2px solid white;
+}
+
+.input-container + div {
+  margin-top: 12px;
+}
+
+.input-container svg {
+  color: #534f5f;
+  margin-right: 12px;
+}
+
+.input-container.has-error {
+  border-color: #ff872c;
+}
+
+.input-container.has-focus {
+  border-color: #c53030;
+
+}
+
+.input-container.has-focus svg {
+  color: #c53030;
+}
+
+.input-container.has-text svg {
+  color: #c53030;
+}
+
+.custom-input {
+  width: 100%;
+  border-radius: 5px;
+  padding: 12px;
+  border: none;
+  outline: none;
+}

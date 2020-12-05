@@ -1,0 +1,15 @@
+.app-nav-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: space-between;
+
+  border-top: 1px solid black;
+  padding: 8px;
+  background-color: white;
+
+  z-index: 9999;
+}
