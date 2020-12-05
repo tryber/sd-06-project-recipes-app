@@ -11,7 +11,8 @@ import MealInProgress from './pages/InProgress/MealInProgres';
 import DrinkInProgress from './pages/InProgress/DrinkInProgres';
 import MainExploreFood from './pages/MainExplore/MainExploreFood';
 import MainExploreDrink from './pages/MainExplore/MainExploreDrink';
-import ExploreIngredients from './pages/ExploreIngredients/ExploreIngredients';
+import MealsIngredients from './pages/ExploreIngredients/MealsIngredients';
+import DrinksIngredients from './pages/ExploreIngredients/DrinksIngredients';
 import ExploreByArea from './pages/ExploreByArea/ExploreByArea';
 import CompletedRecipes from './pages/CompletedRecipes/CompletedRecipes';
 import FavoritesRecipes from './pages/FavoriteRecipes/FavoriteRecipes';
@@ -33,8 +34,8 @@ function App() {
         <Route exact path="/explorar" component={ ExplorePage } />
         <Route exact path="/explorar/comidas" component={ MainExploreFood } />
         <Route exact path="/explorar/bebidas" component={ MainExploreDrink } />
-        <Route path="/explorar/comidas/ingredientes" component={ ExploreIngredients } />
-        <Route path="/explorar/bebidas/ingredientes" component={ ExploreIngredients } />
+        <Route path="/explorar/comidas/ingredientes" component={ MealsIngredients } />
+        <Route path="/explorar/bebidas/ingredientes" component={ DrinksIngredients } />
         <Route exact path="/explorar/comidas/area" component={ ExploreByArea } />
         <Route exact path="/receitas-feitas" component={ CompletedRecipes } />
         <Route exact path="/receitas-favoritas" component={ FavoritesRecipes } />
