@@ -1,12 +1,38 @@
-/* nav {
+.header {
+  align-items: center;
+  align-content: center;
+  background-color: #960051;
+  top: 0px;
   display: flex;
-  justify-content: space-between;
-  background-color: grey;
-  padding: 0 15px;
-} */
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  height: 70px;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
 
-.searchButton {
-  background-color: grey;
+.header h1 {
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20pt;
+  font-weight: 700;
+  text-align: center;
+}
+
+.header button {
+  background-color: #960051;
   border: none;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+.header button:hover {
+  background-color: #b6b6b1;
   cursor: pointer;
+}
+
+.header-logo {
+  width: 50px;
 }

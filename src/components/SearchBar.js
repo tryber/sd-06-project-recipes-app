@@ -2,8 +2,9 @@ import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import RecipesContext from '../context/RecipesContext';
+import '../style/SearchBar.css';
 
-function SearchBar({ title, searchBar }) {
+function SearchBar({ title, searchBar, setSearchBar }) {
   const { data, setData } = useContext(RecipesContext);
   const [inputRecipe, setInputRecipe] = useState('');
   const [radioValue, setRadioValue] = useState('i');
@@ -32,6 +33,7 @@ function SearchBar({ title, searchBar }) {
   };
 
   const searchFood = async () => {
+    setSearchBar(false);
     if (title === 'Comidas') {
       if (radioValue === 'i') {
         const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${inputRecipe}`);
@@ -86,7 +88,7 @@ function SearchBar({ title, searchBar }) {
   return (
     searchBar
     && (
-      <div>
+      <div className="searchBar">
         <input
           value={ inputRecipe }
           onChange={ ({ target: { value } }) => { setInputRecipe(value); } }
@@ -94,36 +96,38 @@ function SearchBar({ title, searchBar }) {
           type="text"
           placeholder="Buscar Receita"
         />
-        <label htmlFor="radioIngrediente">
-          <input
-            data-testid="ingredient-search-radio"
-            type="radio"
-            id="radioIngrediente"
-            name="search"
-            onClick={ () => { setRadioValue('i'); } }
-          />
-          Ingrediente
-        </label>
-        <label htmlFor="radioNome">
-          <input
-            type="radio"
-            id="radioNome"
-            name="search"
-            onClick={ () => { setRadioValue('s'); } }
-            data-testid="name-search-radio"
-          />
-          Nome
-        </label>
-        <label htmlFor="radioLetra">
-          <input
-            data-testid="first-letter-search-radio"
-            type="radio"
-            id="radioLetra"
-            name="search"
-            onClick={ () => { setRadioValue('f'); } }
-          />
-          Primeira Letra
-        </label>
+        <div>
+          <label htmlFor="radioIngrediente">
+            <input
+              data-testid="ingredient-search-radio"
+              type="radio"
+              id="radioIngrediente"
+              name="search"
+              onClick={ () => { setRadioValue('i'); } }
+            />
+            Ingrediente
+          </label>
+          <label htmlFor="radioNome">
+            <input
+              type="radio"
+              id="radioNome"
+              name="search"
+              onClick={ () => { setRadioValue('s'); } }
+              data-testid="name-search-radio"
+            />
+            Nome
+          </label>
+          <label htmlFor="radioLetra">
+            <input
+              data-testid="first-letter-search-radio"
+              type="radio"
+              id="radioLetra"
+              name="search"
+              onClick={ () => { setRadioValue('f'); } }
+            />
+            Primeira Letra
+          </label>
+        </div>
         <button
           data-testid="exec-search-btn"
           onClick={ searchFood }
@@ -138,6 +142,7 @@ function SearchBar({ title, searchBar }) {
 SearchBar.propTypes = {
   title: PropTypes.string.isRequired,
   searchBar: PropTypes.bool.isRequired,
+  setSearchBar: PropTypes.func.isRequired,
 };
 
 export default SearchBar;

@@ -1,19 +1,17 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import useCopyToClipboard from '../hooks/useCopyToClipboard';
-import RecipesContext from '../context/RecipesContext';
-import { shareIcon, whiteHeartIcon, blackHeartIcon } from '../images';
-import '../style/Processo.css';
+import { shareIcon, whiteHeartIcon, blackHeartIcon, loading } from '../images';
+import '../style/DetalheProcesso.css';
 
 function ProcessoBebida() {
   const timeoutTextCopy = 3000;
-  const { drinkIngredients } = useContext(RecipesContext);
   const [isCopied, handleCopy] = useCopyToClipboard(timeoutTextCopy);
   const [dataDrinks, setDataDrinks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isFavorite, setIsFavorite] = useState(false);
   const [isDisable, setIsDisable] = useState(true);
-  const [checked, setChecked] = useState({});
+  const [checked, setChecked] = useState([]);
   const history = useHistory();
   const idDrink = history.location.pathname.split('/')[2];
 
@@ -44,9 +42,6 @@ function ProcessoBebida() {
         setChecked([]);
       }
     } else setChecked([]);
-  }, []);
-
-  useEffect(() => {
     async function fetchAPI() {
       const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${idDrink}`);
       const responseJson = await response.json();
@@ -83,12 +78,16 @@ function ProcessoBebida() {
     } else {
       setIsDisable(true);
     }
-  }, [checked]);
+  }, [checked, dataDrinks, idDrink]);
 
   const handleClick = () => {
     setIsFavorite(!isFavorite);
+    let favoriteRecipes = [];
     if (!isFavorite) {
-      localStorage.favoriteRecipes = JSON.stringify([{
+      if (localStorage.favoriteRecipes) {
+        favoriteRecipes = JSON.parse(localStorage.favoriteRecipes);
+      }
+      localStorage.favoriteRecipes = JSON.stringify([...favoriteRecipes, {
         id: dataDrinks.idDrink,
         type: 'bebida',
         area: '',
@@ -98,75 +97,128 @@ function ProcessoBebida() {
         image: dataDrinks.strDrinkThumb,
       }]);
     } else {
-      localStorage.removeItem('favoriteRecipes');
+      favoriteRecipes = JSON.parse(localStorage.favoriteRecipes)
+        .filter(({ id }) => id !== dataDrinks.idDrink);
+      localStorage.favoriteRecipes = JSON.stringify(favoriteRecipes);
     }
   };
 
-  return (isLoading) ? <p>Loading</p> : (
-    <div className="container-progress">
+  const saveDoneRecipes = () => {
+    const date = new Date();
+    const doneDate = date;
+    let doneRecipes = [];
+    if (localStorage.doneRecipes) {
+      doneRecipes = JSON.parse(localStorage.doneRecipes);
+    }
+    localStorage.doneRecipes = JSON.stringify([...doneRecipes, {
+      id: dataDrinks.idDrink,
+      type: 'bebida',
+      area: '',
+      category: dataDrinks.strCategory,
+      alcoholicOrNot: dataDrinks.strAlcoholic,
+      name: dataDrinks.strDrink,
+      image: dataDrinks.strDrinkThumb,
+      doneDate,
+      tags: [],
+    }]);
+  };
+
+  return (isLoading) ? <img className="loading" src={ loading } alt="loading" /> : (
+    <div className="container-details-progress">
       <img
+        className="img-details-progress"
         data-testid="recipe-photo"
         src={ dataDrinks.strDrinkThumb }
         alt="Foto da receita"
-        className="food-image"
       />
-      <h1
-        data-testid="recipe-title"
-      >
-        { dataDrinks.strDrink }
-      </h1>
-      <span>
-        <button
-          type="button"
-          data-testid="share-btn"
-          onClick={ () => handleCopy(`/bebidas/${idDrink}`) }
-        >
-          <img
-            src={ shareIcon }
-            alt="Botão de Compartilhar"
-          />
-        </button>
-        { isCopied ? <p>Link copiado!</p> : true }
-      </span>
-      <button
-        type="button"
-        onClick={ handleClick }
-      >
-        <img
-          data-testid="favorite-btn"
-          src={ isFavorite ? blackHeartIcon : whiteHeartIcon }
-          alt="Botão de Favorito"
-        />
-      </button>
-      <p data-testid="recipe-category">
-        Categoria
-      </p>
-      {drinkIngredients.map((ingredient, index) => (
-        <span
-          key={ index }
-          data-testid={ `${index}-ingredient-step` }
-        >
-          {ingredient }
-          <input
-            type="checkbox"
-            name={ ingredient }
-            checked={ checked.includes(index) }
-            onChange={ ({ target }) => { handleChange(target, index); } }
-          />
-        </span>
-      )) }
-      <p data-testid="instructions">
-        Instruções
-      </p>
-      <Link to="/receitas-feitas">
-        <button
-          type="button"
-          data-testid="finish-recipe-btn"
-          disabled={ isDisable }
-        >
-          Finalizar Receita
-        </button>
-      </Link>
+      <div className="div-header">
+        <div className="div-icon">
+          <button
+            type="button"
+            onClick={ handleClick }
+          >
+            <img
+              data-testid="favorite-btn"
+              src={ isFavorite ? blackHeartIcon : whiteHeartIcon }
+              alt="Botão de Favorito"
+            />
+          </button>
+          <button
+            type="button"
+            data-testid="share-btn"
+            onClick={ () => handleCopy(`/bebidas/${idDrink}`) }
+          >
+            <img
+              src={ shareIcon }
+              alt="Botão de Compartilhar"
+            />
+          </button>
+          { isCopied && <span className="copy">Link copiado!</span> }
+        </div>
+        <div className="div-title">
+          <h1 data-testid="recipe-title">
+            { dataDrinks.strDrink }
+          </h1>
+        </div>
+      </div>
+      <div className="div-recipes">
+        <h2 data-testid="recipe-category">
+          Categoria
+        </h2>
+        { Object.keys(dataDrinks)
+          .filter((keys) => keys.includes('Ingredient'))
+          .map((ingredient, index) => {
+            if (dataDrinks[ingredient] !== '' && dataDrinks[ingredient] !== null) {
+              return (
+                <div
+                  key={ index }
+                  data-testid={ `${index}-ingredient-step` }
+                  className="container-checkbox"
+                >
+                  <label htmlFor={ `check${index}` }>
+                    <input
+                      id={ `check${index}` }
+                      type="checkbox"
+                      name={ dataDrinks[ingredient] }
+                      checked={ checked.includes(index) }
+                      // hidden={true}
+                      onChange={ ({ target }) => { handleChange(target, index); } }
+                    />
+                    <span className="checkmark">{ dataDrinks[ingredient] }</span>
+                  </label>
+                </div>
+              );
+            }
+            return '';
+          }) }
+        <h2 data-testid="instructions">
+          Instruções
+        </h2>
+        <p>{ dataDrinks.strInstructions }</p>
+      </div>
+      <div className="buttons-footer">
+        <div>
+          <Link to="/receitas-feitas">
+            <button
+              className="finish-recipe"
+              type="button"
+              data-testid="finish-recipe-btn"
+              disabled={ isDisable }
+              onClick={ saveDoneRecipes }
+            >
+              Finalizar Receita
+            </button>
+          </Link>
+          <Link to="/bebidas">
+            <button
+              className="back"
+              type="button"
+            >
+              Ver Outras Receitas
+            </button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

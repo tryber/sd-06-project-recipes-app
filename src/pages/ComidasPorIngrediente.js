@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Redirect } from 'react-router-dom';
 import { Footer, Header } from '../components';
 import RecipesContext from '../context/RecipesContext';
+import '../style/PorIngrediente.css';
 
 function ComidasPorIngrediente() {
   const [ingredientsMeal, setIngredientsMeal] = useState([]);
@@ -42,27 +43,31 @@ function ComidasPorIngrediente() {
   if (redirect) return <Redirect to="/comidas" />;
 
   return (
-    <div>
+    <div className="ingredient">
       <Header title="Explorar Ingredientes" />
-      { ingredientsMeal.map((ingredients, index) => (
-        <button
-          key={ ingredients.strIngredient }
-          type="button"
-          data-testid={ `${index}-ingredient-card` }
-          onClick={ () => clickOn(ingredients.strIngredient) }
-        >
-          <img
-            data-testid={ `${index}-card-img` }
-            src={ `https://www.themealdb.com/images/ingredients/${ingredients.strIngredient}-Small.png` }
-            alt={ ingredients.strIngredient }
-          />
-          <p
-            data-testid={ `${index}-card-name` }
-          >
-            { ingredients.strIngredient }
-          </p>
-        </button>
-      )) }
+      <div className="ingredient-cards">
+        <div className="ingredient-card">
+          { ingredientsMeal.map((ingredients, index) => (
+            <button
+              key={ ingredients.strIngredient }
+              type="button"
+              data-testid={ `${index}-ingredient-card` }
+              onClick={ () => clickOn(ingredients.strIngredient) }
+            >
+              <img
+                data-testid={ `${index}-card-img` }
+                src={ `https://www.themealdb.com/images/ingredients/${ingredients.strIngredient}-Small.png` }
+                alt={ ingredients.strIngredient }
+              />
+              <p
+                data-testid={ `${index}-card-name` }
+              >
+                { ingredients.strIngredient }
+              </p>
+            </button>
+          )) }
+        </div>
+      </div>
       <Footer />
     </div>
   );

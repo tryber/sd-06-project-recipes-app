@@ -1,0 +1,347 @@
+.container-details-progress {
+  background-color: #f5f5f5;
+  width: 100%;
+}
+
+.img-details-progress {
+  width: 100%;
+}
+
+.div-header {
+  background-color: #272c35;
+  color: #ffffff;
+  margin-top: -5px;
+  width: 100% !important;
+}
+
+.div-icon {
+  height: 30px;
+}
+
+.div-icon button {
+  height: 30px;
+  margin: 2px;
+  padding: 1px;
+  width: 30px;
+  z-index: 100;
+}
+
+.div-icon img {
+  width: 20px;
+}
+
+.div-icon p {
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10pt;
+  font-weight: 700;
+  left: 70px;
+  top: -40px;
+  position: relative;
+}
+
+.div-title {
+  align-items: center;
+  align-content: center;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.div-title h1 {
+  color: #ffffff !important; 
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20pt !important;
+  font-weight: 900;
+  margin: 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.div-title p {
+  color: #ffffff !important;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16pt !important;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.div-recipes {
+  align-items: flex-start !important;
+  align-content: flex-start !important;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start !important;
+  margin: auto;
+  margin-bottom: 100px !important;
+  width: 100% !important;
+}
+
+.div-recipes h2{
+  color: #272c35 !important; 
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16pt !important;
+  margin-left: 30px;
+  width: 90% !important;
+}
+
+.div-recipes p, 
+.div-recipes ul {
+  color: #272c35 !important; 
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14pt !important;
+  margin-left: 30px;
+  width: 90% !important;
+}
+
+.container-checkbox {
+  color: #272c35 !important;
+  cursor: pointer;
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14pt;
+  margin-bottom: 12px;
+  margin-left: 30px;
+  position: relative;
+  padding-left: 35px;
+}
+
+/* Desabilitar para passar no teste e habilitar para arrumar o layout
+.container-checkbox input {
+  display: none; 
+}  
+*/
+/* Create a custom checkbox - using ::before */
+.checkmark::before {
+  content: "";
+  height: 25px;
+  width: 25px;
+  background-color: #e2dfdf;
+  position: absolute;
+  left:0;
+  top:0;
+}
+/* On mouse-over, add a grey background color */
+.container-checkbox:hover input~.checkmark::before {
+  background-color: #cfcccc;
+}
+
+.container-checkbox input:checked~.checkmark::before {
+  background-color: #960051;
+}
+
+.container-checkbox input:checked~.checkmark:after {
+  display: block;
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+  content: "";
+  position: absolute;
+}
+
+.container-checkbox input:checked~.checkmark {
+  text-decoration: line-through !important;
+}
+
+.video {
+  align-items: center !important;
+  align-content: center !important;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center !important;
+  width: 100%
+}
+
+.cards {
+  align-items: center;
+  align-content: center;
+  background-color: #272c35;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  padding: 20px 0px;
+  width: 100%;
+}
+
+.scroller {
+  align-items: center;
+  align-content: center;
+  background-color: #272c35;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.card {
+  align-items: center;
+  align-content: center;
+  background-color: #272c35;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 45%;
+}
+
+.card img{
+  border-radius: 25%;
+  border-bottom-left-radius: 0%;
+  width: 100%;
+}
+
+.card h2 {
+  background-color: #f5f5f5;
+  color: #272c35;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14pt !important;
+  font-weight: 700;
+  margin-left: -1px;
+  margin-top: -5px;
+  padding: 2% 0;
+  text-align: center;
+  width: 100% !important;
+}
+
+.card a {
+  text-decoration: none !important;
+}
+
+.card a:hover {
+  text-decoration: none !important;
+}
+
+.invisible {
+  display: none;
+}
+
+.div-buttons-scroller {
+  align-items: center !important;
+  align-content: center !important;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center !important;
+  width: 100%
+}
+
+.div-buttons-scroller button{
+  background-color: #272c35;
+  border: none;
+  border-radius: 50%;
+  padding: 3px 6px;
+  margin: 2%;
+}
+
+.div-buttons-scroller button:hover{
+  background-color: #3d424d;
+  cursor: pointer;
+}
+
+.div-buttons-scroller img{
+  width: 40px;
+}
+
+.buttons-footer {
+  display: flex;
+  justify-content: center;
+  background-color: #960051;
+  bottom: 0px;
+  height: 100px;
+  position: fixed;
+  width: 100%;
+}
+
+.buttons-footer div {
+  align-items: center;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
+.buttons-footer button{
+  border: none;
+  border-radius: 5px;
+  bottom: 0px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16pt;
+  font-weight: 700;
+  height: 40px;
+  margin-top: 5px;
+  width: 300px;
+}
+
+.start-recipe,
+.finish-recipe {
+  background-color: #272c35;
+  color: #ffffff;
+}
+
+/* Desabilitar para arrumar o layout e habilitar para passar no teste */
+.start-recipe,
+.finish-recipe {
+  position: fixed;
+}
+
+.start-recipe:disabled,
+.finish-recipe:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: pointer;
+}
+
+.back {
+  background-color: #f5f5f5;
+}
+
+.back:hover {
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+  .img-details-progress{
+    margin-top: 150px;
+    position: fixed;
+    right: 0;
+    width: 50%;
+    z-index: 50;
+  }
+
+  .div-header {
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 50% !important;
+  }
+  
+  .buttons-footer {
+    background-color: #960051;
+    bottom: 0px;
+    height: 100px;
+    position: fixed;
+    right: 0;
+    width: 50%;
+    z-index: 100;
+  }
+
+  .div-recipes {
+    align-items: flex-start !important;
+    align-content: flex-start !important;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start !important;
+    margin-left: 0;
+    width: 50% !important;
+  }  
+
+  .cards {
+    margin: auto;
+    width: 400px;
+  }
+}

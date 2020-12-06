@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Header, Footer } from '../components';
 import RecipesMealsCards from '../components/RecipesMealsCards';
 import RecipesContext from '../context/RecipesContext';
+import '../style/LocalOrigem.css';
 
 function ComidasPorLocalOrigem() {
   const [areas, setAreas] = useState([]);
@@ -34,7 +35,7 @@ function ComidasPorLocalOrigem() {
   }, []);
 
   return (
-    <div>
+    <div className="explore-by-area">
       <Header title="Explorar Origem" />
       <select
         data-testid="explore-by-area-dropdown"
