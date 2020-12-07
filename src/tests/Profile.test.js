@@ -1,55 +1,76 @@
 import React from 'react';
-import { fireEvent, screen } from '@testing-library/react';
+import { screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderWithRouter from './helpers/renderWithRouter';
 import App from '../App';
 
 describe('Profile page tests', () => {
-  beforeAll(() => {
-    renderWithRouter(<App />);
+  beforeEach(async () => {
+    const { history } = renderWithRouter(<App />);
     const email = screen.getByTestId('email-input');
     const senha = screen.getByTestId('password-input');
     const button = screen.getByTestId('login-submit-btn');
     userEvent.type(email, 'alguem@email.com');
     userEvent.type(senha, '1234567');
     userEvent.click(button);
+    let path = history.location.pathname;
+    await expect(path).toBe('/comidas');
+    const profileBtn = screen.getByTestId('profile-top-btn');
+    userEvent.click(profileBtn);
+    path = history.location.pathname;
+    await expect(path).toBe('/perfil');
   });
 
-  beforeEach(() => {
+  afterEach(async () => {
+    const { history } = renderWithRouter(<App />);
+    history.push('/');
+    await expect(history.location.pathname).toBe('/');
+  });
+
+  it('verify the title page', async () => {
     renderWithRouter(<App />);
-    const profileBtn = screen.getAllByTestId('profile-top-btn');
-    fireEvent.click(profileBtn[0]);
+    await expect(screen.getByTestId('page-title').innerHTML).toBe('Perfil');
   });
 
-  it('verify the title page', () => {
-    renderWithRouter(<App />);
-    expect(screen.getAllByTestId('page-title')[0].innerHTML).toBe('Perfil');
-  });
-
-  it('verify the email', () => {
+  it('verify the email', async () => {
     renderWithRouter(<App />);
     const userEmail = JSON.parse(localStorage.getItem('user'));
-    expect(screen.getAllByTestId('profile-email')[0].innerHTML).toBe(userEmail.email);
+    await expect(screen.getByTestId('profile-email').innerHTML).toBe(userEmail.email);
   });
 
-  it('verify the done recipes button', () => {
+  it('verify the done recipes button', async () => {
     renderWithRouter(<App />);
-    userEvent.click(screen.getAllByTestId('profile-done-btn')[0]);
-    userEvent.click(screen.getAllByTestId('profile-done-btn')[0]);
-    expect(screen.getAllByTestId('page-title')[0].innerHTML).toBe('Receitas Feitas');
+    const doneRecipesBtn = screen.getByTestId('profile-done-btn');
+    await expect(doneRecipesBtn).toBeInTheDocument();
   });
 
-  it('verify the fav recipes button', () => {
+  it('verify the fav recipes button', async () => {
     renderWithRouter(<App />);
-    userEvent.click(screen.getAllByTestId('profile-favorite-btn')[0]);
-    userEvent.click(screen.getAllByTestId('profile-favorite-btn')[0]);
-    expect(screen.getAllByTestId('page-title')[0].innerHTML).toBe('Receitas Favoritas');
+    const favoriteRecipesBtn = screen.getByTestId('profile-favorite-btn');
+    await expect(favoriteRecipesBtn).toBeInTheDocument();
   });
 
-  it('verify the logout button', () => {
+  it('verify the logout button', async () => {
     renderWithRouter(<App />);
-    userEvent.click(screen.getAllByTestId('profile-logout-btn')[0]);
-    userEvent.click(screen.getAllByTestId('profile-logout-btn')[0]);
-    expect(screen.getAllByTestId('login-submit-btn')[0]).toBeInTheDocument();
+    const logoutBtn = screen.getByTestId('profile-logout-btn');
+    await expect(logoutBtn).toBeInTheDocument();
+  });
+
+  it('verify if clears the local storage', async () => {
+    renderWithRouter(<App />);
+    const logoutBtn = screen.getByTestId('profile-logout-btn');
+    await expect(logoutBtn).toBeInTheDocument();
+    fireEvent.click(logoutBtn);
+    const emptyLS = JSON.parse(localStorage.getItem('user'));
+    await expect(emptyLS).toBe(null);
+  });
+
+  it('test the default email', async () => {
+    const { history } = renderWithRouter(<App />);
+    const logoutBtn = screen.getByTestId('profile-logout-btn');
+    await expect(logoutBtn).toBeInTheDocument();
+    fireEvent.click(logoutBtn);
+    history.push('/perfil');
+    await expect(screen.getByText('teste@trybe.com')).toBeInTheDocument();
   });
 });
