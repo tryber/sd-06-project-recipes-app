@@ -1,0 +1,24 @@
+@import '../0.helpers/variables';
+@import '../0.helpers/mixins';
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 8%; 
+  background-color: $darkBlue3;
+  text-align: center;
+  @include flexBox(row, space-around);
+  padding: 5px;
+
+  & button {
+    background-color: $darkBlue3;
+    border: none;
+
+    &:active {
+      background-color: transparent;
+      filter: opacity(0.6)
+    }
+  }
+}

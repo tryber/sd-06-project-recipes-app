@@ -1,0 +1,18 @@
+@import '../0.helpers/variables';
+
+input, select {
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid $darkBlue2;
+  color: $darkBlue3;
+  margin-top: 3.5%;
+
+  &:hover {
+    border-bottom: 3.5px solid $darkBlue2;
+    transition: 1s;
+  }
+
+  &::placeholder {
+    text-align: center;
+  }
+}

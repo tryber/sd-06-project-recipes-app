@@ -1,0 +1,66 @@
+@import '../0.helpers/mixins';
+@import '../0.helpers/variables';
+
+.done-recipes-display {
+  @include flexBox(row, center, center, wrap);
+  height: 100%;
+  margin: 3.5vh 0 10vh 0;
+
+  & .done-recipe-card-container {
+    @include flexBox(column);
+    margin-top: 5%;
+
+    & .done-recipe-card {
+      @include flexBox(column, center, center);
+      margin: 6% 2%;
+  
+      & img {
+        border-radius: 15px;
+        box-shadow: 8px 0 5px rgb(200, 200, 200);
+        width: calc(80px + 30vw);
+        background-color: white;
+      }
+  
+      & .done-recipe-card-tag {
+        background-color: $darkBlue3;
+        box-shadow: 3px 3px 5px $darkBlue2 ;
+        border-radius: 12px;
+        margin-top: -8%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 10% 10% 3% 10% ;
+        width: 50%;
+        z-index: -1;
+        
+        & p, h5 {
+          color: white;
+          font-size: calc(10px + 0.8vw);
+          margin: 0;
+          text-align: center;
+  
+        }
+      }
+      
+  
+    }
+
+    & .done-card-details {
+      @include flexBox(column);
+      box-shadow: 3px 3px 5px $darkBlue2 ;
+      text-align: center;
+      background-color: $darkBlue3;
+      color: white;
+      padding: 5%;
+      border-radius: 15px;
+
+      & h1 {
+        color: white;
+        font-size: calc(12px + 0.8vw);
+      }
+    }
+  }
+
+  @media screen and  (min-width: 400px){
+    justify-content: space-around;
+  }
+}

@@ -1,0 +1,26 @@
+@import '../0.helpers/mixins';
+
+.option-page-container {
+  margin: auto 0;
+  height: 100%;
+  @include flexBox(row);
+
+  & .option-page {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    justify-content: space-around;
+    margin: 10vh auto 10vh auto;
+  
+    & button {
+      font-size: calc(10px + 2.5vw);
+      padding: 2%;
+      width: 60vw;
+    }
+
+    & h2 {
+      margin: 0;
+    }
+  }
+}

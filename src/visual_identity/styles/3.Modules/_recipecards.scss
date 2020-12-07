@@ -1,0 +1,48 @@
+@import '../0.helpers/mixins';
+@import '../0.helpers/variables';
+
+.recipes-display {
+  @include flexBox(row, center, center, wrap);
+  height: 100%;
+  margin: 3.5vh 0 10vh 0;
+
+  & .recipe-card {
+    @include flexBox(column, center, center);
+    // border: 1px solid $darkBlue3;
+    margin: 6% 2%;
+    // width: calc(80px + 20vw);
+
+    & img {
+      border-radius: 15px;
+      box-shadow: 8px 0 5px rgb(200, 200, 200);
+      width: calc(80px + 30vw);
+    }
+
+    
+    & .recipe-card-tag {
+      background-color: $darkBlue3;
+      box-shadow: 3px 3px 5px $darkBlue2 ;
+      border-radius: 12px;
+      margin-top: -8%;
+      padding: 0% 15% ;
+      z-index: -1;
+      @media screen and  (min-width: 1000px){
+        padding-top: 5%;
+      }
+      
+      & h5 {
+        color: white;
+        font-size: calc(10px + 0.8vw);
+        margin-bottom: 28%;
+        /*@media screen and  (min-width: 1000px){
+          margin-top: 80%;
+        }*/
+      }
+    }
+
+  }
+
+  @media screen and  (min-width: 400px){
+    justify-content: space-around;
+  }
+}

@@ -1,0 +1,14 @@
+@import '../0.helpers/mixins';
+@import '../0.helpers/variables';
+
+.sub-header {
+  @include flexBox(row, space-around, center, wrap);
+  padding: 3% 0;
+
+  & button {
+    margin: 10px;
+    width: 25%;
+  }
+}
+
+

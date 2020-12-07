@@ -1,0 +1,39 @@
+@import '../0.helpers/mixins';
+@import '../0.helpers/variables';
+
+.full-page-icon {
+  @include flexBox(column);
+
+  svg {
+    width: 60vw;
+    height: auto;
+
+    @media screen and (min-width: 700px){
+      width: 25vw;
+    }
+
+    & #logo-circle {
+      fill: $lightBlue2; 
+      animation: zoomin 1.5s 1 ease;
+    }
+
+    & #book-left, #book, #book-right {
+      animation: appear 2.5s 1 ease-out;
+    }
+
+    & #book-marker {
+      animation: appear 3.5s 1 ease-out;
+    }
+
+    & #hat, #hat-rigth {
+      animation: appear 4s 1 ease;  
+    }
+
+    & #circle-shadow {
+      fill: $lightBlue3;
+      animation: appear 4s 1 ease;
+    }
+  }
+}
+
+

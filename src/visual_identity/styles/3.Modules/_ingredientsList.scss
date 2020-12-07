@@ -1,0 +1,22 @@
+.checked {
+  text-decoration: none solid rgb(0, 0, 0);
+}
+
+.checked-text {
+  text-decoration: line-through;
+}
+
+
+.inProgress-list li {
+  list-style: none;
+}
+
+li {
+  
+  font-size: calc(14px + 1vw);
+  line-height: calc(22px + 1vw);
+
+  @media screen and  (min-width: 400px){
+    font-size: calc(12px + 1vw);
+  }
+}

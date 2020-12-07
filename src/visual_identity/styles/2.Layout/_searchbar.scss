@@ -1,0 +1,49 @@
+@import '../0.helpers/mixins';
+@import '../0.helpers/variables';
+
+.search-bar {
+  position: fixed;
+  top: 10vh;
+  height: 85%;
+  width: 100%;
+  @include flexBox(column, center);
+  background-color: $darkBlue3;
+  transition: 2s;
+
+  & .search-bar-inner-border {
+    @include flexBox(column);
+    height: 70%;
+    padding: 2%;
+    border: 1px solid white;
+  }
+
+  & .search-inner-element {
+    margin: 5% 0;
+  }
+
+  & .radio-section {
+    @include flexBox(column, space-around);
+    height: 25%;
+  }
+
+  & input {
+    color: white;
+    text-align: center;
+    border-bottom: 1px solid white;
+
+    &::placeholder {
+      text-align: center;
+    }
+  }
+
+  & button.search-inner-element {
+    margin-top: 25%;
+    background-color: white;
+    color: $darkBlue3;
+
+    &:active {
+      background-color: $darkBlue3;
+      color: white;
+    }
+  }
+}
