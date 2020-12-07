@@ -131,6 +131,7 @@ export default function MainScreen() {
                 src={ food.strMealThumb }
                 data-testid={ `${index}-card-img` }
                 alt={ food.strMeal }
+                className="card-container-img"
               />
             </Link>
           </div>
@@ -155,6 +156,7 @@ export default function MainScreen() {
               src={ drinks.strDrinkThumb }
               data-testid={ `${index}-card-img` }
               alt={ drinks.strDrink }
+              className="card-container-img"
             />
           </Link>
         </div>

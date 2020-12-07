@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import recipeRequest from '../services/recipeRequest';
+import exploreIngredients from '../images/exploreIng.png';
+import exploreOrigin from '../images/exploreOrigin.png';
+import exploreSurprise from '../images/exploreSurprise.png';
 
 const Explore = () => {
   const history = useHistory();
@@ -25,32 +28,30 @@ const Explore = () => {
     if (pathname === '/explorar/comidas') {
       return (
         <div>
-          <Link to="/explorar/comidas/ingredientes">
-            <button
-              type="button"
-              data-testid="explore-by-ingredient"
-            >
-              Por Ingredientes
-            </button>
+          <Link
+            to="/explorar/comidas/ingredientes"
+            data-testid="explore-by-ingredient"
+            className="explore-btn"
+          >
+            <img src={ exploreIngredients } alt="Explore by ingredients" />
+            Por Ingredientes
           </Link>
-          <Link to="/explorar/comidas/area">
-            <button
-              type="button"
-              data-testid="explore-by-area"
-            >
-              Por Local de Origem
-            </button>
+          <Link
+            to="/explorar/comidas/area"
+            data-testid="explore-by-area"
+            className="explore-btn"
+          >
+            <img src={ exploreOrigin } alt="Explore by Origin Place" />
+            Por Local de Origem
           </Link>
 
           <Link
             to={ `/comidas/${randomFood.idMeal}` }
+            data-testid="explore-surprise"
+            className="explore-btn"
           >
-            <button
-              type="button"
-              data-testid="explore-surprise"
-            >
-              Me Surpreenda!
-            </button>
+            <img src={ exploreSurprise } alt="Surprise me" />
+            Me Surpreenda!
           </Link>
         </div>);
     }
@@ -58,30 +59,28 @@ const Explore = () => {
     if (pathname === '/explorar/bebidas') {
       return (
         <div>
-          <Link to="/explorar/bebidas/ingredientes">
-            <button
-              type="button"
-              data-testid="explore-by-ingredient"
-            >
-              Por Ingredientes
-            </button>
+          <Link
+            to="/explorar/bebidas/ingredientes"
+            data-testid="explore-by-ingredient"
+            className="explore-btn"
+          >
+            <img src={ exploreIngredients } alt="Explore by Ingredients" />
+            Por Ingredientes
           </Link>
           <Link
             to={ `/bebidas/${randomDrink.idDrink}` }
+            data-testid="explore-surprise"
+            className="explore-btn"
           >
-            <button
-              type="button"
-              data-testid="explore-surprise"
-            >
-              Me Surpreenda!
-            </button>
+            <img src={ exploreSurprise } alt="Surprise me" />
+            Me Surpreenda!
           </Link>
         </div>);
     }
   };
   return (
     <div>
-      {redirect()}
+      { redirect() }
     </div>
   );
 };

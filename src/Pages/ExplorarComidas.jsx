@@ -4,9 +4,8 @@ import Explore from '../Components/Explore';
 
 function ExplorarComidas() {
   return (
-    <div>
+    <div className="explore">
       <Header pageName="Explorar Comidas" />
-      <h1>Explorar Comidas</h1>
       <Explore />
       <Footer />
     </div>

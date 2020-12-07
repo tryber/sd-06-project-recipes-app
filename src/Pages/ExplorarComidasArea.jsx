@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Header, Footer } from '../Components';
 import recipeRequest from '../services/recipeRequest';
+import '../Style/explore.css';
 
 function ExplorarComidasArea() {
   const [areas, setAreas] = useState([]);
@@ -29,11 +30,12 @@ function ExplorarComidasArea() {
 
   return (
     <div>
-      <Header pageName="Explorar Origem " />
-      <div style={ { marginTop: '80px' } }>
+      <Header pageName="Explorar por Origem " />
+      <div className="filter-container">
         <select
           name="areas"
           data-testid="explore-by-area-dropdown"
+          className="local-filter"
           onChange={ handleSelect }
         >
           <option data-testid="All-option">All</option>
@@ -44,23 +46,27 @@ function ExplorarComidasArea() {
               </option>
             ))}
         </select>
-        <div>
+        <div className="recipes-container">
           {foodsArea.length >= 1 && foodsArea
             .filter((_, index) => index < TEN)
             .map((food, indexs) => (
-              <Link
-                data-testid={ `${indexs}-recipe-card` }
-                key={ indexs }
-                to={ `/comidas/${food.idMeal}` }
-              >
-                <img
-                  data-testid={ `${indexs}-card-img` }
-                  width="120"
-                  src={ food.strMealThumb }
-                  alt={ food.strMeal }
-                />
-                <h3 data-testid={ `${indexs}-card-name` }>{food.strMeal}</h3>
-              </Link>
+              <div key={ index } className="card-container">
+                <Link
+                  data-testid={ `${indexs}-recipe-card` }
+                  key={ indexs }
+                  to={ `/comidas/${food.idMeal}` }
+                  className="details-link"
+                >
+                  <img
+                    data-testid={ `${indexs}-card-img` }
+                    width="120"
+                    src={ food.strMealThumb }
+                    alt={ food.strMeal }
+                    className="card-container-img"
+                  />
+                  <p data-testid={ `${indexs}-card-name` }>{food.strMeal}</p>
+                </Link>
+              </div>
             ))}
         </div>
       </div>

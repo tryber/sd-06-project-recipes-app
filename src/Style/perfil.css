@@ -1,0 +1,40 @@
+.profile-container {
+  align-items: center;
+  display: flex;
+  flex-flow: column wrap;
+  font-family: 'Cinzel Decorative', cursive;
+  margin-top: 80px;
+}
+
+.profile-btn {
+  align-items: center;
+  border: 3px solid #D3494E;
+  border-radius: 28px;
+  display: flex;
+  color: white;
+  flex-flow: column wrap;
+  padding: 20px;
+  justify-content: center;
+  margin: 20px 5px;
+  text-decoration: none;
+}
+
+.profile-btn img {
+  margin: 0 5px 10px 5px;
+}
+
+.signout-container {
+  display: flex;
+  font-size: 30px;
+  align-items: center;
+  margin: 15px;
+}
+
+.signout-btn {
+  background-color: #D3494E;
+  border-radius: 9px;
+  color: white;
+  font-size: 24px;
+  font-family: 'Cinzel Decorative', cursive;
+  padding: 15px 70px;
+}

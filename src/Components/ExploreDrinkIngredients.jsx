@@ -2,6 +2,8 @@ import React, { useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import RecipeContext from '../hooks/RecipeContext';
 import recipeRequest from '../services/recipeRequest';
+import Header from './Header';
+import Footer from './Footer';
 
 function ExploreDrinkIngredients() {
   const {
@@ -30,7 +32,7 @@ function ExploreDrinkIngredients() {
   }, []);
 
   const renderCards = () => (
-    <div className="recipes-container">
+    <div className="recipes-container" style={ { marginTop: '80px' } }>
       {drinkIngredientsCategory.map((ingredient, index) => (
         <div
           data-testid={ `${index}-ingredient-card` }
@@ -41,12 +43,12 @@ function ExploreDrinkIngredients() {
             onClick={ () => getFilterDrink(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient.strIngredient1}`) }
             to="/bebidas"
             key={ index }
-            className="recomendation-link"
           >
             <img
               src={ `https://www.thecocktaildb.com/images/ingredients/${ingredient.strIngredient1}-Small.png` }
               data-testid={ `${index}-card-img` }
               alt={ ingredient.strIngredient1 }
+              className="card-container-img"
             />
           </Link>
           <p data-testid={ `${index}-card-name` }>{ ingredient.strIngredient1 }</p>
@@ -57,7 +59,9 @@ function ExploreDrinkIngredients() {
 
   return (
     <div>
+      <Header pageName="Explorar Ingredientes" />
       {!drinkIngredientsCategory ? 'Loading' : renderCards()}
+      <Footer />
     </div>
   );
 }

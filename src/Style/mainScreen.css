@@ -3,45 +3,52 @@
   justify-content: center;
   flex-wrap: wrap;
   width: 360px;
-  height: 80px;
-  margin-top: 70px;
+  height: auto;
+  margin-top: 80px;
   align-items: center;
   background-color: rgba(41, 41, 41, 1);
 }
 
 .filter-button {
-  height: 27px;
-  border-radius: 13.5px;
+  background-color: #292929;
+  border: 2px solid #D3494E;
+  border-radius: 15px;
+  color: white;
+  font-family: 'Cinzel Decorative', cursive;
   margin: 5px;
 }
 
 .recipes-container {
+  background-color: rgba(41, 41, 41, 1);
   display: flex;
   flex-wrap: wrap;
+  font-family: 'Cinzel Decorative', cursive;
   justify-content: space-around;
-  background-color: rgba(41, 41, 41, 1);
   width: 360px;
 }
 
 .card-container {
   background: #FEE6B3;
   border-radius: 17px;
-  width: 30%;
   margin-bottom: 15px;
+  text-align: center;
+  width: 30%;
 }
 
-.card-container img {
+.card-container-img {
   width: 80%;
   margin-bottom: 10px;
+  margin-top: 10px;
   border-radius: 36px;
 }
 
 .details-link {
+  align-items: center;
+  color: black;
   display: flex;
   flex-flow: column wrap;
-  align-items: center;
-  text-decoration: none;
-  color: black;
-  font-size: 12px;
   font-family: 'Cinzel Decorative', cursive;
+  font-size: 12px;
+  text-align: center;
+  text-decoration: none;
 }

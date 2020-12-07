@@ -20,11 +20,12 @@
   font-family: 'Cinzel Decorative', cursive;
   font-style: normal;
   font-weight: normal;
-  font-size: 30px;
-  line-height: 40px;
+  font-size: 26px;
+  /* line-height: 40px; */
   align-self: center;
-
+  max-width: 250px;
   color: #FFFFFF;
+  text-align: center;
 }
 
 .button-search {

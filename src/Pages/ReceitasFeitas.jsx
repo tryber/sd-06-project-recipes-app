@@ -3,6 +3,7 @@ import copy from 'clipboard-copy';
 import { Link } from 'react-router-dom';
 import { Header } from '../Components';
 import shareIcon from '../images/shareIcon.svg';
+import '../Style/doneRecipes.css';
 
 function ReceitasFeitas() {
   if (!localStorage.doneRecipes) {
@@ -25,7 +26,7 @@ function ReceitasFeitas() {
   return (
     <div style={ { marginTop: '80px' } }>
       <Header pageName="Receitas Feitas" />
-      <div className="filter-buttons">
+      <div className="filter-done">
         <button
           onClick={ handleFilters }
           type="button"
@@ -51,51 +52,65 @@ function ReceitasFeitas() {
           Drinks
         </button>
       </div>
-      {
-        JSON.parse(localStorage.doneRecipes)
-          .filter((element) => element.type.includes(type)).map((food, index) => (
-            <div key={ index }>
-              <Link to={ `/${food.type}s/${food.id}` }>
-                <img
-                  width="200"
-                  data-testid={ `${index}-horizontal-image` }
-                  src={ food.image }
-                  alt={ food.name }
-                />
-                <h3 data-testid={ `${index}-horizontal-top-text` }>
-                  { (food.type === 'comida')
-                    ? `${food.area} - ${food.category}`
-                    : food.alcoholicOrNot }
-                </h3>
-                <h2 data-testid={ `${index}-horizontal-name` }>{ food.name }</h2>
-              </Link>
-              <div>
+      <div className="done-recipes-container">
+        {
+          JSON.parse(localStorage.doneRecipes)
+            .filter((element) => element.type.includes(type)).map((food, index) => (
+              <div key={ index } className="done-recipes-card">
+                <Link to={ `/${food.type}s/${food.id}` }>
+                  <img
+                    data-testid={ `${index}-horizontal-image` }
+                    src={ food.image }
+                    alt={ food.name }
+                    className="done-recipe-img"
+                  />
+                  <div className="done-recipe-info">
+                    <p
+                      data-testid={ `${index}-horizontal-top-text` }
+                      style={ { fontSize: '12px', color: '#A8997A' } }
+                    >
+                      { (food.type === 'comida')
+                        ? `${food.area} - ${food.category}`
+                        : food.alcoholicOrNot }
+                    </p>
+                    <p
+                      data-testid={ `${index}-horizontal-name` }
+                      style={ { fontSize: '14px', color: '#FFE5AD' } }
+                    >
+                      { food.name }
+                    </p>
+                    <p
+                      data-testid={ `${index}-horizontal-done-date` }
+                      style={ { fontSize: '10px', color: 'white' } }
+                    >
+                      {food.doneDate}
+                    </p>
+                    {food.tags.map((tag, indexs) => (
+                      <p
+                        key={ indexs }
+                        data-testid={ `${index}-${tag}-horizontal-tag` }
+                      >
+                        {tag}
+                      </p>
+                    ))}
+                  </div>
+                </Link>
                 <button
                   onClick={ () => handleCopy(food) }
                   type="button"
+                  className="done-recipe-btn"
                 >
                   <img
                     data-testid={ `${index}-horizontal-share-btn` }
                     src={ shareIcon }
                     alt={ food.name }
                   />
-
                 </button>
+                {copied}
               </div>
-
-              {copied}
-              <p data-testid={ `${index}-horizontal-done-date` }>{food.doneDate}</p>
-              {food.tags.map((tag, indexs) => (
-                <p
-                  key={ indexs }
-                  data-testid={ `${index}-${tag}-horizontal-tag` }
-                >
-                  {tag}
-                </p>
-              ))}
-            </div>
-          ))
-      }
+            ))
+        }
+      </div>
     </div>
   );
 }
