@@ -24,6 +24,7 @@ function ExplorarBebidas({ history }) {
           <button
             type="button"
             data-testid="explore-by-ingredient"
+            className="big-btn globo-icon"
           >
             Por Ingredientes
           </button>
@@ -31,9 +32,10 @@ function ExplorarBebidas({ history }) {
         <button
           type="button"
           data-testid="explore-surprise"
+          className="big-btn surpresa-icon"
           onClick={ () => handleRandomDrinkPage() }
         >
-          Me Surpreenda!
+          Me Surpreenda !
         </button>
       </div>
       <Footer />

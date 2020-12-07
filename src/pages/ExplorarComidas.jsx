@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import '../styles/Explorar.css';
 import { requestApiMealSurprise } from '../services/requestFood';
 import '../styles/marginHederAndFooter.css';
+import '../styles/components.css';
 
 function ExplorarComidas({ history }) {
   async function handleRandomMealPage() {
@@ -24,6 +25,7 @@ function ExplorarComidas({ history }) {
           <button
             type="button"
             data-testid="explore-by-ingredient"
+            className="big-btn cesta-icon"
           >
             Por Ingredientes
           </button>
@@ -32,6 +34,7 @@ function ExplorarComidas({ history }) {
           <button
             type="button"
             data-testid="explore-by-area"
+            className="big-btn globo-icon"
           >
             Por Local de Origem
           </button>
@@ -39,6 +42,7 @@ function ExplorarComidas({ history }) {
         <button
           type="button"
           data-testid="explore-surprise"
+          className="big-btn surpresa-icon"
           onClick={ () => handleRandomMealPage() }
         >
           Me Surpreenda!
