@@ -247,10 +247,8 @@ const RecipeInProgress = () => {
 
   const handleFinishRecipe = () => {
     const typeRecipe = pathname.split('/')[1];
-    console.log('entrou');
     if (typeRecipe === 'comidas') {
       const data = Date();
-      console.log(recipeDetailFood[0].strTags.split(','));
       const doneFood = {
         id: recipeDetailFood[0].idMeal,
         type: 'comida',
