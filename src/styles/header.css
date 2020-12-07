@@ -1,0 +1,25 @@
+/* .container {
+  display: flex;
+  flex-direction: column;
+  background-color: #F18701;
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 20px;
+  position: relative;
+
+} */
+
+.header-container {
+  display: flex;
+  align-items: flex-start;
+  background-color: #F18701;
+  justify-content: space-between;
+  position: fixed;
+  height: 58px;
+  width: 360px;
+  left: 0px;
+  top: 0px;
+  padding: 10px;
+  z-index: 1;
+}

@@ -1,0 +1,93 @@
+.details-card {
+  border: 1.5px solid rgb(243, 91, 4);
+  border-radius: 20px;
+  width: 90%;
+  margin: auto;
+  /* text-align: center; */
+}
+
+.details-container {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+.img-card-details {
+  width: 100%;
+  border-radius: 20px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin: 0;
+}
+
+.icons-area {
+  display: flex;
+  margin-right: 30px;
+  /* justify-content: space-around; */
+  /* width: 100%; */
+}
+
+.share-btn {
+  margin-right: 20px;
+}
+
+.ingredients-area {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 15px;
+  margin: 10px;
+}
+
+.title, .sub-title h4 {
+  margin: 10px;
+}
+
+.sub-title {
+ display: flex;
+ justify-content: space-between;
+}
+
+.section-title {
+  margin: 10px;
+}
+
+.container-card {
+  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container-card h4 {
+  font-weight: bold;
+}
+
+.unit-card {
+  width: 46%;
+  margin: auto;
+  margin-bottom: 15px;
+  border: 1.5px solid rgb(243, 91, 4);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 200px;
+}
+
+.btn-init {
+  border: 1px solid rgba(243, 91, 4, 0.2);
+  background-color: rgba(247, 184, 1, 0.125);
+  margin: auto;
+  width: 80%;
+  margin-bottom: 30px;
+}
+
+label {
+  margin: 8px;
+}
+
+.video-div {
+  margin: auto;
+}
