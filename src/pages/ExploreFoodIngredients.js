@@ -5,6 +5,8 @@ import Footer from '../components/Footer';
 import RecipesContext from '../context/RecipesContext';
 import FetchApiFood from '../services/FetchApiFood';
 
+import { CardContainer } from '../styles/exploreFoodDrinkIngredients';
+
 function ExploreFoodIngredients() {
   const {
     setListIngredients,
@@ -27,13 +29,18 @@ function ExploreFoodIngredients() {
   return (
     <div>
       <Header />
-      {listIngredients ? listIngredients.map((ingredients, index) => (
-        <Link to="/comidas" key={ index }>
-          <button
-            onClick={ () => handleCLick(ingredients.strIngredient) }
+      <CardContainer>
+        {listIngredients ? listIngredients.map((ingredients, index) => (
+          <Link
+            to="/comidas"
             key={ index }
-            type="button"
+            onClick={ () => handleCLick(ingredients.strIngredient) }
           >
+
+            <p data-testid={ `${index}-card-name` }>
+              {`[ ${ingredients.strIngredient} ]`}
+            </p>
+
             <div
               data-testid={ `${index}-ingredient-card` }
               key={ index }
@@ -43,13 +50,11 @@ function ExploreFoodIngredients() {
                 alt="Ingredient-img"
                 data-testid={ `${index}-card-img` }
               />
-              <span data-testid={ `${index}-card-name` }>
-                {ingredients.strIngredient}
-              </span>
             </div>
-          </button>
-        </Link>
-      )).splice(inicio, fim) : null}
+
+          </Link>
+        )).splice(inicio, fim) : null}
+      </CardContainer>
       <Footer />
     </div>
   );

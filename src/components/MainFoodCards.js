@@ -3,6 +3,10 @@ import FetchApiFood from '../services/FetchApiFood';
 
 import RecipesContext from '../context/RecipesContext';
 
+import SearchBar from './SearchBar';
+
+import { FilterButtonsContainer, Cards } from '../styles/mainFoodDrink';
+
 function MainFoodCard() {
   const {
     fetchFood,
@@ -11,7 +15,8 @@ function MainFoodCard() {
     setFoodBtn,
     filterFood,
     effectOnLoad,
-    setFilterFood } = useContext(RecipesContext);
+    setFilterFood,
+    searchBar } = useContext(RecipesContext);
 
   useEffect(() => {
     if (effectOnLoad) {
@@ -35,13 +40,15 @@ function MainFoodCard() {
       setTargetName(filter);
     }
   };
+
   const filterAll = () => {
     setFilterFood([]);
   };
+
   if (filterFood.length > inicio) {
     return (
       <main>
-        <section>
+        <FilterButtonsContainer className="filter-buttons">
           <button
             type="button"
             data-testid="All-category-filter"
@@ -59,14 +66,14 @@ function MainFoodCard() {
             >
               {el.strCategory}
             </button>)).splice(inicio, btn) }
-        </section>
-        <section>
+        </FilterButtonsContainer>
+        <Cards>
           {filterFood.map((el, idx) => (
             <div
               key={ idx }
               data-testid={ `${idx}-recipe-card` }
             >
-              <p data-testid={ `${idx}-card-name` }>{el.strMeal}</p>
+              <p data-testid={ `${idx}-card-name` }>{`[  ${el.strMeal}  ]`}</p>
               <a
                 href={ `/comidas/${el.idMeal}` }
               >
@@ -78,13 +85,14 @@ function MainFoodCard() {
               </a>
             </div>
           )).splice(inicio, fim)}
-        </section>
+        </Cards>
       </main>
     );
   }
   return (
     <main>
-      <section>
+      {searchBar ? <SearchBar /> : null}
+      <FilterButtonsContainer>
         <button
           type="button"
           data-testid="All-category-filter"
@@ -102,14 +110,14 @@ function MainFoodCard() {
           >
             {el.strCategory}
           </button>)).splice(inicio, btn) }
-      </section>
-      <section>
+      </FilterButtonsContainer>
+      <Cards>
         {fetchFood ? fetchFood.map((el, idx) => (
           <div
             key={ idx }
             data-testid={ `${idx}-recipe-card` }
           >
-            <p data-testid={ `${idx}-card-name` }>{el.strMeal}</p>
+            <p data-testid={ `${idx}-card-name` }>{`[  ${el.strMeal}  ]`}</p>
             <a
               href={ `/comidas/${el.idMeal}` }
             >
@@ -121,7 +129,7 @@ function MainFoodCard() {
             </a>
           </div>
         )).splice(inicio, fim) : null}
-      </section>
+      </Cards>
     </main>
   );
 }

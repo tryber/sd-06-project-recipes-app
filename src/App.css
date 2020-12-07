@@ -1,156 +1,49 @@
-#meals {
-  height: 100vh;
-  width: 100%;
-  background: #0fa36b;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: sans-serif;
-  color: #464646;
+body {
+  background: rgb(212,42,42);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
-#rocksGlass {
-  max-height: 80vh;
-  animation: shake 1s infinite ease;
+input:focus {
+  outline: none;
 }
 
-#iceLeft {
-  /* transform-origin set in px for firefox compatibility */
-  opacity: 0.6;
-  transform-origin: 36px 66px;
-  animation: clink .8s infinite ease;
+@font-face {
+  font-family: 'Foodpacker';
+  src: url(./fonts/Foodpacker.otf);
 }
 
-#iceRight {
-  /* transform-origin set in px for firefox compatibility */
-  opacity: 0.6;
-  transform-origin: 60px 78px;
-  animation: clink .8s .2s infinite ease;
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
 }
-
-#meals > span {
-  animation: shake 1.5s infinite ease;
-  color: aliceblue;
-  font-weight: 900;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 3em;
+::-webkit-scrollbar-button {
+  width: 2px;
+  height: 2px;
 }
-
-.carousel {
-  max-width: 800px;
-  margin: auto;
-  display: flex;
-  padding: 15px;
-  text-align: center;
-  position: relative;
+::-webkit-scrollbar-thumb {
+  background: #f28787;
+  border: 0px none #ffffff;
+  border-radius: 50px;
 }
-
-.scroller {
-  display: flex;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
+::-webkit-scrollbar-thumb:hover {
+  background: #f28787;
 }
-
-.carousel-item {
-  min-width: 100%;
-  max-height: 150px;
-  scroll-snap-align: center;
-  margin-bottom: 10px;
-  padding: 0 50px;
+::-webkit-scrollbar-thumb:active {
+  background: #000000;
 }
-
-.carousel-item img {
-  margin: 15px auto -60px;
-  width: 200px;
-  height: 200px;
-  border: solid 4px #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  z-index: 2;
+::-webkit-scrollbar-track {
+  background: #872222;
+  border: 0px none #ffffff;
+  border-radius: 50px;
 }
-
-.card {
-  background-color: rgb(237, 242, 247);
-  padding: 80px 40px 40px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  z-index: 1;
+::-webkit-scrollbar-track:hover {
+  background: #872222;
 }
-
-.card p {
-  font-style: italic;
-  line-height: 1.6;
+::-webkit-scrollbar-track:active {
+  background: #872222;
 }
-
-.carousel .btn {
-  position: absolute;
-  top: 50%;
-  margin-top: 20px;
-  height: 30px;
-  width: 30px;
-  border-radius: 15px;
-  background-color: rgba(95, 106, 117, 0.3);
-  z-index: 1;
-  line-height: 30px;
-  text-align: center;
-  color: white;
-  font-weight: bold;
-}
-
-.carousel .btn:hover{
-  background-color: rgba(95, 106, 117, 0.5);
-  cursor: pointer;
-}
-
-.carousel .btn.next {
-  right: 15px;
-}
-
-.carousel .btn.prev {
-  left: 15px;
-}
-
-.fixed-btn {
-  left: 50%;
-  bottom: 0;
-  position: fixed;
-}
-
-.btn-favorite-right {
-  float: right;
-}
-
-.tooltip-text {
-  display: none;
-}
-
-.btn-share {
-  background-image: url('./images/shareIcon.svg');
-  bottom: 0;
-  position: fixed;
-}
-
-@keyframes shake {
-  0% {
-    transform: rotate(5deg);
-  }
-  50% {
-    transform: rotate(-5deg);
-  }
-  100% {
-    transform: rotate(5deg);
-  }
-}
-
-@keyframes clink {
-  0% {
-    transform: rotate(-10deg);
-  }
-  50% {
-    transform: rotate(20deg);
-  }
-  100% {
-    transform: rotate(-10deg);
-  }
+::-webkit-scrollbar-corner {
+  background: transparent;
 }

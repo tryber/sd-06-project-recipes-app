@@ -1,9 +1,20 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import {
+  faArrowCircleRight,
+  faQuestion } from '@fortawesome/free-solid-svg-icons';
+
 import RecipesContext from '../context/RecipesContext';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import FetchApiDrink from '../services/FetchApiDrink';
+
+import {
+  ExploreContainer,
+  ExploreDrinkByIngredient,
+  ExploreDrinkByRandom } from '../styles/exploreFoodDrinkBy';
 
 function ExploreDrink() {
   const {
@@ -23,23 +34,40 @@ function ExploreDrink() {
   return (
     <div>
       <Header />
-      <Link to="/explorar/bebidas/ingredientes">
-        <button
+      <ExploreContainer>
+
+        <ExploreDrinkByIngredient
           type="button"
-          data-testid="explore-by-ingredient"
+          data-testid="explore-drink"
         >
-          Por Ingredientes
-        </button>
-      </Link>
+          <div>
+            <span>
+              <h1>Explorar bebidas por ingrediente</h1>
+              <Link to="/explorar/bebidas/ingredientes">
+                <FontAwesomeIcon icon={ faArrowCircleRight } />
+              </Link>
+            </span>
+          </div>
+        </ExploreDrinkByIngredient>
 
-      <button
-        type="button"
-        data-testid="explore-surprise"
-        onClick={ () => randomRecipe() }
-      >
-        Me Surpreenda!
-      </button>
+        <ExploreDrinkByRandom
+          type="button"
+          data-testid="explore-drink"
+          onClick={ () => randomRecipe() }
+        >
+          <div>
+            <span>
+              <h1>Me surpreenda !</h1>
+              <Link
+                to="/explorar/bebidas/ingredientes"
+              >
+                <FontAwesomeIcon icon={ faQuestion } />
+              </Link>
+            </span>
+          </div>
+        </ExploreDrinkByRandom>
 
+      </ExploreContainer>
       <Footer />
     </div>
   );

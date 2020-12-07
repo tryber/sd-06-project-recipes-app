@@ -1,4 +1,8 @@
 import React, { useContext, useEffect } from 'react';
+// Carousel lib imports
+import Carousel from '@brainhubeu/react-carousel';
+import '@brainhubeu/react-carousel/lib/style.css';
+
 import RecipesContext from '../context/RecipesContext';
 import FetchApiDrink from '../services/FetchApiDrink';
 import FetchApiFood from '../services/FetchApiFood';
@@ -7,7 +11,10 @@ import shareIcon from '../images/shareIcon.svg';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 
-import '../App.css';
+import {
+  CardDetailsContainer,
+  ButtonsRecipe,
+  ShareAndLikeButtons } from '../styles/detailsFoodDrink';
 
 function DrinkDetails() {
   // state que guarda o retorno da requisição
@@ -133,94 +140,80 @@ function DrinkDetails() {
   return (
     drinkDetail.map((drink, index) => (
       <div key={ index }>
-        <div>
-          <div>
-            <p data-testid="recipe-title">{drink.strDrink}</p>
-            <p data-testid="recipe-category">{drink.strCategory}</p>
-            { drink.strAlcoholic !== drink.strAlcoholic.includes('Alcoholic')
-              ? <span data-testid="recipe-category">Alcoholic: yes</span>
-              : <span data-testid="recipe-category">Alcoholic: no</span>}
-          </div>
+        <CardDetailsContainer>
+
+          <h2 data-testid="recipe-title">{[`${drink.strDrink}`]}</h2>
+          <h2 data-testid="recipe-category">{`[${drink.strCategory}]`}</h2>
+          { drink.strAlcoholic !== drink.strAlcoholic.includes('Alcoholic')
+            ? <h3 data-testid="recipe-category">Alcoholic: yes</h3>
+            : <h3 data-testid="recipe-category">Alcoholic: no</h3>}
+
           <img src={ drink.strDrinkThumb } alt="recipe" data-testid="recipe-photo" />
-          <div>
-            <p data-testid="instructions">{drink.strInstructions}</p>
-          </div>
-          <div>
-            <iframe
-              title="youtube-video"
-              width="300"
-              height="300"
-              data-testid="video"
-              src={ drink.strVideo }
-            />
-          </div>
+
+          <p data-testid="instructions">{drink.strInstructions}</p>
+
+          <iframe
+            title="youtube-video"
+            width="300"
+            height="300"
+            data-testid="video"
+            src={ drink.strVideo }
+          />
+
           <div>
             {drinkDetail.length === 1 ? renderIngredients() : null}
           </div>
 
-          <div>Recomendadas: </div>
+          <h4>[ Recomendadas ]</h4>
 
-          <div className="carousel scroller">
-            <span className="btn prev">&lt;</span>
-            <span className="btn next">&gt;</span>
+          <Carousel arrows>
             {recomendedFood.length >= maxRecomended
               ? recomendedFood.map((recomendation, index4) => (
-                <div key={ index4 }>
-                  <span
-                    className="carousel-item"
-                    data-testid={ `${index4}-recomendation-card` }
-                  >
-                    <div>
-                      <img src={ recomendation.strMealThumb } alt="drink" />
-                    </div>
-                    <div
-                      className="card"
-                      data-testid={ `${index4}-recomendation-title` }
-                    >
-                      {recomendation.strMeal}
-                    </div>
-                  </span>
-                </div>
-              )).slice(minRecomended, maxRecomended) : null}
-          </div>
+                <img
+                  key={ index4 }
+                  src={ recomendation.strMealThumb }
+                  alt="recomendation"
+                />
+              )).slice(minRecomended, maxRecomended) : null }
+          </Carousel>
 
-          <button
+          <ButtonsRecipe
             type="button"
             data-testid="start-recipe-btn"
             className="fixed-btn"
             onClick={ handleRecipeState }
           >
             {recipeState.ReceitaIniciada ? 'Continuar Receita' : 'Iniciar Receita'}
-          </button>
+          </ButtonsRecipe>
 
-          <span className="tooltip-text">Link copiado!</span>
+          <ShareAndLikeButtons>
+            <input
+              type="image"
+              className="btn-share"
+              data-testid="share-btn"
+              onClick={ handleShareButton }
+              src={ shareIcon }
+              alt="share"
+            />
 
-          <input
-            type="image"
-            className="btn-share"
-            data-testid="share-btn"
-            onClick={ handleShareButton }
-            src={ shareIcon }
-            alt="share"
-          />
+            { isFavorite ? <input
+              type="image"
+              className="btn-favorite-right"
+              data-testid="favorite-btn"
+              onClick={ handleUnfavoriteButton }
+              src={ blackHeartIcon }
+              alt="favorite"
+            /> : <input
+              type="image"
+              className="btn-favorite-right"
+              data-testid="favorite-btn"
+              onClick={ handleFavoriteButton }
+              src={ whiteHeartIcon }
+              alt="favorite"
+            />}
+          </ShareAndLikeButtons>
 
-          { isFavorite ? <input
-            type="image"
-            className="btn-favorite-right"
-            data-testid="favorite-btn"
-            onClick={ handleUnfavoriteButton }
-            src={ blackHeartIcon }
-            alt="favorite"
-          /> : <input
-            type="image"
-            className="btn-favorite-right"
-            data-testid="favorite-btn"
-            onClick={ handleFavoriteButton }
-            src={ whiteHeartIcon }
-            alt="favorite"
-          />}
-
-        </div>
+        </CardDetailsContainer>
       </div>
     ))
   );

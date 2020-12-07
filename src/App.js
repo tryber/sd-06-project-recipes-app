@@ -25,6 +25,8 @@ import NotFound from './pages/NotFound';
 import FoodInProgress from './pages/FoodInProgress';
 import DrinkInProgress from './pages/DrinkInProgress';
 
+import './App.css';
+
 function App() {
   return (
     <BrowserRouter>

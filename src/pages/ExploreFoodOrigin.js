@@ -4,6 +4,8 @@ import FetchApiFood from '../services/FetchApiFood';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
+import { CardContainer, CustomSelect } from '../styles/exploreFoodOriginStyle';
+
 function ExploreFoodOrigin() {
   const {
     areaDropdown,
@@ -34,22 +36,24 @@ function ExploreFoodOrigin() {
   return (
     <div>
       <Header />
-      <select
-        data-testid="explore-by-area-dropdown"
-        onChange={ ({ target }) => handleChange(target.value) }
-      >
-        <option value="All" data-testid="All-option">All</option>
-        {areaDropdown.map((area, index) => (
-          <option
-            value={ area.strArea }
-            key={ index }
-            data-testid={ `${area.strArea}-option` }
-          >
-            { area.strArea }
-          </option>
-        ))}
-      </select>
-      <section>
+      <CustomSelect>
+        <select
+          data-testid="explore-by-area-dropdown"
+          onChange={ ({ target }) => handleChange(target.value) }
+        >
+          <option value="All" data-testid="All-option">All</option>
+          {areaDropdown.map((area, index) => (
+            <option
+              value={ area.strArea }
+              key={ index }
+              data-testid={ `${area.strArea}-option` }
+            >
+              { area.strArea }
+            </option>
+          ))}
+        </select>
+      </CustomSelect>
+      <CardContainer>
         {fetchFood ? fetchFood.map((el, idx) => (
           <div
             key={ idx }
@@ -67,7 +71,7 @@ function ExploreFoodOrigin() {
             </a>
           </div>
         )).splice(inicio, fim) : null}
-      </section>
+      </CardContainer>
       <Footer />
     </div>
   );

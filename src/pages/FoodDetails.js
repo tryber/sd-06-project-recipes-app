@@ -1,4 +1,8 @@
 import React, { useContext, useEffect } from 'react';
+// Carousel lib imports
+import Carousel from '@brainhubeu/react-carousel';
+import '@brainhubeu/react-carousel/lib/style.css';
+
 import RecipesContext from '../context/RecipesContext';
 import FetchApiFood from '../services/FetchApiFood';
 import FetchApiDrink from '../services/FetchApiDrink';
@@ -7,7 +11,10 @@ import shareIcon from '../images/shareIcon.svg';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 
-import '../App.css';
+import {
+  CardDetailsContainer,
+  ButtonsRecipe,
+  ShareAndLikeButtons } from '../styles/detailsFoodDrink';
 
 function FoodDetails() {
   // state que guarda o retorno da requisição
@@ -58,12 +65,13 @@ function FoodDetails() {
     }
 
     return ingredientArray.map((ingredient, index) => (
-      <p
-        key={ index }
-        data-testid={ `${index}-ingredient-name-and-measure` }
-      >
-        {`Ingredient: ${ingredient.ingredientes} Measure: ${ingredient.medidas}`}
-      </p>
+      <ul key={ index }>
+        <li
+          data-testid={ `${index}-ingredient-name-and-measure` }
+        >
+          {`Ingredient: ${ingredient.ingredientes} Measure: ${ingredient.medidas}`}
+        </li>
+      </ul>
     ));
   }
 
@@ -130,94 +138,78 @@ function FoodDetails() {
   return (
     foodDetail.map((food, index) => (
       <div key={ index }>
-        <div>
-          <div>
-            <p data-testid="recipe-title">{food.strMeal}</p>
-            {food.Category !== 'Vegetarian'
-              ? <span data-testid="recipe-category">Vegetarian: no</span>
-              : <span data-testid="recipe-category">Vegetarian: yes</span>}
-          </div>
+        <CardDetailsContainer>
+
+          <h2 data-testid="recipe-title">{`[  ${food.strMeal}  ]`}</h2>
+          {food.Category !== 'Vegetarian'
+            ? <h3 data-testid="recipe-category">Vegetarian: no</h3>
+            : <h3 data-testid="recipe-category">Vegetarian: yes</h3>}
+
           <img src={ food.strMealThumb } alt="recipe" data-testid="recipe-photo" />
-          <div>
-            <p data-testid="instructions">{food.strInstructions}</p>
-          </div>
-          <div>
-            <iframe
-              title="youtube-video"
-              width="300"
-              height="300"
-              data-testid="video"
-              src={ food.strYoutube }
-            />
-          </div>
+
+          <p data-testid="instructions">{food.strInstructions}</p>
+
+          <iframe
+            title="youtube-video"
+            width="300"
+            height="300"
+            data-testid="video"
+            src={ food.strYoutube }
+          />
 
           <div>
             {foodDetail.length === 1 ? renderIngredients() : null}
           </div>
 
-          <div>Recomendadas: </div>
+          <h4>[ Recomendadas ]</h4>
 
-          <div className="carousel scroller">
-            <span className="btn prev">&lt;</span>
-            <span className="btn next">&gt;</span>
+          <Carousel arrows>
             {recomendedDrink.length >= maxRecomended
               ? recomendedDrink.map((recomendation, index4) => (
-                <div key={ index4 }>
-                  <span
-                    className="carousel-item"
-                    data-testid={ `${index4}-recomendation-card` }
-                  >
-                    <div>
-                      <img src={ recomendation.strDrinkThumb } alt="drink" />
-                    </div>
-                    <div
-                      className="card"
-                      data-testid={ `${index4}-recomendation-title` }
-                    >
-                      {recomendation.strDrink}
-                    </div>
-                  </span>
-                </div>
-              )).slice(minRecomended, maxRecomended) : null}
-          </div>
+                <img
+                  key={ index4 }
+                  src={ recomendation.strDrinkThumb }
+                  alt="recomendation"
+                />
+              )).slice(minRecomended, maxRecomended) : null }
+          </Carousel>
 
-          <button
+          <ButtonsRecipe
             type="button"
             data-testid="start-recipe-btn"
             className="fixed-btn"
             onClick={ handleRecipeState }
           >
             {recipeState.ReceitaIniciada ? 'Continuar Receita' : 'Iniciar Receita'}
-          </button>
+          </ButtonsRecipe>
 
-          <span className="tooltip-text">Link copiado!</span>
+          <ShareAndLikeButtons>
+            <input
+              type="image"
+              className="btn-share"
+              data-testid="share-btn"
+              onClick={ handleShareButton }
+              src={ shareIcon }
+              alt="share"
+            />
 
-          <input
-            type="image"
-            className="btn-share"
-            data-testid="share-btn"
-            onClick={ handleShareButton }
-            src={ shareIcon }
-            alt="share"
-          />
-
-          { isFavorite ? <input
-            type="image"
-            className="btn-favorite-right"
-            data-testid="favorite-btn"
-            onClick={ handleUnfavoriteButton }
-            src={ blackHeartIcon }
-            alt="favorite"
-          /> : <input
-            type="image"
-            className="btn-favorite-right"
-            data-testid="favorite-btn"
-            onClick={ handleFavoriteButton }
-            src={ whiteHeartIcon }
-            alt="favorite"
-          />}
-
-        </div>
+            { isFavorite ? <input
+              type="image"
+              className="btn-favorite-right"
+              data-testid="favorite-btn"
+              onClick={ handleUnfavoriteButton }
+              src={ blackHeartIcon }
+              alt="favorite"
+            /> : <input
+              type="image"
+              className="btn-favorite-right"
+              data-testid="favorite-btn"
+              onClick={ handleFavoriteButton }
+              src={ whiteHeartIcon }
+              alt="favorite"
+            />}
+          </ShareAndLikeButtons>
+        </CardDetailsContainer>
       </div>
     ))
   );

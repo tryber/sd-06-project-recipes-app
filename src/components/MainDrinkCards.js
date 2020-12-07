@@ -1,7 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import FetchApiDrink from '../services/FetchApiDrink';
 
+import SearchBar from './SearchBar';
+
 import RecipesContext from '../context/RecipesContext';
+
+import { FilterButtonsContainer, Cards } from '../styles/mainFoodDrink';
 
 function MainDrinkCard() {
   const {
@@ -11,7 +15,8 @@ function MainDrinkCard() {
     filterDrink,
     setFetchDrink,
     effectOnLoad,
-    setFilterDrink } = useContext(RecipesContext);
+    setFilterDrink,
+    searchBar } = useContext(RecipesContext);
 
   useEffect(() => {
     if (effectOnLoad) {
@@ -42,7 +47,7 @@ function MainDrinkCard() {
   if (filterDrink.length > inicio) {
     return (
       <main>
-        <section>
+        <FilterButtonsContainer>
           <button
             type="button"
             data-testid="All-category-filter"
@@ -60,14 +65,14 @@ function MainDrinkCard() {
             >
               {el.strCategory}
             </button>)).splice(inicio, btn) }
-        </section>
-        <section>
+        </FilterButtonsContainer>
+        <Cards>
           {filterDrink.map((el, idx) => (
             <div
               key={ idx }
               data-testid={ `${idx}-recipe-card` }
             >
-              <p data-testid={ `${idx}-card-name` }>{el.strDrink}</p>
+              <p data-testid={ `${idx}-card-name` }>{`[  ${el.strDrink}  ]`}</p>
               <a
                 href={ `/bebidas/${el.idDrink}` }
               >
@@ -79,13 +84,14 @@ function MainDrinkCard() {
               </a>
             </div>
           )).splice(inicio, fim)}
-        </section>
+        </Cards>
       </main>
     );
   }
   return (
     <main>
-      <section>
+      {searchBar ? <SearchBar /> : null}
+      <FilterButtonsContainer>
         <button
           type="button"
           data-testid="All-category-filter"
@@ -103,14 +109,14 @@ function MainDrinkCard() {
           >
             {el.strCategory}
           </button>)).splice(inicio, btn) }
-      </section>
-      <section>
+      </FilterButtonsContainer>
+      <Cards>
         {fetchDrink ? fetchDrink.map((el, idx) => (
           <div
             key={ idx }
             data-testid={ `${idx}-recipe-card` }
           >
-            <p data-testid={ `${idx}-card-name` }>{el.strDrink}</p>
+            <p data-testid={ `${idx}-card-name` }>{`[  ${el.strDrink}  ]`}</p>
             <a
               href={ `/bebidas/${el.idDrink}` }
             >
@@ -122,7 +128,7 @@ function MainDrinkCard() {
             </a>
           </div>
         )).splice(inicio, fim) : null}
-      </section>
+      </Cards>
     </main>
   );
 }

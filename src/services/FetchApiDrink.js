@@ -18,6 +18,9 @@ export default async function fetchApiDrink(radioSelected, setData = '', value =
     endpoint = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
   }
 
+  // if else roda mais rápido que o switch
+  //
+
   const response = await fetch(endpoint);
   const responseJson = await response.json();
 

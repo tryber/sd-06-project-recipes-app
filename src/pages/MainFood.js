@@ -3,6 +3,8 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import MainFoodCard from '../components/MainFoodCards';
 
+// CSS
+
 function MainFood() {
   return (
     <div>

@@ -1,6 +1,12 @@
 import React from 'react';
+
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+
+import { ProfileContainer, Title } from '../styles/profileStyle';
 
 function MainFood() {
   const userEmail = JSON.parse(localStorage.getItem('user')) || '';
@@ -20,32 +26,40 @@ function MainFood() {
   };
 
   return (
-    <div>
+    <section>
       <Header />
-      <h2 data-testid="profile-email">{email}</h2>
-      <button
-        data-testid="profile-done-btn"
-        type="button"
-        onClick={ doneRedirect }
-      >
-        Receitas Feitas
-      </button>
-      <button
-        data-testid="profile-favorite-btn"
-        type="button"
-        onClick={ favoriteRedirect }
-      >
-        Receitas Favoritas
-      </button>
-      <button
-        data-testid="profile-logout-btn"
-        type="button"
-        onClick={ logout }
-      >
-        Sair
-      </button>
-      <Footer />
-    </div>
+      <ProfileContainer>
+        <span>
+          <FontAwesomeIcon
+            icon={ faUser }
+            size="5x"
+          />
+        </span>
+        <Title data-testid="profile-email">{email}</Title>
+        <button
+          data-testid="profile-done-btn"
+          type="button"
+          onClick={ doneRedirect }
+        >
+          Receitas Feitas
+        </button>
+        <button
+          data-testid="profile-favorite-btn"
+          type="button"
+          onClick={ favoriteRedirect }
+        >
+          Receitas Favoritas
+        </button>
+        <button
+          data-testid="profile-logout-btn"
+          type="button"
+          onClick={ logout }
+        >
+          Sair
+        </button>
+        <Footer />
+      </ProfileContainer>
+    </section>
   );
 }
 
