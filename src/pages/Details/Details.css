@@ -1,0 +1,29 @@
+.recomendation-container {
+  display: flex;
+  flex-flow: row nowrap;
+  overflow-x: scroll;
+  margin: auto;
+}
+  
+.recomendation-card {
+  align-self: flex-start;
+  min-width: 55%;
+  padding: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.recomendation-container img {
+  width: 100%;
+}
+
+.start-recipe-btn {
+  position: fixed;
+  bottom: 0;
+  left: 50vw;
+}
+.recomendation-card :target{
+  display: block;
+}

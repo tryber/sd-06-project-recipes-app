@@ -1,0 +1,17 @@
+.recipe-card {
+  height: 205px;
+  margin: 10px;
+  text-align: center;
+  box-shadow: 5px 5px 10px #8a8a8a;
+  width: 150px;
+}
+
+.recipe-card img {
+  max-height: 70%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.recipe-card h3 {
+  margin-top: 10px;
+}

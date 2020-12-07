@@ -1,0 +1,37 @@
+.page-header {
+  background-color: #8a8a8a;
+  display: flex;
+  height: 60px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-container {
+  text-align: center;
+}
+
+.profile-button-container {
+  margin-left: 10px;
+}
+
+.search-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
+  min-width: 30px;
+  padding: 0;
+}
+
+.page-header button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  width: 30px;
+}
+
+.page-header button:active, button:focus {
+  outline: none;
+}
