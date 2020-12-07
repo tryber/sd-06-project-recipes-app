@@ -12,7 +12,6 @@ function ExplorarComidas({ history }) {
     const response = await requestApiMealSurprise();
     const id = response[0].idMeal;
     const randomMealEndpoint = `/comidas/${id}`;
-    console.log(history);
     history.push(randomMealEndpoint);
   }
 

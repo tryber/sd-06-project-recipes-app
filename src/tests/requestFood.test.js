@@ -6,6 +6,7 @@ const {
   requestApiFoodDetails,
   requestApiFoodListIngredients,
   requestApiFoodListArea,
+  requestApiMealSurprise,
   urlFood,
 } = require('../services/requestFood');
 
@@ -74,5 +75,11 @@ describe('Test functions requestFood', () => {
   is making the request for the right url`, async () => {
     const urlConfirmation = await requestApiFoodListArea();
     expect(urlConfirmation).toEqual(`${urlFoodTests}list.php?a=list`);
+  });
+
+  it(`function requestApiMealSurprise 
+  is making the request for the right url`, async () => {
+    const urlConfirmation = await requestApiMealSurprise();
+    expect(urlConfirmation).toEqual(`${urlFoodTests}random.php`);
   });
 });

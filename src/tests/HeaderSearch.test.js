@@ -6,8 +6,8 @@ import renderWithRouter from './RenderWithRouter';
 import Bebidas from '../pages/Bebidas';
 
 describe('HeaderSearch test', () => {
-  it('test search for first lettter of meal in HeaderSearch.js', () => {
-    const { getByTestId } = renderWithRouter(<Comidas />);
+  it('test search for first lettter of meal in HeaderSearch.js', async () => {
+    const { getByTestId, findByText, getByText } = renderWithRouter(<Comidas />);
 
     const buttonSearch = getByTestId('search-top-btn');
 
@@ -25,13 +25,9 @@ describe('HeaderSearch test', () => {
 
     fireEvent.click(buttonBuscar);
 
-    const doisSec = 2000;
+    const apple = await findByText(/Apple Frangipan Tart/i);
 
-    setTimeout(() => {
-      const apple = screen.getByText(/Apple/i);
-
-      expect(apple).toBeInTheDocument();
-    }, doisSec);
+    expect(apple).toBeInTheDocument();
   });
   it(
     'test search for first lettter of mealin HeaderSearch.js with a 2 letters string',

@@ -68,9 +68,6 @@ describe('Login test', () => {
     userEvent.type(senha, '12345678');
     fireEvent.click(button);
 
-    const doisSec = 2000;
-    setTimeout(() => {
-      expect(history.location.pathname).toBe('/comidas');
-    }, doisSec);
+    expect(history.location.pathname).toBe('/comidas');
   });
 });

@@ -4,6 +4,7 @@ const {
   requestApiDrinkFilterFirstLetter,
   requestApiDrinkDetails,
   requestApiDrinkListIngredients,
+  requestApiDrinkSurprise,
   urlDrink,
 } = require('../services/requestDrink');
 
@@ -59,5 +60,11 @@ describe('Test functions requestDrink', () => {
   is making the request for the right url`, async () => {
     const urlConfirmation = await requestApiDrinkListIngredients();
     expect(urlConfirmation).toEqual(`${urlDrinkTests}list.php?i=list`);
+  });
+
+  it(`function requestApiDrinkSurprise 
+  is making the request for the right url`, async () => {
+    const urlConfirmation = await requestApiDrinkSurprise();
+    expect(urlConfirmation).toEqual(`${urlDrinkTests}random.php`);
   });
 });

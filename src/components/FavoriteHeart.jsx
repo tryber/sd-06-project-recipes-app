@@ -70,19 +70,27 @@ function FavoriteHeart({ id, detailsDrink, detailsFood }) {
 
   return (
     favoriteButton ? (
-      <button type="button" onClick={ saveFavoriteRecipe }>
+      <button
+        type="button"
+        onClick={ saveFavoriteRecipe }
+        data-testid="heart-black"
+      >
         <img
           data-testid="favorite-btn"
           src={ blackHeartIcon }
-          alt="img-button-fav"
+          alt="img-button-fav-black"
         />
       </button>
     ) : (
-      <button type="button" onClick={ saveFavoriteRecipe }>
+      <button
+        type="button"
+        onClick={ saveFavoriteRecipe }
+        data-testid="heart-white"
+      >
         <img
           data-testid="favorite-btn"
           src={ whiteHeartIcon }
-          alt="img-button-fav"
+          alt="img-button-fav-white"
         />
       </button>
     )
