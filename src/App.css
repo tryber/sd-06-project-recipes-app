@@ -1,62 +1,373 @@
-#meals {
-  /* height: 100vh; */
-  width: 100%;
-  background: #0fa36b;
+/* Login Page */
+
+.user-alt {
+  color: white;
+  font-size: 60px;
+}
+
+.form-control {
+	background: #f2f2f2;
+	font-size: 16px;
+	border-color: transparent;
+	box-shadow: none !important;
+}
+
+.form-control:focus {
+	border-color: #91d5a8;
+	background: #e9f5ee;
+}
+
+.form-control, .btn {
+	border-radius: 2px;
+}
+
+.login-form {
+	width: 380px;
+	margin: 0 auto;
+}
+
+.login-form h2 {
+	margin: 0;
+	padding: 30px 0;
+	font-size: 34px;
+}
+
+.login-form .avatar {
+	margin: 0 auto 30px;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	z-index: 9;
+	background: #4aba70;
+	padding: 15px;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.login-form .avatar img {
+	width: 100%;
+}
+
+.login-form .form {
+	color: #7a7a7a;
+	border-radius: 4px;
+	margin-bottom: 20px;
+	background: #fff;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	padding: 30px;
+}
+
+.login-form .btn, .login-form .btn:active {
+	font-size: 16px;
+	line-height: 26px;
+	min-width: 120px;
+	font-weight: bold;
+	background: #4aba70 !important;
+	border: none;
+}
+
+.login-form .btn:hover, .login-form .btn:focus{
+	background: #40aa65 !important;
+}
+
+.form-check-label {
+	margin-top: 9px;
+}
+
+.form-check-label input {
+	margin-top: 3px;
+}
+
+.login-form a {
+	color: #4aba70;
+}
+
+.login-form a:hover {
+	text-decoration: underline;
+}
+
+.hint-text {
+	color: #999;
+	text-align: center;
+	padding-bottom: 15px;
+}
+
+/* Footer Component */
+
+.footer {
+  background: #4aba70;
+  border-radius: 0px;
+  bottom: 0px;
+  height: 58px;
+  position: fixed;
+  width: 360px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.header-icon {
+  margin: 10px;
+}
+
+/* Header Component */
+
+.nav-bar {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  z-index: 99;
+}
+
+.header {
+  height: 58px;
+  width: 360px;
+  border-radius: 0px;
+  background: #4aba70;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.header-title {
+  margin: 10px;
+  font-size: 29px;
+}
+
+.perfil-icon {
+  margin: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.btn-search {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  background-color: transparent;
+}
+
+.btn-search-hide {
+  visibility: hidden;
+}
+
+/* SearchBar Component */
+
+.search-container {
+  margin-bottom: 10px;
+}
+
+.input-search {
+  width: 355px;
+  margin: 3px;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+}
+
+/* Recommended Component */
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.recommended-text {
+  font-weight: 600;
+  margin: 0px 20px;
+}
+
+/* Drink page */
+
+.recipe-card {
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.329);
+  border-radius: 10px;
+  box-shadow: black 5px 4px 14px -4px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-family: sans-serif;
-  color: #464646;
+  height: 200px;
+  margin: 10px;
+  width: 150px;
 }
 
-#rocksGlass {
-  max-height: 80vh;
-  animation: shake 1s infinite ease;
+/* Explore page */
+
+.body-explore {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  width: 360px;
 }
 
-#iceLeft {
-  /* transform-origin set in px for firefox compatibility */
-  opacity: 0.6;
-  transform-origin: 36px 66px;
-  animation: clink .8s infinite ease;
+/* Favorite Recipes */
+
+.fav-card {
+  border: solid 1px;
+  width: 360px;
 }
 
-#iceRight {
-  /* transform-origin set in px for firefox compatibility */
-  opacity: 0.6;
-  transform-origin: 60px 78px;
-  animation: clink .8s .2s infinite ease;
+.fav-img {
+  height: 50px;
+  width: 50px;
 }
 
-#meals > span {
-  color: aliceblue;
+.favorite-filters {
+  margin-left: 130px;
+}
+
+/* Food Details */
+
+.recipe-head {
+  align-items: center;
+  background-color: #30333173;
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.recipe-title {
+  font-size: 1.9em;
   font-weight: 900;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 3em;
-  animation: shake 1.5s infinite ease;
+  letter-spacing: 2px;
+  margin-bottom: 0px;
 }
 
-@keyframes shake {
-  0% {
-    transform: rotate(5deg);
-  }
-  50% {
-    transform: rotate(-5deg);
-  }
-  100% {
-    transform: rotate(5deg);
-  }
+.recipe-category {
+  font-size: 1.3em;
+  font-style: italic;
+  margin: 0;
 }
 
-@keyframes clink {
-  0% {
-    transform: rotate(-10deg);
-  }
-  50% {
-    transform: rotate(20deg);
-  }
-  100% {
-    transform: rotate(-10deg);
-  }
+.recipe-img {
+  width: 100%;
+}
+
+.start-btn-div {
+  height: 37px;
+  width: 100%;
+}
+
+.start-recipe-btn {
+  background-color: rgba(255, 255, 0, 0.856);
+  border: none;
+  border-radius: 5px;
+  bottom: 0px;
+  font-size: 1.3em;
+  height: 40px;
+  left: 15%;
+  margin-bottom: 58px;
+  position: fixed;
+  width: 70%;
+}
+
+.action-btns-div {
+  display: flex;
+  height: 40px;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.share-btn {
+  background-color: yellow;
+  border: 1px black;
+  border-radius: 5px;
+}
+
+.share-btn img {
+  width: 20%;
+}
+
+.copied-span {
+  background-color: #17181773;
+  color: white;
+  display: flex;
+  font-size: 1.3em;
+  justify-content: center;
+  position: fixed;
+  width: 40%;
+}
+
+.fav-btn {
+  background-color: yellow;
+  border: none;
+  border-radius: 5px;
+}
+
+.share-icon {
+  width: 20%;
+}
+
+.recipe-instructions {
+  margin: 5px 20px;
+  text-align: justify;
+}
+
+/* Progress */
+
+.body-recipe {
+  width: 360px;
+  height: 550px;
+  background: #FFFFFF;
+  text-align: center;
+}
+
+.recipe-img {
+  width: 360px;
+}
+
+.ingredient-checkbox:checked + label {
+  text-decoration: line-through;
+}
+
+/* Perfil Page */
+
+.body-perfil {
+  width: 360px;
+  height: 90vh;
+  background: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 58px;
+}
+
+/* Food Page/Drink page */
+
+.food-container {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: auto;
+  background: rgb(226, 226, 226);
+}
+
+.mobile-container {
+  width: 360px;
+  background: white;
+  background-color: #c1e9ce;
+  margin-top: 58px;
+  margin-bottom: 58px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-sub-header {
+  margin: 2px;
+}
+
+.card-img {
+  width: 120px;
 }

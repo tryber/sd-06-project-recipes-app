@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import DoneCard from '../components/DoneCard';
-import './DoneRecipes.css';
 
 export default function DoneRecipes() {
   const [recipesArray, setRecipesArray] = useState([]);

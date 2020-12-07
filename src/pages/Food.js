@@ -4,7 +4,7 @@ import { Link, Redirect } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import RecipeContext from '../context/RecipeContext';
-import './Food.css';
+import SearchBar from '../components/SearchBar';
 
 function Food() {
   const { setFoodAPI,
@@ -17,7 +17,9 @@ function Food() {
   const urlCategories = 'https://www.themealdb.com/api/json/v1/1/list.php?c=list';
   const urlMealsCategories = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${currentCategories}`;
   const urlMealsCategories2 = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${currentCategories}`;
-  console.log(searchItens);
+
+  const sbar = true;
+  const ssBar = ((sbar === true) ? <SearchBar /> : (null));
 
   useEffect(() => {
     const fecthMeals = async () => {
@@ -170,28 +172,36 @@ function Food() {
   return (
     <div className="food-container">
       <Header title="Comidas" />
-      {
-        categories.slice(firstMeal, limitCategory).map((category, id) => (
+      <div className="mobile-container">
+        {ssBar}
+        <div>
+          {
+            categories.slice(firstMeal, limitCategory).map((category, id) => (
+              <button
+                data-testid={ `${category.strCategory}-category-filter` }
+                key={ id }
+                type="button"
+                value={ category.strCategory }
+                onClick={ handleClickCategory }
+                className="btn-sub-header"
+              >
+                {category.strCategory}
+              </button>
+            ))
+          }
           <button
-            data-testid={ `${category.strCategory}-category-filter` }
-            key={ id }
             type="button"
-            value={ category.strCategory }
-            onClick={ handleClickCategory }
+            data-testid="All-category-filter"
+            onClick={ () => setCurrentCategories('') }
+            className="btn-sub-header"
           >
-            {category.strCategory}
-          </button>))
-      }
-      <button
-        type="button"
-        data-testid="All-category-filter"
-        onClick={ () => setCurrentCategories('') }
-      >
-        Todas
-      </button>
-      {
-        renderMeals()
-      }
+            Todas
+          </button>
+        </div>
+        {
+          renderMeals()
+        }
+      </div>
       <Footer />
     </div>
   );

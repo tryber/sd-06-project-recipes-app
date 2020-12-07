@@ -7,7 +7,8 @@ import handleFavorite from '../services/storageFunctions';
 import shareIcon from '../images/shareIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
-import './FoodDetails.css';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 function FoodDetails() {
   const [recipe, setRecipe] = useState({ recipe: { } });
@@ -103,44 +104,60 @@ function FoodDetails() {
   }
 
   return (
-    <main>
+    <div className="food-container">
+      <Header title="Detalhes" />
       {(isFetching) ? <div>Loading recipe...</div>
         : (
-          <section className="body-recipe">
-            <header className="recipe-header">
-              <img
-                data-testid="recipe-photo"
-                className="recipe-img"
-                src={ strMealThumb }
-                alt={ `${strMeal}` }
-              />
-              <h1 data-testid="recipe-title">
-                { strMeal }
-              </h1>
-              <h3 data-testid="recipe-category">
-                { strCategory }
-              </h3>
+          <div className="mobile-container">
+            <header className="recipe-head">
+              <div>
+                <h1
+                  className="recipe-title"
+                  data-testid="recipe-title"
+                >
+                  { strMeal }
+                </h1>
+              </div>
+              <div>
+                <h3
+                  className="recipe-category"
+                  data-testid="recipe-category"
+                >
+                  { strCategory }
+                </h3>
+              </div>
             </header>
-            <button
-              type="button"
-              data-testid="share-btn"
-              onClick={ handleShareClick }
-            >
-              <img src={ shareIcon } alt="Compartilhar" />
-              Compartilhar
-            </button>
-            {(copied) && <span>Link copiado!</span>}
-            <button
-              type="button"
-              onClick={ handleFavoriteClick }
-            >
-              <img
-                data-testid="favorite-btn"
-                src={ isFavorite }
-                alt="Favoritar"
-              />
-              Favoritar
-            </button>
+            <img
+              data-testid="recipe-photo"
+              className="recipe-img"
+              src={ strMealThumb }
+              alt={ `${strMeal}` }
+            />
+            <div className="action-btns-div">
+              <button
+                className="share-btn"
+                type="button"
+                data-testid="share-btn"
+                onClick={ handleShareClick }
+              >
+                <img src={ shareIcon } alt="Compartilhar" />
+                Compartilhar
+              </button>
+              {(copied) && <div className="copied-span">Link copiado!</div>}
+              <button
+                className="fav-btn"
+                type="button"
+                onClick={ handleFavoriteClick }
+              >
+                <img
+                  className="share-icon"
+                  data-testid="favorite-btn"
+                  src={ isFavorite }
+                  alt="Favoritar"
+                />
+                Favoritar
+              </button>
+            </div>
             <iframe
               data-testid="video"
               src={ vidUrl }
@@ -155,24 +172,27 @@ function FoodDetails() {
                 </p>
               ))}
             </div>
-            <p data-testid="instructions">
+            <p className="recipe-instructions" data-testid="instructions">
               {strInstructions}
             </p>
             <Recommended />
-            {(!isDone) && (
-              <Link to={ `${itemUrl}/in-progress` }>
-                <button
-                  type="button"
-                  className="start-recipe-btn"
-                  data-testid="start-recipe-btn"
-                >
-                  Iniciar Receita
-                </button>
-              </Link>
-            )}
-          </section>
+            <div className="start-btn-div">
+              {(!isDone) && (
+                <Link to={ `${itemUrl}/in-progress` }>
+                  <button
+                    type="button"
+                    className="start-recipe-btn"
+                    data-testid="start-recipe-btn"
+                  >
+                    Iniciar Receita
+                  </button>
+                </Link>
+              )}
+            </div>
+          </div>
         )}
-    </main>
+      <Footer />
+    </div>
   );
 }
 

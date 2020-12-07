@@ -31,44 +31,46 @@ function ExploreFoodIngredient() {
   };
 
   return (
-    <>
-      <Header title="Explorar Ingredientes" />
-      {
-        ingredients.slice(incial, final)
-          .map((ingredient, index) => (
-            <>
-              <h3
-                data-testid={ `${index}-card-name` }
-                value={ ingredient.strIngredient }
-              >
-                {ingredient.strIngredient}
-              </h3>
-              <img
-                src={ `https://www.themealdb.com/images/ingredients/${ingredient.strIngredient}-Small.png` }
-                alt="ingredient"
-                data-testid={ `${index}-card-img` }
-                value={ ingredient.strIngredient }
-              />
-              <Link
-                to="/comidas"
-                key={ index }
-                data-testid={ `${index}-ingredient-card` }
-                value={ ingredient.strIngredient }
-                onClick={ handleClickSetCategories }
-              >
-                <button
-                  type="button"
+    <div className="food-container">
+      <Header title="Ingredientes" />
+      <div className="mobile-container">
+        {
+          ingredients.slice(incial, final)
+            .map((ingredient, index) => (
+              <div key={ index } className="recipe-card">
+                <h4
+                  data-testid={ `${index}-card-name` }
+                  value={ ingredient.strIngredient }
+                >
+                  {ingredient.strIngredient}
+                </h4>
+                <img
+                  src={ `https://www.themealdb.com/images/ingredients/${ingredient.strIngredient}-Small.png` }
+                  alt="ingredient"
+                  data-testid={ `${index}-card-img` }
+                  value={ ingredient.strIngredient }
+                />
+                <Link
+                  to="/comidas"
+                  key={ index }
+                  data-testid={ `${index}-ingredient-card` }
                   value={ ingredient.strIngredient }
                   onClick={ handleClickSetCategories }
                 >
-                  explorar
-                </button>
-              </Link>
-            </>
-          ))
-      }
+                  <button
+                    type="button"
+                    value={ ingredient.strIngredient }
+                    onClick={ handleClickSetCategories }
+                  >
+                    explorar
+                  </button>
+                </Link>
+              </div>
+            ))
+        }
+      </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

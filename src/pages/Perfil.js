@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import './Perfil.css';
 
 function Perfil() {
   const [userEmail, setUserEmail] = useState('email@mail.com');
@@ -19,8 +18,8 @@ function Perfil() {
   }
 
   return (
-    <div>
-      <Header title="MeuPerfil" />
+    <div className="food-container">
+      <Header title="Perfil" />
       <div className="body-perfil">
         <p data-testid="profile-email">{userEmail}</p>
 
@@ -29,6 +28,7 @@ function Perfil() {
             <button
               data-testid="profile-done-btn"
               type="button"
+              className="btn-sub-header"
             >
               Receitas Feitas
             </button>
@@ -40,6 +40,7 @@ function Perfil() {
             <button
               data-testid="profile-favorite-btn"
               type="button"
+              className="btn-sub-header"
             >
               Receitas Favoritas
             </button>
@@ -52,6 +53,7 @@ function Perfil() {
               data-testid="profile-logout-btn"
               type="button"
               onClick={ handleExit }
+              className="btn-sub-header"
             >
               Sair
             </button>

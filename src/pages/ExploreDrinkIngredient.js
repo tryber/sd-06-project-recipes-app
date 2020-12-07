@@ -30,44 +30,46 @@ function ExploreDrinkIngredient() {
   };
 
   return (
-    <>
-      <Header title="Explorar Ingredientes" />
-      {
-        drinkIngredients.slice(incial, final)
-          .map((ingredient, index) => (
-            <>
-              <h3
-                data-testid={ `${index}-card-name` }
-                value={ ingredient.strIngredient1 }
-              >
-                {ingredient.strIngredient1}
-              </h3>
-              <img
-                src={ `https://www.thecocktaildb.com/images/ingredients/${ingredient.strIngredient1}-Small.png` }
-                alt="ingredient"
-                data-testid={ `${index}-card-img` }
-                value={ ingredient.strIngredient1 }
-              />
-              <Link
-                to="/bebidas"
-                key={ index }
-                data-testid={ `${index}-ingredient-card` }
-                value={ ingredient.strIngredient1 }
-                onClick={ handleClickSetCategories }
-              >
-                <button
-                  type="button"
+    <div className="food-container">
+      <Header title="Ingredientes" />
+      <div className="mobile-container">
+        {
+          drinkIngredients.slice(incial, final)
+            .map((ingredient, index) => (
+              <div key={ index } className="recipe-card">
+                <h3
+                  data-testid={ `${index}-card-name` }
+                  value={ ingredient.strIngredient1 }
+                >
+                  {ingredient.strIngredient1}
+                </h3>
+                <img
+                  src={ `https://www.thecocktaildb.com/images/ingredients/${ingredient.strIngredient1}-Small.png` }
+                  alt="ingredient"
+                  data-testid={ `${index}-card-img` }
+                  value={ ingredient.strIngredient1 }
+                />
+                <Link
+                  to="/bebidas"
+                  key={ index }
+                  data-testid={ `${index}-ingredient-card` }
                   value={ ingredient.strIngredient1 }
                   onClick={ handleClickSetCategories }
                 >
-                  explorar
-                </button>
-              </Link>
-            </>
-          ))
-      }
+                  <button
+                    type="button"
+                    value={ ingredient.strIngredient1 }
+                    onClick={ handleClickSetCategories }
+                  >
+                    explorar
+                  </button>
+                </Link>
+              </div>
+            ))
+        }
+      </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

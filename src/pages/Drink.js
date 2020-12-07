@@ -4,7 +4,6 @@ import { Link, Redirect } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import RecipeContext from '../context/RecipeContext';
-import './Drink.css';
 
 function Drink() {
   const { setDrinkAPI,
@@ -173,30 +172,36 @@ function Drink() {
   };
 
   return (
-    <div className="drink-container">
+    <div className="food-container">
       <Header title="Bebidas" />
-      {
-        categories.slice(firstDrink, limitCategory).map((category, id) => (
+      <div className="mobile-container">
+        <div>
+          {
+            categories.slice(firstDrink, limitCategory).map((category, id) => (
+              <button
+                data-testid={ `${category.strCategory}-category-filter` }
+                key={ id }
+                type="button"
+                value={ category.strCategory }
+                onClick={ handleClickCategory }
+                className="btn-sub-header"
+              >
+                {category.strCategory}
+              </button>))
+          }
           <button
-            data-testid={ `${category.strCategory}-category-filter` }
-            key={ id }
             type="button"
-            value={ category.strCategory }
-            onClick={ handleClickCategory }
+            data-testid="All-category-filter"
+            onClick={ () => setCurrentCategories('') }
+            className="btn-sub-header"
           >
-            {category.strCategory}
-          </button>))
-      }
-      <button
-        type="button"
-        data-testid="All-category-filter"
-        onClick={ () => setCurrentCategories('') }
-      >
-        Todas
-      </button>
-      {
-        renderDrinks()
-      }
+            Todas
+          </button>
+        </div>
+        {
+          renderDrinks()
+        }
+      </div>
       <Footer />
     </div>
   );

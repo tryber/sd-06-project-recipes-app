@@ -18,6 +18,7 @@ import AreaNotFound from './pages/AreaNotFound';
 import ExploreDrinkIngredient from './pages/ExploreDrinkIngredient';
 import ExploreByArea from './pages/ExploreByArea';
 import InProgress from './pages/InProgress';
+import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
   return (
