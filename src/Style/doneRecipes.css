@@ -1,0 +1,45 @@
+.filter-done {
+  display: flex;
+  justify-content: center;
+}
+
+.done-recipes-card {
+  margin: 15px;
+  height: 92px;
+  display: flex;
+}
+
+.done-recipes-card a {
+  display: flex;
+  text-decoration: none;
+}
+
+.done-recipe-img {
+  border-radius: 55px;
+  height: 92px;
+  margin-right: 10px;
+  width: 92px;
+}
+
+.done-recipe-info {
+  text-align: start;
+  font-family: 'Cinzel Decorative', cursive;
+}
+
+.fav-btn-container {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.done-recipe-btn {
+  background-color: #292929;
+  border: none;
+  height: 20px;
+  margin: 5px;
+  outline: none;
+}
+
+.done-recipe-btn img {
+  height: 18px;
+  width: 16.88px;
+}

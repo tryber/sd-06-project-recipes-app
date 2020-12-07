@@ -1,0 +1,48 @@
+.search-bar {
+  position: absolute;
+  width: 360px;
+  height: 75px;
+  left: 0px;
+  top: 72px;
+
+  background: #D3494E;
+  border-radius: 0px 0px 36px 36px;
+}
+
+.text-input {
+  position: absolute;
+  width: 234px;
+  height: 20px;
+  left: 63px;
+
+  background: #DED9D9;
+  border-radius: 15px;
+}
+
+.button-search-bar {
+  position: absolute;
+  width: 70px;
+  height: 23px;
+  left: 63px;
+  top: 37px;
+
+  background: #13BBAF;
+  border-radius: 11.5px;
+}
+
+.checkbox-inputs {
+  left: 150px;
+  display: flex;
+  position: absolute;
+  width: 180px;
+  height: 23px;
+  flex-wrap: wrap;
+  top: 30px;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 12px;
+}
+
+label span {
+  margin-left: 20px;
+}
+
