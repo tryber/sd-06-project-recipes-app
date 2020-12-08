@@ -1,0 +1,29 @@
+.details-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.btn-outline-dark-detail {
+  border: none;
+  margin-bottom: 10px;
+  width: 80px;
+}
+
+.image-detail {
+  width: 100%;
+}
+
+.container-detail {
+  margin-left: 50px;
+  width: 100%;
+}
+
+.title-detail {
+  display: flex;
+  justify-content: center;
+}
+
+.description {
+  width: 100%;
+  text-align: justify;
+}

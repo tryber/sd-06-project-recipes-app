@@ -1,0 +1,10 @@
+.search-bar-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 0 10px 50px;
+  width: 90%;
+}
+
+.label {
+  margin-right: 10px;
+}

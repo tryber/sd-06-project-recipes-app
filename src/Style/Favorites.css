@@ -1,0 +1,43 @@
+.btn-favorites {
+  border: solid 1px black;
+}
+
+[class*=btn-favorites]:hover {
+  background-color: rgb(46, 45, 45);
+  color: white;
+}
+
+.container-favorites {
+  padding: 20px;
+  margin-left: 50px;
+  display: flex;
+  justify-content: space-between;
+  /* background-color: red; */
+  width: 100%;
+}
+
+.card-favorites {
+  align-items: center;
+  /* background-color: darkgrey; */
+  display: flex;
+  flex-direction: column;
+  /* height: 200px; */
+  margin-bottom: 25px;
+  margin-left: 80px;
+  width: 300px;
+}
+
+.image-favorite {
+  width: 100%;
+}
+
+.btn-outline-dark-favorites {
+  border: none;
+  margin-bottom: 10px;
+  width: 80px;
+}
+
+[class*=btn-outline-dark-favorites]:hover {
+  background-color: rgb(46, 45, 45);
+  color: white;
+}

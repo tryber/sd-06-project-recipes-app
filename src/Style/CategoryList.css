@@ -1,0 +1,17 @@
+.btn-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-left: 100px;
+}
+
+.btn-outline-dark {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 0.5;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  width: 100px;
+}

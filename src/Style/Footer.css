@@ -1,0 +1,7 @@
+.container-footer {
+  background-color: darkgrey;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 50px;
+  width: 80%;
+}

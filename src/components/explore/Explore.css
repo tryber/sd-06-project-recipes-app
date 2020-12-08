@@ -1,0 +1,42 @@
+.btn-outline-dark-explore {
+  border: solid 1px black;
+}
+
+.button-explore {
+  display: flex;
+  justify-content: center;
+  margin-left: 80px;
+  margin-top: 50px;
+}
+
+[class*=btn-outline-dark-explore]:hover {
+  background-color: rgb(46, 45, 45);
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.container-ingredientes {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-left: 55px;
+  justify-content: space-around;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* margin-left: 50px; */
+  align-items: center;
+  height: 300px;
+  justify-content: space-around;
+}
+
+[class*=button-ingredientes]:hover {
+  background-color: rgb(46, 45, 45);
+  color: white;
+}

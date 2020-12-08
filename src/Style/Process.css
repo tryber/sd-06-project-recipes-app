@@ -1,0 +1,38 @@
+.process-container {
+  margin-left: 50px;
+  width: 100%;
+}
+
+.image-process {
+  width: 100%;
+}
+
+.title-process {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-outline-dark-process {
+  border: none;
+  margin-bottom: 10px;
+  width: 80px;
+}
+
+[class*=btn-outline-dark-process]:hover {
+  background-color: rgb(46, 45, 45);
+  color: white;
+}
+
+.description {
+  width: 100%;
+  text-align: justify;
+}
+
+.btn-process {
+  border: solid 1px black;
+}
+
+[class*=btn-process]:hover {
+  background-color: rgb(46, 45, 45);
+  color: white;
+}

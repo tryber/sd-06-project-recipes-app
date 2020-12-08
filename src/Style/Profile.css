@@ -1,0 +1,20 @@
+.container-profile {
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  margin-left: 50px;
+  height: 300px;
+  margin-top: 100px;
+}
+
+.btn-outline-dark-profile {
+  border: solid 1px black;
+}
+
+[class*=btn-outline-dark-profile]:hover {
+  background-color: rgb(46, 45, 45);
+  color: white;
+}
