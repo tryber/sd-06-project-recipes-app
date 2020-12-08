@@ -1,0 +1,37 @@
+.link-slide-card-container {
+  display: flex;
+  flex-shrink: 0;
+  width: 180px;
+}
+
+.img-slide-container img{
+  width: 100%;
+  padding: 10px;
+  border-radius: 100%;
+}
+
+.title-slide-container {
+  color: #7c7c7c;
+  display: flex;
+  justify-content: center;
+}
+
+.link-slide-card-container:visited {
+  text-decoration: none;
+  color: #232525;
+}
+
+.link-slide-card-container:link {
+  text-decoration: none;
+  color: #232525;
+}
+
+.link-slide-card-container:active {
+  text-decoration: none;
+  color: #232525;
+}
+
+.title-slide-container h3:hover {
+  font-size: 1.1rem;
+  color: #0fa36b;
+}

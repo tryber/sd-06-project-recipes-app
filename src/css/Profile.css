@@ -1,0 +1,51 @@
+h3 {
+  text-align: center;
+}
+
+.profile-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  justify-content: center;
+  margin-top: 3px;
+  width: 100%;
+}
+
+.profile-btn-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  justify-content: center;
+  margin-top: 3px;
+  width: 100%;
+}
+
+.profile-btn {
+  background-color:rgb(202, 202, 202);
+  color: #232525;
+  border-radius: 6px;
+  border-width: .5px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 5px;
+  width: 75%;
+  padding: 3px;
+  text-align: center;
+}
+
+.profile-btn:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.profile-btn:link {
+  text-decoration: none;
+  color: black;
+}
+
+.profile-btn:active {
+  text-decoration: none;
+  color: black;
+}

@@ -1,0 +1,140 @@
+.detail-container {
+  background-color: rgb(247, 247, 247);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.detail-img-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.detail-img-container img {
+  width: 50%;
+  border-radius: 100%;
+  box-shadow: 1px 2px rgb(184, 184, 184);
+}
+
+.detail-title-btn-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.detail-title-container {
+  display: flex;
+  flex-direction: column;
+  width: 47%;
+}
+
+.detail-btn-container {
+  display: flex;
+  justify-content: center;
+  width: 47%;
+}
+
+.detail-btn-container img {
+  margin-right: 10px;
+}
+
+
+.detail-category-container {
+  width: 100%;
+
+}
+
+.detail-category-container h3 {
+  color: #232525;
+  font-size: 1rem;
+}
+
+.detail-ingredients-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.datail-ingredients-title {
+  width: 94%;
+  background-color: #2D6A4F;
+  color: white;
+}
+
+.datail-ingredients {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.datail-ingredients ul {
+  width: 90%;
+}
+
+.datail-ingredients li {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-instructions-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  padding: 10px;
+  width: 100%;
+}
+
+.datail-instructions-title {
+  width: 100%;
+  background-color: #2D6A4F;
+  color: white;
+}
+
+.datail-instructions {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.detail-instructions-container p {
+  font-size: 1rem;
+  text-align: justify;
+  text-justify: inter-word;
+  width: 95%;
+}
+
+.detail-recomendation-container {
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  margin: 0 0 50px 0;
+}
+
+.details-in-progress-btn{
+  position: fixed;
+  bottom: 0;
+  margin: 10px;
+}
+
+.video-container {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+iframe {
+  border: none;
+}
+
+hr {
+  width: 25%;
+  margin: auto;
+  margin-top: 20px;
+}

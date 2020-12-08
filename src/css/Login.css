@@ -1,0 +1,68 @@
+.Login-body {
+  align-items: center;
+  background-color: rgb(247, 247, 247);
+  display: flex;
+  flex-direction: column;
+  height: 640px;
+}
+
+.Login-logo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 70px;
+  margin-top: 50px;
+}
+
+.food-logo {
+  width: 90%;
+  display: flex;
+  align-self: center;
+}
+
+.try-logo {
+  width: 45%;
+  display: flex;
+  align-self: flex-start;
+}
+
+.Login-form {
+  align-items: center;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  padding: 5px;
+  text-align: center;
+  outline: 0.5px solid rgb(146, 146, 146);
+}
+
+.link-food {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  width: 100%;
+}
+
+.btn-login {
+  color: #232525;
+  border-color: 0.5px solid rgb(146, 146, 146);
+  border-radius: 6px;
+  border-width: .5px;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 5px;
+  text-align: center;
+  width: 50%;
+}
+
+.btn-login:disabled {
+  color: #232525;
+}
+
+.btn-login:enabled {
+  background-color: #0fa36b;
+}

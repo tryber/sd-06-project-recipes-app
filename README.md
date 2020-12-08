@@ -998,7 +998,7 @@ A verificação será feita através das receitas retornadas pela API, como por 
   **Observações técnicas**
 
   * Verifica se botão de iniciar receita não é visível na tela de detalhes de uma comida;
-  * Verifica se botão de iniciar receita não é visível na tela de detalhes de uma bebida.
+  * Verifica se botão de iniciar receita não �� visível na tela de detalhes de uma bebida.
 
 ### 40 - Implemente a solução de modo que caso a receita tenha sido iniciada mas não finalizada, o texto do botão deve ser "Continuar Receita"
 
@@ -1015,12 +1015,8 @@ A verificação será feita através das receitas retornadas pela API, como por 
   * Redireciona para tela de receita da bebida em processo.
 
 ### 42 - Implemente um botão de compartilhar e um de favoritar a receita
-
-  **Observações técnicas**
-
-  * Verifica se os botões estão disponíveis na tela de detalhes de uma comida;
-  * Verifica se os botões estão disponíveis na tela de detalhes de uma bebida.
-
+rise"
+      >
 ### 43 - Implemente a solução de forma que, ao clicar no botão de compartilhar, o link da receita dentro do app deve ser copiado para o clipboard e uma mensagem avisando que o link foi copiado deve aparecer
 
 O ícone do botão de compartilhar pode ser encontrado em `src/images/shareIcon.svg`.

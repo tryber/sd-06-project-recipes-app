@@ -1,0 +1,73 @@
+.card-container {
+  border: 1px solid rgb(223, 223, 223);
+  box-shadow: 0.8px 2.8px rgb(184, 184, 184);
+  background-color: rgb(247, 247, 247);
+  border-radius: 5%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  text-align: center;
+  width: 170px;
+  height: 230px;
+}
+
+.card-container h3 {
+  font-size: 1rem;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.Link:visited {
+  text-decoration: none;
+  color: #232525;
+}
+
+.Link:link {
+  text-decoration: none;
+  color: #232525;
+}
+
+.Link:active {
+  text-decoration: none;
+  color: #232525;
+}
+
+.card-container h3:hover {
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: #0fa36b;
+}
+
+.img-container img {
+  border-top-left-radius: 5%;
+  border-top-right-radius: 5%;
+  border-width: 1px 0 0 0;
+  width: 168px;
+}
+
+.title-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 55px;
+  width: 170px;
+}
+
+.done-recipe-card-container {
+  border: 1px solid rgb(223, 223, 223);
+  box-shadow: 0.8px 2.8px rgb(184, 184, 184);
+  background-color: rgb(247, 247, 247);
+  border-radius: 5%;
+  display: flex;
+  margin-top: 10px;
+  text-align: center;
+  width: 320px;
+  height: 170px;
+}
+
+.done-recipe-img-container img {
+  border-top-left-radius: 5%;
+  border-top-right-radius: 5%;
+  border-width: 1px 0 0 0;
+  width: 168px;
+}

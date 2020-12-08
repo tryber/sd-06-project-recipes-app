@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.search-bar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.search-input-container input {
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.filter-selector-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  height: 30px;
+}
+
+.filter-selector-container label {
+  margin-top: 5px;
+}
+
+.filter-selector-container input {
+  margin-left: 5px;
+}
