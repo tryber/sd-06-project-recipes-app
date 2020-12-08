@@ -1,0 +1,32 @@
+/* .recipe-card {
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.25);
+  display: inline-block;
+  flex-direction: row;
+  margin: 50px 15px 10px;
+  width: 170px;
+}
+
+.recipe-img {
+  height: 140px;
+  width: 150px;
+}
+
+.recipe-name {
+  align-items: flex-end;
+  display: flex;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300
+}
+
+.listRecipes {
+  display: flex;
+  flex-flow: row wrap;
+} */
+@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap');
+
+.fonte {
+  font-family: 'Finger Paint', cursive;
+  color: black;
+}
+

@@ -1,0 +1,63 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.bg {
+  height: 100vh;
+  background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url('../images/hamb.png'); 
+  background-size: cover;
+}
+
+.user_card {
+  height:60vh;
+  width: 85vw;
+  margin-top: 20vh;
+  background:rgb(120, 80, 184, 0.9);;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 5px;
+
+}
+
+@media (min-width: 700px) {
+  .user_card {
+    background-color: rgb(120, 80, 184, 0.9);
+    width: 50vw;
+    height: 70vh;
+  }
+}
+
+.brand_logo_container {
+  position: absolute;
+  height: 170px;
+  width: 170px;
+  top: -75px;
+  border-radius: 50%;
+  padding: 10px;
+  text-align: center;
+}
+
+.brand_logo {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+.form_container {
+  margin-top: 30px;
+}
+.login_btn {
+  width: 100%;
+  background:#6CDC3E !important;
+  color: white !important;
+}
+
+.login_container {
+  padding: 1rem;
+}
+
