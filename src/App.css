@@ -1,3 +1,7 @@
+body {
+  
+}
+
 #meals {
   height: 100vh;
   width: 100%;
@@ -10,31 +14,100 @@
   color: #464646;
 }
 
-#rocksGlass {
-  max-height: 80vh;
-  animation: shake 1s infinite ease;
-}
-
-#iceLeft {
-  /* transform-origin set in px for firefox compatibility */
-  opacity: 0.6;
-  transform-origin: 36px 66px;
-  animation: clink .8s infinite ease;
-}
-
-#iceRight {
-  /* transform-origin set in px for firefox compatibility */
-  opacity: 0.6;
-  transform-origin: 60px 78px;
-  animation: clink .8s .2s infinite ease;
-}
-
 #meals > span {
   color: aliceblue;
   font-weight: 900;
   font-family: 'Montserrat', sans-serif;
   font-size: 3em;
   animation: shake 1.5s infinite ease;
+}
+
+button:disabled {
+  color: #b34a38;
+  background-color: orange;
+  border-color: #818181;
+}
+
+button {
+  appearance: button;
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  color: #c24105;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  cursor: default;
+  background-color: rgb(252, 206, 0);
+  box-sizing: border-box;
+  margin: 0em;
+  font: 400 13.3333px Arial;
+  padding: 1px 6px;
+  border-width: 2px;
+  border-style: outset;
+  border-color: #cc8503;
+  border-radius: 15px;
+  border-image: initial;
+}
+
+
+.form-title {
+  font-family: 'Courier New', Courier, monospace;
+  font-style: oblique;
+}
+
+.form-login button {
+  padding: 10px 25px
+}
+
+.form-login {
+  background-color: tomato;
+  width: 360px;
+  height: 640px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form-input {
+  padding: 15px;
+  padding-right: 55px;
+}
+
+.StartRecipe {
+  position: fixed;
+  bottom: 0px;
+}
+
+.recomendation {
+  overflow-x: scroll;
+  display: flex;
+}
+
+.thumbnail {
+  width: 180px;
+  height: 180px;
+}
+
+.recipeImage {
+  width: 360px;
+  height: 360px;
+}
+
+.recipes-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 58px;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: black;
 }
 
 @keyframes shake {
@@ -46,17 +119,5 @@
   }
   100% {
     transform: rotate(5deg);
-  }
-}
-
-@keyframes clink {
-  0% {
-    transform: rotate(-10deg);
-  }
-  50% {
-    transform: rotate(20deg);
-  }
-  100% {
-    transform: rotate(-10deg);
   }
 }

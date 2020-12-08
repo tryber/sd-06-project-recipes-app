@@ -4,10 +4,9 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 function Explore() {
-  const FALSE = false;
   return (
     <div>
-      <Header title="Explorar" search={ FALSE } />
+      <Header title="Explorar" />
       <Link to="/explorar/comidas">
         <button type="button" data-testid="explore-food">
           Explorar Comidas

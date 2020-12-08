@@ -2,14 +2,16 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-function IngredientsOrigin() {
-  const TRUE = true;
+function PageNotFound() {
+  const FALSE = false;
+
   return (
     <div>
-      <Header title="Explorar Origem" search={ TRUE } />
+      <Header title="Not Found" search={ FALSE } />
+      <h1>Error 404</h1>
       <Footer />
     </div>
   );
 }
 
-export default IngredientsOrigin;
+export default PageNotFound;

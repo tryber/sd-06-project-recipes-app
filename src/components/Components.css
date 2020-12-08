@@ -1,10 +1,17 @@
 .header {
-  background-color: lightgray;
+  background-color: tomato;
   width: 100%;
   text-align: 'center';
+  align-items: center;
+  height: 50px;
+  position: fixed;
+  top: 0;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+}
+
+.filter {
+ margin-top: 55px;
 }
 
 .search {
@@ -22,11 +29,32 @@
 }
 
 .footer {
-  background-color: lightgray;
+  background-color: tomato;
   width: 100%;
   height: 50px;
   position: fixed;
   bottom: 0;
   display: flex;
   justify-content: space-around;
+}
+
+.thumbnail {
+  object-fit: cover;
+  width: 180px;
+  height: 110px;
+  border-radius: 6px 6px 0 0;
+}
+
+.recipe-card {
+  width: 180px;
+  height: 180px;
+  border-radius: 6px;
+  border: black solid 1px;
+  margin: 5px auto;
+}
+
+.recipe-card-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

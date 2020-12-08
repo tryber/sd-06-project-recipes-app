@@ -2,49 +2,50 @@ import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import DrinkRecipeCard from '../components/Cards';
+import MealRecipeCard from '../components/Cards';
 import Context from '../context/Context';
 
-function Drinks({ history }) {
+function Meals({ history }) {
   const TRUE = true;
   const {
     ingredientExplore,
-    setIngredientExplore,
     recipes,
     recipesToRender,
+    setIngredientExplore,
     categoriesToRender,
     recipesToRenderByIngredient,
   } = useContext(Context);
 
   useEffect(() => {
     if (ingredientExplore) {
-      recipesToRenderByIngredient('drink', ingredientExplore);
+      recipesToRenderByIngredient('meal', ingredientExplore);
       setIngredientExplore('');
-    } else recipesToRender('drink');
-    categoriesToRender('drink');
+    } else recipesToRender('meal');
+    categoriesToRender('meal');
   }, []);
 
   return (
     <div>
-      <Header title="Bebidas" search={ TRUE } />
+      <Header title="Comidas" search={ TRUE } />
       <div className="recipes-cards">
-        {recipes.length === 1 ? history.push(`/bebidas/${recipes[0].idDrink}`) : (
-          recipes.map((drink, index) => (
-            <DrinkRecipeCard
-              key={ drink.strDrink }
-              info={ drink }
-              recipe="bebidas"
+        {recipes.length === 1 ? history.push(`/comidas/${recipes[0].idMeal}`) : (
+          recipes.map((meal, index) => (
+            <MealRecipeCard
+              key={ meal.strMeal }
+              info={ meal }
+              recipe="comidas"
               index={ index }
             />
-          )))}
+          ))
+        )}
       </div>
       <Footer />
     </div>
   );
 }
 
-Drinks.propTypes = {
+Meals.propTypes = {
   history: PropTypes.func.isRequired,
 };
 
-export default Drinks;
+export default Meals;
