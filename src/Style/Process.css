@@ -1,10 +1,10 @@
 .process-container {
-  margin-left: 50px;
+  /* margin-left: 50px; */
   width: 100%;
 }
 
 .image-process {
-  width: 100%;
+  width: 90%;
 }
 
 .title-process {
@@ -35,4 +35,12 @@
 [class*=btn-process]:hover {
   background-color: rgb(46, 45, 45);
   color: white;
+}
+
+.description-container-process {
+  width: 90%;
+}
+
+.image-container-process {
+  margin-left: 30px;
 }

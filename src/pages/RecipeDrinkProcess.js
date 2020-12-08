@@ -222,60 +222,64 @@ function RecipeDrinkProcess(props) {
         >
           { recipes[0].strDrink }
         </h1>
-        <img
-          data-testid="recipe-photo"
-          src={ recipes[0].strDrinkThumb }
-          alt="imagem"
-          className="image-process"
-        />
-        <div>
+        <div className="image-container-process">
+          <img
+            data-testid="recipe-photo"
+            src={ recipes[0].strDrinkThumb }
+            alt="imagem"
+            className="image-process"
+          />
+          <div>
+            <button
+              type="button"
+              onClick={ handleFavorites }
+              className="btn btn-outline-dark-process"
+            >
+              <img
+                data-testid="favorite-btn"
+                alt="Favoritar"
+                src={ isFavorite ? blackHeartIcon : whiteHeartIcon }
+              />
+            </button>
+            <button
+              type="button"
+              onClick={ () => copyClip() }
+              data-testid="share-btn"
+              className="btn btn-outline-dark-process"
+            >
+              <img
+                src={ shareIcon }
+                alt="compartilhar"
+              />
+            </button>
+            {share && <span>Link copiado!</span>}
+          </div>
+          <h5
+            data-testid="recipe-category"
+          >
+            {recipes[0].strCategory}
+          </h5>
+          <div className="checkbox">
+            { createCheckBoxes() }
+          </div>
+          <div className="description-container-process">
+            <p
+              data-testid="instructions"
+              className="description"
+            >
+              { recipes[0].strInstructions }
+            </p>
+          </div>
           <button
             type="button"
-            onClick={ handleFavorites }
-            className="btn btn-outline-dark-process"
+            data-testid="finish-recipe-btn"
+            onClick={ () => handleEndRecipe(recipes[0]) }
+            disabled={ !arrIngredient.every((item) => item.checked) }
+            className="btn btn-process"
           >
-            <img
-              data-testid="favorite-btn"
-              alt="Favoritar"
-              src={ isFavorite ? blackHeartIcon : whiteHeartIcon }
-            />
+            Finalizar Receita
           </button>
-          <button
-            type="button"
-            onClick={ () => copyClip() }
-            data-testid="share-btn"
-            className="btn btn-outline-dark-process"
-          >
-            <img
-              src={ shareIcon }
-              alt="compartilhar"
-            />
-          </button>
-          {share && <span>Link copiado!</span>}
         </div>
-        <h5
-          data-testid="recipe-category"
-        >
-          {recipes[0].strCategory}
-        </h5>
-        <div className="checkbox">
-          { createCheckBoxes() }
-        </div>
-        <p
-          data-testid="instructions"
-          className="description"
-        >
-          { recipes[0].strInstructions }
-        </p>
-        <button
-          type="button"
-          data-testid="finish-recipe-btn"
-          onClick={ () => handleEndRecipe(recipes[0]) }
-          disabled={ !arrIngredient.every((item) => item.checked) }
-          className="btn btn-process"
-        >
-          Finalizar Receita
-        </button>
       </div>
     );
   }

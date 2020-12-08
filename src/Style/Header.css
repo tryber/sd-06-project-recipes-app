@@ -2,7 +2,8 @@
   background-color: darkgrey;
   display: flex;
   justify-content: space-between;
-  margin-left: 50px;
+  margin-left: 0px;
+  margin-right: 0px;
   margin-bottom: 10px;
   width: 100%;
 }

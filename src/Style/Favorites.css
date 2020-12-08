@@ -9,7 +9,7 @@
 
 .container-favorites {
   padding: 20px;
-  margin-left: 50px;
+  /* margin-left: 50px; */
   display: flex;
   justify-content: space-between;
   /* background-color: red; */
@@ -23,12 +23,12 @@
   flex-direction: column;
   /* height: 200px; */
   margin-bottom: 25px;
-  margin-left: 80px;
+  margin-left: 40px;
   width: 300px;
 }
 
 .image-favorite {
-  width: 100%;
+  width: 95%;
 }
 
 .btn-outline-dark-favorites {

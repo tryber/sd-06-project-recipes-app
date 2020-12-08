@@ -81,84 +81,88 @@ function RecipeFoodDetails(props) {
           { recipes[0].strMeal }
           {' '}
         </h1>
-        <img
-          data-testid="recipe-photo"
-          src={ recipes[0].strMealThumb }
-          alt={ recipes[0].strMeal }
-          className="image-detail"
-        />
-        <div className="details-container">
-          <FavoriteButton
-            id={ id }
-            title={ title }
-            data-testid="favorite-btn"
+        <div className="image-container">
+          <img
+            data-testid="recipe-photo"
+            src={ recipes[0].strMealThumb }
+            alt={ recipes[0].strMeal }
+            className="image-detail"
           />
-          <button
-            type="button"
-            className="btn btn-outline-dark-detail"
-            onClick={ () => copyClip() }
-            data-testid="share-btn"
-          >
-            <img
-              src={ shareIcon }
-              alt="Compartilhar"
+          <div className="details-container">
+            <FavoriteButton
+              id={ id }
+              title={ title }
+              data-testid="favorite-btn"
             />
-          </button>
-          {share && <span>Link copiado!</span>}
-        </div>
-        <p data-testid="recipe-category">{recipes[0].strCategory}</p>
-        <ul>
-          {arrIngredient.map((ingredient, index) => (
-            <li
-              key={ index }
-              data-testid={ `${index}-ingredient-name-and-measure` }
+            <button
+              type="button"
+              className="btn btn-outline-dark-detail"
+              onClick={ () => copyClip() }
+              data-testid="share-btn"
             >
-              { ingredient }
-            </li>
-          ))}
-        </ul>
-        <ul>
-          {arrMeasure.map((measure, index) => (
-            <li
-              key={ index }
-              data-testid={ `${index}-ingredient-name-and-measure` }
-            >
-              { measure }
-            </li>
-          ))}
-        </ul>
-        <p
-          data-testid="instructions"
-          className="description"
-        >
-          { recipes[0].strInstructions }
-        </p>
-        <iframe
-          title="Este é um titulo unico"
-          data-testid="video"
-          width="280"
-          height="150"
-          src={ recipes[0].strYoutube }
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media"
-          allowFullScreen
-        />
-
-        <div className="scrollmenu">
-          <div>
-            {recomendation.slice(ZERO, SEIS).map((element, index) => (
-              <div key={ index } className="scrollmenu-child">
-                <img
-                  data-testid={ `${index}-recomendation-card` }
-                  src={ element.strDrinkThumb }
-                  alt={ element.strDrink }
-                />
-                <p data-testid={ `${index}-recomendation-title` }>{ element.strDrink }</p>
-              </div>
-            ))}
+              <img
+                src={ shareIcon }
+                alt="Compartilhar"
+              />
+            </button>
+            {share && <span>Link copiado!</span>}
           </div>
-          <div style={ positionButton }>
-            <StartButton id={ id } title={ title } />
+          <p data-testid="recipe-category">{recipes[0].strCategory}</p>
+          <ul>
+            {arrIngredient.map((ingredient, index) => (
+              <li
+                key={ index }
+                data-testid={ `${index}-ingredient-name-and-measure` }
+              >
+                { ingredient }
+              </li>
+            ))}
+          </ul>
+          <ul>
+            {arrMeasure.map((measure, index) => (
+              <li
+                key={ index }
+                data-testid={ `${index}-ingredient-name-and-measure` }
+              >
+                { measure }
+              </li>
+            ))}
+          </ul>
+          <div className="description-container">
+            <p
+              data-testid="instructions"
+              className="description"
+            >
+              { recipes[0].strInstructions }
+            </p>
+          </div>
+          <iframe
+            title="Este é um titulo unico"
+            data-testid="video"
+            width="280"
+            height="150"
+            src={ recipes[0].strYoutube }
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media"
+            allowFullScreen
+          />
+
+          <div className="scrollmenu">
+            <div>
+              {recomendation.slice(ZERO, SEIS).map((element, index) => (
+                <div key={ index } className="scrollmenu-child">
+                  <img
+                    data-testid={ `${index}-recomendation-card` }
+                    src={ element.strDrinkThumb }
+                    alt={ element.strDrink }
+                  />
+                  <p data-testid={ `${index}-recomendation-title` }>{ element.strDrink }</p>
+                </div>
+              ))}
+            </div>
+            <div style={ positionButton }>
+              <StartButton id={ id } title={ title } />
+            </div>
           </div>
         </div>
       </div>

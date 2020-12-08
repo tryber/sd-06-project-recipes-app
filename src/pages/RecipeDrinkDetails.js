@@ -80,74 +80,78 @@ function RecipeDrinkDetails(props) {
           { recipes[0].strDrink }
           {' '}
         </h1>
-        <img
-          data-testid="recipe-photo"
-          src={ recipes[0].strDrinkThumb }
-          alt={ recipes[0].strDrink }
-          className="image-detail"
-        />
-        <p data-testid="recipe-category">{recipes[0].strAlcoholic}</p>
-        <div className="details-container">
-          <FavoriteButton
-            id={ id }
-            title={ title }
-            data-testid="favorite-btn"
+        <div className="image-container">
+          <img
+            data-testid="recipe-photo"
+            src={ recipes[0].strDrinkThumb }
+            alt={ recipes[0].strDrink }
+            className="image-detail"
           />
-          <button
-            type="button"
-            onClick={ () => copyClip() }
-            data-testid="share-btn"
-            className="btn btn-outline-dark-detail"
-          >
-            <img
-              src={ shareIcon }
-              alt="Compartilhar"
+          <p data-testid="recipe-category">{recipes[0].strAlcoholic}</p>
+          <div className="details-container">
+            <FavoriteButton
+              id={ id }
+              title={ title }
+              data-testid="favorite-btn"
             />
-          </button>
-          {share && <span>Link copiado!</span>}
-        </div>
-        <p data-testid="recipe-category">{recipes[0].strCategory}</p>
-        <ul>
-          {arrIngredient.map((ingredient, index) => (
-            <li
-              key={ index }
-              data-testid={ `${index}-ingredient-name-and-measure` }
+            <button
+              type="button"
+              onClick={ () => copyClip() }
+              data-testid="share-btn"
+              className="btn btn-outline-dark-detail"
             >
-              { ingredient }
-            </li>
-          ))}
-        </ul>
-        <ul>
-          {arrMeasure.map((measure, index) => (
-            <li
-              key={ index }
-              data-testid={ `${index}-ingredient-name-and-measure` }
-            >
-              { measure }
-            </li>
-          ))}
-        </ul>
-        <p
-          data-testid="instructions"
-          className="description"
-        >
-          { recipes[0].strInstructions }
-        </p>
-        <div className="scrollmenu">
-          <div>
-            {recomendation.slice(ZERO, SEIS).map((element, index) => (
-              <div key={ index } className="scrollmenu-child">
-                <img
-                  data-testid={ `${index}-recomendation-card` }
-                  src={ element.strMealThumb }
-                  alt={ element.strMeal }
-                />
-                <p data-testid={ `${index}-recomendation-title` }>{ element.strMeal }</p>
-              </div>
-            ))}
+              <img
+                src={ shareIcon }
+                alt="Compartilhar"
+              />
+            </button>
+            {share && <span>Link copiado!</span>}
           </div>
-          <div style={ positionButton }>
-            <StartButton id={ id } title={ title } />
+          <p data-testid="recipe-category">{recipes[0].strCategory}</p>
+          <ul>
+            {arrIngredient.map((ingredient, index) => (
+              <li
+                key={ index }
+                data-testid={ `${index}-ingredient-name-and-measure` }
+              >
+                { ingredient }
+              </li>
+            ))}
+          </ul>
+          <ul>
+            {arrMeasure.map((measure, index) => (
+              <li
+                key={ index }
+                data-testid={ `${index}-ingredient-name-and-measure` }
+              >
+                { measure }
+              </li>
+            ))}
+          </ul>
+          <div className="description-container">
+            <p
+              data-testid="instructions"
+              className="description"
+            >
+              { recipes[0].strInstructions }
+            </p>
+          </div>
+          <div className="scrollmenu">
+            <div>
+              {recomendation.slice(ZERO, SEIS).map((element, index) => (
+                <div key={ index } className="scrollmenu-child">
+                  <img
+                    data-testid={ `${index}-recomendation-card` }
+                    src={ element.strMealThumb }
+                    alt={ element.strMeal }
+                  />
+                  <p data-testid={ `${index}-recomendation-title` }>{ element.strMeal }</p>
+                </div>
+              ))}
+            </div>
+            <div style={ positionButton }>
+              <StartButton id={ id } title={ title } />
+            </div>
           </div>
         </div>
       </div>

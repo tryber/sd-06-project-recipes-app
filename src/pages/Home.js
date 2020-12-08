@@ -95,7 +95,7 @@ function Home({ title }) {
   };
 
   return (
-    <div>
+    <div className="home-container">
       <Header
         title={ title }
         enableSearch

@@ -10,20 +10,30 @@
 }
 
 .image-detail {
-  width: 100%;
+  width: 90%;
 }
 
 .container-detail {
-  margin-left: 50px;
+  /* margin-left: 35px; */
   width: 100%;
 }
 
 .title-detail {
   display: flex;
   justify-content: center;
+  /* background-color: red; */
+  margin-left: 0;
 }
 
 .description {
   width: 100%;
   text-align: justify;
+}
+
+.image-container {
+  margin-left: 30px;
+}
+
+.description-container {
+  width: 90%;
 }

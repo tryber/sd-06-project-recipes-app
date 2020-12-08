@@ -92,6 +92,7 @@ function RecipesMade() {
               data-testid={ `${index}-horizontal-image` }
               src={ recipe.image }
               alt="recipe alredy finalized"
+              className="image-feitas"
             />
             <h1
               data-testid={ `${index}-horizontal-name` }

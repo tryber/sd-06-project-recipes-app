@@ -265,12 +265,14 @@ function RecipeFoodProcess(props) {
           <div className="checkbox">
             { createCheckBoxes() }
           </div>
-          <p
-            data-testid="instructions"
-            className="description"
-          >
-            { recipes[0].strInstructions }
-          </p>
+          <div className="description-container-process">
+            <p
+              data-testid="instructions"
+              className="description"
+            >
+              { recipes[0].strInstructions }
+            </p>
+          </div>
           <button
             type="button"
             data-testid="finish-recipe-btn"

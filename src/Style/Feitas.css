@@ -9,7 +9,7 @@
 
 .container-feitas {
   padding: 20px;
-  margin-left: 50px;
+  /* margin-left: 50px; */
   display: flex;
   justify-content: space-between;
   /* background-color: red; */
@@ -23,7 +23,7 @@
   flex-direction: column;
   /* height: 200px; */
   margin-bottom: 25px;
-  margin-left: 80px;
+  margin-left: 40px;
   width: 300px;
 }
 
@@ -41,4 +41,8 @@
 [class*=btn-outline-dark-favorites]:hover {
   background-color: rgb(46, 45, 45);
   color: white;
+}
+
+.image-feitas {
+  width: 95%;
 }
