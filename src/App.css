@@ -60,3 +60,161 @@
     transform: rotate(-10deg);
   }
 }
+
+.width360 {
+  width: 360px;
+  margin: 0 auto;
+}
+
+main {
+padding-bottom: 40px;
+}
+
+header, footer, .start-recipe-btn, .finish-recipe-btn {
+  background-color: darkgray;
+  width: 360px;
+}
+
+.header-component {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.carousel {
+margin-bottom: 20px;
+}
+
+.start-recipe-btn, .finish-recipe-btn  {
+align-content: center;
+}
+
+footer, .start-recipe-btn, .finish-recipe-btn {
+  position: fixed;
+  bottom: 0px;
+}
+
+Container {
+padding: 20px;
+}
+
+.category-buttons {
+  width: 30%;
+  margin: 5px;
+  font-size: 12px;
+  border: 1px solid grey;
+}
+
+.selected-category {
+  background-color: #05566e;
+  color: white;
+}
+
+.cardRecipe {
+  width: 320px;
+  margin: 10px auto;
+  display: flex;
+}
+
+.cardIngredients {
+  width: 140px;
+  border: 1px solid rgb(154, 177, 190);
+  border-radius: 5px;
+  text-align: center;
+  margin: 7px 0;
+}
+
+.imageCardRecipe,
+.imageCardIngredients {
+  width: 150px;
+  border-radius: 5px;
+}
+
+.imageCardIngredients {
+  width: 100%;
+
+}
+
+.bt-group {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+}
+
+.textBoxCard {
+  padding: 0 10px;
+}
+
+.textBoxCard h3 {
+  font-size: 20px;
+}
+
+.textBoxCard p {
+  margin: 0 0;
+  font-size: 14px;
+  color: rgb(85, 85, 85);
+}
+
+.tagRecipe {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: thistle;
+}
+
+.button-standard {
+  background: transparent;
+  border: none;
+}
+
+.input-text-find {
+  width: 340px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 3px 6px;
+}
+
+.search-bar {
+  text-align: center;
+  /* display: flex;
+  flex-wrap: wrap;
+  justify-content: center; */
+}
+
+.filter-radios {
+  font-size: 14px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+}
+
+.filter-radios label {
+  margin: 0;
+}
+
+.filter-radios label input { 
+  margin-right: 5px;
+}
+
+.ingredients-explore {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+input[type=checkbox]:checked + label {
+  text-decoration: line-through;
+  color: red;
+}
+
+.select-explore-origin {
+  margin: 10px auto;
+  width: 300px;
+  padding: 10px 20px;
+}
+
+.content-select-explore {
+  text-align: center;
+}
