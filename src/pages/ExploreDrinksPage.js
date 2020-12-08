@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import Header from '../components/Header';
+import HeaderExplorePages from '../components/HeaderExplorePages';
 import Footer from '../components/Footer';
 
 import { requestRandomDrink } from '../services/requestsAPI';
@@ -17,19 +17,24 @@ function ExploreDrinksPage() {
 
   return (
     <div>
-      <Header />
+      <HeaderExplorePages pageName="Explorar Bebidas" />
       <br />
       <br />
       <br />
       <br />
       <div>
         <Link to="/explorar/bebidas/ingredientes">
-          <button type="button" data-testid="explore-by-ingredient">
+          <button
+            className="category-button"
+            type="button"
+            data-testid="explore-by-ingredient"
+          >
             Por Ingredientes
           </button>
         </Link>
 
         <button
+          className="category-button"
           type="button"
           data-testid="explore-surprise"
           onClick={ handleClick }

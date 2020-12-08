@@ -148,7 +148,7 @@ function FoodDetailsProgress() {
         name: foodDetails.strMeal,
         image: foodDetails.strMealThumb,
         doneDate: time,
-        tags: foodDetails.strTags.split(','),
+        tags: foodDetails.strTags && foodDetails.strTags.split(','),
       },
     ];
 
@@ -166,44 +166,51 @@ function FoodDetailsProgress() {
   }
 
   return (
-    <div>
+    <div className="recipe-details-div">
 
       <img
         data-testid="recipe-photo"
         width="100px"
         src={ foodDetails.strMealThumb }
         alt="Meal"
+        className="recipe-details-img"
       />
 
-      <h3 data-testid="recipe-title">
-        {foodDetails.strMeal}
-      </h3>
+      <div className="recipe-title-and-share-fav-buttons">
+        <h3 data-testid="recipe-title" className="recipe-details-title">
+          {foodDetails.strMeal}
+        </h3>
 
-      <button
-        type="button"
-        data-testid="share-btn"
-        onClick={ () => copyToClipBoard(document.URL) }
-      >
-        <img src={ shareIcon } alt="Share" />
-      </button>
+        <div className="fav-and-shar-buttons">
+          <button
+            type="button"
+            data-testid="share-btn"
+            onClick={ () => copyToClipBoard(document.URL) }
+            className="recipe-button"
+          >
+            <img src={ shareIcon } alt="Share" />
+          </button>
+          <button
+            aria-label="favorite-button"
+            type="button"
+            data-testid="favorite-btn"
+            onClick={ handleFavoriteFood }
+            className="recipe-button"
+            src={ favoriteFood ? blackHeartIcon : whiteHeartIcon }
+          >
+            <img src={ favoriteFood ? blackHeartIcon : whiteHeartIcon } alt="favorite" />
+          </button>
+          <span hidden={ spanHidden }>Link copiado!</span>
+        </div>
+      </div>
 
-      <span hidden={ spanHidden }>Link copiado!</span>
-
-      <button
-        aria-label="favorite-button"
-        type="button"
-        data-testid="favorite-btn"
-        onClick={ handleFavoriteFood }
-        src={ favoriteFood ? blackHeartIcon : whiteHeartIcon }
-      >
-        <img src={ favoriteFood ? blackHeartIcon : whiteHeartIcon } alt="favorite" />
-      </button>
-
-      <h4 data-testid="recipe-category">
+      <h4 data-testid="recipe-category" className="recipe-category">
         {foodDetails.meals && foodDetails.meals[0].strCategory}
       </h4>
 
-      <div id="ingredients-div">
+      <h3 className="ingredients-title">Ingredients</h3>
+
+      <div id="ingredients-div" className="ingredients-div">
         {ingredients && ingredients
           .map((item, index) => (
             <div key={ index } data-testid={ `${index}-ingredient-step` }>
@@ -225,24 +232,30 @@ function FoodDetailsProgress() {
             </div>
           ))}
       </div>
-
-      <p data-testid="instructions">
+      <h3 className="intructions-title">Instructions</h3>
+      <p data-testid="instructions" className="instructions">
         {foodDetails.strInstructions}
       </p>
 
-      <video data-testid="video" width="750" height="500" controls>
+      <video className="video" data-testid="video" width="750" height="500" controls>
         <source
           src={ foodDetails.strYoutube }
           type="video/mp4"
         />
         <track src="" kind="captions" />
       </video>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <Link to="/receitas-feitas">
         <button
           type="button"
           data-testid="finish-recipe-btn"
           disabled={ stateButton }
           onClick={ handleClickEnd }
+          className="start-btn"
         >
           Finalizar receita
         </button>

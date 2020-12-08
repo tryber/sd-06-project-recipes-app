@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../components/Header';
+import HeaderExplorePages from '../components/HeaderExplorePages';
 import shareIcon from '../images/shareIcon.svg';
 
 function DoneRecipes() {
@@ -42,15 +42,20 @@ function DoneRecipes() {
 
   return (
     <div>
-      <Header />
-      <h2>Receitas feitas</h2>
-      <div>
+      <HeaderExplorePages pageName="Receitas feitas" />
+      <br />
+      <br />
+      <br />
+      <br />
+      {/* <h2 data-testid="page-title">Receitas Feitas</h2> */}
+      <div className="done-recipes-buttons-div">
         <button
           type="button"
           data-testid="filter-by-all-btn"
           name="all"
           value="all"
           onClick={ (e) => handleMealsAndDrinks(e) }
+          className="done-recipes-buttons"
         >
           All
         </button>
@@ -60,6 +65,7 @@ function DoneRecipes() {
           name="comida"
           value="comida"
           onClick={ (e) => handleMealsAndDrinks(e) }
+          className="done-recipes-buttons"
         >
           Food
         </button>
@@ -69,36 +75,50 @@ function DoneRecipes() {
           name="bebida"
           value="bebida"
           onClick={ (e) => handleMealsAndDrinks(e) }
+          className="done-recipes-buttons"
         >
           Drinks
         </button>
       </div>
-      <div>
+      <div className="cards-div">
         { allState
           ? localSt && localSt.map((item, index) => (
-            <div key={ index }>
-              <Link to={ `/${item.type}s/${item.id}` }>
+            <div key={ index } className="card">
+              <Link to={ `/${item.type}s/${item.id}` } className="foodCard-link">
                 <img
                   height="150px"
                   src={ item.image }
                   alt="element img"
                   data-testid={ `${index}-horizontal-image` }
+                  className="done-card-img"
                 />
-                <h2 data-testid={ `${index}-horizontal-name` }>{ item.name }</h2>
+                <h2
+                  data-testid={ `${index}-horizontal-name` }
+                  className="done-card-title"
+                >
+                  { item.name }
+                </h2>
               </Link>
               <p
+                className="done-card-text"
                 data-testid={ `${index}-horizontal-top-text` }
               >
                 { item.type === 'comida'
                   ? `${item.area} - ${item.category}`
                   : `${item.alcoholicOrNot} - ${item.category}` }
               </p>
-              <p data-testid={ `${index}-horizontal-done-date` }>{ item.doneDate }</p>
-              {
+              <p
+                className="done-card-done-date"
+                data-testid={ `${index}-horizontal-done-date` }
+              >
+                { item.doneDate }
+              </p>
+              {/* {
                 item.tags
               && item.tags.map(
                 (tag, idx) => (
                   <p
+                    className="done-card-tag"
                     data-testid={ `${index}-${tag}-horizontal-tag` }
                     key={ idx }
                   >
@@ -106,8 +126,9 @@ function DoneRecipes() {
                   </p>
                 ),
               )
-              }
+              } */}
               <button
+                className="done-card-share-button"
                 data-testid={ `${index}-horizontal-share-btn` }
                 type="button"
                 src={ shareIcon }
@@ -122,16 +143,23 @@ function DoneRecipes() {
           mealsState
             ? localSt
             && localSt.filter((el) => el.type === 'comida').map((item, index) => (
-              <div key={ index }>
-                <Link to={ `/${item.type}s/${item.id}` }>
+              <div key={ index } className="card">
+                <Link to={ `/${item.type}s/${item.id}` } className="foodCard-link">
                   <img
                     src={ item.image }
                     alt="element img"
                     data-testid={ `${index}-horizontal-image` }
+                    className="done-card-img"
                   />
-                  <h2 data-testid={ `${index}-horizontal-name` }>{ item.name }</h2>
+                  <h2
+                    data-testid={ `${index}-horizontal-name` }
+                    className="done-card-title"
+                  >
+                    { item.name }
+                  </h2>
                 </Link>
                 <p
+                  className="done-card-text"
                   data-testid={ `${index}-horizontal-top-text` }
                 >
                   {
@@ -140,12 +168,18 @@ function DoneRecipes() {
                       : `${item.alcoholicOrNot} - ${item.category}`
                   }
                 </p>
-                <p data-testid={ `${index}-horizontal-done-date` }>{ item.doneDate }</p>
-                {
+                <p
+                  className="done-card-done-date"
+                  data-testid={ `${index}-horizontal-done-date` }
+                >
+                  { item.doneDate }
+                </p>
+                {/* {
                   item.tags
                 && item.tags.map(
                   (tag, idx) => (
                     <p
+                      className="done-card-tag"
                       data-testid={ `${index}-${tag}-horizontal-tag` }
                       key={ idx }
                     >
@@ -153,8 +187,9 @@ function DoneRecipes() {
                     </p>
                   ),
                 )
-                }
+                } */}
                 <button
+                  className="done-card-share-button"
                   data-testid={ `${index}-horizontal-share-btn` }
                   type="button"
                   src={ shareIcon }
@@ -168,16 +203,23 @@ function DoneRecipes() {
         }
         { drinkState
           ? localSt && localSt.filter((el) => el.type === 'bebida').map((item, index) => (
-            <div key={ index }>
-              <Link to={ `/${item.type}s/${item.id}` }>
+            <div key={ index } className="card">
+              <Link to={ `/${item.type}s/${item.id}` } className="foodCard-link">
                 <img
                   src={ item.image }
                   alt="element img"
                   data-testid={ `${index}-horizontal-image` }
+                  className="done-card-img"
                 />
-                <h2 data-testid={ `${index}-horizontal-name` }>{ item.name }</h2>
+                <h2
+                  data-testid={ `${index}-horizontal-name` }
+                  className="done-card-title"
+                >
+                  { item.name }
+                </h2>
               </Link>
               <p
+                className="done-card-text"
                 data-testid={ `${index}-horizontal-top-text` }
               >
                 {
@@ -186,12 +228,18 @@ function DoneRecipes() {
                     : `${item.alcoholicOrNot} - ${item.category}`
                 }
               </p>
-              <p data-testid={ `${index}-horizontal-done-date` }>{ item.doneDate }</p>
-              {
+              <p
+                className="done-card-done-date"
+                data-testid={ `${index}-horizontal-done-date` }
+              >
+                { item.doneDate }
+              </p>
+              {/* {
                 item.tags
               && item.tags.map(
                 (tag, idx) => (
                   <p
+                    className="done-card-tag"
                     data-testid={ `${index}-${tag}-horizontal-tag` }
                     key={ idx }
                   >
@@ -199,8 +247,9 @@ function DoneRecipes() {
                   </p>
                 ),
               )
-              }
+              } */}
               <button
+                className="done-card-share-button"
                 data-testid={ `${index}-horizontal-share-btn` }
                 type="button"
                 src={ shareIcon }
@@ -212,7 +261,7 @@ function DoneRecipes() {
           ))
           : null }
       </div>
-      <span hidden={ spanHidden }>Link copiado!</span>
+      <span className="span" hidden={ spanHidden }>Link copiado!</span>
     </div>
   );
 }

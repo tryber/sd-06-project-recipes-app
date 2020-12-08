@@ -153,6 +153,11 @@ a {
   font-size: large;
 }
 
+.header-explorePages-text {
+  font-size: large;
+  margin: auto;
+}
+
 h2 {
   margin-bottom: 0px;
   margin-top: 0px;
@@ -427,3 +432,294 @@ h2 {
 .favorite-recipes-button {
   margin-top: 150px;
 }
+
+/* food details */
+
+.recipe-details-div {
+  margin-bottom: 0px;
+  margin-top: -150px;
+  padding-bottom: 0px;
+  /* padding-left: 5%;
+  padding-top: 5%; */
+}
+
+.recipe-details-img {
+  box-shadow: 3px 5px 5px 5px rgba(107, 107, 107, 0.432);
+  margin-bottom: 5%;
+  width: 100%;
+}
+
+.recipe-details-title {
+  margin-left: 5%;
+  margin-top: 0px;
+  padding-top: 2.5%;
+}
+
+.recipe-title-and-share-fav-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 5%;
+}
+
+.fav-and-shar-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  width: 100px;
+}
+
+span {
+  color: rgb(177, 177, 177);
+}
+
+.recipe-button {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  padding-top: 8%;
+}
+
+.recipe-category {
+  color: rgb(177, 177, 177);
+  margin-left: 5%;
+  margin-top: -20px;
+}
+
+.recipe-stralcoholic {
+  color: rgb(221, 221, 221);
+  margin-left: 5%;
+  margin-top: -14px;
+  font-size: 12px;
+}
+
+.ingredients-title {
+  margin-left: 5%;
+}
+
+.ingredients-div {
+  background-color: rgba(235, 235, 235, 0.363);
+  box-shadow: 3px 5px 5px rgba(107, 107, 107, 0.452);
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: -10px;
+  padding-bottom: 0.5px;
+  padding-left: 11px;
+  padding-top: 0.5px;
+}
+
+.intructions-title {
+  margin-left: 5%;
+  margin-top: 40px;
+}
+
+.instructions {
+  background-color: rgba(235, 235, 235, 0.363);
+  box-shadow: 3px 5px 5px rgba(107, 107, 107, 0.452);
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: -15px;
+  padding-bottom: 10px;
+  padding-left: 11px;
+  padding-right: 9px;
+  padding-top: 10px;
+}
+
+.video {
+  height: auto;
+  margin-left: 5%;
+  margin-top: 10px;
+  max-width: 90%;
+}
+
+.carousel {
+  box-shadow: 3px 5px 5px 5px rgba(107, 107, 107, 0.452);
+  color: rgb(177, 177, 177);
+  height: 400px;
+  margin-bottom: 0px;
+  margin-top: 30px;
+}
+
+.start-btn {
+  background-color: black;
+  border: none;
+  box-shadow: 5px 5px 8px 8px rgba(49, 49, 49, 0.548);
+  color: white;
+  font-size: 18px;
+  height: 55px;
+  position: fixed;
+  width: 100%;
+}
+
+/* recipes in progress */
+
+.done-recipes-buttons-div {
+  background-color: white;
+  box-shadow: 3px 5px 5px rgba(107, 107, 107, 0.432);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 0%;
+  padding-top: 1%;
+  padding-bottom: 1.5%;
+  position: fixed;
+  text-decoration: none;
+  width: 100%;
+  z-index: 1;
+}
+
+.done-recipes-buttons {
+  background-color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 2px;
+  box-shadow: 3px 5px 5px rgba(107, 107, 107, 0.452);
+  color: white;
+  font-size: 11px;
+  height: 25px;
+  margin: 3px;
+  overflow: hidden;
+  width: 31%;
+}
+
+.cards-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 15%;
+  width: 100%;
+}
+
+.card {
+  background-color: rgb(158, 139, 139);
+  border: 1.5px solid rgb(255, 255, 255);
+  border-radius: 1px;
+  box-shadow: 3px 5px 5px rgba(107, 107, 107, 0.568);
+  display: flex;
+  flex-direction: column;
+  height: 180px;
+  margin-left: 0px;
+  margin-bottom: 0px;
+  margin-top: 15px;
+  overflow: hidden;
+  padding: 0px;
+  width: 45%;
+}
+
+.card:hover {
+  box-shadow: 3px 5px 5px rgb(107, 107, 107);
+  border: none;
+  outline:none;
+}
+
+.foodCard-link {
+  display: flex;
+  flex-wrap: wrap;
+  height: 45%;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  width: 100%;
+}
+
+.done-card-img {
+  margin-top: 0px;
+  width: 100%;
+}
+
+.done-card-title {
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.541);
+  color: rgb(0, 0, 0);
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 18.5px;
+  height: 25px;
+  padding-left: 2px;
+  padding-top: 95px;
+  position: absolute;
+  overflow: hidden;
+  text-decoration: none;
+  width: 45%;
+}
+
+.done-card-text {
+  background-color: rgba(255, 255, 255, 0.541);
+  color: rgb(44, 44, 44);
+  margin-bottom: 0px;
+  margin-top: 39px;
+  overflow: hidden;
+}
+
+.done-card-done-date {
+  background-color: rgba(255, 255, 255, 0.541);
+  color: rgb(44, 44, 44);
+  font-size: 12px;
+  margin-bottom: 1px;
+  margin-top: 0px;
+}
+
+.done-card-tag {
+  background-color: blue;
+}
+
+.done-card-share-button {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  display: flex;
+  justify-content: flex-end;
+  filter: invert(100%);
+  margin-top: 0px;
+}
+
+/* favorite racipes page */
+
+.favorite-recipes-button {
+  background-color: white;
+  box-shadow: 3px 5px 5px rgba(107, 107, 107, 0.432);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 0%;
+  padding-top: 1%;
+  padding-bottom: 1.5%;
+  position: fixed;
+  text-decoration: none;
+  width: 100%;
+  z-index: 1;
+}
+
+.favorite-recipes-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 55px;
+  padding-top: -150px;
+  width: 100%;
+}
+
+.fav-recipes-buttons-div {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.fav-card-share-button {
+  background-color: rgb(255, 255, 255);
+  border: none;
+
+  justify-content: flex-end;
+  filter: invert(100%);
+  margin-top: 0px;
+  width: 50%;
+}
+
+
+/* profile page */
+
+.email-text {
+  margin-left: 25%;
+}
+
+.profile-div-container {
+  background-image: url("./style/profileBackground3.png");
+  background-size: 100%;
+  height: 100%;
+  margin-top: 0px;
+  padding-bottom: 0px;
+}
+
