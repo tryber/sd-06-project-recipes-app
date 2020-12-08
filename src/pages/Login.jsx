@@ -23,7 +23,7 @@ function Login({ history }) {
 
   return (
     <section className="login-container">
-      <h2 className="login-title">APP DE RECEITAS</h2>
+      <h2 className="login-title">ZÉ RECEITAS</h2>
       <section className="login-input-btn">
         <div className="login-image" />
         <section className="login-inputs">
