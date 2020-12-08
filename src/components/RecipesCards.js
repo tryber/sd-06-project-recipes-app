@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import RecipesContext from '../context/RecipesContext';
 import RecipesDrinksCards from './RecipesDrinksCards';
 import RecipesMealsCards from './RecipesMealsCards';
-import '../style/RecipeCards.css';
+import { loading } from '../images';
 
 function RecipesCards({ title }) {
   const { isLoading } = useContext(RecipesContext);
@@ -22,7 +22,7 @@ function RecipesCards({ title }) {
   }, []);
 
   if (isLoading) {
-    return <h2>Loading...</h2>;
+    return <img className="loading" src={ loading } alt="loading" />;
   }
 
   return (title === 'Comidas')

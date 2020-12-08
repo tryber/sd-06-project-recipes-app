@@ -1,12 +1,70 @@
-body {
-  height: 640px;
-  position: relative;
-  width: 360px;
+.div-profile {
+  align-items: center;
+  align-content: center;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  margin: auto;
+  margin-top: 130px;
 }
 
-.profile {
+.email {
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18pt;
+  font-weight: 700;
+}
+
+.div-profile button {
+  border: none;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 16pt;
+  height: 40px;
+  margin: auto;
+  margin-top: 30px;
+  width: 285px;
+}
+
+.bttn-make {
+  background-color: #801dad;
+}
+
+.bttn-make:hover {
+  background-color: #9825ce;
+  cursor: pointer;
+}
+
+.bttn-favorite {
+  background-color: #d60bc5;
+}
+
+.bttn-favorite:hover {
+  background-color: #f516e2;
+  cursor: pointer;
+}
+
+.bttn-logout {
+  background-color: #960051;
+}
+
+.bttn-logout:hover {
+  background-color: #bd0165;
+  cursor: pointer;
+}
+
+.bttn-logout {
   background-color: #f5f5f5;
-  border: 1px solid #cecccc;
-  height: 640px;
-  width: 360px;
+}
+
+.bttn-logout:hover {
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
+
+@media only screen and ( min-width : 1024px ) {
+  .div-profile {
+    margin-top: 10%;
+  }
 }

@@ -1,0 +1,33 @@
+.ingredient-cards {
+  padding: 75px 0px;
+  width: 100%;
+}
+
+.ingredient-card {
+  align-items: center;
+  align-content: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.ingredient-card button {
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 25px 25px 25px 0px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14pt;
+  font-weight: 700;
+  margin: 2%;
+  width: 150px;
+}
+
+.ingredient-card button:hover {
+  background-color: #363d49;
+  cursor: pointer;
+}
+
+.ingredient-card img {
+  width: 150px;
+}

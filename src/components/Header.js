@@ -1,35 +1,32 @@
-/* eslint-disable no-alert */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { profileIcon, searchIcon } from '../images';
-import '../style/Header.css';
+import { profileIcon, searchIcon, logoImg } from '../images';
 import SearchBar from './SearchBar';
+import '../style/Header.css';
 
 function Header({ title }) {
   const [searchBar, setSearchBar] = useState(false);
 
   return (
     <header>
-      <nav>
-        <Link className="profile" to="/perfil">
-          <img
-            data-testid="profile-top-btn"
-            src={ profileIcon }
-            alt="Icone de perfil"
-          />
+      <nav className="header">
+        <Link to="/perfil">
+          <button type="button">
+            <img
+              data-testid="profile-top-btn"
+              src={ profileIcon }
+              alt="Icone de perfil"
+            />
+          </button>
         </Link>
-        <h1
-          data-testid="page-title"
-          className="title"
-        >
+        <h1 data-testid="page-title">
           { title }
         </h1>
         {
           (title === 'Comidas' || title === 'Explorar Origem' || title === 'Bebidas')
           && (
             <button
-              className="searchButton"
               type="button"
               onClick={ () => { setSearchBar(!searchBar); } }
             >
@@ -41,11 +38,24 @@ function Header({ title }) {
             </button>
           )
         }
+        {
+          (title === 'Perfil' || title === 'Receitas Feitas'
+            || title === 'Receitas Favoritas' || title === 'Explorar'
+            || title === 'Explorar Comidas' || title === 'Explorar Bebidas'
+            || title === 'Explorar Ingredientes'
+          ) && (
+            <img
+              className="header-logo"
+              src={ logoImg }
+              alt="Icone de busca"
+            />
+          )
+        }
       </nav>
-
       <SearchBar
         title={ title }
         searchBar={ searchBar }
+        setSearchBar={ setSearchBar }
       />
     </header>
   );

@@ -1,37 +1,186 @@
 .container-details {
-  position: relative;
+  background-color: #f5f5f5;
 }
 
 .container-details img{
-  width: 200px;
+  width: 20%;
 }
 
-.container-details .icons {
+.div-details-header {
+  background-color: #272c35;
+  color: #ffffff;
+  margin-top: -5px;
+  width: 100%;
+}
+
+.div-icon {
+  align-items: flex-start !important;
+  align-content: flex-start !important;
+  display: flex !important;
+  flex-flow: row wrap !important;
+  justify-content: flex-start !important;
+  margin-left: -200px !important;
+  padding: 5px 0px;
+  width: 100% !important;
+}
+
+.div-icon button {
+  height: 50px;
+  margin: 5px;
+  padding: 5px;
+  width: 50px;
+}
+
+.div-icon img {
   width: 25px;
 }
 
+.div-icon p {
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12pt;
+  font-weight: 700;
+  left: 70px;
+  position: relative;
+}
+
+.div-details-title {
+  align-items: center;
+  align-content: center;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.div-details-title h1 {
+  color: #ffffff !important; 
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30pt !important;
+  font-weight: 900;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.div-details-title p {
+  color: #ffffff !important; 
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18pt !important;
+}
+
+.div-recipes {
+  align-items: flex-start;
+  align-content: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  margin: auto;
+  width: 98%;
+}
+
+.div-recipes h2{
+  color: #272c35 !important; 
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18pt !important;
+  width: 99% !important;
+}
+
+.div-recipes p, 
+.div-recipes ul {
+  color: #272c35 !important; 
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16pt !important;
+  width: 99% !important;
+}
+
 .start-recipe {
-  background: #6CE34F;
-  width: 20%;
-  padding: 10px;
-  position: fixed;
+  background-color: #960051;
+  border: none;
+  border-radius: 5px;
   bottom: 0px;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  height: 40px;
+  margin-top: 5px;
+  position: fixed;
+  width: 360px;
+}
+
+.start-recipe:hover {
+  background-color: #bd0165;
+  cursor: pointer;
 }
 
 .cards {
-  min-width: 420px;
   margin: auto;
+  width: 360px;
 }
 
 .scroller {
-  overflow-x: scroll;
   display: flex;
-  /* scroll-snap-type: x mandatory; */
 }
 
 .card {
-  min-width: 50%;
-  min-height: 100px;
-  background-color: #EDF2F7;
-  /* scroll-snap-align: center; */
+  background-color: #f5f5f5;
+  color: #ffffff;
+  align-items: center;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  margin: 2% 0 2% -5%;
+  width: 50%;
+}
+
+.card img{
+  border-radius: 25%;
+  border-bottom-left-radius: 0%;
+  width: 70%;
+}
+
+.card h2 {
+  background-color: #272c35;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  padding: 2% 0;
+  text-align: center;
+  width: 70%;
+}
+
+.invisible {
+  display: none;
+}
+
+.div-buttons-scroller {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 300px;
+}
+
+.div-buttons-scroller button{
+  background-color: #272c35;
+  border: none;
+  border-radius: 50%;
+  padding: 3px 6px;
+  margin: 2%;
+}
+
+.div-buttons-scroller button:hover{
+  background-color: #3d424d;
+  cursor: pointer;
+}
+
+.div-buttons-scroller img{
+  width: 40px;
+}
+
+.copy {
+  color: black;
 }
