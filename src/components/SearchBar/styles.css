@@ -1,0 +1,49 @@
+.main-search-bar {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+
+#search-bar {
+  margin-top: 100px;
+  background-color: rgb(122, 122, 122);
+  width: 60%;
+  border: 3px solid black;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#search-bar input {
+  width: 70%;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 5px 5px;
+}
+
+.input-radio {
+  display: flex;
+  justify-content: space-around;
+}
+
+.input-radio input {
+
+}
+
+#nome-button {
+}
+
+#search-bar button {
+  background-color: rgba(251, 237, 42, 0.959);
+  width: 72%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 0 0 5px;
+}

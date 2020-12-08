@@ -1,0 +1,12 @@
+.container-buttons {
+  margin-top: 25%;
+  
+  display: flex;
+  justify-content: center;
+}
+
+.container-buttons img {
+  width: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+}

@@ -1,0 +1,33 @@
+.main-categories {
+  width: 100%;
+  padding-top: 85px;
+  padding-left: 6.5px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.main-categories button {
+  font-size: 18px;
+  text-align: center;
+  width: 30%;
+  margin: 5px;
+  padding: 3px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 2px 5px;
+}
+
+
+/* @media (max-width: 500px) {
+
+  .main-categories span{
+    font-size: 24px;
+  }
+
+  .categories img {
+    width: 80px;
+  }
+
+} */

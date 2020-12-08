@@ -1,0 +1,16 @@
+export { default as Login } from './Login';
+export { default as Perfil } from './Perfil';
+export { default as Bebidas } from './Bebidas';
+export { default as Comidas } from './Comidas';
+export { default as Explorar } from './Explorar';
+export { default as DetalhesBebidas } from './DetalhesBebidas';
+export { default as DetalhesComidas } from './DetalhesComidas';
+export { default as ExplorarBebidas } from './ExplorarBebidas';
+export { default as ExplorarComidas } from './ExplorarComidas';
+export { default as ProcessoBebida } from './ProcessoBebida';
+export { default as ProcessoComida } from './ProcessoComida';
+export { default as BebidasPorIngrediente } from './BebidasPorIngrediente';
+export { default as ComidasPorIngrediente } from './ComidasPorIngrediente';
+export { default as ComidasLocalOrigem } from './ComidasLocalOrigem';
+export { default as ReceitasFeitas } from './ReceitasFeitas';
+export { default as ReceitasFavoritas } from './ReceitasFavoritas';

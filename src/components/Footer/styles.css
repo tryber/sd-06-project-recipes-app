@@ -1,0 +1,12 @@
+.footer {
+  width: 100%;
+  background-color: burlywood;
+  height: 70px;
+  position: fixed;
+  bottom: 0;
+  border-top: 7px solid black;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
