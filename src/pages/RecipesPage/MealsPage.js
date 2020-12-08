@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Footer from '../../components/Footer';
-import Header from '../../components/Header';
-import BtnSearchBar from '../../components/BtnSearchBar';
+import Footer from '../../components/Footer/Footer';
+import Header from '../../components/MainHeader/Header';
+import BtnSearchBar from '../../components/MainHeader/BtnSearchBar';
 
 import * as cocktailAPI from '../../services/cocktailAPI';
 import * as mealAPI from '../../services/mealAPI';
 import recipesAppContext from '../../context/recipesAppContext';
+import './style.css';
 
 function MealsPage() {
   const [state, changeState] = useState({
@@ -140,107 +141,73 @@ function MealsPage() {
   }
 
   return (
-    <div className="recipes-page">
-      <Header
-        className="header"
-        pageTitle="Comidas"
-        BtnSearchBar={ BtnSearchBar }
-      />
-      <div className="categories">
-        <div className="category-button">
+    <div>
+
+      <div className="recipes-page-container">
+        <Header
+          pageTitle="Comidas"
+          BtnSearchBar={ BtnSearchBar }
+        />
+        <div className="categories">
           <input
+            className="category-button"
             type="button"
             data-testid="All-category-filter"
             value="All"
             onClick={ changeFilter }
           />
+          {categories.map((category, index) => {
+            const dataTestID = `${category.strCategory}-category-filter`;
+            if (index < five) {
+              if (type === 'meals') {
+                return (
+                  <input
+                    key={ index }
+                    className="category-button"
+                    type="button"
+                    data-testid={ dataTestID }
+                    value={ category.strCategory }
+                    onClick={ changeFilter }
+                  />
+                );
+              }
+            }
+            return (null);
+          })}
         </div>
-        {categories.map((category, index) => {
-          const dataTestID = `${category.strCategory}-category-filter`;
-          if (index < five) {
-            if (type === 'cocktails') {
-              return (
-                <div className="category-button" key={ index }>
-                  <input
-                    type="button"
-                    data-testid={ dataTestID }
-                    value={ category.strCategory }
-                    onClick={ changeFilter }
-                  />
-                </div>
-              );
+        <div className="recipes-section">
+          {recipes.map((recipe, index) => {
+            if (index < twelve) {
+              const dataTestID = `${index}-recipe-card`;
+              const dataTestIDImg = `${index}-card-img`;
+              const dataTestIDCard = `${index}-card-name`;
+              if (type === 'meals') {
+                return (
+                  <Link key={ index } to={ `/comidas/${recipe.idMeal}` }>
+                    <div className="recipe-card" data-testid={ dataTestID } key={ index }>
+                      <img
+                        alt="Meal Thumb"
+                        data-testid={ dataTestIDImg }
+                        src={ recipe.strMealThumb }
+                        className="recipe-thumb"
+                        height="250"
+                      />
+                      <h2
+                        className="recipe-name"
+                        data-testid={ dataTestIDCard }
+                      >
+                        {recipe.strMeal}
+                      </h2>
+                    </div>
+                  </Link>
+                );
+              }
             }
-            if (type === 'meals') {
-              return (
-                <div className="category-button" key={ index }>
-                  <input
-                    type="button"
-                    data-testid={ dataTestID }
-                    value={ category.strCategory }
-                    onClick={ changeFilter }
-                  />
-                </div>
-              );
-            }
-          }
-          return (null);
-        })}
+            return (null);
+          })}
+        </div>
       </div>
-      <div className="recipes-section">
-        {recipes.map((recipe, index) => {
-          if (index < twelve) {
-            const dataTestID = `${index}-recipe-card`;
-            const dataTestIDImg = `${index}-card-img`;
-            const dataTestIDCard = `${index}-card-name`;
-            if (type === 'cocktails') {
-              return (
-                <Link key={ index } to={ `/bebidas/${recipe.idDrink}` }>
-                  <div className="recipe-card" data-testid={ dataTestID } key={ index }>
-                    <img
-                      alt="Drink Thumb"
-                      data-testid={ dataTestIDImg }
-                      src={ recipe.strDrinkThumb }
-                      className="recipe-thumb"
-                      height="250"
-                    />
-                    <h2
-                      className="recipe-name"
-                      data-testid={ dataTestIDCard }
-                    >
-                      {recipe.strDrink}
-                    </h2>
-                  </div>
-                </Link>
-              );
-            }
-            if (type === 'meals') {
-              return (
-                <Link key={ index } to={ `/comidas/${recipe.idMeal}` }>
-                  <div className="recipe-card" data-testid={ dataTestID } key={ index }>
-                    <img
-                      alt="Meal Thumb"
-                      data-testid={ dataTestIDImg }
-                      src={ recipe.strMealThumb }
-                      className="recipe-thumb"
-                      height="250"
-                    />
-                    <h2
-                      className="recipe-name"
-                      data-testid={ dataTestIDCard }
-                    >
-                      {recipe.strMeal}
-                    </h2>
-                  </div>
-                </Link>
-              );
-            }
-          }
-          return (null);
-        })}
-      </div>
-      <div>
-        <Footer className="footer-container" />
-      </div>
+      <Footer />
     </div>
   );
 }

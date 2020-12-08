@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import copy from 'clipboard-copy';
-import Header from '../../components/Header';
+import Header from '../../components/MainHeader/Header';
 import { shareIcon, whiteHeartIcon, blackHeartIcon } from '../../images';
 import {
   getFavoriteRecipes,
@@ -46,35 +46,35 @@ function FavoritesRecipes() {
   };
   const zero = 0;
   return (
-    <div>
+    <div className="recipes-page-container">
       <Header
         className="header"
         pageTitle="Receitas Favoritas"
       />
-      <div>
+      <div className="categories">
         <input
           data-testid="filter-by-all-btn"
-          className="btn btn-secondary"
+          className="category-button"
           onClick={ () => setType('') }
           type="button"
           value="All"
         />
         <input
           data-testid="filter-by-food-btn"
-          className="btn btn-secondary"
+          className="category-button"
           onClick={ () => setType('comida') }
           type="button"
           value="Comidas"
         />
         <input
           data-testid="filter-by-drink-btn"
-          className="btn btn-secondary"
+          className="category-button"
           onClick={ () => setType('bebida') }
           type="button"
           value="Drinks"
         />
       </div>
-      <div>
+      <div className="recipes-section">
         {
           favorites.map((recipe, index) => {
             if (recipe.type === type || type === '') {
@@ -107,7 +107,7 @@ function FavoritesRecipes() {
                   </p>
                   <h1>{ index - newIndex }</h1>
                   <Link to={ urlLinkDetail }>
-                    <h3 data-testid={ `${index - newIndex}-horizontal-name` }>
+                    <h3 data-testid={ `${index - newIndex}-horizontal-name` } className="recipe-name">
                       { recipe.name }
                     </h3>
                   </Link>

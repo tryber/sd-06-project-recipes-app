@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Footer from '../../components/Footer';
-import Header from '../../components/Header';
+import Footer from '../../components/Footer/Footer';
+import Header from '../../components/MainHeader/Header';
 import { fetchDrink } from '../../services/cocktailAPI';
+import './style.css';
 
 function MainExploreDrink() {
   const [randomId, setRandomId] = useState();
@@ -22,22 +23,22 @@ function MainExploreDrink() {
         className="header"
         pageTitle="Explorar Bebidas"
       />
-      <div className="explore-area">
+      <div className="explore-page-component">
         <nav className="navigation">
           <Link to="/explorar/bebidas/ingredientes">
             <button
               type="button"
               data-testid="explore-by-ingredient"
-              className="btn btn-secondary"
+              className="button"
             >
-              Por Ingredientes
+              Explorar Por Ingredientes
             </button>
           </Link>
           <Link to={ `/bebidas/${randomId}` }>
             <button
               type="button"
               data-testid="explore-surprise"
-              className="btn btn-secondary"
+              className="button"
             >
               Me Surpreenda!
             </button>

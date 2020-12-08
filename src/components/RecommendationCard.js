@@ -1,6 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import '../pages/Detail/detail.css';
+// import '../pages/Detail/style.css';
 
 function RecommendationCard({ recommendation, index }) {
   const handleMealRecommendation = () => (

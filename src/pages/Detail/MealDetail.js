@@ -1,15 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import SecondaryHeader from '../../components/SecondaryHeader';
+import SecondaryHeader from '../../components/SecondaryHeader/SecondaryHeader';
 import RecommendationCard from '../../components/RecommendationCard';
 import { fetchDrink } from '../../services/cocktailAPI';
-import './detail.css';
+import './style.css';
 import recipesAppContext from '../../context/recipesAppContext';
 
 function MealDetail() {
   const [recommendations, setRecommendations] = useState([]);
   const [newRecipe, setNewRecipe] = useState(true);
   const { recipesMeals, fetchMealIngredients } = useContext(recipesAppContext);
+  console.log(recipesMeals.strYoutube);
 
   const { id } = useParams();
   const zero = 0;
@@ -61,27 +62,29 @@ function MealDetail() {
   }
 
   return (
-    <div>
+    <div className="detail-container">
       <SecondaryHeader
         name={ recipesMeals.strMeal }
         img={ recipesMeals.strMealThumb }
         category={ recipesMeals.strCategory }
       />
-      <div className="ingredients-container">
-        <h3>Ingredientes</h3>
-        {setIngredientAndMeasure().map((ingredient, index) => {
-          if (index < ingredientsNumber) {
-            return (
-              <div
-                data-testid={ `${index}-ingredient-name-and-measure` }
-                key={ index }
-              >
-                {`- ${ingredient.name} - ${ingredient.measure}`}
-              </div>
-            );
-          }
-          return null;
-        })}
+      <div className="main-container">
+        <div className="ingredients-container">
+          <h3>Ingredientes</h3>
+          {setIngredientAndMeasure().map((ingredient, index) => {
+            if (index < ingredientsNumber) {
+              return (
+                <div
+                  data-testid={ `${index}-ingredient-name-and-measure` }
+                  key={ index }
+                >
+                  {`- ${ingredient.name} - ${ingredient.measure}`}
+                </div>
+              );
+            }
+            return null;
+          })}
+        </div>
       </div>
       <div className="instructions-container">
         <h3>Instruções</h3>
@@ -93,7 +96,7 @@ function MealDetail() {
       <div className="video-container">
         <iframe
           data-testid="video"
-          src={ recipesMeals.strYoutube }
+          src={ recipesMeals.strMeal ? recipesMeals.strYoutube.replace('watch?v=', 'embeded/') : undefined }
           title={ recipesMeals.strMeal }
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           id="meal-video"

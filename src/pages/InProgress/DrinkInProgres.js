@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { fetchDrink } from '../../services/cocktailAPI';
-import SecondaryHeader from '../../components/SecondaryHeader';
+import SecondaryHeader from '../../components/SecondaryHeader/SecondaryHeader';
 import {
   addRecipeProgress,
   selectedIngredient,
   addDoneRecipe,
 } from '../../services/localStorage';
-import '../Detail/detail.css';
+// import '../Detail/detail.css';
 import recipesAppContext from '../../context/recipesAppContext';
 
 export default function DrinkInProgress() {
@@ -55,10 +55,10 @@ export default function DrinkInProgress() {
       const checkIngredient = document.getElementById(ingredient.name);
       if (selectedIngredient(id, ingredient.name)) {
         checkIngredient.classList.add('selected');
-        checkIngredient.children[0].checked = true;
+        checkIngredient.children[0].setAttribute('checked', 'true');
       } else {
         checkIngredient.classList.remove('selected');
-        checkIngredient.children[0].checked = false;
+        checkIngredient.children[0].removeAttribute('checked');
       }
     });
   };
@@ -87,12 +87,14 @@ export default function DrinkInProgress() {
 
   function selectItem(event) {
     const completedItem = event.target.parentNode;
-    addRecipeProgress(id, completedItem.id);
-    if (completedItem.classList.contains('selected')) {
-      completedItem.classList.remove('selected');
+    addRecipeProgress(id, event.target.name);
+    if (selectedIngredient(id, event.target.name)) {
+      completedItem.classList.add('selected');
+      event.target.setAttribute('checked', 'true');
       verifyChecked();
     } else {
-      completedItem.classList.add('selected');
+      completedItem.classList.remove('selected');
+      event.target.removeAttribute('checked');
       verifyChecked();
     }
   }
@@ -122,7 +124,6 @@ export default function DrinkInProgress() {
                     >
                       <input
                         name={ ingredient.name }
-                        checked="false"
                         type="checkbox"
                         key={ index }
                         onClick={ (e) => selectItem(e) }
@@ -149,8 +150,7 @@ export default function DrinkInProgress() {
             type="button"
             className="start-recipe"
             data-testid="finish-recipe-btn"
-            disabled="true"
-            onClick={ (e) => addDoneRecipe(e) }
+            onClick={ () => addDoneRecipe(recipes) }
           >
             Finalizar Receita
           </button>

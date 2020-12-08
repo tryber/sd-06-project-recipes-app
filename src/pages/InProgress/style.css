@@ -1,0 +1,66 @@
+.detail-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.main-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 20px;
+  width: 100%;
+}
+
+.cover {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.ingredients-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  width: 100%;
+}
+.scroller {
+  align-self: center;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  display: flex;
+  width: 80%;
+}
+
+.recommendation-card {
+  min-width: 100%;
+  min-height: 200px;
+  scroll-snap-align: center;
+  margin: 2px;
+}
+
+.button-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  width: 400px;
+}
+
+.start-recipe {
+  align-items: center;  
+  background-color: #9c0000;
+  border-radius: 20px;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  font-size: 1.5em;
+  font-weight: 100;
+  justify-content: center;
+  width: 200px;
+  text-decoration: none;
+}
