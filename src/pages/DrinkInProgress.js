@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 import fetchRecipes from '../services';
 import FavoriteBtn from '../components/FavoriteBtn';
 import ShareBtn from '../components/ShareBtn';
-import './RecipeInProgress.css';
 
 function DrinkInProgress(props) {
   const { match: { params: { id } } } = props;
@@ -180,7 +179,6 @@ function DrinkInProgress(props) {
         <FavoriteBtn isFavorite={ isFavorite } changesFavorites={ changesFavorites } />
         <span className="link-copy" style={ { display: copied } }>Link copiado!</span>
         <p data-testid="recipe-category">{ recipe.strCategory }</p>
-
         Ingredientes:
         {ingredients.map((ingredient, index) => (
           <label data-testid={ `${index}-ingredient-step` } key={ index }>
@@ -203,6 +201,7 @@ function DrinkInProgress(props) {
         { isDisabled
           ? (
             <button
+              className="categ-buttons"
               data-testid="finish-recipe-btn"
               type="submit"
               disabled
@@ -211,6 +210,7 @@ function DrinkInProgress(props) {
             </button>)
           : (
             <button
+              className="categ-buttons"
               data-testid="finish-recipe-btn"
               type="submit"
             >

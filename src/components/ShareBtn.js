@@ -4,7 +4,7 @@ import shareIcon from '../images/shareIcon.svg';
 
 function ShareBtn({ copy, testid, index }) {
   return (
-    <button type="button" onClick={ copy }>
+    <button className="button-share" type="button" onClick={ copy }>
       { testid === 'done'
         ? (
           <img

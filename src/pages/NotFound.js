@@ -6,7 +6,7 @@ function NotFound() {
     <div>
       <h1>Not Found</h1>
       <Link to="/explorar">
-        <button type="button">
+        <button className="categ-buttons" type="button">
           Explorar
         </button>
       </Link>

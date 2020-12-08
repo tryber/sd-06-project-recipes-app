@@ -1,7 +1,36 @@
+body {
+  background-color: white;
+  color: black;
+}
+
+button {
+  background-color: #03071e;
+  color: white;
+}
+
+button:disabled {
+  background-color: darkgrey;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.start-recipe-button {
+  color: yellow;
+}
+
+.flex-column-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 #meals {
   height: 100vh;
   width: 100%;
-  background: #0fa36b;
+  background: #F5FFFA;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,9 +50,15 @@
   background-color: transparent;
 }
 
+.button-share {
+  border: 0px;
+  background-color: transparent;
+}
+
 .button-favorite:focus{
   outline-style: none;
 }
+
 .done-buttons {
   display: flex;
   justify-content: center;
@@ -38,18 +73,10 @@
   outline:none;
 }
 
-.bodier p {
-  color: black;
-}
-
-.bodier span {
-  color: black;
-}
-
 .header {
   display: flex;
   justify-content: space-between;
-  background-color: rgb(204, 203, 203);
+  background-color: #ffba08;
   padding: 10px;
   font-size: 1.8em;
 }
@@ -57,7 +84,7 @@
 .footer {
   display: flex;
   justify-content: space-between;
-  background-color: rgb(204, 203, 203);
+  background-color: #ffba08;
   padding: 10px;
   font-size: 1.8em;
   position: fixed;
@@ -86,7 +113,7 @@
 }
 
 #meals > span {
-  color: aliceblue;
+  color: #03071e;
   font-weight: 900;
   font-family: 'Montserrat', sans-serif;
   font-size: 3em;
@@ -115,4 +142,16 @@
   100% {
     transform: rotate(-10deg);
   }
+}
+
+.text {
+  background-color: #03071e;
+}
+
+ul {
+  list-style: none;
+}
+
+.checked {
+  text-decoration: line-through;
 }

@@ -21,7 +21,7 @@ function Drink() {
   }, [options]);
 
   return (
-    <div>
+    <div className="pageBodie">
       <Header />
       <NavigationMenu page="Bebidas" />
       <hr />

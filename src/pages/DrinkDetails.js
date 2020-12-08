@@ -141,13 +141,14 @@ function DrinkDetails(props) {
       <FavoriteBtn isFavorite={ isFavorite } changesFavorites={ changesFavorites } />
       {copied ? (<p className="link-copy">Link copiado!</p>) : ''}
       <p data-testid="recipe-category">{requestDetails.strAlcoholic}</p>
-      {ingredients.map((ingredient, index) => (
-        <div key={ index }>
-          <ul>
-            <li data-testid={ `${index}-ingredient-name-and-measure` }>{ingredient}</li>
-          </ul>
-        </div>
-      ))}
+      <ul className="list-group">
+        Ingredientes:
+        {ingredients.map((ingredient, index) => (
+          <li key={ index } data-testid={ `${index}-ingredient-name-and-measure` }>
+            {ingredient}
+          </li>
+        ))}
+      </ul>
 
       <p data-testid="instructions">{requestDetails.strInstructions}</p>
       <h3>Receitas Recomendadas</h3>
@@ -167,6 +168,7 @@ function DrinkDetails(props) {
           </div>))}
       </div>
       <button
+        className="categ-buttons"
         onClick={ handleInitRecipe }
         style={ { position: 'fixed', bottom: '0px', display } }
         data-testid="start-recipe-btn"

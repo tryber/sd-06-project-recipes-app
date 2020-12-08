@@ -23,16 +23,24 @@ function ExploreDrinks() {
   return (
     <div>
       <Header />
-      <Link to="/explorar/bebidas/ingredientes">
-        <button data-testid="explore-by-ingredient" type="button">
-          Por Ingredientes
-        </button>
-      </Link>
-      <Link to={ `/bebidas/${randomId}` }>
-        <button data-testid="explore-surprise" type="button">
-          Me Surpreenda!
-        </button>
-      </Link>
+      <div className="flex-column-container">
+        <hr />
+        <Link to="/explorar/bebidas/ingredientes">
+          <button
+            className="categ-buttons"
+            data-testid="explore-by-ingredient"
+            type="button"
+          >
+            Por Ingredientes
+          </button>
+        </Link>
+        <hr />
+        <Link to={ `/bebidas/${randomId}` }>
+          <button className="categ-buttons" data-testid="explore-surprise" type="button">
+            Me Surpreenda!
+          </button>
+        </Link>
+      </div>
       <Footer />
     </div>
   );

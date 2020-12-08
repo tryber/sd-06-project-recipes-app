@@ -39,6 +39,7 @@ function FinishedRecipes() {
           All
         </button>
         <button
+          className="categ-buttons"
           type="submit"
           onClick={ () => setFilter('comida') }
           data-testid="filter-by-food-btn"
@@ -46,6 +47,7 @@ function FinishedRecipes() {
           Food
         </button>
         <button
+          className="categ-buttons"
           type="submit"
           data-testid="filter-by-drink-btn"
           onClick={ () => setFilter('bebida') }

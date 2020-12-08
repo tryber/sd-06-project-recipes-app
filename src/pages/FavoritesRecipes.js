@@ -47,6 +47,7 @@ function FavoritesRecipes() {
       <Header />
       <div>
         <button
+          className="categ-buttons"
           data-testid="filter-by-all-btn"
           type="button"
           onClick={ () => { setFilter('All'); } }
@@ -54,6 +55,7 @@ function FavoritesRecipes() {
           All
         </button>
         <button
+          className="categ-buttons"
           data-testid="filter-by-food-btn"
           type="button"
           onClick={ () => { setFilter('comida'); } }
@@ -61,6 +63,7 @@ function FavoritesRecipes() {
           Food
         </button>
         <button
+          className="categ-buttons"
           data-testid="filter-by-drink-btn"
           type="button"
           onClick={ () => { setFilter('bebida'); } }

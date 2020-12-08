@@ -138,13 +138,14 @@ function FoodDetails(props) {
       <FavoriteBtn isFavorite={ isFavorite } changesFavorites={ changesFavorites } />
       <span className="link-copy" style={ { display: copied } }>Link copiado!</span>
       <p data-testid="recipe-category">{requestDetails.strCategory}</p>
-      {ingredients.map((ingredient, index) => (
-        <div key={ index }>
-          <ul>
-            <li data-testid={ `${index}-ingredient-name-and-measure` }>{ingredient}</li>
-          </ul>
-        </div>
-      ))}
+      <ul className="list-group">
+        Ingredientes:
+        {ingredients.map((ingredient, index) => (
+          <li key={ index } data-testid={ `${index}-ingredient-name-and-measure` }>
+            {ingredient}
+          </li>
+        ))}
+      </ul>
 
       <iframe
         data-testid="video"
@@ -188,7 +189,6 @@ function FoodDetails(props) {
       >
         { inProgress ? ('Continuar Receita') : ('Iniciar Receita') }
       </button>
-
     </div>
   );
 }

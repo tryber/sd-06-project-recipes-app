@@ -22,21 +22,31 @@ function ExploreFoods() {
   return (
     <div>
       <Header />
-      <Link to="/explorar/comidas/ingredientes">
-        <button data-testid="explore-by-ingredient" type="button">
-          Por Ingredientes
-        </button>
-      </Link>
-      <Link to="/explorar/comidas/area">
-        <button data-testid="explore-by-area" type="button">
-          Por Local de Origem
-        </button>
-      </Link>
-      <Link to={ `/comidas/${randomId}` }>
-        <button data-testid="explore-surprise" type="button">
-          Me Surpreenda!
-        </button>
-      </Link>
+      <div className="flex-column-container">
+        <hr />
+        <Link to="/explorar/comidas/ingredientes">
+          <button
+            className="categ-buttons"
+            data-testid="explore-by-ingredient"
+            type="button"
+          >
+            Por Ingredientes
+          </button>
+        </Link>
+        <hr />
+        <Link to="/explorar/comidas/area">
+          <button className="categ-buttons" data-testid="explore-by-area" type="button">
+            Por Local de Origem
+          </button>
+        </Link>
+        <hr />
+        <Link to={ `/comidas/${randomId}` }>
+          <button className="categ-buttons" data-testid="explore-surprise" type="button">
+            Me Surpreenda!
+          </button>
+        </Link>
+      </div>
+
       <Footer />
     </div>
   );

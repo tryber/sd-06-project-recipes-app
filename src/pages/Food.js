@@ -21,7 +21,7 @@ function Food() {
   }, [options]);
 
   return (
-    <div>
+    <div className="pageBodie">
       <Header />
       <NavigationMenu page="Comidas" />
       <hr />

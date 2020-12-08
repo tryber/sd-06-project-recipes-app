@@ -13,12 +13,28 @@ function Explore() {
   return (
     <div>
       <Header />
-      <Link to="/explorar/comidas">
-        <button data-testid="explore-food" type="button">Explorar Comidas</button>
-      </Link>
-      <Link to="explorar/bebidas">
-        <button data-testid="explore-drinks" type="button">Explorar Bebidas</button>
-      </Link>
+      <div className="flex-column-container">
+        <hr />
+        <Link to="/explorar/comidas">
+          <button
+            className="categ-buttons"
+            data-testid="explore-food"
+            type="button"
+          >
+            Explorar Comidas
+          </button>
+        </Link>
+        <hr />
+        <Link to="explorar/bebidas">
+          <button
+            className="categ-buttons"
+            data-testid="explore-drinks"
+            type="button"
+          >
+            Explorar Bebidas
+          </button>
+        </Link>
+      </div>
       <Footer />
     </div>
   );

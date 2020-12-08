@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import fetchRecipes from '../services';
 import FavoriteBtn from '../components/FavoriteBtn';
 import ShareBtn from '../components/ShareBtn';
-import './RecipeInProgress.css';
 
 function FoodInProgress(props) {
   const { match: { params: { id } } } = props;
@@ -167,18 +166,22 @@ function FoodInProgress(props) {
         <img
           className="picture"
           data-testid="recipe-photo"
-          src={ recipe.strDrinkThumb }
-          alt={ recipe.strDrink }
+          src={ recipe.strMealThumb }
+          alt={ recipe.strMeal }
         />
-        <h1 data-testid="recipe-title">{ recipe.strDrink }</h1>
+        <h1 data-testid="recipe-title">{ recipe.strMeal }</h1>
         <ShareBtn copy={ copyToClipboard } />
         <FavoriteBtn isFavorite={ isFavorite } changesFavorites={ changesFavorites } />
         <span className="link-copy" style={ { display: copied } }>Link copiado!</span>
         <p data-testid="recipe-category">{ recipe.strCategory }</p>
-        <ul>
+        <ul className="list-group">
           Ingredientes:
           {ingredients.map((ingredient, index) => (
-            <li data-testid={ `${index}-ingredient-step` } key={ index }>
+            <li
+              className="list-group-item"
+              data-testid={ `${index}-ingredient-step` }
+              key={ index }
+            >
               { ingredient.value }
               { ingredient.isChecked ? (<input
                 key={ ingredient.id }

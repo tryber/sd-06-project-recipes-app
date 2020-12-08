@@ -26,25 +26,29 @@ function Profile() {
   return (
     <div>
       <Header />
-      <span data-testid="profile-email">{ userEmail }</span>
-      <Link to="/receitas-feitas">
-        <button data-testid="profile-done-btn" type="button">Receitas Feitas</button>
-      </Link>
-      <Link to="/receitas-favoritas">
+      <div className="flex-column-container">
+        <hr />
+        <span data-testid="profile-email">{ userEmail }</span>
+        <hr />
+        <Link to="/receitas-feitas">
+          <button data-testid="profile-done-btn" type="button">Receitas Feitas</button>
+        </Link>
+        <Link to="/receitas-favoritas">
+          <button
+            data-testid="profile-favorite-btn"
+            type="button"
+          >
+            Receitas Favoritas
+          </button>
+        </Link>
         <button
-          data-testid="profile-favorite-btn"
+          data-testid="profile-logout-btn"
           type="button"
+          onClick={ handleLogOut }
         >
-          Receitas Favoritas
+          Sair
         </button>
-      </Link>
-      <button
-        data-testid="profile-logout-btn"
-        type="button"
-        onClick={ handleLogOut }
-      >
-        Sair
-      </button>
+      </div>
       <Footer />
     </div>
   );

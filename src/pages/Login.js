@@ -50,7 +50,7 @@ function Login() {
           <path
             d=" M 12.251 56.089 L 93.751 56.089 L 88.851 98.111 L
               17.351 98.111 L 12.251 56.089 Z "
-            fill="rgb(147,72,3)"
+            fill="#ff9f1c"
           />
         </g>
         <g id="iceLeft">
@@ -102,7 +102,7 @@ function Login() {
           />
         </g>
       </svg>
-      <form onSubmit={ handleSignUp }>
+      <form className="login-container" onSubmit={ handleSignUp }>
         <input
           type="text"
           placeholder="email"

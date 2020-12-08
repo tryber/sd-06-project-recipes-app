@@ -39,4 +39,9 @@ describe('A página de perfil', () => {
     const { pathname } = history.location;
     expect(pathname).toBe('/');
   });
+  it('Renderiza o email na tela', () => {
+    renderWithRouter(<Profile />);
+    const profileEmail = screen.queryByTestId('profile-email');
+    expect(profileEmail).toBeInTheDocument();
+  });
 });
