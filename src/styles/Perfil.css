@@ -1,0 +1,23 @@
+.name-email {
+  color: #F8F8F8;
+  font-size: 25px;
+  margin: 15px;
+}
+
+.done-btn {
+  background: url(https://www.flaticon.com/svg/static/icons/svg/263/263147.svg) no-repeat;
+  background-size: 65px;
+  background-position: 10px;
+}
+
+.favorite-btn-login {
+  background: url(https://www.flaticon.com/svg/static/icons/svg/130/130195.svg) no-repeat;
+  background-size: 60px;
+  background-position: 10px;
+}
+
+.logout-btn {
+  background: url(https://www.flaticon.com/svg/static/icons/svg/130/130925.svg) no-repeat;
+  background-size: 60px;
+  background-position: 15px;
+}

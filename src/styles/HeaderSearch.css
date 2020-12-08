@@ -1,0 +1,35 @@
+.search-div {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  height: 0.5px;
+  color: #F8F8F8;
+  margin-top: 100px;
+}
+
+.radio-div {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.search-div button {
+  width: 80%;
+  height: 35px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  font-size: larger;
+  background-color: #FFD43A;
+}
+
+.input-buscar-receita {
+  border-radius: 10px;
+  width: 76%;
+  margin-left: 10%;
+  padding: 7px;
+  margin-top: -5px;
+}

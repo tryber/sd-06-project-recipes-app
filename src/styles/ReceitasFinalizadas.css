@@ -1,0 +1,64 @@
+.category-food-btn-receitas {
+  background-color: #FFD43A;
+  border-radius: 8px;
+  width: 30%;
+  height: 35px;
+  margin: 6px;
+  font-weight: bold;
+}
+
+.container-favoritas {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-card-food {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 95%;
+  margin: 9px;
+  border-radius: 15px;
+  background-color: #F8F8F8;
+  height: 160px;
+  box-shadow: black 2px 2px 2px;
+}
+
+.container-card-food img {
+  width: 10em;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.conteudo-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 15px;
+  align-items: flex-start;
+  padding-top: 5px;
+  margin: 10px;
+}
+
+.container-card-food button img {
+  width: 1.5em;
+}
+
+.btn-copy-link {
+  background-color: transparent;
+  border: none;
+  margin-top: 10px;
+}
+.btn-copy-link:focus {
+  outline: thin dotted;
+  outline: 0px auto -webkit-focus-ring-color;
+  outline-offset: 0px;
+}
+
+.food-title {
+  font-size: 20px;
+}
+
+/* tirar o link do Link */
+a:link  {
+  text-decoration: none;
+}

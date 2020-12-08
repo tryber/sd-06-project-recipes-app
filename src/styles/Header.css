@@ -1,0 +1,28 @@
+.div-body {
+  background-color: #3F3F3F;
+}
+
+.header {
+  width: 100%;
+  background-color: #FFD43A;
+  height: 80px;
+  border-bottom-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  position: fixed;
+  top: 0;
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.logo-profile-btn {
+  background-color: #FFD43A;
+  border: 0px;
+}
+
+.logo-search-btn {
+  background-color: #FFD43A;
+  border: 0px;
+}

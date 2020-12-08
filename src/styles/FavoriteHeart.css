@@ -1,0 +1,18 @@
+.favorite-btn {
+  background-color: transparent;
+  border: none;
+}
+
+.card {
+  position: absolute;
+  padding-left: 115px;
+  padding-top: 10px;
+  z-index: 1;
+}
+
+.favorite-btn:focus {
+  outline: thin dotted;
+  outline: 0px auto -webkit-focus-ring-color;
+  outline-offset: 0px;
+  box-shadow: none;
+}

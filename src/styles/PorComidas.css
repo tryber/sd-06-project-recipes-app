@@ -1,0 +1,18 @@
+.allcardingredients {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-around; */
+}
+
+.cardingredients {
+  margin: 10px;
+  width: 43.5%;
+  margin-left: 3px;
+}
+
+.cardingredients button {
+  width: 100%;
+  border-radius: 15px;
+  background-color: #F8F8F8;
+  margin-left: 14px;
+}

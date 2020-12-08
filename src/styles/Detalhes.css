@@ -1,0 +1,96 @@
+.header-detalhes {
+  background-color: #FFD43A;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 5px 10px 15px;
+  border-radius: 0 0 20px 20px;
+  position: relative;
+  top: -5px;
+  font-family: 'Epilogue';
+}
+
+.titulo {
+  font-size: xx-large;
+  font-family: 'Hammersmith One', sans-serif;
+  /* color: white;  */
+}
+
+.titulo-2 {
+  font-size: medium;
+  color: white; 
+}
+
+iframe {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-footer {
+  position: fixed;
+  bottom: 2px;
+  width: 95%;
+  height: 35px;
+  border-radius: 20px;
+  background-color: #FFD43A;
+}
+
+.center-btn-footer {
+  width: 95%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container-detalhes {
+  margin-bottom: 40px;
+}
+
+.btn-copy-link {
+  background-color: transparent;
+  border: none;
+}
+
+.btn-copy-link:focus {
+  outline: thin dotted;
+  outline: 0px auto -webkit-focus-ring-color;
+  outline-offset: 0px;
+}
+
+.container-conteudo {
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container-conteudo-text {
+  background-color: #F8F8F8;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+.item-list {
+  margin: 10px;
+}
+
+.instructions-text {
+  margin: 10px;
+  text-align: justify;
+}
+
+.carrossel {
+  width: 100%;
+  overflow: auto;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.carrossel-iten {
+  width: 55%;
+}
+
+.inprogress-btn {
+  display: none;
+}
+
+.detalhes-img {
+  height: 360px;
+}

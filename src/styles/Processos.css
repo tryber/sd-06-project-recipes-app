@@ -1,0 +1,26 @@
+.riscado {
+  margin: 10px;
+  text-decoration: line-through;
+}
+
+.non-riscado {
+  margin: 10px;
+  text-decoration: none;
+}
+
+.opitions-processo {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-finalizar {
+  width: 95%;
+  height: 35px;
+  border-radius: 20px;
+  background-color: orange;
+  margin: 10px;
+  font-size: large;
+  /* margin-top: 5px;
+  margin-right: auto;
+  margin-left: auto; */
+}

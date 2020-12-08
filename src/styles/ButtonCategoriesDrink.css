@@ -1,0 +1,22 @@
+.all-btns {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+.category-food-btn {
+  background-color: #FFD43A;
+  border-radius: 8px;
+  width: 32%;
+  height: 50%;
+  margin: 2px;
+  font-weight: bold;
+}
+
+.category-food-btn:hover {
+  background-color: #a58202;
+}

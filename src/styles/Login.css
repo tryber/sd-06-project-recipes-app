@@ -1,0 +1,138 @@
+/* body {
+  background-image: linear-gradient(to bottom, #000000 , gray);
+} */
+
+.icons-login-container {
+  margin-top: 50px;
+  width: 68%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.total-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.total-login h1 {
+  color: #FFD43A;
+  font-family: 'Hammersmith One', sans-serif;
+  font-size: 50px;
+  font-weight: 400;
+  margin-top: 15px;
+
+
+}
+
+.div-form {
+  width: 84%;
+  height: 300px;
+  background-color: #f8f8f8;
+  border-radius: 20px;
+  margin-bottom: 50px;
+  margin-top: -10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.div-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button:enabled {
+  color: #000000;
+  transition: 0.5ms;
+  cursor:pointer;
+}
+
+.textbox{
+  width: 100%;
+  overflow: hidden;
+  font-size: 20px;
+  padding: 8px 0;
+  margin: 8px 0;
+  border-bottom: 1px solid gray;
+  display: flex;
+}
+
+.textbox i{
+  width: 26px;
+  float: left;
+  text-align: center;
+}
+
+.textbox input{
+  border: none;
+  outline: none;
+  background: none;
+  color: black;
+  font-size: 18px;
+  width: 80%;
+  float: left;
+  margin: 0 10px;
+}
+
+.div-span-senha {
+  display: flex;
+  width: 100%;
+}
+
+.div-span-senha  span{
+  margin-left: 55%;
+  color: gray;
+  font-weight: bold;
+  margin-top: 20px;
+
+}
+
+.login-button {
+  width: 150px;
+  height: 35px;
+  margin-top: 55px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 30px;
+  font-size: larger;
+  background-color: #FFD43A;
+}
+
+.span-botton {
+  color: #f8f8f8;
+  margin-bottom: 49px;
+}
+
+.bg {
+  animation: slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, black 50%, gray 50%);
+  bottom: 0;
+  left: -50%;
+  opacity: 0.5;
+  position: fixed;
+  right: -50%;
+  top: 0;
+  z-index: -1;
+}
+
+.bg2 {
+  animation-direction: alternate-reverse;
+  animation-duration: 4s;
+}
+
+.bg3 {
+  animation-duration: 5s;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(25%);
+  }
+}
