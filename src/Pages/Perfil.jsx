@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Header, Footer } from '../Components';
+import favoriteIcon from '../images/favoriteIcon.png';
+import doneIcon from '../images/doneIcon.png';
+import '../Style/perfil.css';
 
 function Perfil() {
   if (!localStorage.user) {
@@ -16,32 +19,41 @@ function Perfil() {
   };
   return (
     <div>
-      <Header pageName="Perfil" />
-      <div style={ { marginTop: '80px' } }>
-        <h3 data-testid="profile-email">{ JSON.parse(localStorage.user).email }</h3>
+      <Header pageName="Profile" />
+      <div className="profile-container">
+        <h3
+          data-testid="profile-email"
+          className="explore-btn"
+        >
+          { JSON.parse(localStorage.user).email }
+        </h3>
         <div>
-          <Link to="/receitas-feitas">
-            <button type="button" data-testid="profile-done-btn">Receitas Feitas</button>
+          <Link
+            to="/receitas-feitas"
+            data-testid="profile-done-btn"
+            className="profile-btn"
+          >
+            <img src={ doneIcon } alt="Done Recipes" />
+            Done Recipes
+          </Link>
+          <Link
+            to="/receitas-favoritas"
+            data-testid="profile-favorite-btn"
+            className="profile-btn"
+          >
+            <img src={ favoriteIcon } alt="Favorite Recipes" />
+            Favorite Recipes
           </Link>
         </div>
-        <div>
-          <Link to="/receitas-favoritas">
-            <button
-              type="button"
-              data-testid="profile-favorite-btn"
-            >
-              Receitas Favoritas
-            </button>
-          </Link>
-        </div>
-        <div>
+        <div className="signout-container">
           <Link to="/">
             <button
               onClick={ handleLogout }
               type="button"
               data-testid="profile-logout-btn"
+              className="signout-btn"
             >
-              Sair
+              Exit
             </button>
           </Link>
         </div>

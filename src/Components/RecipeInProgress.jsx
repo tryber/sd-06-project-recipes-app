@@ -5,6 +5,8 @@ import RecipeContext from '../hooks/RecipeContext';
 import recipeRequest from '../services/recipeRequest';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
+import shareIcon from '../images/shareIcon.svg';
+import '../Style/RecipeDetails-Progress.css';
 // Faltando redirecionar ao clicar na imagem - browser roda mas avaliador não
 const RecipeInProgress = () => {
   const history = useHistory();
@@ -247,10 +249,8 @@ const RecipeInProgress = () => {
 
   const handleFinishRecipe = () => {
     const typeRecipe = pathname.split('/')[1];
-    console.log('entrou');
     if (typeRecipe === 'comidas') {
       const data = Date();
-      console.log(recipeDetailFood[0].strTags.split(','));
       const doneFood = {
         id: recipeDetailFood[0].idMeal,
         type: 'comida',
@@ -295,88 +295,118 @@ const RecipeInProgress = () => {
 
   if (pathname === `/comidas/${id}/in-progress`) {
     return recipeDetailFood.map((food) => (
-      <div key="1">
+      <div key="1" className="details-container">
         <img
           alt="product"
           data-testid="recipe-photo"
           src={ food.strMealThumb }
         />
-        <h1 data-testid="recipe-title">{ food.strMeal }</h1>
-        <div>
+        <div className="details-nav">
+          <button
+            onClick={ () => handleLikes(recipeDetailFood[0]) }
+            type="button"
+          >
+            <img data-testid="favorite-btn" src={ liked } alt="favorite logo" />
+          </button>
+          <div className="name-category">
+            <p
+              data-testid="recipe-title"
+            >
+              { food.strMeal }
+            </p>
+            <p data-testid="recipe-category">
+              { food.strCategory }
+            </p>
+          </div>
           <button
             onClick={ handleCopy }
             type="button"
             data-testid="share-btn"
           >
-            Share
-
+            <img src={ shareIcon } alt="share" />
           </button>
+          {copied}
         </div>
-
-        {copied}
-        <button
-          onClick={ () => handleLikes(recipeDetailFood[0]) }
-          type="button"
-        >
-          <img data-testid="favorite-btn" src={ liked } alt="favorite logo" />
-        </button>
-        <p data-testid="recipe-category">{ food.strCategory }</p>
-        {
-          handleIngredients(food, NINE, TWENTY_NINE, FOURTY_NINE)
-        }
-        <p data-testid="instructions">{ food.strInstructions }</p>
+        <div className="ing-inst">
+          <div className="recipe-ingredients">
+            <h5>INGREDIENTS</h5>
+            {
+              handleIngredients(food, NINE, TWENTY_NINE, FOURTY_NINE)
+            }
+          </div>
+          <div className="recipe-instructions">
+            <h5>INSTRUCTIONS</h5>
+            <p data-testid="instructions">
+              { food.strInstructions }
+            </p>
+          </div>
+        </div>
         <Link to="/receitas-feitas">
           <button
             data-testid="finish-recipe-btn"
+            className="start-continue-recipe-btn"
             type="button"
             disabled={ disable }
             onClick={ handleFinishRecipe }
           >
-            Finalizar
+            Finish
           </button>
         </Link>
       </div>
     ));
   }
   return recipeDetailDrink.map((drink) => (
-    <div key="2">
+    <div key="2" className="details-container">
       <img
         alt="product"
         data-testid="recipe-photo"
         src={ drink.strDrinkThumb }
       />
-      <h1 data-testid="recipe-title">{ drink.strDrink }</h1>
-      <div>
+      <div className="details-nav">
+        <button
+          onClick={ () => handleLikes(recipeDetailFood, recipeDetailDrink[0]) }
+          type="button"
+        >
+          <img data-testid="favorite-btn" src={ liked } alt="favorite logo" />
+        </button>
+        <div className="name-category">
+          <p data-testid="recipe-title">
+            { drink.strDrink }
+          </p>
+          <p data-testid="recipe-category">
+            {drink.strAlcoholic}
+          </p>
+        </div>
         <button
           onClick={ handleCopy }
           type="button"
           data-testid="share-btn"
         >
-          Share
-
+          <img src={ shareIcon } alt="share" />
         </button>
+        {copied}
       </div>
-
-      {copied}
-      <button
-        onClick={ () => handleLikes(recipeDetailFood, recipeDetailDrink[0]) }
-        type="button"
-      >
-        <img data-testid="favorite-btn" src={ liked } alt="favorite logo" />
-      </button>
-      <p data-testid="recipe-category">{drink.strAlcoholic}</p>
-      {
-        handleIngredients(drink, TWENTY_ONE, THIRTY_SIX, FIFTY_ONE)
-      }
-      <p data-testid="instructions">{ drink.strInstructions }</p>
+      <div className="ing-inst">
+        <div className="recipe-ingredients">
+          <h5>INGREDIENTS</h5>
+          {
+            handleIngredients(drink, TWENTY_ONE, THIRTY_SIX, FIFTY_ONE)
+          }
+        </div>
+        <div className="recipe-instructions">
+          <h5>INSTRUCTIONS</h5>
+          <p data-testid="instructions">{ drink.strInstructions }</p>
+        </div>
+      </div>
       <Link to="/receitas-feitas">
         <button
           data-testid="finish-recipe-btn"
+          className="start-continue-recipe-btn"
           type="button"
           disabled={ disable }
           onClick={ handleFinishRecipe }
         >
-          Finalizar
+          Finish
         </button>
       </Link>
     </div>

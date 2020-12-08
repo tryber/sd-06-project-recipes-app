@@ -91,7 +91,7 @@ const SearchBar = ({ className }) => {
             type="radio"
             data-testid="ingredient-search-radio"
           />
-          <span>Ingrediente</span>
+          <span>Ingredient</span>
         </label>
         <label htmlFor="name">
           <input
@@ -101,7 +101,7 @@ const SearchBar = ({ className }) => {
             name="kind-of-search"
             type="radio"
           />
-          <span>Nome</span>
+          <span>Name</span>
         </label>
         <label htmlFor="firstLetter">
           <input
@@ -111,7 +111,7 @@ const SearchBar = ({ className }) => {
             type="radio"
             data-testid="first-letter-search-radio"
           />
-          <span>Primeira letra</span>
+          <span>First letter</span>
         </label>
       </div>
       <button
@@ -120,7 +120,7 @@ const SearchBar = ({ className }) => {
         type="button"
         className="button-search-bar"
       >
-        Buscar
+        Search
       </button>
     </div>
   );

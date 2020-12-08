@@ -5,7 +5,7 @@ import MainScreen from '../Components/MainScreen';
 function Comidas() {
   return (
     <div>
-      <Header pageName="Comidas" />
+      <Header pageName="Foods" />
       <MainScreen />
       <Footer />
     </div>

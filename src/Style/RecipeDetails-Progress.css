@@ -3,6 +3,7 @@
 .details-container {
   font-family: 'Cinzel Decorative', cursive;
   width: 360px;
+  color: white;
 }
 
 .details-container img {
@@ -28,6 +29,7 @@
   height: 50px;
   outline: none;
   border: none;
+  border-radius: 36px;
 }
 
 .name-category {
@@ -53,12 +55,12 @@ p {
 }
 
 .recipe-ingredients h5 {
-  font-size: 16px;
+  font-size: 23px;
   margin-left: 10px;
 }
 
 .recipe-instructions h5 {
-  font-size: 16px;
+  font-size: 23px;
   margin-left: 10px;
 }
 
@@ -80,4 +82,17 @@ video {
   margin: 15px 5px;
   top: -85px;
   width: 100%;
+}
+
+.start-continue-recipe-btn {
+  background-color: #13BBAF;
+  border-radius: 50%;
+  bottom: 0;
+  color: white;
+  font-family: 'Cinzel Decorative', cursive;
+  height: 100px;
+  margin-left: 130px;
+  padding: 5px;
+  position: fixed;
+  width: 100px;
 }

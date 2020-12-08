@@ -2,6 +2,8 @@ import React, { useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import RecipeContext from '../hooks/RecipeContext';
 import recipeRequest from '../services/recipeRequest';
+import { Header, Footer } from '.';
+import '../Style/mainScreen.css';
 
 function ExploreFoodIngredients() {
   const {
@@ -29,8 +31,10 @@ function ExploreFoodIngredients() {
     getAPI();
   }, []);
 
+  const EIGHTY = 80;
+  const px = 'px';
   const renderCards = () => (
-    <div className="recipes-container">
+    <div className="recipes-container" style={ { marginTop: EIGHTY + px } }>
       {foodIngredientsCategory.map((ingredient, index) => (
         <div
           data-testid={ `${index}-ingredient-card` }
@@ -41,17 +45,17 @@ function ExploreFoodIngredients() {
             onClick={ () => getFilterFood(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient.strIngredient}`) }
             to="/comidas"
             key={ index }
-            className="recomendation-link"
+            className="details-link"
           >
+            <p data-testid={ `${index}-card-name` }>
+              { ingredient.strIngredient}
+            </p>
             <img
               src={ `https://www.themealdb.com/images/ingredients/${ingredient.strIngredient}-Small.png` }
               data-testid={ `${index}-card-img` }
               alt={ ingredient.strIngredient }
             />
           </Link>
-          <p data-testid={ `${index}-card-name` }>
-            { ingredient.strIngredient}
-          </p>
         </div>
       ))}
     </div>
@@ -59,7 +63,9 @@ function ExploreFoodIngredients() {
 
   return (
     <div>
+      <Header pageName="Explore Ingredients" />
       {!foodIngredientsCategory ? 'Loading' : renderCards()}
+      <Footer />
     </div>
   );
 }

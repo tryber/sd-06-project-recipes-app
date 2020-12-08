@@ -46,6 +46,8 @@ input {
   height: 46px;
   left: 51px;
   top: 463px;
+  border: none;
+  text-align: center;
 }
 
 .password-input {
@@ -53,6 +55,12 @@ input {
   height: 46px;
   left: 51px;
   top: 533px;
+  border: none;
+  text-align: center;
+}
+
+::placeholder {
+  color:white;
 }
 
 .login-container button {
@@ -70,4 +78,8 @@ input {
 
 .arrow-img {
   width: 30px;
+}
+
+input, button {
+  outline: none;
 }

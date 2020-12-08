@@ -6,7 +6,7 @@ import recipeRequest from '../services/recipeRequest';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 import shareIcon from '../images/shareIcon.svg';
-import '../Style/RecipeDetails.css';
+import '../Style/RecipeDetails-Progress.css';
 import '../Style/carousel.css';
 
 const RecipeDetails = () => {
@@ -133,8 +133,6 @@ const RecipeDetails = () => {
   };
 
   const renderRecipe = () => {
-    const px = 'px';
-    const THIRTY = 30;
     if (pathname === `/comidas/${ids}` && recipeDetailFood.length >= 1) {
       return recipeDetailFood.map((food, index) => (
         <div key={ index } className="details-container">
@@ -150,7 +148,6 @@ const RecipeDetails = () => {
             <div className="name-category">
               <p
                 data-testid="recipe-title"
-                style={ { fontSize: THIRTY + px } }
               >
                 { food.strMeal }
               </p>
@@ -216,20 +213,20 @@ const RecipeDetails = () => {
                 ))
             }
           </div>
-          {(JSON.parse(localStorage.inProgressRecipes).meals[ids] !== ['null']) ? (
+          {(JSON.parse(localStorage.inProgressRecipes).meals[ids].length > 1) ? (
             <button
               type="button"
-              style={ { position: 'fixed', bottom: 0 } }
+              className="start-continue-recipe-btn"
               data-testid="start-recipe-btn"
               onClick={ () => history.push(`${pathname}/in-progress`) }
             >
-              Continuar Receita
+              Continue Recipe
             </button>
           ) : (
             <button
               type="button"
               data-testid="start-recipe-btn"
-              style={ { position: 'fixed', bottom: 0 } }
+              className="start-continue-recipe-btn"
               onClick={ () => history.push(`${pathname}/in-progress`) }
             >
               Start Recipe
@@ -255,7 +252,6 @@ const RecipeDetails = () => {
             <div className="name-category">
               <p
                 data-testid="recipe-title"
-                style={ { fontSize: THIRTY + px } }
               >
                 { drink.strDrink }
               </p>
@@ -312,14 +308,15 @@ const RecipeDetails = () => {
                 ))
             }
           </div>
-          {(JSON.parse(localStorage.inProgressRecipes).cocktails[ids] !== '') ? (
+          {(JSON.parse(localStorage.inProgressRecipes).cocktails[ids].length > 1) ? (
             <button
               type="button"
               style={ { position: 'fixed', bottom: 0 } }
               data-testid="start-recipe-btn"
               onClick={ () => history.push(`${pathname}/in-progress`) }
+              className="start-continue-recipe-btn"
             >
-              Continuar Receita
+              Continue Recipe
             </button>
           ) : (
             <button
@@ -327,6 +324,7 @@ const RecipeDetails = () => {
               data-testid="start-recipe-btn"
               style={ { position: 'fixed', bottom: 0 } }
               onClick={ () => history.push(`${pathname}/in-progress`) }
+              className="start-continue-recipe-btn"
             >
               Start Recipe
             </button>)}

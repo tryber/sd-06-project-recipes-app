@@ -5,7 +5,7 @@ import MainScreen from '../Components/MainScreen';
 function Bebidas() {
   return (
     <div>
-      <Header pageName="Bebidas" />
+      <Header pageName="Drinks" />
       <MainScreen />
       <Footer />
     </div>

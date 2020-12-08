@@ -1,21 +1,18 @@
 import React, { useContext, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import RecipeContext from '../hooks/RecipeContext';
 import recipeRequest from '../services/recipeRequest';
 import '../Style/mainScreen.css';
+import CardList from './CardList';
 
 export default function MainScreen() {
   const history = useHistory();
   const {
-    foodRecipes,
-    drinkRecipes,
     isLoading,
     foodFilter,
     drinkFilter,
     setDrinkRecipes,
-    setIds,
     setFoodRecipes } = useContext(RecipeContext);
-  const twelve = 12;
   const five = 5;
   const { pathname } = history.location;
   const [buttonClicked, setButtonClicked] = useState('');
@@ -107,65 +104,12 @@ export default function MainScreen() {
       );
     }
   };
-  const handleIds = (food) => {
-    setIds(food.idMeal);
-  };
-
-  const renderCards = () => {
-    if (pathname === '/comidas' && foodRecipes) {
-      return foodRecipes.filter((_, index) => index < twelve)
-        .map((food, index) => (
-          <div
-            data-testid={ `${index}-recipe-card` }
-            className="card-container"
-            key={ index }
-          >
-            <Link
-              to={ `/comidas/${food.idMeal}` }
-              onClick={ () => handleIds(food) }
-              key={ index }
-              className="details-link"
-            >
-              <p data-testid={ `${index}-card-name` }>{food.strMeal}</p>
-              <img
-                src={ food.strMealThumb }
-                data-testid={ `${index}-card-img` }
-                alt={ food.strMeal }
-              />
-            </Link>
-          </div>
-        ));
-    }
-    return (drinkRecipes.filter((_, index) => index < twelve)
-      .map((drinks, index) => (
-        <div
-          data-testid={ `${index}-recipe-card` }
-          key={ index }
-          className="card-container"
-        >
-
-          <Link
-            onClick={ () => setIds(drinks.idDrink) }
-            to={ `/bebidas/${drinks.idDrink}` }
-            className="details-link"
-          >
-
-            <p data-testid={ `${index}-card-name` }>{ drinks.strDrink}</p>
-            <img
-              src={ drinks.strDrinkThumb }
-              data-testid={ `${index}-card-img` }
-              alt={ drinks.strDrink }
-            />
-          </Link>
-        </div>
-      )));
-  };
 
   return (
     <div>
       {renderFilters()}
       <div className="recipes-container">
-        { isLoading ? <p>Loading...</p> : renderCards() }
+        { isLoading ? <p>Loading...</p> : <CardList size={ 12 } /> }
       </div>
     </div>);
 }
