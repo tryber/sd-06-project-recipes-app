@@ -7,14 +7,67 @@
 }
 
 .btn-filter {
-  background-color:rgb(202, 202, 202);
+  background-color: rgb(247, 247, 247);
   color: #232525;
-  border-radius: 6px;
-  border-width: .5px;
+  outline: none;
+  border-width: 0 0 2px 0;
+  border-bottom-style: solid;
+  border-bottom-color: #232525;
   font-size: 1.1rem;
   font-weight: 600;
   margin-top: 5px;
-  min-width: 47.5%;
+  min-width: 35%;
   padding: 3px;
   text-align: center;
+}
+
+.btn-filter-drink {
+  background-color: rgb(247, 247, 247);
+  color: #232525;
+  outline: none;
+  border-width: 0 0 2px 0;
+  border-bottom-style: solid;
+  border-bottom-color: #232525;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 5px;
+  min-width: 45%;
+  padding: 3px;
+  text-align: center;
+}
+
+.btn-filter:active {
+  border-width: 0 0 3px 0;
+  border-bottom-color: #2D6A4F;
+  color: #2D6A4F;
+}
+
+.btn-filter:focus {
+  border-width: 0 0 3px 0;
+  border-bottom-color: #2D6A4F;
+  color: #2D6A4F;
+}
+
+.btn-filter:target {
+  border-width: 0 0 3px 0;
+  border-color: #2D6A4F;
+  color: #2D6A4F;
+}
+
+.btn-filter-drink:active {
+  border-width: 0 0 3px 0;
+  border-bottom-color: #2D6A4F;
+  color: #2D6A4F;
+}
+
+.btn-filter-drink:focus {
+  border-width: 0 0 3px 0;
+  border-bottom-color: #2D6A4F;
+  color: #2D6A4F;
+}
+
+.btn-filter-drink:target {
+  border-width: 0 0 3px 0;
+  border-color: #2D6A4F;
+  color: #2D6A4F;
 }

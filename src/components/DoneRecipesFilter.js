@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import RecipesContext from '../context/RecipesContext';
-import '../css/CategoryFilters.css';
+import '../css/DoneRecipes.css';
 
 function DoneRecipesFilter() {
   const { setDoneFilter } = useContext(RecipesContext);
@@ -12,8 +12,9 @@ function DoneRecipesFilter() {
   };
 
   return (
-    <div>
+    <div className="profile-filter-container">
       <button
+        className="btn-filter-profile"
         data-testid="filter-by-all-btn"
         onClick={ onClick }
         type="button"
@@ -22,6 +23,7 @@ function DoneRecipesFilter() {
         All
       </button>
       <button
+        className="btn-filter-profile"
         data-testid="filter-by-food-btn"
         onClick={ onClick }
         type="button"
@@ -30,6 +32,7 @@ function DoneRecipesFilter() {
         Food
       </button>
       <button
+        className="btn-filter-profile"
         data-testid="filter-by-drink-btn"
         onClick={ onClick }
         type="button"

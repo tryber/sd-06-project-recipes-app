@@ -1,11 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import copy from 'clipboard-copy';
 import RecipesContext from '../context/RecipesContext';
 import FoodRecomendationCard from './FoodRecomendationCard';
-import shareIcon from '../images/shareIcon.svg';
-import whiteHeartIcon from '../images/whiteHeartIcon.svg';
-import blackHeartIcon from '../images/blackHeartIcon.svg';
+import { handleIngredients } from '../services/functions';
+import ShareBtn from './ShareBtn';
+import FavoriteBtn from './FavoriteBtn';
 import '../css/Details.css';
 
 function DrinkDetail() {
@@ -22,23 +21,12 @@ function DrinkDetail() {
   }
   const [ingredients, setIngredients] = useState([]);
   const [measures, setMeasures] = useState([]);
-  const [showMessage, setShowMessage] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
-
   const { id } = useParams();
 
   useEffect(() => {
     getDrinkAPI('id-filter', `${id}`);
     getFoodAPI('name-filter', '');
   }, []);
-
-  useEffect(() => {
-    const favorite = JSON.parse(localStorage.getItem('favoriteRecipes'));
-    if (favorite !== null) {
-      const alreadyFavorite = favorite.some(({ id: recipeId }) => recipeId === id);
-      setIsFavorite(alreadyFavorite);
-    }
-  }, [isFavorite]);
 
   const handleRecomendations = () => {
     const maxSize = 6;
@@ -57,89 +45,9 @@ function DrinkDetail() {
     }
   };
 
-  const handleIngredients = () => {
-    if (drinkData && drinkData.length === 1) {
-      const filteredKeys = Object.keys(currentRecipe);
-      const filteredMeasurements = [];
-      const filteredIngredients = [];
-
-      filteredKeys.forEach((key) => {
-        if (key.includes('strIngredient')
-        && (currentRecipe[`${key}`] !== ''
-        && currentRecipe[`${key}`] !== null)) {
-          filteredIngredients.push(currentRecipe[`${key}`]);
-        }
-      });
-      filteredKeys.forEach((key) => {
-        if (key.includes('strMeasure')
-        && (currentRecipe[`${key}`] !== ' ' || currentRecipe[`${key}`] !== null)) {
-          filteredMeasurements.push(currentRecipe[`${key}`]);
-        }
-      });
-
-      setIngredients(filteredIngredients);
-      setMeasures(filteredMeasurements);
-    }
-  };
-
   useEffect(() => {
-    handleIngredients();
+    handleIngredients(drinkData, setIngredients, setMeasures);
   }, [drinkData]);
-
-  const addFavorite = () => {
-    const currentFavorite = JSON.parse(localStorage.getItem('favoriteRecipes'));
-    const favoriteData = {
-      id: currentRecipe.idDrink,
-      type: 'bebida',
-      area: '',
-      category: currentRecipe.strCategory,
-      alcoholicOrNot: currentRecipe.strAlcoholic,
-      name: currentRecipe.strDrink,
-      image: currentRecipe.strDrinkThumb,
-    };
-    if (currentFavorite !== null) {
-      localStorage
-        .setItem('favoriteRecipes', JSON.stringify([...currentFavorite, favoriteData]));
-    } else {
-      localStorage
-        .setItem('favoriteRecipes', JSON.stringify([favoriteData]));
-    }
-
-    setIsFavorite(true);
-  };
-
-  const removeFavorite = () => {
-    const currentFavorite = JSON.parse(localStorage.getItem('favoriteRecipes'));
-    const newFavorite = currentFavorite.filter((item) => item.id !== id);
-
-    localStorage.setItem('favoriteRecipes', JSON.stringify(newFavorite));
-
-    setIsFavorite(false);
-  };
-
-  const handleFavoriteRender = () => {
-    if (isFavorite) {
-      return (
-        <button type="button" onClick={ () => removeFavorite() }>
-          <img
-            alt="Set this recipe as favorite"
-            data-testid="favorite-btn"
-            src={ blackHeartIcon }
-          />
-        </button>
-      );
-    }
-
-    return (
-      <button type="button" onClick={ () => addFavorite() }>
-        <img
-          alt="Set this recipe as favorite"
-          data-testid="favorite-btn"
-          src={ whiteHeartIcon }
-        />
-      </button>
-    );
-  };
 
   const toProgress = () => {
     const currentStorage = JSON.parse(localStorage.getItem('inProgressRecipes'));
@@ -148,7 +56,9 @@ function DrinkDetail() {
         ...currentStorage,
         cocktails: {
           ...currentStorage.cocktails,
-          [id]: [],
+          [id]: currentStorage.cocktails[`${id}`]
+            ? [...currentStorage.cocktails[`${id}`]]
+            : [],
         },
       };
       localStorage.setItem('inProgressRecipes', JSON.stringify(newStorage));
@@ -194,21 +104,6 @@ function DrinkDetail() {
     }
   };
 
-  const CopiedLinkMessage = (
-    <div className="copy-message-hidden">
-      <span>
-        Link copiado!
-      </span>
-    </div>
-  );
-
-  const shareClick = () => {
-    const timeToShow = 1500;
-    copy(`http://localhost:3000/bebidas/${id}`);
-    setShowMessage(true);
-    setTimeout(() => setShowMessage(false), timeToShow);
-  };
-
   const handleDetails = () => {
     if (drinkData && drinkData.length === 1) {
       return (
@@ -236,24 +131,21 @@ function DrinkDetail() {
             </div>
 
             <div className="detail-btn-container">
-              <button type="button" onClick={ shareClick }>
-                <img
-                  alt="share data"
-                  data-testid="share-btn"
-                  src={ shareIcon }
-                />
-              </button>
-              { showMessage && CopiedLinkMessage }
-              { handleFavoriteRender() }
+              <ShareBtn id={ id } />
+              <FavoriteBtn
+                id={ id }
+                type="bebida"
+                recipe={ currentRecipe }
+              />
             </div>
           </div>
 
           <div className="detail-ingredients-container">
-            <div className="datail-ingredients-title">
+            <div className="detail-ingredients-title">
               <h3>Ingredients</h3>
             </div>
 
-            <div className="datail-ingredients">
+            <div className="detail-ingredients">
               <ul>
                 {ingredients.length && ingredients.map((ingredient, i) => (
                   <li
@@ -271,23 +163,23 @@ function DrinkDetail() {
           </div>
 
           <div className="detail-instructions-container">
-            <div className="datail-instructions-title">
+            <div className="detail-instructions-title">
               <h3>Instructions</h3>
             </div>
 
-            <div className="datail-instructions">
+            <div className="detail-instructions">
               <p data-testid="instructions">
                 { currentRecipe.strInstructions }
               </p>
             </div>
-
+            <hr />
           </div>
 
           <div className="detail-recomendation-container">
             {handleRecomendations()}
           </div>
 
-          <div>
+          <div className="in-progress-btn-container">
             { handleBtnRender() }
           </div>
 

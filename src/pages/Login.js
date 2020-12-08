@@ -26,6 +26,8 @@ function Login() {
       .setItem('inProgressRecipes', JSON.stringify({ meals: {}, cocktails: {} }));
     localStorage
       .setItem('favoriteRecipes', JSON.stringify([]));
+    localStorage
+      .setItem('doneRecipes', JSON.stringify([]));
   };
 
   const validateLoginInfo = () => {
@@ -54,6 +56,9 @@ function Login() {
 
   return (
     <div className="Login-body">
+      <div className="bg"></div>
+      <div className="bg bg2"></div>
+      <div className="bg bg3"></div>
       <div className="Login-logo">
         <img src={ tryLogo } alt="logo" className="try-logo" />
         <img src={ foodLogo } alt="logo" className="food-logo" />

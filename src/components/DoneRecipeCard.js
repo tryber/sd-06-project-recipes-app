@@ -58,24 +58,39 @@ function DoneRecipeCard({ recipe, index }) {
       </div>
       { showMessage && CopiedLinkMessage }
       <div className="done-recipe-info-container">
-        <h3 data-testid={ `${index}-horizontal-top-text` }>{ preTitle() }</h3>
-        <Link to={ `/${type}s/${id}` }>
-          <h4 data-testid={ `${index}-horizontal-name` }>{ name }</h4>
-        </Link>
+        <div className="done-recipe-title-container">
+          <h3 data-testid={ `${index}-horizontal-top-text` }>{ preTitle() }</h3>
+          <Link className="Link" to={ `/${type}s/${id}` }>
+            <h4 data-testid={ `${index}-horizontal-name` }>{ name }</h4>
+          </Link>
+        </div>
         <p data-testid={ `${index}-horizontal-done-date` }>{ `Feita em: ${doneDate}` }</p>
-        { tags.slice(minTag, maxTag).map((tag, i) => (
-          <span
-            key={ `${i}-tag` }
-            data-testid={ `${index}-${tag}-horizontal-tag` }
-          >
-            { tag }
-          </span>
-        )) }
+        { tags !== null && tags.length >= maxTag
+          ? tags.slice(minTag, maxTag).map((tag, i) => (
+            <span
+              key={ `${i}-tag` }
+              data-testid={ `${index}-${tag}-horizontal-tag` }
+            >
+              { tag }
+            </span>
+          ))
+          : tags !== null && tags.map((tag, i) => (
+            <span
+              key={ `${i}-tag` }
+              data-testid={ `${index}-${tag}-horizontal-tag` }
+            >
+              { tag }
+            </span>)) }
       </div>
       <div>
-        <button type="button" onClick={ () => shareClick() }>
+        <button
+          className="btn-share"
+          type="button"
+          onClick={ () => shareClick() }
+        >
           <img
             alt="share button"
+            className="btn-share-img"
             data-testid={ `${index}-horizontal-share-btn` }
             src={ shareIcon }
           />

@@ -9,7 +9,6 @@ function Profile() {
     const user = localStorage.getItem('user');
     if (user !== null) {
       const { email } = JSON.parse(user);
-      console.log(email);
       setUserEmail(email);
     }
   }, []);

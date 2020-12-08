@@ -1,10 +1,8 @@
 header {
-  background-color: #2D6A4F;
-  border-color: #232525;;
-  border-style: solid;
-  border-width: 0 0 1px 0;
+  background-color: #40916C;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 header h1 {
@@ -17,6 +15,7 @@ header img {
 
 .header-btn {
   background-color: transparent;
+  padding: 10px;
   border: none;
   outline: none;
 }

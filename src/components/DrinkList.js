@@ -47,14 +47,16 @@ function DrinkList() {
       return <Redirect to={ `/bebidas/${idDrink}` } />;
     }
 
-    return drinkData.map((item, index) => (
-      <DrinkCard
-        testid={ index }
-        key={ `recipe${index}` }
-        recipe={ item }
-        idDrink={ item.idDrink }
-      />
-    ));
+    if (drinkData.length > 1 && drinkData.length < maxSize) {
+      return drinkData.map((item, index) => (
+        <DrinkCard
+          testid={ index }
+          key={ `recipe${index}` }
+          recipe={ item }
+          idDrink={ item.idDrink }
+        />
+      ));
+    }
   };
 
   return (

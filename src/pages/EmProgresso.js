@@ -1,8 +1,11 @@
 import React from 'react';
+import InProgress from '../components/InProgress';
 
 function EmProgresso() {
   return (
-    <span>In Progress...</span>
+    <div>
+      <InProgress />
+    </div>
   );
 }
 

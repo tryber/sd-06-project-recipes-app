@@ -32,6 +32,7 @@
 .detail-btn-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 47%;
 }
 
@@ -58,13 +59,13 @@
   width: 100%;
 }
 
-.datail-ingredients-title {
+.detail-ingredients-title {
   width: 94%;
   background-color: #2D6A4F;
   color: white;
 }
 
-.datail-ingredients {
+.detail-ingredients {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -72,12 +73,23 @@
   text-align: center;
 }
 
-.datail-ingredients ul {
+.detail-ingredients ul {
   width: 90%;
 }
 
-.datail-ingredients li {
+.detail-ingredients li {
   list-style-type: none;
+}
+
+input[type=checkbox]:checked + span {
+text-decoration-line: line-through;
+} 
+
+input[type=checkbox]:checked + span + span {
+  text-decoration-line: line-through;
+} 
+
+.detail-ingredients label {
   display: flex;
   justify-content: space-between;
 }
@@ -90,13 +102,13 @@
   width: 100%;
 }
 
-.datail-instructions-title {
+.detail-instructions-title {
   width: 100%;
   background-color: #2D6A4F;
   color: white;
 }
 
-.datail-instructions {
+.detail-instructions {
   width: 100%;
   margin-top: 10px;
   display: flex;
@@ -118,10 +130,42 @@
   margin: 0 0 50px 0;
 }
 
+.in-progress-btn-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.in-progress-btn-container a {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .details-in-progress-btn{
   position: fixed;
   bottom: 0;
   margin: 10px;
+  color: white;
+  padding: 6px;
+  font-weight: 600;
+  background-color: #2D6A4F;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.details-in-progress-btn:disabled {
+  position: fixed;
+  bottom: 0;
+  margin: 10px;
+  color: white;
+  padding: 0;
+  font-weight: 600;
+  background-color: #c2c2c2;;
+  border: none;
+  border-radius: 0;
+  font-size: 0rem;
 }
 
 .video-container {

@@ -21,7 +21,6 @@ function FoodList() {
 
   useEffect(() => {
     const { readyToSearch } = searchInput;
-
     if (!readyToSearch) {
       getFoodAPI('name-filter', '');
     }
@@ -46,15 +45,16 @@ function FoodList() {
       const { idMeal } = foodData[startIndex];
       return <Redirect to={ `/comidas/${idMeal}` } />;
     }
-
-    return foodData.map((item, index) => (
-      <FoodCard
-        testid={ index }
-        key={ `recipe${index}` }
-        recipe={ item }
-        idMeal={ item.idMeal }
-      />
-    ));
+    if (foodData.length > 1 && foodData.length < maxSize) {
+      return foodData.map((item, index) => (
+        <FoodCard
+          testid={ index }
+          key={ `recipe${index}` }
+          recipe={ item }
+          idMeal={ item.idMeal }
+        />
+      ));
+    }
   };
 
   return (

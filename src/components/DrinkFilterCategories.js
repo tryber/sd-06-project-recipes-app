@@ -29,7 +29,7 @@ function DrinkFilterCategories({ categories }) {
   return categories !== null && (
     <div className="category-filter-container">
       <button
-        className="btn-filter"
+        className="btn-filter-drink"
         data-testid="All-category-filter"
         type="button"
         value="All"
@@ -39,7 +39,7 @@ function DrinkFilterCategories({ categories }) {
       </button>
       {filteredList !== null && filteredList.map((category, index) => (
         <button
-          className="btn-filter"
+          className="btn-filter-drink"
           data-testid={ `${category}-category-filter` }
           onClick={ ({ target: { value } }) => onClick(value) }
           type="button"
