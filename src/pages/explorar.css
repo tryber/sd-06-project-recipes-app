@@ -1,0 +1,16 @@
+.explorar {
+  display: flex;
+  flex-direction: column;
+}
+
+.explorar button {
+  flex-grow: 1;
+  border: 1px solid;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 25px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 5px 0;
+  cursor: pointer;
+}
+

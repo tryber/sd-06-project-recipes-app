@@ -1,0 +1,15 @@
+.email-localStorage {
+  font-size: 20px;
+  text-align: center;
+}
+
+.botoes {
+  background-color: rgb(196, 196, 196);
+  border: none;
+  border-radius: 3px;
+  font-size: 18px;
+  margin: 8px;
+  margin-left: 18px;
+  padding: 10px;
+  width: 90%;
+}

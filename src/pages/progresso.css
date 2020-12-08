@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&display=swap');
+
+.ingredientes-check {
+  /* border: 1px solid; */
+}
+
+.ingredientes-check label {
+  /* border: 1px solid; */
+  display: block;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+/* .ingredientes-check span {
+  margin-left: 30px;
+} */
+
+.ingredientes-check input {
+  transform: scale(2);
+  margin-right: 20px;
+}
+
+.finalizar {
+  bottom: 0;
+  background-color: rgb(108, 227, 79);
+  border: none;
+  border-radius: 3px;
+  display: flex;
+  font-size: 18px;
+  /* margin-left: 10px; */
+  padding: 10px;
+  padding-left: 100px;
+  position: fixed;
+  width: 100%;
+  color: white;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.finalizar:disabled {
+  background-color: transparent;
+  color: transparent;
+}
+
+.instrucoes {
+  /* border: 30px solid red; */
+  margin-bottom: 15%;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .ingredientes-check label {
+    /* border: 1px solid; */
+    display: block;
+    margin-top: 20px;
+    font-size: 20px;
+  }
+  
+  /* .ingredientes-check span {
+    margin-left: 30px;
+  } */
+  
+  .ingredientes-check input {
+    transform: scale(2);
+    margin-right: 20px;
+  }
+}
