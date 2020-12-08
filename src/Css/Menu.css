@@ -1,0 +1,25 @@
+.app-recipe {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+}
+
+.menu-main-container {
+  width: 360px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.header {
+  height: 120px;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top: 0;
+}

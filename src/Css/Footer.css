@@ -1,0 +1,11 @@
+.footer-container {
+  position:fixed;
+  bottom:0;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  padding: 5px;
+  margin: 0;
+  width: 360px;
+  background-color: rgb(4, 117, 117);
+}

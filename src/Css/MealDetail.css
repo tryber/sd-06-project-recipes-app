@@ -1,0 +1,9 @@
+.btn-iniciar-receita {
+  position: fixed;
+  bottom: 0px;
+}
+
+.carousel-container { 
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,74 @@
+.container-button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+}
+
+.button-ingredients {
+  width: 110px;
+  background-color: rgb(61, 22, 22);
+  border-radius: 3px;
+  color: rgb(240, 241, 241);
+  border: none;
+  height: 35px;
+  cursor: pointer;
+}
+
+.button-ingredients:hover {
+  background-color: rgb(177, 164, 164);
+}
+
+
+.cards-container {
+  display: flex;
+  flex-flow: row wrap;
+  height: 100%;
+  justify-content: center;
+  margin: 0;
+  padding: 10px 10px;
+}
+
+.ingredient-card {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 8px;
+  box-shadow: 1px 2px 3px 1px black;
+  display: flex;
+  flex-direction: column;
+  height: 130px;
+  margin: 8px 10px ;
+  transition: 0.2s;
+  width: 145px;
+  cursor: pointer;
+}
+
+.ingredient-card:hover {
+  border: 1px solid rgba(190, 5, 5, 0.125);
+  transform: translateY(-5px);
+}
+
+.img-container {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  max-height: 90%;
+}
+
+.card-img {
+  width: 160px;
+}
+
+.card-name {
+  margin: 0;
+  padding: 0;
+  line-height: 25px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.link-card {
+  text-decoration: none;
+  color: black;
+}
