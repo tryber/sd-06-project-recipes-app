@@ -1,10 +1,10 @@
 const MEAL_API = 'https://www.themealdb.com/api/json/v1/1/';
-// Endpoints
-/* const listCategoriesEndpoint = 'list.php?c=list';
-const randomRequestEndpoint = 'random.php'; */
+const IMAGE_API = 'https://www.themealdb.com/images/ingredients/';
 
+// Endpoints
 const filterByCategoryEndpoint = 'filter.php?c=';
 const listCategoriesEndpoint = 'list.php?c=list';
+// https://www.themealdb.com/images/ingredients/${ingredient}-Small.png
 
 const endpoints = {
   ingredient: 'filter.php?i=',
@@ -12,11 +12,19 @@ const endpoints = {
   firstLetter: 'search.php?f=',
   lookupIngredient: 'lookup.php?i=',
   random: 'random.php',
+  listIngredient: 'list.php?i=list',
 };
 
 export async function fetchMeal(type, key) {
   key = key === 'firstLetter' ? key[0] : key;
   const url = `${MEAL_API}${endpoints[type]}${key}`;
+  const result = await fetch(url);
+  const data = await result.json();
+  return data;
+}
+
+export async function fetchImage(ingredient) {
+  const url = `${IMAGE_API}${ingredient}-Small.png`;
   const result = await fetch(url);
   const data = await result.json();
   return data;

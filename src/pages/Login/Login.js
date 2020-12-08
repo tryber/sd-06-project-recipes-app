@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { setValueUser, cocktailsToken, mealsToken } from '../../services/localStorage';
+import './style.css';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -27,53 +28,55 @@ function Login() {
   };
 
   return (
-    <div className="login-center">
-      <h1>Bem-vindo chef!</h1>
-      <form>
-        <div className="form-group">
-          <label
-            htmlFor="email"
+    <div className="login-container">
+      <aside className="login-aside">
+        <h1 className="page-title">Bem-vindo chef!</h1>
+        <form>
+          <div className="form-group">
+            <label
+              htmlFor="email"
+            >
+              Email
+              <input
+                className="form-control"
+                type="email"
+                data-testid="email-input"
+                placeholder="Digite seu email"
+                id="email"
+                onChange={ ({ target }) => setEmail(target.value) }
+                required="required"
+                value={ email }
+              />
+            </label>
+          </div>
+          <div className="form-group">
+            <label
+              htmlFor="senha"
+            >
+              Senha
+              <input
+                className="form-control"
+                type="password"
+                data-testid="password-input"
+                placeholder="Digite sua senha"
+                id="senha"
+                value={ password }
+                onChange={ ({ target }) => setPassword(target.value) }
+                required="required"
+              />
+            </label>
+          </div>
+          <button
+            type="button"
+            data-testid="login-submit-btn"
+            className="button"
+            disabled={ isDisabled }
+            onClick={ () => handleRedirect() }
           >
-            Email
-            <input
-              className="form-control"
-              type="email"
-              data-testid="email-input"
-              placeholder="Digite seu email"
-              id="password"
-              onChange={ ({ target }) => setEmail(target.value) }
-              required="required"
-              value={ email }
-            />
-          </label>
-        </div>
-        <div className="form-group">
-          <label
-            htmlFor="senha"
-          >
-            Senha
-            <input
-              className="form-control"
-              type="password"
-              data-testid="password-input"
-              placeholder="Digite sua senha"
-              id="senha"
-              value={ password }
-              onChange={ ({ target }) => setPassword(target.value) }
-              required="required"
-            />
-          </label>
-        </div>
-        <button
-          type="button"
-          data-testid="login-submit-btn"
-          className="btn btn-primary"
-          disabled={ isDisabled }
-          onClick={ () => handleRedirect() }
-        >
-          Entrar
-        </button>
-      </form>
+            Entrar no aplicativo
+          </button>
+        </form>
+      </aside>
     </div>
   );
 }

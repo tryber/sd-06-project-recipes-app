@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from '../../components/Header';
-import BtnSearchBar from '../../components/BtnSearchBar';
-import Footer from '../../components/Footer';
+import Header from '../../components/MainHeader/Header';
+import BtnSearchBar from '../../components/MainHeader/BtnSearchBar';
+import Footer from '../../components/Footer/Footer';
 
 function ExploreByArea() {
   return (

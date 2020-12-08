@@ -1,8 +1,8 @@
 import React from 'react';
 import { fireEvent } from '@testing-library/react';
 import Footer from './Footer';
-import renderWithRouter from '../renderWithRouter';
-import { drinkIcon, mealIcon, exploreIcon } from '../images';
+import renderWithRouter from '../../renderWithRouter';
+import { drinkIcon, mealIcon, exploreIcon } from '../../images';
 
 describe('renders footer correctly', () => {
   it('expect "drinkIcon.svg, exploreIcon.svg and mealIcon.svg" in the document', () => {

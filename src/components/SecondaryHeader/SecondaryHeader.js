@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import propTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
-import { shareIcon, whiteHeartIcon, blackHeartIcon } from '../images';
-import recipesAppContext from '../context/recipesAppContext';
-import { favoriteRecipe, recipeIsFavorite } from '../services/localStorage';
+import { shareIcon, whiteHeartIcon, blackHeartIcon } from '../../images';
+import recipesAppContext from '../../context/recipesAppContext';
+import { favoriteRecipe, recipeIsFavorite } from '../../services/localStorage';
+import './style.css';
 
 function SecondaryHeader({ name, img, category }) {
   const location = useLocation();
@@ -52,30 +53,35 @@ function SecondaryHeader({ name, img, category }) {
 
   return (
     <div className="header-container">
-      <header>
+      <header className="secondary-header">
         <img
+          className="image-secondary-header"
           data-testid="recipe-photo"
-          alt={ name }
+          alt={ `Receita: ${name}` }
           src={ img }
         />
-        <h1 data-testid="recipe-title">{ name }</h1>
-        <input
-          type="image"
-          data-testid="share-btn"
-          className="share-btn"
-          src={ shareIcon }
-          alt="Share recipe"
-          onClick={ handleShareIcon }
-        />
-        <p className="copied-link" />
-        <input
-          type="image"
-          data-testid="favorite-btn"
-          src={ recipeIsFavorite(myRecipe) ? blackHeartIcon : whiteHeartIcon }
-          alt="Favorite recipe"
-          onClick={ saveToLocalStorage }
-        />
-        <p data-testid="recipe-category">{ category }</p>
+        <div className="main-info">
+          <h1 data-testid="recipe-title" className="header-title">{ name }</h1>
+          <p data-testid="recipe-category" className="category">{ category }</p>
+        </div>
+        <div className="header-icons">
+          <input
+            type="image"
+            data-testid="share-btn"
+            className="share-btn"
+            src={ shareIcon }
+            alt="Share recipe"
+            onClick={ handleShareIcon }
+          />
+          <p className="copied-link" />
+          <input
+            type="image"
+            data-testid="favorite-btn"
+            src={ recipeIsFavorite(myRecipe) ? blackHeartIcon : whiteHeartIcon }
+            alt="Favorite recipe"
+            onClick={ saveToLocalStorage }
+          />
+        </div>
       </header>
     </div>
   );

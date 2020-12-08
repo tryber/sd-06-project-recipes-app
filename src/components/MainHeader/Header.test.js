@@ -1,6 +1,6 @@
 import React from 'react';
 import { fireEvent } from '@testing-library/react';
-import renderWithRouter from '../renderWithRouter';
+import renderWithRouter from '../../renderWithRouter';
 import Header from './Header';
 
 describe('Test Header.js', () => {

@@ -1,0 +1,90 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.main-header {
+  background-color: #9b0000;
+  display: flex;
+  align-items: center;
+  height: 12vh;
+  width: 100%;
+  justify-content: space-around;
+  margin: 0;
+}
+
+.link {
+  border: 0;
+  cursor: pointer;
+}
+
+.header-title {
+  margin: 0;
+  color: #ffffff;
+  letter-spacing: 3px;
+  font-size: 2.5rem;
+}
+
+.btn-header {
+  background-color: #9b0000;
+  border: none;
+  cursor: pointer;
+}
+
+.searchBar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 85vw;
+  border: 2px solid #ff5131;
+  border-top-color: white;
+}
+
+.searchBar {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+  width: 100%;
+}
+
+.inputForm {
+  display: flex;
+  justify-content: space-around;
+  margin-right: 10px;
+  width: 70%;
+}
+
+.radioBtns {
+  display: flex;
+  margin: 3%;
+  justify-content: space-around;
+  width: 50%;
+}
+
+.form-check-label {
+  font-size: 1.5em;
+}
+
+.button{
+  background-color: #9c0000;
+  color: #ffffff;
+  font-size: 1.5em;
+  font-weight: 100;
+  letter-spacing: 2px;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 100%;
+  text-decoration: none;
+}
+
+button:disabled {
+  opacity: 0.3;
+  transition: opacity 0.4;
+}

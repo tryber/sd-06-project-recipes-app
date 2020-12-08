@@ -86,23 +86,40 @@ export function convertTreatedRecipe(recipe) {
   return convertedRecipe;
 }
 
+function createDoneRecipesDatabase() {
+  localStorage.setItem('doneRecipes', JSON.stringify([]));
+}
+
+function checkDoneRecipesDatabase() {
+  const recipes = JSON.parse(localStorage.getItem('doneRecipes'));
+  if (!recipes) createDoneRecipesDatabase();
+}
+
+function updateDoneRecipes(recipes) {
+  localStorage.setItem('doneRecipes', JSON.stringify(recipes));
+}
+
 export function getDoneRecipes() {
-  const recipes = JSON.parse(localStorage.getItem('done_recipes'));
+  checkDoneRecipesDatabase();
+  const recipes = JSON.parse(localStorage.getItem('doneRecipes'));
   return recipes;
 }
 
 export function addDoneRecipe(recipe) {
+  checkDoneRecipesDatabase();
   const two = 2;
   const today = new Date();
   const day = String(today.getDate()).padStart(two, '0');
   const month = String(today.getMonth() + 1).padStart(two, '0');
   const year = today.getFullYear();
   const date = `${day}/${month}/${year}`;
+  if ('idDrink' in recipe) recipe.strCategory = recipe.strAlcoholic;
   recipe = treatRecipe(recipe);
   recipe.doneDate = date;
+  if (recipe.tags === null) recipe.tags = '';
   const temp = getDoneRecipes();
-  temp.push(recipe);
-  localStorage.setItem('done_recipes', JSON.stringify(temp));
+  if (!temp.find((item) => item.id === recipe.id)) temp.push(recipe);
+  updateDoneRecipes(temp);
 }
 
 function createFavoriteRecipesDatabase() {
@@ -110,13 +127,13 @@ function createFavoriteRecipesDatabase() {
   localStorage.setItem('favoriteRecipes', JSON.stringify(recipes));
 }
 
-function updateFavoriteRecipes(recipes) {
-  localStorage.setItem('favoriteRecipes', JSON.stringify(recipes));
-}
-
 function checkFavoriteRecipesDatabase() {
   const recipes = JSON.parse(localStorage.getItem('favoriteRecipes'));
   if (!recipes) createFavoriteRecipesDatabase();
+}
+
+function updateFavoriteRecipes(recipes) {
+  localStorage.setItem('favoriteRecipes', JSON.stringify(recipes));
 }
 
 export function getFavoriteRecipes() {
@@ -194,6 +211,7 @@ export function selectedIngredient(recipeID, ingredient) {
     const ingredientIndex = ingredients.findIndex((item) => item === ingredient);
     if (ingredientIndex > minusOne) return true;
   }
+
   return false;
 }
 

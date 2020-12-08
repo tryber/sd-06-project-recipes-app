@@ -1,15 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import SecondaryHeader from '../../components/SecondaryHeader';
+import SecondaryHeader from '../../components/SecondaryHeader/SecondaryHeader';
 import RecommendationCard from '../../components/RecommendationCard';
 import { fetchDrink } from '../../services/cocktailAPI';
-import './detail.css';
+import './style.css';
 import recipesAppContext from '../../context/recipesAppContext';
 
 function MealDetail() {
   const [recommendations, setRecommendations] = useState([]);
   const [newRecipe, setNewRecipe] = useState(true);
   const { recipesMeals, fetchMealIngredients } = useContext(recipesAppContext);
+  console.log(recipesMeals.strYoutube);
 
   const { id } = useParams();
   const zero = 0;

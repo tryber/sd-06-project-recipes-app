@@ -1,44 +1,21 @@
 import React, { useState } from 'react';
 import copy from 'clipboard-copy';
 import { Link } from 'react-router-dom';
-import Header from '../../components/Header';
+import Header from '../../components/MainHeader/Header';
 import { shareIcon } from '../../images';
+import { getDoneRecipes } from '../../services/localStorage';
+import './style.css';
 
 function CompletedRecipes() {
-  const doneRecipes = [{
-    id: '52977',
-    type: 'meal',
-    area: 'Turkish',
-    category: 'Side',
-    alcoholicOrNot: false,
-    name: 'Corba',
-    image: 'https://www.themealdb.com/images/media/meals/58oia61564916529.jpg',
-    doneDate: '30-11-2020',
-    tags: 'Soup',
-  }, {
-    id: '52814',
-    type: 'meal',
-    area: 'Thai',
-    category: 'Chicken',
-    alcoholicOrNot: false,
-    name: 'Thai Green Curry',
-    image: 'https://www.themealdb.com/images/media/meals/sstssx1487349585.jpg',
-    doneDate: '28-11-2020',
-    tags: 'Curry,Mild',
-  }];
-  doneRecipes.forEach((recipe) => {
-    if (recipe.tags !== null) {
-      recipe.tags = recipe.tags.split(',');
-    }
-  });
   const [type, setType] = useState('');
+  const doneRecipes = getDoneRecipes();
 
   const handleShareIcon = (target) => {
     const keys = target.id.split(',');
     let urlLinkDetail = '';
-    if (keys[1] === 'meal') {
+    if (keys[1] === 'comida') {
       urlLinkDetail = `/comidas/${keys[0]}`;
-    } else if (keys[1] === 'drink') {
+    } else if (keys[1] === 'bebida') {
       urlLinkDetail = `/bebidas/${keys[0]}`;
     }
     copy(urlLinkDetail);
@@ -52,59 +29,67 @@ function CompletedRecipes() {
   };
 
   return (
-    <div>
+    <div className="container">
       <Header
         className="header"
         pageTitle="Receitas Feitas"
       />
-      <div>
+      <div className="categories">
         <input
-          className="btn btn-secondary"
+          className="category-button"
+          data-testid="filter-by-all-btn"
           onClick={ () => setType('') }
           type="button"
           value="All"
         />
         <input
-          className="btn btn-secondary"
-          onClick={ () => setType('meal') }
+          className="category-button"
+          data-testid="filter-by-food-btn"
+          onClick={ () => setType('comida') }
           type="button"
           value="Comidas"
         />
         <input
-          className="btn btn-secondary"
-          onClick={ () => setType('drink') }
+          className="category-button"
+          data-testid="filter-by-drink-btn"
+          onClick={ () => setType('bebida') }
           type="button"
           value="Bebidas"
         />
       </div>
-      <div>
+      <div className="header-container">
         {doneRecipes.map((recipe, index) => {
           if (recipe.type === type || type === '') {
             let urlLinkDetail = '';
-            if (recipe.type === 'meal') {
+            if (recipe.type === 'comida') {
               urlLinkDetail = `/comidas/${recipe.id}`;
-            } else if (recipe.type === 'drink') {
+            } else if (recipe.type === 'bebida') {
               urlLinkDetail = `/bebidas/${recipe.id}`;
             }
             return (
-              <div>
+              <div className="recipe-card">
                 <Link to={ urlLinkDetail }>
                   <img
+                    className="recipe-thumb"
                     data-testid={ `${index}-horizontal-image` }
                     src={ recipe.image }
                     alt={ recipe.name }
                   />
                 </Link>
                 <p data-testid={ `${index}-horizontal-top-text` }>
-                  { recipe.category }
+                  {
+                    recipe.type === 'comida'
+                      ? `${recipe.area} - ${recipe.category}`
+                      : recipe.alcoholicOrNot
+                  }
                 </p>
                 <Link to={ urlLinkDetail }>
-                  <h2 data-testid={ `${index}-horizontal-name` }>
+                  <h2 className="recipe-name" data-testid={ `${index}-horizontal-name` }>
                     { recipe.name }
                   </h2>
                 </Link>
                 <p data-testid={ `${index}-horizontal-done-date` }>
-                  { recipe.doneDate }
+                  { `Feita em: ${recipe.doneDate}` }
                 </p>
                 <input
                   id={ `${recipe.id},${recipe.type}` }
@@ -116,7 +101,7 @@ function CompletedRecipes() {
                   onClick={ ({ target }) => handleShareIcon(target) }
                 />
                 <p className={ `copied-link-${recipe.id}` } />
-                {recipe.tags.map((tagName) => (
+                {recipe.tags.split(',').map((tagName) => (
                   <p
                     data-testid={ `${index}-${tagName}-horizontal-tag` }
                     key={ tagName }

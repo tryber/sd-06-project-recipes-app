@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import SecondaryHeader from '../../components/SecondaryHeader';
+import SecondaryHeader from '../../components/SecondaryHeader/SecondaryHeader';
 import RecommendationCard from '../../components/RecommendationCard';
 import { fetchMeal } from '../../services/mealAPI';
-import './detail.css';
+import './style.css';
 
 import recipesAppContext from '../../context/recipesAppContext';
 
@@ -60,57 +60,64 @@ function DrinkDetail() {
   }
 
   return (
-    <div>
+    <div className="detail-container">
       <SecondaryHeader
         name={ recipesDrinks.strDrink }
         img={ recipesDrinks.strDrinkThumb }
         category={ recipesDrinks.strAlcoholic }
+        className="cover"
       />
-      <div className="ingredients-container">
-        <h3>Ingredientes</h3>
-        {setIngredientAndMeasure().map((ingredient, index) => {
-          if (index < ingredientsNumber) {
-            return (
-              <div
-                data-testid={ `${index}-ingredient-name-and-measure` }
-                key={ index }
-              >
-                {`- ${ingredient.name} - ${ingredient.measure}`}
-              </div>
-            );
-          }
-          return null;
-        })}
-      </div>
-      <div className="instructions-container">
-        <h3>Instruções</h3>
-        <div data-testid="instructions">{recipesDrinks.strInstructions}</div>
-      </div>
-      <div className="recommendation-container">
-        <div className="scroller">
-          {
-            recommendations.slice(zero, maxRecommendations)
-              .map((recommendation, index) => (
-                <RecommendationCard
-                  className={ index < two ? '' : 'hidden' }
+      <div>
+        <div className="ingredients-container">
+          <h3>Ingredientes</h3>
+          {setIngredientAndMeasure().map((ingredient, index) => {
+            if (index < ingredientsNumber) {
+              return (
+                <div
+                  data-testid={ `${index}-ingredient-name-and-measure` }
                   key={ index }
-                  recommendation={ recommendation }
-                  index={ index }
-                />
-              ))
-          }
+                >
+                  {`- ${ingredient.name} - ${ingredient.measure}`}
+                </div>
+              );
+            }
+            return null;
+          })}
         </div>
-      </div>
-      <div className="button-container">
-        <Link to={ `/bebidas/${recipesDrinks.idDrink}/in-progress` }>
-          <button
-            type="button"
-            data-testid="start-recipe-btn"
-            className="start-recipe"
-          >
-            {newRecipe ? 'Iniciar Receita' : (setNewRecipe(false) && 'Continuar Receita')}
-          </button>
-        </Link>
+        <div className="instructions-container">
+          <h3>Instruções</h3>
+          <div data-testid="instructions">{recipesDrinks.strInstructions}</div>
+        </div>
+        <div className="recommendation-container">
+          <div className="scroller">
+            {
+              recommendations.slice(zero, maxRecommendations)
+                .map((recommendation, index) => (
+                  <RecommendationCard
+                    className={ index < two ? '' : 'hidden' }
+                    key={ index }
+                    recommendation={ recommendation }
+                    index={ index }
+                  />
+                ))
+            }
+          </div>
+        </div>
+        <div className="button-container">
+          <Link to={ `/bebidas/${recipesDrinks.idDrink}/in-progress` }>
+            <button
+              type="button"
+              data-testid="start-recipe-btn"
+              className="start-recipe"
+            >
+              {
+                newRecipe
+                  ? 'Iniciar Receita'
+                  : (setNewRecipe(false) && 'Continuar Receita')
+              }
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import recipesAppContext from '../context/recipesAppContext';
-import { searchIcon } from '../images';
+import recipesAppContext from '../../context/recipesAppContext';
+import { searchIcon } from '../../images';
 
 export default function BtnSearchBar() {
   const { searchBar, setSearchBar } = useContext(recipesAppContext);
