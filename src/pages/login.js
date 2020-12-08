@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import './style/login.css';
+// import './style/login.css';
+import { LoginContainer, LoginInput, SubmitButton } from './style/login';
 import addLogin from '../actions/login';
 
 class Login extends Component {
@@ -56,9 +57,9 @@ class Login extends Component {
   render() {
     const { email, password, isValid } = this.state;
     return (
-      <div className="login-container">
+      <LoginContainer>
         <div className="email-container">
-          <input
+          <LoginInput
             className="login-input"
             data-testid="email-input"
             placeholder="Email"
@@ -70,7 +71,7 @@ class Login extends Component {
           />
         </div>
         <div className="password-container">
-          <input
+          <LoginInput
             className="login-input"
             name="password"
             data-testid="password-input"
@@ -81,7 +82,7 @@ class Login extends Component {
           />
         </div>
         <div className="button-container">
-          <button
+          <SubmitButton
             className="submit-button"
             data-testid="login-submit-btn"
             type="button"
@@ -89,9 +90,9 @@ class Login extends Component {
             onClick={ this.sendToRedux }
           >
             Submit
-          </button>
+          </SubmitButton>
         </div>
-      </div>
+      </LoginContainer>
     );
   }
 }

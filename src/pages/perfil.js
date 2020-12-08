@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import { Header, Footer } from '../components';
+import { PerfilContainer, HeaderContainer } from './style/Perfil';
 
 class Perfil extends Component {
   constructor(props) {
@@ -28,9 +29,10 @@ class Perfil extends Component {
     return (
       <div>
         <Header title="Perfil" noSearchBar />
-        <div>
+        <HeaderContainer>
           <h3 data-testid="profile-email">{email}</h3>
-
+        </HeaderContainer>
+        <PerfilContainer>
           <Link to="/receitas-feitas">
             <button
               type="button"
@@ -57,7 +59,7 @@ class Perfil extends Component {
             Sair
           </button>
 
-        </div>
+        </PerfilContainer>
         <Footer title="Perfil" />
       </div>
     );

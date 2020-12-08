@@ -5,12 +5,15 @@ import shareIcon from '../images/shareIcon.svg';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 
-import './style/details.css';
+import { DetailsContainer, IngredientsContainer,
+  InstructionsContainer, TitleContainer, FooterContainer }
+  from './style/Details';
 
 const getFromLS = (id, pathname) => {
   const LS = JSON.parse(localStorage.getItem('inProgressRecipes'));
   const path = pathname.includes('comidas') ? 'meals' : 'cocktails';
-  if (!LS) return {};
+  console.log(path, id);
+  if (!LS || !LS[path][id]) return {};
   return LS[path][id].reduce((acc, currV) => ({ ...acc, [currV]: true }), {});
 };
 
@@ -380,9 +383,14 @@ class InProgress extends Component {
     } = details[0];
 
     return (
-      <div>
-        <h3 data-testid="recipe-title">{strMeal || strDrink}</h3>
+        <div>
+          <TitleContainer>
+            <h3 data-testid="recipe-title">{strMeal || strDrink}</h3>
+          </TitleContainer>
+      <DetailsContainer>
+        <div className="recipe-container">
         <img
+          className="recipe-photo"
           data-testid="recipe-photo"
           src={ strMealThumb || strDrinkThumb }
           alt={ `${strMeal || strDrink}` }
@@ -393,6 +401,7 @@ class InProgress extends Component {
             <p>Link copiado!</p>
           </div>
         )}
+        <div className="buttons-recipe">
         <button type="button" data-testid="share-btn" onClick={ this.handleShare }>
           <img src={ shareIcon } alt="Share Recipe" />
         </button>
@@ -411,11 +420,9 @@ class InProgress extends Component {
             />
           )}
         </button>
-        {isMeal ? (
-          <p data-testid="recipe-category">{strCategory}</p>
-        ) : (
-          <p data-testid="recipe-category">{strAlcoholic}</p>
-        )}
+        </div>
+        </div>
+        <IngredientsContainer>
         {ingredientsAndMeasures.map((item, idx) => (
           <div key={ `${idx}` } data-testid={ `${idx}-ingredient-step` }>
             <input
@@ -428,16 +435,23 @@ class InProgress extends Component {
             {item}
           </div>
         ))}
-        <p data-testid="instructions">{strInstructions}</p>
+        </IngredientsContainer>
+        <InstructionsContainer>
+          <p data-testid="instructions">{strInstructions}</p>
+        </InstructionsContainer>
+
+      </DetailsContainer>
+      <FooterContainer>
         <button
-          type="button"
-          data-testid="finish-recipe-btn"
-          className="finish-recipe-btn"
-          disabled={ !isDone }
-          onClick={ () => history.push('/receitas-feitas') }
+            type="button"
+            data-testid="finish-recipe-btn"
+            className="finish-recipe-btn"
+            disabled={ !isDone }
+            onClick={ () => history.push('/receitas-feitas') }
         >
           Finalizar Receita
         </button>
+      </FooterContainer>
       </div>
     );
   }

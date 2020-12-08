@@ -7,8 +7,10 @@ import MealCard from '../components/MealCard';
 import shareIcon from '../images/shareIcon.svg';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
+import { DetailsContainer, IngredientsContainer,
+  InstructionsContainer, TitleContainer, FooterContainer }
+  from './style/Details';
 
-import './style/details.css';
 
 class Details extends Component {
   constructor() {
@@ -247,73 +249,68 @@ class Details extends Component {
     } = details[0];
 
     return (
-      <div>
-        <h3 data-testid="recipe-title">{strMeal || strDrink}</h3>
-        <img
-          data-testid="recipe-photo"
-          src={ strMealThumb || strDrinkThumb }
-          alt={ `${strMeal || strDrink}` }
-          width={ 100 }
-        />
-        {clipboard.length !== zero && (
-          <div>
-            <p>Link copiado!</p>
-          </div>
-        )}
-        <button type="button" data-testid="share-btn" onClick={ this.handleShare }>
-          <img src={ shareIcon } alt="Share Recipe" />
-        </button>
-        <button type="button" onClick={ this.handleFavorite }>
-          {isFavorite ? (
-            <img
-              src={ blackHeartIcon }
-              data-testid="favorite-btn"
-              alt="Favorite Recipe"
-            />
-          ) : (
-            <img
-              src={ whiteHeartIcon }
-              data-testid="favorite-btn"
-              alt="Favorite Recipe"
-            />
+        <div>
+          <TitleContainer>
+            <h3 data-testid="recipe-title">{strMeal || strDrink}</h3>
+          </TitleContainer>
+      <DetailsContainer>
+        <div className="recipe-container">
+          <img
+              className="recipe-photo"
+              data-testid="recipe-photo"
+              src={ strMealThumb || strDrinkThumb }
+              alt={ `${strMeal || strDrink}` }
+              width={ 100 }
+          />
+          {clipboard.length !== zero && (
+              <div>
+                <p>Link copiado!</p>
+              </div>
           )}
-        </button>
-        {isMeal ? (
-          <p data-testid="recipe-category">{strCategory}</p>
-        ) : (
-          <p data-testid="recipe-category">{strAlcoholic}</p>
-        )}
-        {ingredientsAndMeasures.map((item, idx) => (
-          <p key={ `${idx}` } data-testid={ `${idx}-ingredient-name-and-measure` }>
-            {item}
-          </p>
-        ))}
-        <p data-testid="instructions">{strInstructions}</p>
-        { isMeal && (<p data-testid="video">{strYoutube}</p>)}
-        {/*
-          REQ 37:
-          TODO: Pegar Carousel de 'react-bootstrap/Carousel'
-          https://react-bootstrap.github.io/components/carousel/#carousel-props
-         */}
-        {recomendations.map((item, idx) => (
-          <div key={ idx } data-testid={ `${idx}-recomendation-card` }>
-            {isMeal ? (
-              <MealCard meal={ item } idx={ idx } />
-            ) : (
-              <DrinkCard drink={ item } idx={ idx } />
-            )}
+          <div className="buttons-recipe">
+            <button type="button" onClick={ this.handleFavorite }>
+              {isFavorite ? (
+                  <img
+                      src={ blackHeartIcon }
+                      data-testid="favorite-btn"
+                      alt="Favorite Recipe"
+                  />
+              ) : (
+                  <img
+                      src={ whiteHeartIcon }
+                      data-testid="favorite-btn"
+                      alt="Favorite Recipe"
+                  />
+              )}
+            </button>
+            <button type="button" data-testid="share-btn" onClick={ this.handleShare }>
+              <img src={ shareIcon } alt="Share Recipe" />
+            </button>
           </div>
-        ))}
+        </div>
+        <IngredientsContainer>
+          {ingredientsAndMeasures.map((item, idx) => (
+              <li key={ `${idx}` } data-testid={ `${idx}-ingredient-name-and-measure` }>
+                {item}
+              </li>
+          ))}
+        </IngredientsContainer>
+        <InstructionsContainer>
+          <p data-testid="instructions">{strInstructions}</p>
+        </InstructionsContainer>
+      </DetailsContainer>
+      <FooterContainer>
         {!isDone && (
-          <button
-            type="button"
-            data-testid="start-recipe-btn"
-            className="start-recipe-btn"
-            onClick={ () => history.push(`${url}/in-progress`) }
-          >
-            { inProgress ? 'Continuar Receita' : 'Iniciar Receita' }
-          </button>
+            <button
+                className="start"
+                type="button"
+                data-testid="start-recipe-btn"
+                onClick={ () => history.push(`${url}/in-progress`) }
+            >
+              { inProgress ? 'Continuar Receita' : 'Iniciar Receita' }
+            </button>
         )}
+      </FooterContainer>
       </div>
     );
   }

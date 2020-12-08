@@ -3,7 +3,12 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import './style/recipesCard.css';
+import {
+  MealsAndDrinksContainer,
+  MainContainer,
+  ButtonContainer,
+  FilterButtons,
+} from './style/mealsAndDrinks';
 
 class RecipesCardDrinks extends Component {
   constructor() {
@@ -53,17 +58,18 @@ class RecipesCardDrinks extends Component {
   }
 
   filter(index, strCategory) {
+    const nameButton = strCategory.split('/');
     return (
-      <div key={ index }>
+      <FilterButtons key={ index }>
         <button
           id={ strCategory }
           type="button"
           data-testid={ `${strCategory}-category-filter` }
           onClick={ this.requestFromApi }
         >
-          {strCategory}
+          {nameButton[0]}
         </button>
-      </div>
+      </FilterButtons>
     );
   }
 
@@ -106,14 +112,14 @@ class RecipesCardDrinks extends Component {
     const { drinksCategories } = this.props;
     const { drinksState } = this.state;
     return (
-      <div>
-        <div>
+      <MealsAndDrinksContainer>
+        <ButtonContainer>
           { drinksCategories && this.renderFilterButtons(drinksCategories) }
-        </div>
-        <div>
+        </ButtonContainer>
+        <MainContainer>
           { drinksState && this.renderDrinks(drinksState) }
-        </div>
-      </div>
+        </MainContainer>
+      </MealsAndDrinksContainer>
     );
   }
 }

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import randomCall from '../services/theRandomCallApi';
 
+import ButtonsContainer  from './style/Explore';
+
 class ExploreOptions extends Component {
   constructor() {
     super();
@@ -33,7 +35,7 @@ class ExploreOptions extends Component {
     const path = pathname;
 
     return (
-      <div>
+      <ButtonsContainer>
         <Link data-testid="explore-by-ingredient" to={ `${pathname}/ingredientes` }>
           Por Ingredientes
         </Link>
@@ -49,7 +51,7 @@ class ExploreOptions extends Component {
         >
           Me Surpreenda!
         </button>
-      </div>
+      </ButtonsContainer>
     );
   }
 }
@@ -62,3 +64,4 @@ ExploreOptions.propTypes = {
 };
 
 export default ExploreOptions;
+

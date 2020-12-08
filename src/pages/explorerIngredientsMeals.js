@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 import theIngredientsAndAreaApi from '../services/theIngredientsAndAreaApi';
 import { Header, Footer } from '../components';
 
+import {
+  MealsAndDrinksContainer,
+  MainContainer,
+} from '../components/style/mealsAndDrinks';
+
 class ExplorerIngredientsMeals extends Component {
   constructor() {
     super();
@@ -65,7 +70,11 @@ class ExplorerIngredientsMeals extends Component {
     return (
       <div>
         <Header title="Explorar Ingredientes" noSearchBar />
-        { ingredients.length !== zero && this.renderIngredients()}
+        <MealsAndDrinksContainer >
+          <MainContainer>
+          { ingredients.length !== zero && this.renderIngredients()}
+          </MainContainer>
+        </MealsAndDrinksContainer>
         <Footer />
       </div>
     );

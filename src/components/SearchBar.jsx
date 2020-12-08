@@ -8,6 +8,7 @@ import getMeals from '../services/theMealApi';
 import getCockTail from '../services/theCockTailApi';
 import addMeals from '../actions/meals';
 import addDrinks from '../actions/drinks';
+import searchIcon from '../images/searchIcon.svg';
 
 class SearchRadio extends Component {
   constructor() {
@@ -45,7 +46,7 @@ class SearchRadio extends Component {
     const endPointString = `${inputValue[inputRadio]}=${searchInput}`;
 
     if (title === 'Comidas') {
-      const { meals } = await getMeals(endPointString); // Apple Frangipan Tart
+      const { meals } = await getMeals(endPointString);
 
       if (meals && meals.length === 1) {
         const { idMeal } = meals[0];
@@ -55,7 +56,7 @@ class SearchRadio extends Component {
       return meals ? sendMeals(meals) : displayAlert();
     }
 
-    const { drinks } = await getCockTail(endPointString); // Avalon
+    const { drinks } = await getCockTail(endPointString);
     if (drinks && drinks.length === 1) {
       const { idDrink } = drinks[0];
       sendCockTail(drinks);
@@ -68,46 +69,48 @@ class SearchRadio extends Component {
     const { redirectTo } = this.state;
     return (
       <div>
-        <label htmlFor="ingrediente">
-          <input
-            name="inputRadio"
-            id="ingrediente"
-            type="radio"
-            data-testid="ingredient-search-radio"
-            onChange={ this.handleInput }
-          />
-          Ingrediente
-        </label>
-        <label htmlFor="nome">
-          <input
-            name="inputRadio"
-            id="nome"
-            type="radio"
-            data-testid="name-search-radio"
-            placeholder="Nome"
-            onChange={ this.handleInput }
-          />
-          Nome
-        </label>
-        <label htmlFor="primeira-letra">
-          <input
-            name="inputRadio"
-            id="primeira-letra"
-            type="radio"
-            data-testid="first-letter-search-radio"
-            placeholder="Primeira Letra"
-            onChange={ this.handleInput }
-          />
-          Primeira letra
-        </label>
         <button
           type="button"
           onClick={ this.requestFromApi }
           data-testid="exec-search-btn"
         >
-          Buscar
+          <img width="50%" src={ searchIcon } />
         </button>
-        {redirectTo && <Redirect to={ redirectTo } />}
+        <div className="input-container">
+          <label htmlFor="ingrediente">
+            <input
+              name="inputRadio"
+              id="ingrediente"
+              type="radio"
+              data-testid="ingredient-search-radio"
+              onChange={ this.handleInput }
+            />
+            Ingrediente
+          </label>
+          <label htmlFor="nome">
+            <input
+                name="inputRadio"
+                id="nome"
+                type="radio"
+                data-testid="name-search-radio"
+                placeholder="Nome"
+                onChange={ this.handleInput }
+            />
+            Nome
+          </label>
+          <label htmlFor="primeira-letra">
+            <input
+                name="inputRadio"
+                id="primeira-letra"
+                type="radio"
+                data-testid="first-letter-search-radio"
+                placeholder="Primeira Letra"
+                onChange={ this.handleInput }
+            />
+            Primeira letra
+          </label>
+          {redirectTo && <Redirect to={ redirectTo } />}
+        </div>
       </div>
     );
   }
