@@ -1,0 +1,33 @@
+body {
+  width: 360px;
+  border: 1px solid green;
+}
+.button-position {
+  position: fixed;
+  bottom: 0;
+}
+.main-image {
+  width: 100%;
+}
+.recomendation-image {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid red;
+  overflow: scroll;
+}
+
+.recomendation-image li {
+  
+  width: 55%;
+  margin: 0 8px;
+  text-align: center;
+}
+
+.recomendation-image li img {
+  border-radius: 15px 15px 0 0;
+}
+
+.recomendation-image li h1{
+  background-color: rgb(134, 148, 160);
+  color: white;
+}
