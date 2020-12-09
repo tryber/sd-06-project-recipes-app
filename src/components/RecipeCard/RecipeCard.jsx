@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './RecipeCard.css';
 
 const RecipeCard = (props) => {
   const { recipe, index } = props;
@@ -17,7 +16,12 @@ const RecipeCard = (props) => {
           alt="recipe display"
         />
       </div>
-      <h3 data-testid={ `${index}-card-name` }>{ recipe.strMeal || recipe.strDrink }</h3>
+      <h3
+        className="recipe-title"
+        data-testid={ `${index}-card-name` }
+      >
+        { recipe.strMeal || recipe.strDrink }
+      </h3>
     </div>
   );
 };

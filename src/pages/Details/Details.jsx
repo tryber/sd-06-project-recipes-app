@@ -1,4 +1,5 @@
 import React, { useEffect, useContext, useState } from 'react';
+import { Carousel } from 'react-responsive-carousel';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { foodDetails, drinkDetails, getDrinksApi, getMealsAPI } from '../../services/API';
@@ -6,11 +7,15 @@ import Context from '../../context/Context';
 import shareBtn from '../../images/shareIcon.svg';
 import whiteHeartIcon from '../../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../../images/blackHeartIcon.svg';
-import './Details.css';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import '../../../node_modules/react-responsive-carousel/lib/styles/carousel.css';
 
 const Details = (props) => {
+  const { location } = props;
+  const { pathname } = location;
   const [startRecipeBtn, setStartRecipeBtn] = useState(true);
-  const [recipeBtnText, setRecipeBtnText] = useState('Iniciar Receita');
+  const [recipeBtnText, setRecipeBtnText] = useState('Start recipe');
   const [messageToggle, setMessageToggle] = useState(false);
   const [heartIcon, setHeartIcon] = useState('');
   const {
@@ -27,21 +32,21 @@ const Details = (props) => {
   const pop = path;
   const cinco = 5;
 
-  const handleClick = (e, setdisableButton) => {
-    e.preventDefault();
-    let savedRecipes = [];
-    savedRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
-    const { idDrink } = details;
-    const { idMeal } = details;
-    if (savedRecipes) {
-      savedRecipes.forEach((savedRecipe) => {
-        if (savedRecipe.id === idDrink || savedRecipe.id === idMeal) {
-          setdisableButton('hidden');
-          return true;
-        }
-      });
-    }
-  };
+  // const handleClick = (e, setdisableButton) => {
+  //   e.preventDefault();
+  //   let savedRecipes = [];
+  //   savedRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
+  //   const { idDrink } = details;
+  //   const { idMeal } = details;
+  //   if (savedRecipes) {
+  //     savedRecipes.forEach((savedRecipe) => {
+  //       if (savedRecipe.id === idDrink || savedRecipe.id === idMeal) {
+  //         setdisableButton('hidden');
+  //         return true;
+  //       }
+  //     });
+  //   }
+  // };
 
   useEffect(() => {
     if (pop === '/comidas/:id') {
@@ -69,7 +74,7 @@ const Details = (props) => {
         return undefined;
       });
     }
-    return setRecipeBtnText('Continuar Receita');
+    return setRecipeBtnText('Start recipe');
   }, [id, idDetails, pop, setRecomendations, setdetails]);
 
   function getUrl() {
@@ -82,7 +87,7 @@ const Details = (props) => {
 
   const renderRecipeBtn = () => (
     <button
-      className="start-recipe-btn"
+      className="btn btn-small btn-active recomendation-size"
       type="button"
       data-testid="start-recipe-btn"
     >
@@ -137,8 +142,6 @@ const Details = (props) => {
       strArea,
       strMealThumb,
       strDrinkThumb,
-      // doneDate,
-      // strTags: tags,
     } = details;
 
     const newFavRecipe = {
@@ -149,8 +152,6 @@ const Details = (props) => {
       alcoholicOrNot: getRecipeValues('alcohol'),
       name: strMeal || strDrink,
       image: strMealThumb || strDrinkThumb,
-      // doneDate,
-      // tags,
     };
 
     const oldFavRecipes = JSON.parse(localStorage.getItem('favoriteRecipes'));
@@ -185,120 +186,153 @@ const Details = (props) => {
 
   return (
     <div>
-      <img
-        src={ details.strDrinkThumb || details.strMealThumb }
-        data-testid="recipe-photo"
-        alt={ details.strMeal || details.strDrink }
-      />
-
-      <h1
-        data-testid="recipe-title"
-      >
-        { details.strDrink || details.strMeal }
-      </h1>
-      <button
-        type="button"
-        data-testid="share-btn"
-        onClick={ () => copyUrlToClipboard() }
-      >
-        <img src={ shareBtn } alt="share" />
-      </button>
-      <button
-        type="button"
-        data-testid="favorite-btn"
-        src={ heartIcon }
-        onClick={ () => toggleFavorite() }
-      >
+      <Header pathname={ pathname } />
+      <div className="container-details">
         <img
-          alt="heart icon"
-          src={ heartIcon }
+          className="image-details"
+          src={ details.strDrinkThumb || details.strMealThumb }
+          data-testid="recipe-photo"
+          alt={ details.strMeal || details.strDrink }
         />
-      </button>
-      <div>
-        <text
-          data-testid="recipe-category"
-        >
-          { details.strAlcoholic }
-          { details.strCategory }
-        </text>
-      </div>
 
-      <h2>Ingredientes:</h2>
-      <ul>
-        {
-          Object.keys(details)
-            .filter((keys) => keys.includes('Ingredient'))
-            .map((ingredient, index) => {
-              if (details[ingredient] !== '' && details[ingredient] !== null) {
-                const measure = Object.keys(details)
-                  .filter((keys) => keys.includes('Measure'));
-                const measureIndex = measure[index];
-                return (
-                  <li
-                    key={ index }
-                    data-testid={ `${index}-ingredient-name-and-measure` }
-                  >
-                    { `${details[ingredient]} - ${details[measureIndex]} `}
-                  </li>
-                );
+        <div className="buttons-details">
+          <button
+            type="button"
+            data-testid="share-btn"
+            onClick={ () => copyUrlToClipboard() }
+          >
+            <img src={ shareBtn } alt="share" />
+          </button>
+          <button
+            type="button"
+            data-testid="favorite-btn"
+            src={ heartIcon }
+            onClick={ () => toggleFavorite() }
+          >
+            <img
+              alt="heart icon"
+              src={ heartIcon }
+            />
+          </button>
+        </div>
+        {messageToggle && <p className="copy-message">Link copied!</p>}
+        <h1
+          className="title-details"
+          data-testid="recipe-title"
+        >
+          { details.strDrink || details.strMeal }
+        </h1>
+
+        <div className="category-details">
+          <text
+            data-testid="recipe-category"
+          >
+            { details.strAlcoholic }
+            { details.strCategory }
+          </text>
+        </div>
+
+        <h3 className="ingredient-details">Ingredientes:</h3>
+        <ul>
+          {
+            Object.keys(details)
+              .filter((keys) => keys.includes('Ingredient'))
+              .map((ingredient, index) => {
+                if (details[ingredient] !== '' && details[ingredient] !== null) {
+                  const measure = Object.keys(details)
+                    .filter((keys) => keys.includes('Measure'));
+                  const measureIndex = measure[index];
+                  return (
+                    <li
+                      key={ index }
+                      data-testid={ `${index}-ingredient-name-and-measure` }
+                    >
+                      { `${details[ingredient]} - ${details[measureIndex]} `}
+                    </li>
+                  );
+                }
+                return '';
+              })
+          }
+        </ul>
+
+        <h3 className="ingredient-details">Instructions:</h3>
+        <div className="instructions-details">
+          <text
+            data-testid="instructions"
+          >
+            { details.strInstructions }
+          </text>
+        </div>
+        { details.strYoutube && (
+          <div className="video-details" data-testid="video">
+            <iframe
+              width="320"
+              height="180"
+              title="frame"
+              src={
+                details.strYoutube
+                && details.strYoutube.replace('watch?v=', 'embed/')
               }
-              return '';
-            })
-        }
-      </ul>
-
-      <div>
-        <text
-          data-testid="instructions"
+              frameBorder="0"
+            />
+          </div>
+        ) }
+        <h3 className="ingredient-details">Recomendations:</h3>
+        <div className="recomendation-container">
+          <Carousel
+            showArrows={ true }
+            showStatus={ false }
+            infiniteLoop={ true }
+            autoPlay={ true }
+            width={ '320px' }
+            interval={ 2000 }
+            showThumbs={ false }
+            stopOnHover={ false }
+            centerMode={ false }
+          >
+            {recomendations.filter((_, indx) => indx <= cinco)
+              .map((recipe, index) => (
+                <div
+                  data-testid={ `${index}-recomendation-card` }
+                  key={ recipe.idMeal || recipe.idDrink }
+                  className="recomendation-card"
+                >
+                  <img
+                    className="image-recomendation"
+                    src={ recipe.strMealThumb || recipe.strDrinkThumb }
+                    alt={ recipe.idMeal || recipe.idDrink }
+                  />
+                  <p className="legend" data-testid={ `${index}-recomendation-title` }>
+                    { recipe.strMeal || recipe.strDrink }
+                  </p>
+                </div>
+              ))}
+          </Carousel>
+        </div>
+        <div className="recomendation-buttons">
+          {startRecipeBtn && renderRecipeBtn()}
+        </div>
+        {/* <button
+          className="continue-recipe-btn"
+          type="button"
+          onClick={ handleClick }
         >
-          { details.strInstructions }
-        </text>
+          Continuar Receita
+        </button> */}
       </div>
-      <div data-testid="video">
-        <iframe
-          width="320"
-          height="180"
-          title="frame"
-          src={ details.strYoutube && details.strYoutube.replace('watch?v=', 'embed/') }
-          frameBorder="0"
-        />
+      <div className="container-footer">
+        <Footer parthname={ pathname } />
       </div>
-
-      <div className="recomendation-container">
-        {recomendations.filter((_, indx) => indx <= cinco)
-          .map((recipe, index) => (
-            <div
-              data-testid={ `${index}-recomendation-card` }
-              key={ recipe.idMeal || recipe.idDrink }
-              className="recomendation-card"
-            >
-              <img
-                src={ recipe.strMealThumb || recipe.strDrinkThumb }
-                alt={ recipe.idMeal || recipe.idDrink }
-              />
-              <h4 data-testid={ `${index}-recomendation-title` }>
-                { recipe.strMeal || recipe.strDrink }
-              </h4>
-            </div>
-          ))}
-      </div>
-      {messageToggle && <p>Link copiado!</p>}
-      {startRecipeBtn && renderRecipeBtn()}
-      <button
-        className="continue-recipe-btn"
-        type="button"
-        onClick={ handleClick }
-      >
-        Continuar Receita
-      </button>
     </div>
   );
 };
 Details.propTypes = {
-  // props: PropTypes.shape().isRequired,
   id: PropTypes.shape().isRequired,
   path: PropTypes.shape().isRequired,
   match: PropTypes.shape().isRequired,
+  location: PropTypes.objectOf(PropTypes.string).isRequired,
+  pathname: PropTypes.string.isRequired,
 };
 
 export default Details;

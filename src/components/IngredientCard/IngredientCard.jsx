@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import './IngredientCard.css';
 import Context from '../../context/Context';
 
 const IngredientCard = (props) => {
@@ -18,11 +17,12 @@ const IngredientCard = (props) => {
 
   return (
     <Link
+      className="ingredient-link"
       to={ `/${page}` }
       onClick={ () => handleLink(ingredient.strIngredient || ingredient.strIngredient1) }
     >
       <div
-        className="ingredient-card"
+        className="recipe-card"
         data-testid={ `${index}-ingredient-card` }
       >
         <div className="img-thumb">

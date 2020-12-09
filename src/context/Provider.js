@@ -11,6 +11,7 @@ function Provider({ children }) {
     searchType: '',
   });
   const [pageTitle, setPageTitle] = useState('');
+  const [searchBar, setSearchBar] = useState(false);
   const [loading, setLoading] = useState(false);
   const [recipes, setRecipes] = useState([]);
   const [details, setdetails] = useState([]);
@@ -28,12 +29,16 @@ function Provider({ children }) {
     id: '',
     type: '',
   });
+  const [navCategory, setNavCategory] = useState('All');
+  const [navFooter, setNavFooter] = useState('meal');
 
   const context = {
     email,
     setemail,
     password,
     setPassword,
+    searchBar,
+    setSearchBar,
     search,
     setSearch,
     recipes,
@@ -66,6 +71,10 @@ function Provider({ children }) {
     setMealsAreasList,
     inProgressId,
     setInProgressId,
+    navCategory,
+    setNavCategory,
+    navFooter,
+    setNavFooter,
   };
 
   return (

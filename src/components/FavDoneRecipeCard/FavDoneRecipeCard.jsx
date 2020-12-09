@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Context from '../../context/Context';
 import shareBtn from '../../images/shareIcon.svg';
 import favBtn from '../../images/blackHeartIcon.svg';
-import './FavDoneRecipeCard.css';
 
 const FavDoneRecipeCard = (props) => {
   const { pageTitle, cardType, setFavRecipes, setDoneRecipes } = useContext(Context);
@@ -21,18 +20,18 @@ const FavDoneRecipeCard = (props) => {
 
   function renderHorizontalTopText() {
     return alcoholicOrNot ? (
-      <h4 data-testid={ `${index}-horizontal-top-text` }>
+      <h4 className="title-text" data-testid={ `${index}-horizontal-top-text` }>
         { alcoholicOrNot }
       </h4>
     ) : (
-      <h4 data-testid={ `${index}-horizontal-top-text` }>
+      <h4 className="title-text" data-testid={ `${index}-horizontal-top-text` }>
         { `${area} - ${category}` }
       </h4>
     );
   }
 
   const getType = () => (
-    (pageTitle === 'Receitas Feitas') ? 'receitas-feitas' : 'receitas-favoritas'
+    (pageTitle === 'Done recipes') ? 'receitas-feitas' : 'receitas-favoritas'
   );
 
   const copyUrlToClipboard = () => {
@@ -47,7 +46,7 @@ const FavDoneRecipeCard = (props) => {
   );
 
   const getCardType = () => (
-    (pageTitle === 'Receitas Feitas') ? 'done' : 'favorite'
+    (pageTitle === 'Done recipes') ? 'done' : 'favorite'
   );
 
   const updateFavDoneRecipes = () => {
@@ -64,42 +63,19 @@ const FavDoneRecipeCard = (props) => {
   };
 
   return (
-    <div className="recipe-card">
-      {(getCardType() === 'favorite') ? (
-        <button
-          type="button"
-          onClick={ () => updateFavDoneRecipes() }
-        >
-          <img
-            src={ favBtn }
-            data-testid={ `${index}-horizontal-favorite-btn` }
-            alt="recipe"
-          />
-        </button>
-      ) : undefined}
-      <button
-        type="button"
-        onClick={ () => history.push(getDetailsPath()) }
-      >
-        <div className="img-container">
-          <img
-            src={ image }
-            data-testid={ `${index}-horizontal-image` }
-            alt="recipe"
-          />
-        </div>
-      </button>
+    <div className="recipe-card-fav">
       <div className="recipe-card-content">
         <button
           type="button"
-          className="share-btn"
-          onClick={ () => copyUrlToClipboard() }
+          onClick={ () => history.push(getDetailsPath()) }
         >
-          <img
-            src={ shareBtn }
-            data-testid={ `${index}-horizontal-share-btn` }
-            alt="share"
-          />
+          <div className="img-fav-thumb">
+            <img
+              src={ image }
+              data-testid={ `${index}-horizontal-image` }
+              alt="recipe"
+            />
+          </div>
         </button>
         { renderHorizontalTopText() }
         <button
@@ -109,6 +85,32 @@ const FavDoneRecipeCard = (props) => {
         >
           <h3 data-testid={ `${index}-horizontal-name` }>{name}</h3>
         </button>
+        <div className="buttons-container">
+          <button
+            type="button"
+            className="share-btn"
+            onClick={ () => copyUrlToClipboard() }
+          >
+            <img
+              src={ shareBtn }
+              data-testid={ `${index}-horizontal-share-btn` }
+              alt="share"
+            />
+          </button>
+          {(getCardType() === 'favorite') ? (
+            <button
+              className="fav-btn"
+              type="button"
+              onClick={ () => updateFavDoneRecipes() }
+            >
+              <img
+                src={ favBtn }
+                data-testid={ `${index}-horizontal-favorite-btn` }
+                alt="recipe"
+              />
+            </button>
+          ) : undefined}
+        </div>
         {(doneDate) ? (
           <p
             className="recipe-done"

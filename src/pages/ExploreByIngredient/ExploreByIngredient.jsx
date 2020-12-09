@@ -5,7 +5,6 @@ import Context from '../../context/Context';
 import IngredientCard from '../../components/IngredientCard';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
-import './ExploreByIngredient.css';
 
 const ExploreByIngredient = (props) => {
   const { location: { pathname } } = props;
@@ -36,9 +35,9 @@ const ExploreByIngredient = (props) => {
   }, [pathname, setIngredients, setLoading, setPage]);
 
   return (
-    <div>
+    <div className="explore-container">
       <Header pathname={ pathname } />
-      <div className="ingredient-container">
+      <div className="ingredients-container">
         { ingredients && ingredients.map((ingredient, index) => {
           const maxCards = 12;
           while (index < maxCards) {
@@ -52,6 +51,8 @@ const ExploreByIngredient = (props) => {
           }
           return undefined;
         })}
+      </div>
+      <div className="container-footer">
         <Footer />
       </div>
     </div>

@@ -1,50 +1,52 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import md5 from 'crypto-js/md5';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import './Profile.css';
 
 const Profile = (props) => {
-  const { location, history } = props;
+  const { location } = props;
   const { pathname } = location;
   const user = JSON.parse(localStorage.getItem('user'));
 
-  function handleLogout() {
-    localStorage.clear();
-    history.push('/');
-  }
+  const hash = md5(user.email);
 
   return (
-    <div>
+    <div className="explore-container">
       <Header pathname={ pathname } />
-      <div className="profile-container">
-        <h3 data-testid="profile-email">{(user) ? user.email : 'teste@trybe.com' }</h3>
+      <div className="explore-buttons">
+        <div>
+          <img className="avatar" src={ `https://www.gravatar.com/avatar/${hash}?s=200` } alt="Avatar" />
+        </div>
+        <h3
+          className="email-perfil"
+          data-testid="profile-email"
+        >
+          {(user) ? user.email : 'teste@trybe.com' }
+        </h3>
         <Link to="/receitas-feitas">
           <button
+            className="btn btn-explore btn-active"
             type="button"
             data-testid="profile-done-btn"
           >
-            Receitas Feitas
+            Done recipes
           </button>
         </Link>
         <Link to="/receitas-favoritas">
           <button
+            className="btn btn-explore btn-active"
             type="button"
             data-testid="profile-favorite-btn"
           >
-            Receitas Favoritas
+            Favorite recipes
           </button>
         </Link>
-        <button
-          type="button"
-          data-testid="profile-logout-btn"
-          onClick={ () => handleLogout() }
-        >
-          Sair
-        </button>
       </div>
-      <Footer />
+      <div className="container-footer">
+        <Footer />
+      </div>
     </div>
   );
 };

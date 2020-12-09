@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Header from '../../components/Header';
-import './Home.css';
 import Footer from '../../components/Footer';
-import '../../components/Footer/Footer.css';
 import Recipes from '../../components/Recipes/Recipes';
 
 const Home = (props) => {
@@ -11,11 +9,13 @@ const Home = (props) => {
   const { pathname } = location;
   return (
     <div>
-      <div className="home-content">
+      <div className="">
         <Header pathname={ pathname } />
         <Recipes />
       </div>
-      <Footer />
+      <div className="container-footer">
+        <Footer />
+      </div>
     </div>
   );
 };

@@ -6,7 +6,6 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import RecipeCard from '../../components/RecipeCard';
 import { getMealsAPI } from '../../services/API';
-import './ExploreByArea.css';
 
 const ExploreByArea = (props) => {
   const { location: { pathname } } = props;
@@ -60,6 +59,7 @@ const ExploreByArea = (props) => {
     if (mealsAreaList) {
       return (
         <select
+          className="select"
           data-testid="explore-by-area-dropdown"
           onChange={ (e) => filterMealsBySelectedArea(e) }
         >
@@ -104,8 +104,12 @@ const ExploreByArea = (props) => {
     <div className="explore-by-area-content">
       <Header pathname={ pathname } />
       { mealsAreaList && renderAreaFilters() }
-      { mealsByArea && renderRecipes() }
-      <Footer />
+      <div className="recipes-container">
+        { mealsByArea && renderRecipes() }
+      </div>
+      <div className="container-footer">
+        <Footer />
+      </div>
     </div>
   );
 };

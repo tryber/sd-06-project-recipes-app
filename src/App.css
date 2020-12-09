@@ -1,62 +1,604 @@
-#meals {
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  background-color: #F3F3F3;
+}
+
+.splash {
+  display: block;
+  width: 100vw;
   height: 100vh;
-  width: 100%;
-  background: #0fa36b;
+  background: url("images/splash.jpg");
+}
+
+.logo {
+  display: block;
+  width: 375px;
+  height: 357px;
+  background: url("images/logo.png");
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.06);
+}
+
+.label {
+  margin-top: 40px;
+  text-align: left;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 22px;
+  color: #a5a5a5;
+}
+
+.input {
+  opacity: 1;
+  background: #F3F3F3 !important;
+  padding: 10px;
+  width: 314px;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 25px;
+  color: #000000;
+}
+
+.pass {
+  letter-spacing: 5px;
+}
+
+.forgot {
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 60px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 22px;
+  color: #FA4A0C;
+}
+
+.btn {
+  color: white;
+  background: #CBCBCB;
+  border-radius: 30px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  border: none;
+}
+
+.btn-big {
+  border-radius: 30px;
+  padding: 20px 100px;
+}
+
+.btn-small {
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 12px;
+}
+
+.btn-size {
+  width: 150px;
+}
+
+.btn:disabled {
+  color: white;
+  background: #CBCBCB;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.btn-active {
+  background: #FA4A0C;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 0 20px;
+}
+
+button {
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.container-top {
+  background: #FFFFFF;
+  display: flex;
+  height: 60px;
+  width: 375px;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.06);
+}
+
+.button-container-top {
+  padding: 0 20px;
+}
+
+.wrapper {
+  margin-top: 10px;
+}
+
+.category-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 375px;
+}
+
+.container-search {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: white;
+  padding: 0 20px;
+  padding-bottom: 10px;
+  transition: all 1s ease;
+}
+
+.container-search-btn {
+  margin-top: 5px;
+}
+
+.container-search-item {
+  display: flex;
+  justify-content: space-around;
+  text-align: left;
+  margin: 10px 0px;
+}
+
+.input-search {
+  background: #F3F3F3 !important;
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 25px;
+  color: #000000;
+  width: 280px;
+  background: rgb(243, 243, 243) !important;
+  font-size: 14px;
+  border-radius: 30px;
+}
+
+.input-search::placeholder {
+  color: rgb(190, 190, 190);
+}
+
+input[type="radio"]{
+  opacity:0;
+  outline: none;
+  font-size: 12px;
+}
+
+input[type="radio"] + label{
+  position:relative;
+  padding-left:30px;
+  cursor:pointer;
+  display:inline-block;
+  line-height:25px;
+  outline: none;
+  font-size: 14px;
+}
+
+input[type="radio"] + label::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:18px;
+  height:18px;
+  border-radius: 100%;
+  border:2px solid #aaa;
+  background:#fff;
+  outline: none;
+}
+
+input[type="radio"]:checked + label::after{
+  content:"";
+  position:absolute;
+  left:4px;
+  top:4px;
+  width:14px;
+  height:14px;
+  border-radius:100%;
+  background:#FA4A0C;
+  transform:scale(1);
+  opacity:1;
+  transition:all .3s ease;
+  outline: none;
+}
+
+input[type="radio"]:not(:checked) + label::after{
+  content:"";
+  position:absolute;
+  left:4px;
+  top:4px;
+  width:14px;
+  height:14px;
+  border-radius:100%;
+  background:#fff;
+  transform:scale(0);
+  opacity:0;
+  outline: none;
+}
+
+.container-footer {
+  background: #FFFFFF;
+  display: flex;
+  height: 60px;
+  width: 375px;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.06);
+  position: fixed;
+  top: 752px;
+}
+
+.container-icons-footer {
+  background: #FFFFFF;
+  display: flex;
+  height: 60px;
+  width: 375px;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.06);
+  padding: 0 20px;
+}
+
+.recipes-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 375px;
+  padding-bottom: 100px;
+}
+
+.recipes-container a {
+  text-decoration: none;
+}
+
+.ingredients-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 375px;
+  padding-bottom: 100px;
+  /* margin-top: 50px; */
+}
+
+.ingredients-container a {
+  text-decoration: none;
+}
+
+.recipe-card {
   display: flex;
   flex-direction: column;
+  width: 160px;
+  height: 150px;
+  margin: 10px 10px;
+  margin-top: 80px;
+  text-align: center;
+  background: #ffffff;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+}
+
+.recipe-card h3 {
+  margin-top: -40px;
+  padding-left: 10px;
+  color: black;
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.img-thumb img {
+  background-color: #ffffff;
+  box-shadow: inset 0px 0px 20px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+  width: 120px;
+  top: -50px;
+  position: relative;
+  filter: drop-shadow(0px 20px 20px rgba(0, 0, 0, 0.15));
+}
+
+.recipe-title {
+  margin-top: -100px;
+}
+
+.th-category {
+  display: flex;
+  justify-content: flex-start;
+  /* flex-wrap: wrap; */
+  flex-direction: row;
+}
+
+.fixed-size {
+  width: 100px;
+  margin: 5px;
+  line-height: 14px;
+  min-height: 35px;
+}
+
+.explore-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.explore-buttons {
+  display: flex;
+  margin-top: 20px;
+  width: 375px;
+  height: 700px;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  /* margin-top: 50px; */
+}
+
+.btn-explore {
+  width: 250px;
+  border-radius: 30px;
+  padding: 20px 10px;
+  margin: 10px 0;
+}
+
+.email-perfil {
+  font-size: 24px;
+  margin: 30px;
+}
+
+.avatar {
+  margin-top: 30px;
+  width: 200px;
+  border-radius: 50%;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.container-details {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 375px;
+  margin-bottom: 100px;
+}
+
+.image-details {
+  align-self: center;
+  width: 330px;
+  border-radius: 50%;
+  margin-top: 20px;
+  filter: drop-shadow(0px 30px 40px rgba(0, 0, 0, 0.2));
+}
+
+.image-recomendation {
+  align-self: center;
+  width: 100px;
+}
+
+.recomendation-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  max-width: 375px;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 50px;
+  border-radius: 20px;
+}
+
+.recomendation-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  text-align: center;
   align-items: center;
   justify-content: center;
-  font-family: sans-serif;
-  color: #464646;
 }
 
-#rocksGlass {
-  max-height: 80vh;
-  animation: shake 1s infinite ease;
+.title-details {
+  text-align: center;
+  /* margin-top: -30px; */
 }
 
-#iceLeft {
-  /* transform-origin set in px for firefox compatibility */
-  opacity: 0.6;
-  transform-origin: 36px 66px;
-  animation: clink .8s infinite ease;
+.buttons-details {
+  display: flex;
+  align-self: flex-end;
+  margin-right: 20px;
+  margin-top: 30px;
 }
 
-#iceRight {
-  /* transform-origin set in px for firefox compatibility */
-  opacity: 0.6;
-  transform-origin: 60px 78px;
-  animation: clink .8s .2s infinite ease;
+.buttons-details button {
+  margin-left: 20px;
 }
 
-#meals > span {
-  color: aliceblue;
-  font-weight: 900;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 3em;
-  animation: shake 1.5s infinite ease;
+.category-details {
+  align-self: center;
+  color: #FA4A0C;
+  font-size: 24px;
+  font-weight: 700;
 }
 
-@keyframes shake {
-  0% {
-    transform: rotate(5deg);
-  }
-  50% {
-    transform: rotate(-5deg);
-  }
-  100% {
-    transform: rotate(5deg);
-  }
+.ingredient-details {
+  margin-left: 20px;
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
 
-@keyframes clink {
-  0% {
-    transform: rotate(-10deg);
-  }
-  50% {
-    transform: rotate(20deg);
-  }
-  100% {
-    transform: rotate(-10deg);
-  }
+.container-details ul {
+  margin: 0 40px;
+}
+
+.container-details ul li {
+  list-style-type: circle;
+  font-size: 16px;
+}
+
+.instructions-details {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.video-details {
+  align-self: center;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.recomendation-size {
+  width: 130px;
+  margin: 5px;
+  line-height: 14px;
+  min-height: 35px;
+}
+
+.recomendation-size a {
+  text-decoration: none;
+  color: white;
+}
+
+.copy-message {
+  background: rgb(85, 179, 31);
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin: 0 20px;
+  color: white;
+}
+
+.select {
+  margin: 10px 20px;
+  width: 330px;
+  border: 1px solid #FA4A0C;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+  outline: none;
+}
+
+.fav-btn, .share-btn {
+  margin-top: 10px;
+}
+
+.recipe-card-content {
+  /* background: red; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-top: -40px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.recipe-card-fav {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 160px;
+  height: 180px;
+  margin: 10px 10px;
+  margin-top: 80px;
+  text-align: center;
+  background: #ffffff;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10px;
+  margin-bottom: 5px;
+}
+
+.img-fav-thumb img {
+  background-color: #ffffff;
+  box-shadow: inset 0px 0px 20px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+  width: 120px;
+  top: -20px;
+  position: relative;
+  filter: drop-shadow(0px 20px 20px rgba(0, 0, 0, 0.15));
+}
+
+.name-button h3 {
+  padding-left: 10px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  color: black;
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.favorite-card {
+  display: flex;
+  flex-direction: column;
+  width: 160px;
+  height: 150px;
+  margin: 10px 10px;
+  margin-top: 80px;
+  text-align: center;
+  background: #ffffff;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+}
+
+.title-text {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  color: black;
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }

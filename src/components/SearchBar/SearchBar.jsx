@@ -8,7 +8,13 @@ function SearchBar() {
   const [searchType, setSearchType] = useState('name');
   const [redirectTo, setRedirectTo] = useState(false);
   const [redirectRoute, setRedirectRoute] = useState('');
-  const { pageTitle, setSearch, setRecipes, setLoading } = useContext(Context);
+  const {
+    pageTitle,
+    setSearch,
+    setRecipes,
+    setLoading,
+    setSearchBar,
+  } = useContext(Context);
 
   const handleSearchText = ({ target }) => {
     setSearchText(target.value);
@@ -19,6 +25,7 @@ function SearchBar() {
   };
 
   const handleSearch = () => {
+    setSearchBar(false);
     if (searchType === 'firstletter' && searchText.length > 1) {
       alert('Sua busca deve conter somente 1 (um) caracter');
       return;
@@ -28,7 +35,7 @@ function SearchBar() {
       searchType,
     });
     setLoading(true);
-    if (pageTitle === 'Comidas') {
+    if (pageTitle === 'Meals') {
       getMealsAPI(searchText, searchType).then((data) => {
         setRecipes(data);
         setLoading(false);
@@ -42,7 +49,7 @@ function SearchBar() {
         }
       });
     }
-    if (pageTitle === 'Bebidas') {
+    if (pageTitle === 'Drinks') {
       getDrinksApi(searchText, searchType).then((data) => {
         setRecipes(data);
         setLoading(false);
@@ -59,16 +66,19 @@ function SearchBar() {
   };
 
   return (
-    <div>
+    <div className="container-search">
       { redirectTo && <Redirect to={ redirectRoute } />}
-      <input
-        type="text"
-        data-testid="search-input"
-        placeholder="Buscar Receita"
-        value={ searchText }
-        onChange={ handleSearchText }
-      />
-      <label htmlFor="ingredient">
+      <div className="container-search-text">
+        <input
+          className="input input-search"
+          type="text"
+          data-testid="search-input"
+          placeholder="Search text"
+          value={ searchText }
+          onChange={ handleSearchText }
+        />
+      </div>
+      <div className="container-search-item">
         <input
           type="radio"
           id="ingredient"
@@ -78,9 +88,9 @@ function SearchBar() {
           value="ingredient"
           onChange={ () => handleSearchType('ingredient') }
         />
-        Ingrediente
-      </label>
-      <label htmlFor="name">
+        <label htmlFor="ingredient">
+          Ingredient
+        </label>
         <input
           type="radio"
           id="name"
@@ -90,9 +100,9 @@ function SearchBar() {
           data-testid="name-search-radio"
           onChange={ () => handleSearchType('name') }
         />
-        Nome
-      </label>
-      <label htmlFor="firstletter">
+        <label htmlFor="name">
+          Name
+        </label>
         <input
           type="radio"
           id="firstletter"
@@ -102,15 +112,20 @@ function SearchBar() {
           data-testid="first-letter-search-radio"
           onChange={ () => handleSearchType('firstletter') }
         />
-        Primeira letra
-      </label>
-      <button
-        type="button"
-        data-testid="exec-search-btn"
-        onClick={ handleSearch }
-      >
-        Buscar
-      </button>
+        <label htmlFor="firstletter">
+          First letter
+        </label>
+      </div>
+      <div className="container-search-btn">
+        <button
+          className="btn btn-small btn-size btn-active"
+          type="button"
+          data-testid="exec-search-btn"
+          onClick={ handleSearch }
+        >
+          Search
+        </button>
+      </div>
     </div>
   );
 }

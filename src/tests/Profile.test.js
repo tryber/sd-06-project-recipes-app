@@ -23,7 +23,7 @@ describe('Profile page tests', () => {
 
   it('verify the title page', () => {
     renderWithRouter(<App />);
-    expect(screen.getAllByTestId('page-title')[0].innerHTML).toBe('Perfil');
+    expect(screen.getAllByTestId('page-title')[0].innerHTML).toBe('Profile');
   });
 
   it('verify the email', () => {
@@ -36,14 +36,14 @@ describe('Profile page tests', () => {
     renderWithRouter(<App />);
     userEvent.click(screen.getAllByTestId('profile-done-btn')[0]);
     userEvent.click(screen.getAllByTestId('profile-done-btn')[0]);
-    expect(screen.getAllByTestId('page-title')[0].innerHTML).toBe('Receitas Feitas');
+    expect(screen.getAllByTestId('page-title')[0].innerHTML).toBe('Done recipes');
   });
 
   it('verify the fav recipes button', () => {
     renderWithRouter(<App />);
     userEvent.click(screen.getAllByTestId('profile-favorite-btn')[0]);
     userEvent.click(screen.getAllByTestId('profile-favorite-btn')[0]);
-    expect(screen.getAllByTestId('page-title')[0].innerHTML).toBe('Receitas Favoritas');
+    expect(screen.getAllByTestId('page-title')[0].innerHTML).toBe('Favorite recipes');
   });
 
   it('verify the logout button', () => {

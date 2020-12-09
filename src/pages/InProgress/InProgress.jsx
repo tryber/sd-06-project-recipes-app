@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { getMealsAPI, getDrinksApi } from '../../services/API';
 import whiteHeartIcon from '../../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../../images/blackHeartIcon.svg';
-import './InProgress.css';
 
 const InProgress = () => {
   const [data, setData] = useState([]);
@@ -288,7 +287,7 @@ const InProgress = () => {
         >
           Share
         </button>
-        {messageToggle && <p>Link copiado!</p>}
+        {messageToggle && <p>Link copied!</p>}
       </nav>
       <div className="recipe-info">
         <img

@@ -1,8 +1,9 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Context from '../../context/Context';
 
 function Login(props) {
+  const [splash, setSplash] = useState(true);
   const [validation, setValidation] = useState(true);
   const { email, setemail } = useContext(Context);
   const [password, setPassword] = useState('');
@@ -37,32 +38,52 @@ function Login(props) {
     setPassword(target.value);
     loginValidation();
   };
-  return (
+
+  useEffect(() => {
+    setTimeout(() => {
+      setSplash(false);
+    }, 3000);
+  }, []);
+
+  const renderSplash = () => (<div className="splash" />);
+
+  return splash ? renderSplash() : (
     <div>
-      <input
-        id="input-email"
-        type="text"
-        placeholder="inserir email"
-        data-testid="email-input"
-        onChange={ handleEmail }
-        value={ email }
-      />
-      <input
-        id="input-password"
-        type="password"
-        placeholder="inserir senha"
-        data-testid="password-input"
-        onChange={ handlePassword }
-        value={ password }
-      />
-      <button
-        type="button"
-        data-testid="login-submit-btn"
-        onClick={ handleClick }
-        disabled={ validation }
-      >
-        Entrar
-      </button>
+      <div className="logo" />
+      <div className="center">
+        <label className="label" htmlFor="input-email">
+          Email address
+          <input
+            className="input"
+            id="input-email"
+            type="text"
+            data-testid="email-input"
+            onChange={ handleEmail }
+            value={ email }
+          />
+        </label>
+        <label className="label" htmlFor="input-password">
+          Password
+          <input
+            className="input pass"
+            id="input-password"
+            type="password"
+            data-testid="password-input"
+            onChange={ handlePassword }
+            value={ password }
+          />
+        </label>
+        <p className="forgot">Forgot password?</p>
+        <button
+          className="btn btn-big btn-active"
+          type="button"
+          data-testid="login-submit-btn"
+          onClick={ handleClick }
+          disabled={ validation }
+        >
+          Login
+        </button>
+      </div>
     </div>
   );
 }

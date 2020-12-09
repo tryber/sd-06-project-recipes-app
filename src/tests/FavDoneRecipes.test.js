@@ -26,13 +26,13 @@ describe('favorite and done page tests', () => {
   it('favorite recipes test', () => {
     renderWithRouter(<App />);
     fireEvent.click(screen.getAllByTestId('profile-favorite-btn')[0]);
-    expect(screen.getAllByTestId('page-title')[0].innerHTML).toBe('Receitas Favoritas');
+    expect(screen.getAllByTestId('page-title')[0].innerHTML).toBe('Favorite recipes');
   });
 
   it('done recipes test', () => {
     renderWithRouter(<App />);
     fireEvent.click(screen.getAllByTestId('profile-done-btn')[0]);
-    expect(screen.getAllByTestId('page-title')[0].innerHTML).toBe('Receitas Feitas');
+    expect(screen.getAllByTestId('page-title')[0].innerHTML).toBe('Done recipes');
   });
 
   it('shows favorite recipe', () => {
