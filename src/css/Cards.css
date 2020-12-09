@@ -1,0 +1,69 @@
+.cards-wrapper {
+  align-items: center;
+  display: flex;
+  flex-flow: wrap;
+  padding: 0;
+}
+
+.item-card {
+  align-items: center;
+  background-color: rgb(226, 226, 178);
+  border-radius: 15px;
+  border: 0 solid;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  justify-content: space-around;
+  margin: 15px 5px 0 5px;
+  max-width: 170px;
+  overflow: auto;
+  padding: 0;
+}
+
+.recipe-name {
+  display: flex;
+}
+
+.item-card p {
+  align-items: center;
+  font-family: Ubuntu, sans-serif;
+  height: 75px;
+  margin: 0;
+  max-width: 100%;
+  padding: 0 0 5px 0;
+  text-align: center;
+}
+
+.item-card img {
+  align-items: flex-start;
+  border-radius: 15px 15px 0 0;
+  margin: 0;
+  max-width: 180px;
+  width: 100%;
+}
+
+.categories-box {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  padding: 55px 0 0 0;
+}
+
+.categories-box button {
+  background-image: linear-gradient(to right, #200122 0%, #6f0000  51%, #200122  100%);
+  background-size: 200% auto;
+  border-radius: 5px;
+  border: 0;
+  color: white;            
+  margin: 4px 6px;
+  padding: 8px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+
+.categories-box button:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}

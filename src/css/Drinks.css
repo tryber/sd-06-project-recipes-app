@@ -1,0 +1,10 @@
+.content-drikns {
+  align-items: center;
+  background: linear-gradient(to bottom, #FFFFFF, #fdf7e4);
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2em;
+  margin: auto;
+  min-height: 100vh;
+  padding: 0 0 60px 0;
+}

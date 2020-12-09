@@ -1,0 +1,62 @@
+.testimonials {
+  max-width: 800px;
+  margin: 0 2px 10px 2px;
+}
+
+.scroller {
+  overflow-x: scroll;
+  display: flex;
+}
+.item {
+  margin-right: -30%;
+  min-width: 100%;
+  min-height: 200px; /* To start with */
+  background-color: #f8f3e3; /* For demo */
+}
+
+.button-start-container {
+  display: flex;
+  justify-content: center;
+}
+
+.btnStart {
+  background-image: linear-gradient(to right, #200122 0%, #6f0000  51%, #200122  100%);
+  background-size: 200% auto;
+  border-radius: 5px;
+  border: 0;
+  color: white;            
+  margin: 4px 6px;
+  padding: 8px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  width: 120px !important;
+  display: flex;
+  flex-flow: wrap;
+  align-content: center;
+  justify-content: center;
+}
+
+.btnStart:disabled {
+  background-image: linear-gradient(to right, #4b4b4b 0%, #7e7b7b  51%, #a7a1a7  100%);
+  background-size: 200% auto;
+  border-radius: 5px;
+  border: 0;
+  color: white;            
+  margin: 4px 6px;
+  padding: 8px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  width: 120px !important;
+  display: flex;
+  flex-flow: wrap;
+  align-content: center;
+  justify-content: center;
+}
+
+.btnStart:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}

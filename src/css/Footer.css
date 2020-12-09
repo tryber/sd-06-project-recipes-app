@@ -1,0 +1,18 @@
+.footer-container {
+  align-items: center;
+  background-image: linear-gradient(to left, #eacda3 100%, #d6ae7b  51%, #eacda3  0%);
+  display: flex;
+  height: 55px;
+  justify-content: space-around;
+  margin-top: 5px;
+  position: fixed;
+  width: 360px;
+}
+
+.footer-container img {
+  width: 40px;
+}
+
+.footer-container a {
+  height: 40px;
+}

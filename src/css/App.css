@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+
+body {
+  /* background: linear-gradient(to bottom, #FFFFFF, #fdf7e4); */
+  background-color: black;
+  font-family: Kalam;
+  font-size: 16px;
+  margin: auto;
+  max-width: 360px;
+}
+
+a {
+  color: rgb(82, 37, 0)
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  color:rgb(168, 112, 66)
+}

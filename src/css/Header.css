@@ -1,0 +1,90 @@
+.header {
+  background-image: linear-gradient(to right, #eacda3 0%, #d6ae7b  51%, #eacda3  100%);
+  display: flex;
+  flex-flow: column;
+  height: 50px;
+  padding-top: 5px;
+  position: fixed;
+  width: 360px;
+}
+
+.btn-header button {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+}
+
+.page-title span {
+  font-weight: 700;
+  font-size: 2em;
+  color: #522500
+}
+
+.content {
+  align-items: center;
+  display: flex;
+  flex-flow: row;
+  height: 50px;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.content img {
+  width: 40px;
+}
+
+.searchbar {
+  animation: bar 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  background-image: linear-gradient(to right, #eacda3 0%, #d6ae7b  51%, #eacda3  100%);
+  display: flex;
+  flex-direction: column;
+  height: 70px;
+  width: 360px;
+}
+
+@keyframes bar {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(10px);
+  }
+}
+
+.searchbar input[type=text] {
+  border-radius: 5px;
+  margin: 0;
+  padding: 8px 10px;
+  width: 260px;
+}
+
+.searchbar-radio {
+  align-self: center;
+  display: inline;
+  flex-flow: nowrap;
+  margin: 0 0 0 0;
+  padding: 0 20px 0 20px;
+}
+
+.searchbar button {
+  background-image: linear-gradient(to right, #200122 0%, #6f0000  51%, #200122  100%);
+  background-size: 200% auto;
+  border-radius: 5px;
+  border: 0;
+  color: white;            
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  width: 80px;
+}
+
+.searchbar button:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.content-search {
+  display: flex;
+  justify-content: space-between;
+}
