@@ -1,0 +1,22 @@
+.start-btn {
+  position: fixed;
+  bottom: 0px;
+}
+.share-btn {
+  background-image: url("../images/shareIcon.svg");
+}
+.favorite {
+  background-image: url("../images/blackHeartIcon.svg");
+}
+.non-favorite {
+  background-image: url("../images/whiteHeartIcon.svg");
+}
+.carousel {
+  width: 100%;
+  overflow: auto;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.carousel-item {
+  width: 55%;
+}
