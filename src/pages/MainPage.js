@@ -74,7 +74,7 @@ export default function MainPage(props) {
     break;
   }
   return (
-    <div>
+    <div className="main-app">
       <Header title={ title } />
       <main>
         {mainContent}

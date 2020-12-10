@@ -8,7 +8,7 @@ import NotFound from './pages/NotFound';
 
 function App() {
   return (
-    <div className="width360">
+    <div>
       <Switch>
         <Route exact path="/" component={ () => <Login title="Login" /> } />
         <Route exact path="/comidas" component={ () => <MainPage title="Comidas" /> } />

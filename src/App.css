@@ -71,7 +71,7 @@ padding-bottom: 40px;
 }
 
 header, footer, .start-recipe-btn, .finish-recipe-btn {
-  background-color: darkgray;
+  /* background-color: darkgray; */
   width: 360px;
 }
 
@@ -79,6 +79,16 @@ header, footer, .start-recipe-btn, .finish-recipe-btn {
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+.header-component, h1 {
+  margin: 0;
+}
+
+
+.bt-login:hover,
+.bt-categories:hover {
+background-color: rgb(214, 238, 0);
 }
 
 .carousel {
@@ -91,24 +101,31 @@ align-content: center;
 
 footer, .start-recipe-btn, .finish-recipe-btn {
   position: fixed;
-  bottom: 0px;
+  top: 590px;
+  padding: 5px 0;
+  /* background-color: rgba(214, 238, 0, 0.815); */
+  background-color: rgba(255, 255, 255, 0.815);
+  /* background-color: rgba(82, 11, 11, 0.795);
+  background-color: rgba(82, 11, 11, 0.938); */
+  border-top: 1px solid rgba(255, 255, 255, 0.726);
 }
 
-Container {
+/* .container {
 padding: 20px;
-}
+} */
 
-.category-buttons {
+/* .category-buttons {
   width: 30%;
   margin: 5px;
   font-size: 12px;
   border: 1px solid grey;
-}
+  background-color: rgb(255, 255, 255);
+  border-radius: 3px;
+  border: 1px solid rgba(255, 79, 9, 0.7);
+  color: #9c5e5e;
+} */
 
-.selected-category {
-  background-color: #05566e;
-  color: white;
-}
+
 
 .cardRecipe {
   width: 320px;
@@ -118,7 +135,7 @@ padding: 20px;
 
 .cardIngredients {
   width: 140px;
-  border: 1px solid rgb(154, 177, 190);
+  border: 1px dotted rgb(156, 156, 156);
   border-radius: 5px;
   text-align: center;
   margin: 7px 0;
@@ -217,4 +234,290 @@ input[type=checkbox]:checked + label {
 
 .content-select-explore {
   text-align: center;
+}
+
+.bg-login {
+  background: url('./images/mexican-food.jpg') no-repeat bottom right;
+  background-size: cover;
+  width: 360px;
+  height: 640px;
+  padding-top: 100px;
+  margin: 0 auto;
+}
+
+.form-login {
+  width: 90%;
+  padding: 40px 25px;
+  /* padding-left: 230px; */
+  background-color: rgba(0, 0, 0, 0.692);
+  /* border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px; */
+  border-radius: 5px;
+  border:1px dotted rgb(255, 255, 255, 0.5);
+  /* border-left: none; */
+  box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.541);
+  margin: 0 auto;
+
+}
+
+.font-app {
+  font-family: 'Satisfy', cursive;
+}
+
+.login-title {
+  color: aliceblue;
+  font-size: 80px;
+  text-shadow: 2px 2px rgb(0, 0, 0);
+  /* margin-left: 200px; */
+  margin-bottom: 40px;
+  line-height: 60px;
+  text-align: center;
+}
+
+.de-logo {
+  font-size: 35px;
+}
+
+.form-login label input,
+.input-field {
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.11);
+  padding: 10px 20px;
+  width: 100%;
+  color:white
+}
+
+.bt-login, 
+.bt-categories {
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(255, 72, 0);
+  color: white;
+  font-size: 25px;
+}
+
+.bt-login:hover,
+.bt-categories:hover {
+  background-color: rgb(214, 238, 0);
+  color: rgb(0, 0, 0);
+}
+
+.bt-login:disabled,
+.bt-categories:disabled {
+  background-color: rgba(148, 42, 0, 0.671);
+  color: rgba(255, 255, 255, 0.466);
+}
+
+.main-app {
+  position: relative;
+  width: 360px;
+  height: 640px;
+  margin: 0 auto;
+  /* overflow: hidden; */
+  overflow-x: hidden;
+  background-color: rgb(255, 255, 255);
+}
+
+header {
+  background: url('./images/mexican-food.jpg') no-repeat center;
+  background-size: cover;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: space-around;
+  width: 360px;
+}
+
+.title-header {
+  font-size: 50px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  padding: 5px 0;
+}
+
+.bt-categories {
+  width: 30%;
+  font-family: 'Satisfy', cursive;
+  font-size: 18px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.315);
+  line-height: 20px;
+}
+
+.color-line {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right,rgb(214, 238, 0), rgb(255, 72, 0));
+  margin-bottom: 8px;
+}
+
+.wrap-food {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 10px;
+  background-color: rgba(255, 244, 214, 0.295);
+}
+
+.bt-icon {
+  background-color: rgba(255, 255, 255, 0.911);
+  border-radius: 100%;
+  padding: 8px;
+  border: 3px solid rgba(189, 138, 0, 0.295);
+  /* background-color: rgba(255, 250, 235, 0.911); */
+}
+
+.card-recipe-style {
+  width: 50%;
+  
+}
+
+.img-recipe-thumb {
+  width: 180px;
+  height: 160px;
+  border-bottom: 3px solid rgba(189, 138, 0, 0.295);
+  border-top: 3px solid rgba(189, 138, 0, 0.295);
+}
+
+.name-recipe-thumb {
+  width: 180px;
+  color: #b12310;
+  font-family: 'Satisfy', cursive;
+  font-size: 25px;
+  padding: 8px;
+  text-align: center;
+}
+
+a:hover {
+  text-decoration-color: #b12310;
+}
+
+.loading {
+  padding-top: 150px;
+  text-align: center;
+}
+
+.wrap-profile {
+  padding: 40px;
+}
+
+.bt-space {
+  margin-top: 15px;
+}
+
+.email-profile {
+  padding: 30px;
+  text-align: center;
+  /* font-family: 'Satisfy', cursive; */
+  font-size: 20px;
+   background-color: rgb(243, 243, 235);
+   border-top: 1px dotted firebrick;
+   border-bottom: 1px dotted firebrick;
+}
+
+.name-recipe-explore {
+  color: #b12310;
+  font-family: 'Satisfy', cursive;
+  font-size: 25px;
+}
+
+.selected-category {
+  background-color: white;
+  color: #b12310;
+}
+
+.filter-radios {
+  color:white;
+  background-color: rgba(0, 0, 0, 0.185);
+  margin: 0;
+  border-radius: 5px;
+}
+
+.shadow {
+  text-shadow: 0 0 5px 5px black;
+}
+
+.bottom15px {
+  margin-bottom: 15px;
+}
+
+.name-recipe-item {
+  color: #b12310;
+  font-family: 'Satisfy', cursive;
+}
+
+.recipe-details {
+  padding: 0;
+}
+
+.title-details {
+  color: #b12310;
+  font-family: 'Satisfy', cursive;
+  padding: 10px 20px;
+}
+
+.subtitle-details {
+  color: #b12310;
+  /* font-family: 'Satisfy', cursive; */
+  padding: 10px 20px;
+}
+
+.padd20 {
+  padding: 10px 20px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0;
+}
+
+/* Track */
+/* ::-webkit-scrollbar-track {
+  background: #000000;
+} */
+
+/* Handle */
+/* ::-webkit-scrollbar-thumb {
+  background: rgb(146, 10, 10);
+  background: rgb(0, 0, 0);
+} */
+
+/* Handle on hover */
+/* ::-webkit-scrollbar-thumb:hover {
+  background: rgb(255, 196, 0);
+  background: rgb(223, 12, 12);
+} */
+
+input[type="radio"] {
+  /* remove standard background appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* create custom radiobutton appearance */
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  padding: 2px;
+  /* background-color only for content */
+  background-clip: content-box;
+  border: 1px solid #bbbbbb;
+  /* background-color: #3b9400; */
+  background-color: transparent;
+  border-radius: 50%;
+  outline: none;
+}
+
+input[type="radio"]:checked {
+  background-color: #93e026;
+  background-color: #d9ff00;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(202, 202, 202);
+  opacity: 1; /* Firefox */
 }

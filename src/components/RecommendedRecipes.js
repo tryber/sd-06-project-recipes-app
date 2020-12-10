@@ -37,7 +37,7 @@ export default function RecommendedRecipes() {
               return (
                 <Carousel.Item>
                   <div className="d-flex row-cols-2 justify-content-around">
-                    <Card data-testid={ `${i}-recomendation-card` }>
+                    <Card data-testid={ `${i}-recomendation-card` } className="font-app">
                       <Card.Img
                         src={ recommendations[i][`str${recommendParam}Thumb`] }
                         alt={ recommendations[i][`str${recommendParam}`] }
@@ -57,7 +57,10 @@ export default function RecommendedRecipes() {
                         </Card.Text>
                       </Card.Body>
                     </Card>
-                    <Card Card data-testid={ `${i + 1}-recomendation-card` }>
+                    <Card
+                      data-testid={ `${i + 1}-recomendation-card` }
+                      className="font-app"
+                    >
                       <Card.Img
                         src={ recommendations[i + 1][`str${recommendParam}Thumb`] }
                         alt={ recommendations[i + 1][`str${recommendParam}`] }

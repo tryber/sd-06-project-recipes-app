@@ -75,9 +75,9 @@ export default function FavoriteRecipes() {
               )
               : ''}
             <Link to={ () => detailRoute(item.id, item.type) }>
-              <h3 data-testid={ `${index}-horizontal-name` }>
+              <h2 data-testid={ `${index}-horizontal-name` } className="name-recipe-item">
                 {item.name}
-              </h3>
+              </h2>
             </Link>
             <button
               className="button-standard"

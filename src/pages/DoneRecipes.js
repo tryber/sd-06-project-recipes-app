@@ -59,9 +59,9 @@ export default function DoneRecipes() {
               )
               : ''}
             <Link to={ () => detailRoute(item.id, item.type) }>
-              <h3 data-testid={ `${index}-horizontal-name` }>
+              <h2 data-testid={ `${index}-horizontal-name` } className="name-recipe-item">
                 {item.name}
-              </h3>
+              </h2>
             </Link>
             <p data-testid={ `${index}-horizontal-done-date` }>{item.doneDate}</p>
             {(item.tags.length > ZERO) && item.tags.map((tagName, i) => (

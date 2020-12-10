@@ -6,7 +6,7 @@ export default function RecipesButtons({ setselectedFilter }) {
     <div className="bt-group">
       <button
         type="button"
-        className="category-buttons"
+        className="bt-categories"
         data-testid="filter-by-all-btn"
         onClick={ () => setselectedFilter('All') }
       >
@@ -14,7 +14,7 @@ export default function RecipesButtons({ setselectedFilter }) {
       </button>
       <button
         type="button"
-        className="category-buttons"
+        className="bt-categories"
         data-testid="filter-by-food-btn"
         onClick={ () => setselectedFilter('Meal') }
       >
@@ -22,7 +22,7 @@ export default function RecipesButtons({ setselectedFilter }) {
       </button>
       <button
         type="button"
-        className="category-buttons"
+        className="bt-categories"
         data-testid="filter-by-drink-btn"
         onClick={ () => setselectedFilter('Drink') }
       >

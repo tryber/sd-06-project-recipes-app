@@ -12,15 +12,6 @@ export default function Header(props) {
   const { title } = props;
   const { search, setSearch, searchButton } = useContext(RevenueContext);
   const searchButtonHidden = () => (
-    // <a
-    //   href
-    //   data-testid="test-search-top-btn"
-    //   onClick={ () => {
-    //     setSearch(!search);
-    //   } }
-    // >
-    //   <img src={ SearchIcon } alt="Profile" data-testid="search-top-btn" />
-    // </a>
     <a
       href
       data-testid="test-search-top-btn"
@@ -36,22 +27,26 @@ export default function Header(props) {
   return (
     <header data-testid="test-header">
       <Container>
-        <div className="row justify-content-around header-component">
-          <div className="">
+        <div className="header-component">
+          <div className="bt-icon">
             <Link to="/perfil" data-testid="test-profile-top-btn">
               <img src={ ProfileIcon } alt="Profile" data-testid="profile-top-btn" />
             </Link>
           </div>
-          <div className="">
-            <h1 className="center" data-testid="page-title">{title}</h1>
-          </div>
-          <div className="">
+          <h1
+            className="center font-app title-header"
+            data-testid="page-title"
+          >
+            {title}
+          </h1>
+          <div className="bt-icon">
             <span>{!searchButton && searchButtonHidden()}</span>
           </div>
         </div>
         {search && <SearchBar title={ title } />}
         {!search && <CategoryButton />}
       </Container>
+      <div className="color-line" />
     </header>
 
   );

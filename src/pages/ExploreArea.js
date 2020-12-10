@@ -43,7 +43,7 @@ export default function ExploreArea() {
         ))
           : null}
       </select>
-      <div className="ingredients-explore">
+      <div className="wrap-food">
         {(data) ? data.map((item, index) => {
           const TWELVE = 12;
           if (index < TWELVE) {
@@ -52,15 +52,15 @@ export default function ExploreArea() {
                 <div
                   key={ index }
                   data-testid={ `${index}-recipe-card` }
-                  className="cardIngredients"
+                  className="card-recipe-style"
                 >
                   <img
                     src={ item.strMealThumb }
                     alt={ item.strMeal }
                     data-testid={ `${index}-card-img` }
-                    className="imageCardIngredients"
+                    className="img-recipe-thumb"
                   />
-                  <h5 data-testid={ `${index}-card-name` }>
+                  <h5 data-testid={ `${index}-card-name` } className="name-recipe-thumb">
                     {item.strMeal}
                   </h5>
                 </div>

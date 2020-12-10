@@ -20,11 +20,12 @@ export default function ExploreFoods() {
   };
 
   return (
-    <div>
+    <div className="wrap-profile">
       {(random) ? <Redirect to={ random } /> : null}
       <Link to={ `/explorar/${title}/ingredientes` }>
         <button
           type="button"
+          className="bt-login bt-space font-app"
           data-testid="explore-by-ingredient"
         >
           Por Ingredientes
@@ -35,6 +36,7 @@ export default function ExploreFoods() {
         <Link to="/explorar/comidas/area">
           <button
             type="button"
+            className="bt-login bt-space font-app"
             data-testid="explore-by-area"
           >
             Por Local de Origem
@@ -44,6 +46,7 @@ export default function ExploreFoods() {
       <Link to={ `/explorar/${title}` }>
         <button
           type="button"
+          className="bt-login bt-space font-app"
           data-testid="explore-surprise"
           onClick={ fetchRamdom }
         >

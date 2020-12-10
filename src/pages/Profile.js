@@ -9,14 +9,15 @@ export default function Profile() {
   }
   return (
     <div>
-      <span data-testid="profile-email">
+      <div data-testid="profile-email" className="email-profile">
         {email}
-      </span>
-      <div>
+      </div>
+      <div className="wrap-profile">
         <Link to="receitas-feitas">
           <button
             data-testid="profile-done-btn"
             type="button"
+            className="bt-login font-app bt-space"
           >
             Receitas Feitas
           </button>
@@ -25,12 +26,14 @@ export default function Profile() {
           <button
             data-testid="profile-favorite-btn"
             type="button"
+            className="bt-login font-app bt-space"
           >
             Receitas Favoritas
           </button>
         </Link>
         <Link to="/">
           <button
+            className="bt-login font-app bt-space"
             data-testid="profile-logout-btn"
             type="button"
             onClick={ () => localStorage.clear() }

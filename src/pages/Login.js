@@ -14,7 +14,7 @@ export default function Login() {
 
   const inputValidate = () => {
     const validEmail = (/\S+@\S+\.\S+/).test(email);
-    const validPassword = (/.{6,}/).test(password);
+    const validPassword = (password && (/.{6}/).test(password));
 
     if (validEmail && validPassword === true) {
       return setDisable(false);
@@ -37,37 +37,49 @@ export default function Login() {
   };
 
   return (
-    <form>
-      <label htmlFor="email">
-        E-mail:
-        <input
-          value={ email }
-          name="email"
-          type="email"
-          data-testid="email-input"
-          onChange={ (e) => handleChange(e) }
-        />
-      </label>
-      <label htmlFor="password">
-        Password:
-        <input
-          value={ password }
-          name="password"
-          type="password"
-          data-testid="password-input"
-          onChange={ (e) => handleChange(e) }
-        />
-      </label>
-      <Link to="/comidas">
-        <button
-          data-testid="login-submit-btn"
-          disabled={ disable }
-          type="button"
-          onClick={ setLocalStorage }
-        >
-          Entrar
-        </button>
-      </Link>
-    </form>
+    <div className="bg-login">
+      <h1 className="font-app login-title">
+        App
+        <br />
+        <span className="de-logo">de</span>
+        <br />
+        Receitas
+      </h1>
+      <form className="form-login">
+        <label htmlFor="email">
+          {/* E-mail: */}
+          <input
+            value={ email }
+            name="email"
+            type="email"
+            data-testid="email-input"
+            onChange={ (e) => handleChange(e) }
+            placeholder="E-mail"
+          />
+        </label>
+        <label htmlFor="password">
+          {/* Password: */}
+          <input
+            value={ password }
+            name="password"
+            type="password"
+            data-testid="password-input"
+            onChange={ (e) => handleChange(e) }
+            placeholder="Password"
+          />
+        </label>
+        <Link to="/comidas">
+          <button
+            data-testid="login-submit-btn"
+            disabled={ disable }
+            type="button"
+            onClick={ setLocalStorage }
+            className="bt-login font-app"
+          >
+            Entrar
+          </button>
+        </Link>
+      </form>
+    </div>
   );
 }

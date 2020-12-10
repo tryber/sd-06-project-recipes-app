@@ -8,6 +8,7 @@ export default function Explore() {
         <button
           type="button"
           data-testid="explore-food"
+          className="bt-login bt-space font-app"
         >
           Explorar Comidas
         </button>
@@ -16,6 +17,7 @@ export default function Explore() {
         <button
           type="button"
           data-testid="explore-drinks"
+          className="bt-login bt-space font-app"
         >
           Explorar Bebidas
         </button>

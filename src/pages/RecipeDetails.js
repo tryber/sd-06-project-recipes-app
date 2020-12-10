@@ -1,11 +1,12 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
+// import { Container } from 'react-bootstrap';
 import RevenueContext from '../context/RevenueContext';
 import ShareIcon from '../images/shareIcon.svg';
 import WhiteHeartIcon from '../images/whiteHeartIcon.svg';
 import BlackHeartIcon from '../images/blackHeartIcon.svg';
 import RecommendedRecipes from '../components/RecommendedRecipes';
+import Loading from '../components/Loading';
 
 export default function RecipeDetails() {
   const { foods, setSearchParam, inProgress, setInProgress,
@@ -259,24 +260,30 @@ export default function RecipeDetails() {
       };
 
       return (
-        <Container>
+        <div>
           <img
             width="360px"
             data-testid="recipe-photo"
             src={ foods[0][`str${searchParam}Thumb`] }
             alt={ foods[0][`str${searchParam}`] }
           />
-          <h1 data-testid="recipe-title">{ foods[0][`str${searchParam}`] }</h1>
+          <div className="color-line" />
+          <h1
+            data-testid="recipe-title"
+            className="title-details"
+          >
+            { foods[0][`str${searchParam}`] }
+          </h1>
           <div className="d-flex justify-content-around">
             <a href onClick={ () => shareRecipeLink() }>
               <img src={ ShareIcon } alt="Share Button" data-testid="share-btn" />
-              {alertMsg && <span>Link copiado!</span>}
+              {alertMsg && <span> Link copiado!</span>}
             </a>
             <a href onClick={ () => whiteToBlackHeart() }>
               <img src={ heartIcon } alt="Favorite Button" data-testid="favorite-btn" />
             </a>
           </div>
-          <h6 data-testid="recipe-category">
+          <h6 data-testid="recipe-category" className="subtitle-details">
             { searchParam === 'Meal' ? foods[0].strCategory : foods[0].strAlcoholic }
           </h6>
           { }
@@ -320,13 +327,13 @@ export default function RecipeDetails() {
                 )
             )) }
           </ul>
-          <h4>INSTRUCTIONS: </h4>
-          <p data-testid="instructions" className="text-justify">
+          <h4 className="subtitle-details">INSTRUCTIONS: </h4>
+          <p data-testid="instructions" className="text-justify padd20">
             { foods[0].strInstructions }
           </p>
           { (videoCode) && (
             <>
-              <h4>VIDEO: </h4>
+              <h4 className="subtitle-details">VIDEO: </h4>
               <iframe
                 data-testid="video"
                 className="width360"
@@ -339,7 +346,7 @@ export default function RecipeDetails() {
               />
             </>
           ) }
-          <h4>RECOMENDED: </h4>
+          <h4 className="subtitle-details">RECOMENDED: </h4>
           <div className="width360">
             <RecommendedRecipes />
           </div>
@@ -353,7 +360,7 @@ export default function RecipeDetails() {
                   <Link to={ `/${idRecipe[1]}/${idRecipe[2]}/in-progress` }>
                     <button
                       data-testid="start-recipe-btn"
-                      className="start-recipe-btn"
+                      className="bt-login font-app"
                       type="button"
                       onClick={ () => setInProgress(!inProgress) }
                     >
@@ -365,7 +372,7 @@ export default function RecipeDetails() {
                   <Link to="/receitas-feitas">
                     <button
                       data-testid="finish-recipe-btn"
-                      className="finish-recipe-btn"
+                      className="bt-login font-app"
                       type="button"
                       onClick={ () => saveDoneRecipe() }
                       disabled={ finishButtonEnable() }
@@ -376,14 +383,14 @@ export default function RecipeDetails() {
                 )}
             </div>
           )}
-        </Container>
+        </div>
       );
     }
   };
 
   return (
-    <div>
-      {(isLoading) ? 'Loading...' : render()}
+    <div className="main-app recipe-details">
+      {(isLoading) ? <Loading /> : render()}
     </div>
   );
 }

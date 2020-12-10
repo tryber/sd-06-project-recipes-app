@@ -58,7 +58,7 @@ export default function CategoryButton() {
       return (
         <div className="d-flex justify-content-around align-items-center flex-wrap">
           <button
-            className={ `category-buttons ${toggleClass}` }
+            className={ `bt-categories ${toggleClass}` }
             type="button"
             onClick={ noFilters }
             data-testid="All-category-filter"
@@ -74,11 +74,11 @@ export default function CategoryButton() {
                 <button
                   key={ index }
                   data-testid={ `${category.strCategory}-category-filter` }
-                  className={ `category-buttons ${toggleClass}` }
+                  className={ `bt-categories ${toggleClass}` }
                   type="button"
                   onClick={ () => filterByCategory(category.strCategory, linkAPI) }
                 >
-                  {category.strCategory}
+                  {category.strCategory.split('/')[0]}
                 </button>
               );
             }

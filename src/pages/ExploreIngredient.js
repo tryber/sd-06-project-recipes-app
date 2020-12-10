@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import Loading from '../components/Loading';
 import RevenueContext from '../context/RevenueContext';
 
 export default function ExploreIngredient() {
@@ -20,7 +21,6 @@ export default function ExploreIngredient() {
       ? json.meals
       : json.drinks;
     setingredients(jsonIngredients);
-    // console.log(jsonIngredients);
   };
 
   useEffect(() => { fetchIngredients(); }, []);
@@ -62,7 +62,7 @@ export default function ExploreIngredient() {
                 alt={ ingredientName }
                 data-testid={ `${index}-card-img` }
               />
-              <h5 data-testid={ `${index}-card-name` }>
+              <h5 data-testid={ `${index}-card-name` } className="name-recipe-explore">
                 {ingredientName}
               </h5>
             </Link>
@@ -75,7 +75,7 @@ export default function ExploreIngredient() {
 
   return (
     <div className="ingredients-explore">
-      {(ingredients) ? renderIngredients() : 'Loading...'}
+      {(ingredients) ? renderIngredients() : <Loading />}
     </div>
   );
 }

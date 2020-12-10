@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Container, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import RevenueContext from '../context/RevenueContext';
 
 export default function SearchBar(props) {
@@ -78,7 +78,7 @@ export default function SearchBar(props) {
   return (
     <Container className="align-items-center">
       <form data-testid="test-search-bar" className="search-bar">
-        <Row>
+        <div>
           <label htmlFor="search-input">
             <input
               data-testid="search-input"
@@ -87,10 +87,11 @@ export default function SearchBar(props) {
               name="searh-input"
               placeholder="Buscar Receita"
               onChange={ (e) => handleChangeInputValue(e) }
+              className="input-field"
             />
           </label>
-        </Row>
-        <Row className="filter-radios">
+        </div>
+        <div className="filter-radios">
           <label htmlFor="ingredient">
             <input
               data-testid="ingredient-search-radio"
@@ -100,7 +101,7 @@ export default function SearchBar(props) {
               name="radio-selection"
               onChange={ (e) => handleRadioValue(e) }
             />
-            Ingrediente
+            <b>Ingrediente</b>
           </label>
           <label htmlFor="name">
             <input
@@ -111,7 +112,7 @@ export default function SearchBar(props) {
               name="radio-selection"
               onChange={ (e) => handleRadioValue(e) }
             />
-            Nome
+            <b>Nome</b>
           </label>
           <label htmlFor="first-letter">
             <input
@@ -122,15 +123,15 @@ export default function SearchBar(props) {
               name="radio-selection"
               onChange={ (e) => handleRadioValue(e) }
             />
-            Primeira Letra
+            <b>Primeira Letra</b>
           </label>
-        </Row>
+        </div>
       </form>
 
-      <Row>
+      <div>
         <button
           data-testid="exec-search-btn"
-          className="exec-search-btn"
+          className="bt-login font-app bottom15px"
           type="button"
           onClick={ () => (
             (searchInputValue && searchRadioValue)
@@ -141,7 +142,7 @@ export default function SearchBar(props) {
         >
           Buscar
         </button>
-      </Row>
+      </div>
       {/* {alert && <Row>{alert}</Row>} */}
     </Container>
   );
