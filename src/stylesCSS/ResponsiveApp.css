@@ -1,0 +1,145 @@
+@media only screen and (max-width: 375px) {
+  .header-icons {
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    justify-content: space-between;
+    padding: 10px 20px 0;
+  }
+
+  .comidas-body, .bebidas-body {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+    overflow: scroll;
+    padding: 180px 0;
+  }
+
+  .category-container {
+    box-sizing: border-box;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 10px 0 80px;
+  }
+
+  .searchBar-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  }
+
+  .searchBar-input {
+  background-color: #558c8cff;
+  border: none;
+  border-bottom: 1px solid #2b7869ff;
+  border-radius: 20px;
+  box-shadow: 2px 2px 3px #558c8cff;
+  color: #eff7ffff;
+  font-size: 14px;
+  height: 25px;
+  margin: 10px 0;
+  outline: none;
+  padding: 4px 18px;
+  width: 80%;
+  }
+
+  .searchBar-input::placeholder {
+  color: #eff7ffff;
+  }
+
+  .searchBar-radios {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 80%;
+  max-height: 80px;
+  }
+
+  .searchBar-radio {
+  background-image: linear-gradient(180deg, #ffb125ff 30%, #ff901dff 60%, #ff6d3aff 120%);
+  border: none;
+  border-radius: 4px;
+  box-shadow: 1px 2px 2px #558c8cb3;
+  color: #eff7ffff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 4px 0;
+  outline: none;
+  padding: 5px 0 7px 8px;
+  text-shadow: 
+  /* horizontal-shadow vertical-shadow color; */
+  -1px 0px #ff6d3aff,
+  -1px 1px #ff6d3aff;
+  width: 125px;
+  }
+
+  .search-label {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  }
+
+  /* .radio {
+  display: none;
+  } */
+
+  .checkmark {
+  background-color: #eff7ffff;
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 15px;
+  margin-right: 5px;
+  width: 15px;
+  }
+
+  .searchBar-radio:hover .radio ~ .checkmark {
+  background-color: #dae6e7ff;
+  }
+
+  .searchBar-radio .radio:checked ~ .checkmark {
+  border: 4px solid #2b7869ff;
+  background-color: #eff7ffff;
+  }
+
+  .searchBar-buscar {
+  background-image: linear-gradient(180deg, #ffb125ff 30%, #ff901dff 60%, #ff6d3aff 120%);
+  border: none;
+  border-radius: 4px;
+  box-shadow: 1px 2px 2px #558c8cb3;
+  color: #eff7ffff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 4px 0;
+  outline: none;
+  padding: 5px 0 7px 4px;
+  text-shadow: 
+  /* horizontal-shadow vertical-shadow color; */
+  -1px 0px #ff6d3aff,
+  -1px 1px #ff6d3aff;
+  width: 132px;
+  }
+
+  .searchBar-buscar:disabled, .searchBar-buscar[disabled] {
+  background-image: linear-gradient(180deg, #ffb32580, #ff6e3a80);
+  border: none;
+  border-radius: 4px;
+  box-shadow: 1px 2px 2px #558c8cb3;
+  color: #eff7ffff;
+  cursor: default;
+  padding: 5px 0 7px 4px;
+  }
+
+  .searchBar-buscar:hover {
+    box-shadow: 1px 2px 4px #2b7869ff;
+  }
+}

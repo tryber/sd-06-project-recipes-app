@@ -1,0 +1,93 @@
+.card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  width: 270px;
+}
+
+.card-datails {
+  border: 1px solid #dae6e7ff;
+  align-items: center;
+  background-color: #eff7ffff;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px #558c8cff;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 340px;
+  margin: 10px;
+  text-align: center;
+}
+
+.card-details-link {
+  align-items: center;
+  border-radius: 0;
+  box-shadow: none;
+  color: #000000ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* margin: 40px 0 0; */
+  padding: 0;
+  text-decoration: none;
+}
+
+.card-image {
+  border-radius: 3px;
+  max-height: 200px;
+  max-width: 250px;
+  object-fit: cover;
+}
+
+.card-info {
+  font-size: 18px;
+  margin: 15px 0 0;
+}
+
+.card-tags {
+  border: none;
+  cursor: default;
+  outline: none;
+}
+
+.tag {
+  background: #558c8c80;
+  border-radius: 3px;
+  margin: 0;
+  margin-left: 1px;
+  outline: none;
+  padding: 3px 10px;
+}
+
+.card-ver-receita {
+  background-image: linear-gradient(180deg, #ff901dff 30%, #ff6d3aff 80%, #ed5729ff 150%);
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px #558c8cff;
+  color: #eff7ffff;
+  cursor: pointer;
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  height: 35px;
+  margin-top: 10px;
+  outline: none;
+  padding: 0 15px ;
+  width: 150px;
+}
+
+/* 
+CSS HEX
+--black: #000000ff;
+--dark-green: #002e24ff;
+--pine-green: #2b7869ff;
+--steel-teal: #558c8cff;
+--flame: #ed5729ff;
+--orange-crayola: #ff6d3aff;
+--dark-orange: #ff901dff;
+--honey-yellow: #ffb125ff;
+--azure-x-11-web-color: #dae6e7ff;
+--alice-blue: #eff7ffff;
+*/
