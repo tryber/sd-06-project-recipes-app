@@ -7,7 +7,6 @@ describe('Testar o footer de comidas e bebidas', () => {
   it('Possui inputs de comidas, bebidas e explorar', () => {
     const { getByTestId, history } = renderWithRouter(<App />);
     history.push('/comidas');
-
     const foodsIcon = getByTestId('food-bottom-btn');
     const drinksIcon = getByTestId('drinks-bottom-btn');
     const exploreIcon = getByTestId('explore-bottom-btn');
@@ -19,7 +18,6 @@ describe('Testar o footer de comidas e bebidas', () => {
   it('Redireciona para a página de comidas ao clicar no ícone de comidas', () => {
     const { getByTestId, history } = renderWithRouter(<App />);
     history.push('/bebidas');
-
     const foodsIcon = getByTestId('food-bottom-btn');
     fireEvent.click(foodsIcon);
     expect(history.location.pathname).toBe('/comidas');
@@ -30,7 +28,6 @@ describe('Testar o footer de comidas e bebidas', () => {
   it('Redireciona para a página de bebidas ao clicar no ícone de bebidas', () => {
     const { getByTestId, history } = renderWithRouter(<App />);
     history.push('/comidas');
-
     const drinksIcon = getByTestId('drinks-bottom-btn');
     fireEvent.click(drinksIcon);
     expect(history.location.pathname).toBe('/bebidas');

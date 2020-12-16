@@ -1,91 +1,54 @@
 import React from 'react';
-import { fireEvent, waitForElement } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import renderWithRouter from '../services/renderWithRouter';
-// import Foods from '../pages/Foods';
 import App from '../App';
 import * as API from '../services/index';
-import foodsOnRender from './mocks/foodsOnRender';
-// import meals from '../../cypress/mocks/meals';
+import oneMeal from '../../cypress/mocks/oneMeal';
+import cocoaDrinks from '../../cypress/mocks/cocoaDrinks';
 
-describe('Testar a tela de detalhes de comidas', () => {
-  it('Verifica se ao clicar em uma comida ela redireciona para os detalhes', async () => {
-    const { getByTestId, history } = renderWithRouter(<App />);
-    beforeEach(() => {
-      history.push('/comidas');
+jest.mock('../services/index');
+const mockById = API
+  .fetchMealsById.mockImplementation(() => Promise.resolve(oneMeal.meals));
+const mockRecomenDrinks = API
+  .fetchRecommendedDrinks.mockImplementation(() => Promise.resolve(cocoaDrinks.drinks));
+
+describe('Testa a tela de detalhes de comidas se redereiza os items da receita',
+  () => {
+    const valueLength = 2;
+    const temLength = 10;
+    const eigthLength = 8;
+    it('Verifica se os elementos de detalhes da receita estão na tela', async () => {
+      const { getAllByTestId, history } = renderWithRouter(<App />);
+      history.push('/comidas/52977');
+      expect(history.location.pathname).toBe('/comidas/52977');
+      await (() => expect(mockById).toHaveBeenCalled());
+      await (() => expect(mockRecomenDrinks).toHaveBeenCalled());
+      const instructions = screen.getByTestId('instructions').textContent.split('.', 1);
+      expect(...instructions).toBe('Bring a large pot of water to a boil');
+      expect(screen.getByTestId('0-recomendation-card')).toBeInTheDocument();
+      expect(document.querySelectorAll('li').length).toBe(eigthLength);
+      expect(screen.getAllByText('Spicy Arrabiata Penne').length).toBe(valueLength);
+      expect(getAllByTestId('recipe-photo').length).toBe(temLength);
     });
-    jest.spyOn(API, 'foodsOnRender').mockImplementation(() => foodsOnRender.meals);
-    const firstCard = await waitForElement(() => {
-      console.log(history.location.pathname);
-      getByTestId('0-card-img');
-    });
-    expect(firstCard).toBeInTheDocument();
-    fireEvent.click(firstCard);
-    expect(history.location.pathname).toBe('/comidas/52977');
   });
-  // it('Verifica se os elementos de detalhe estão na tela', async () => {
-  //   const { getByTestId, history } = renderWithRouter(<App />);
-  //   history.push('/comidas/52977');
-  //   const imagemComida1 = getByTestId('recipe-photo');
-  //   const tituloComida1 = getByTestId('recipe-title');
-  //   const categoriaComida1 = getByTestId('recipe-category');
-  //   const favoriteButton = getByTestId('favorite-btn');
-  //   const shareButton = getByTestId('share-btn');
-  //   const firstIngredient = getByTestId('0-ingredient-name-and-measure');
-  //   const instructions = getByTestId('instructions');
-  //   const video = getByTestId('video');
-  //   const firstRecommended = getByTestId('0-recomendation-card');
-  //   const startButton = getByTestId('start-recipe-btn');
 
-  //   await waitFor(() => {
-  //     expect(imagemComida1).toBeInTheDocument();
-  //     expect(tituloComida1).toBeInTheDocument();
-  //     expect(categoriaComida1).toBeInTheDocument();
-  //     expect(favoriteButton).toBeInTheDocument();
-  //     expect(shareButton).toBeInTheDocument();
-  //     expect(firstIngredient).toBeInTheDocument();
-  //     expect(instructions).toBeInTheDocument();
-  //     expect(video).toBeInTheDocument();
-  //     expect(firstRecommended).toBeInTheDocument();
-  //     expect(startButton).toBeInTheDocument();
-  //   });
-  // });
-
-  // it('Redireciona ao clicar em iniciar receita para receitas em progresso', () => {
-  //   const { getByTestId, history } = renderWithRouter(<App />);
-  //   history.push('/comidas/52977');
-
-  //   const startButton = getByTestId('start-recipe-btn');
-  //   fireEvent.click(startButton);
-  //   expect(history.location.pathname).toBe('/comidas/52977/in-progress');
-  // });
-
-  // it('Ao clicar no botão de compartilhar surge o texto "Link copiado!"', () => {
-  //   const { getByTestId, history } = renderWithRouter(<App />);
-  //   history.push('/comidas/52977');
-
-  //   const shareButton = getByTestId('share-btn');
-  //   fireEvent.click(shareButton);
-  //   expect('Link copiado!').toBeInTheDocument();
-  // });
-
-  // it('Ao clicar no botão de favoritar o ID da receita vai para o localStorage', () => {
-  //   const { getByTestId, history } = renderWithRouter(<App />);
-  //   history.push('/comidas/52977');
-  //   const localStorageKey = 'favoriteRecipes';
-  //   const favoriteButton = getByTestId('favorite-btn');
-  //   fireEvent.click(favoriteButton);
-  //   expect(localStorage.getItem).toBe(localStorageKey);
-  // });
-});
-
-// describe('Testar a tela de detalhes de bebidas', () => {
-//   it('Verifica se ao clicar em uma bebida ela redireciona para os detalhes', async () => {
-//     const { getByTestId, history } = renderWithRouter(<App />);
-//     history.push('/bebidas');
-//     await waitFor(() => {
-//       const bebida1 = getByTestId('0-card-img');
-//       fireEvent.click(bebida1);
-//       expect(history.location.pathname).toBe('/bebidas/15997');
-//     });
-//   });
-// });
+describe('Testa funcionalidades da tela de detalhes',
+  () => {
+    it('testa se é possível copiar link da receita para o clip-Board e favorita a mesma ',
+      async () => {
+        const { history } = renderWithRouter(<App />);
+        history.push('/comidas/52977');
+        expect(history.location.pathname).toBe('/comidas/52977');
+        await (() => expect(mockById).toHaveBeenCalled());
+        await (() => expect(mockRecomenDrinks).toHaveBeenCalled());
+        expect(screen.getByTestId('share-btn')).toBeInTheDocument();
+        const btnFvorite = screen.getByTestId('favorite-btn');
+        expect(btnFvorite.src).toBe('whiteHeartIcon.svg');
+        fireEvent.click(btnFvorite);
+        expect(btnFvorite.src).toBe('blackHeartIcon.svg');
+        const video = screen.getByTestId('video');
+        expect(video.src).toBe('https://www.youtube.com/embed/1IszT_guI08');
+        fireEvent.click(screen.getByText('Iniciar Receita'));
+        expect(history.location.pathname).toBe('/comidas/52977/in-progress');
+      });
+  });
