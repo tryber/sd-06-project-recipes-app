@@ -33,7 +33,7 @@ describe('Testar a página de login renderiza normalmente', () => {
     const inputEmail = getByTestId('email-input');
     const inputPassword = getByTestId('password-input');
     const submitBtn = getByTestId('login-submit-btn');
-    expect(submitBtn).toBeDisabled(true);
+    expect(submitBtn).toBeDisabled();
     userEvent.type(inputEmail, 'email@email.com');
     userEvent.type(inputPassword, '1234567');
     expect(submitBtn).not.toBeDisabled();

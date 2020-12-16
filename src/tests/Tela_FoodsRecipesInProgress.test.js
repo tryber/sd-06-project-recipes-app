@@ -12,8 +12,12 @@ const mockFetchById = API
 
 describe('Testar a página de receitas em progresso renderiza normalmente', () => {
   const eightLength = 8;
-  it('Possui input e-mail que faz a validação', async () => {
-    const { content, history } = renderWithRouter(<App />);
+  const initLength = 0;
+  it(`items da receita existem, botões share e favorite,
+        quantidade de ingredientes, verifica se todos os checkbox marcados 
+        habilitam o botão finalizar, e ao clicar no mesmo ocorre mudança de rota`,
+  async () => {
+    const { history } = renderWithRouter(<App />);
     history.push('/comidas/52771/in-progress');
     await (() => expect(mockFetchById).toHaveBeenCalled());
     expect(screen.getAllByText('Spicy Arrabiata Penne'));
@@ -24,5 +28,13 @@ describe('Testar a página de receitas em progresso renderiza normalmente', () =
     expect(ingredientes.length).toBe(eightLength);
     const checkBox = document.querySelectorAll('input[type=checkbox]');
     expect(checkBox.length).toBe(eightLength);
+    const btnFinalizar = screen.getByTestId('finish-recipe-btn');
+    expect(btnFinalizar).toBeDisabled();
+    for (let index = initLength; index < ingredientes.length; index += 1) {
+      userEvent.click(screen.getByTestId(`${index}-ingredient-step`));
+    }
+    expect(btnFinalizar).not.toBeDisabled();
+    fireEvent.click(btnFinalizar);
+    expect(history.location.pathname).toBe('/receitas-feitas');
   });
 });
