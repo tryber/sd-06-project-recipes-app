@@ -27,6 +27,8 @@ class FoodsDetails extends React.Component {
     this.handleYoutubeVideo = this.handleYoutubeVideo.bind(this);
     this.redirectFromState = this.redirectFromState.bind(this);
     this.checkRecipesDone = this.checkRecipesDone.bind(this);
+    this.handleShareFood = this.handleShareFood.bind(this);
+    this.setMealState = this.setMealState.bind(this);
   }
 
   async componentDidMount() {

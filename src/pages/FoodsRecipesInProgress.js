@@ -342,7 +342,7 @@ class FoodsRecipesInProgress extends React.Component {
                       name={ `ingredient ${i}` }
                       type="checkbox"
                       // onChange={ () =>  }
-                      onClick={ (e) => {
+                      onChange={ (e) => {
                         this.checked(e);
                         this.handleButton();
                       } }

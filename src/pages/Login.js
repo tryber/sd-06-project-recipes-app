@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { objectOf } from 'prop-types';
 import { connect } from 'react-redux';
 import { UserInfo } from '../actions';
-// import FetchAPI from '../services/FetchAPI';
 
 class Login extends React.Component {
   constructor() {
@@ -24,11 +23,9 @@ class Login extends React.Component {
     event.preventDefault();
     const { email, password } = this.state;
     const { history, myUserInfo } = this.props;
-
     const user = {
       email,
     };
-    console.log(user);
     localStorage.setItem('user', JSON.stringify(user));
     localStorage.setItem('mealsToken', 1);
     localStorage.setItem('cocktailsToken', 1);
@@ -114,7 +111,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 Login.propTypes = {
-  history: PropTypes.shape().isRequired,
+  history: PropTypes.shape(objectOf).isRequired,
   myUserInfo: PropTypes.func.isRequired,
 };
 
