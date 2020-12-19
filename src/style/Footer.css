@@ -1,0 +1,47 @@
+footer {
+  align-items: center;
+  background-color: #960051;
+  bottom: 0px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  height: 70px;
+  position: fixed;
+  width: 360px;
+  z-index: 100;
+}
+
+footer button {
+  border: none;
+  border-radius: 50%;
+  height: 65px;
+  width: 65px; 
+}
+
+footer button:hover {
+  cursor: pointer;
+}
+
+.button-drink {
+  background-color: #f1e510;
+}
+
+.button-drink:hover {
+  background-color: #e4cd03;
+}
+
+.button-explore {
+  background-color: #b6b6b1;
+}
+
+.button-explore:hover {
+  background-color: #92928f;
+}
+
+.button-meal {
+  background-color: #fac001;
+}
+
+.button-meal:hover {
+  background-color: #e9b304;
+}

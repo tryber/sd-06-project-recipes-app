@@ -1,0 +1,38 @@
+.div-bttn-category {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: auto;
+  margin-top: 10%;
+}
+
+.div-bttn-category button {
+  border: none;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  margin: 5px;
+  padding: 10px;
+} 
+
+.div-bttn-category button:hover {
+  cursor: pointer;
+}
+
+.bttn-category-drink {
+  background-color: #f1e510;
+}
+
+.bttn-category-drink:hover {
+  background-color: #e4cd03;
+}
+
+.bttn-category-meals {
+  background-color: #e9b304;
+}
+
+.bttn-category-meals:hover {
+  background-color: #fac001;
+}

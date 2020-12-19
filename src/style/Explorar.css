@@ -1,0 +1,111 @@
+body {
+  height: 640px;
+  position: relative;
+  width: 360px;
+}
+
+.explore {
+  background-color: #f5f5f5;
+  border: 1px solid #cecccc;
+  height: 640px;
+  width: 360px;
+}
+
+.div-buttons{
+  align-items: center;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  margin: auto;
+  margin-top: 50%;
+}
+
+.button-drink-page {
+  background-color: #fffb00;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  height: 40px;
+  margin: auto;
+  margin-top: 10px;
+  width: 305px;
+}
+
+.button-drink-page:hover {
+  background-color: #ece802;
+  cursor: pointer;
+}
+
+.button-food-page {
+  background-color: #fac001;
+  border: none;
+  border-radius: 5%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  height: 40px;
+  margin: auto;
+  margin-top: 5px;
+  width: 305px;
+}
+
+.button-food-page:hover {
+  background-color: #e9b304;
+  cursor: pointer;
+}
+
+.button-ingredient {
+  background-color: #4fd401;
+  border: none;
+  border-radius: 5%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  height: 40px;
+  margin: auto;
+  margin-top: 5px;
+  width: 305px;
+}
+
+.button-ingredient:hover {
+  background-color: #47c001;
+  cursor: pointer;
+}
+
+.button-area {
+  background-color: #02bbdb;
+  border: none;
+  border-radius: 5%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  height: 40px;
+  margin: auto;
+  margin-top: 5px;
+  width: 305px;
+}
+
+.button-area:hover {
+  background-color: #02a6c3;
+  cursor: pointer;
+}
+
+.button-surprise {
+  background-color: #bd0165;
+  border: none;
+  border-radius: 5%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  height: 40px;
+  margin: auto;
+  margin-top: 5px;
+  width: 305px;
+}
+
+.button-surprise:hover {
+  background-color: #ac015c;
+  cursor: pointer;
+}

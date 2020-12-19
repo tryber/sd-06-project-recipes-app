@@ -1,0 +1,54 @@
+.searchBar {
+  align-items: center;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  margin: auto;
+  margin-top: 2%;
+}
+
+.searchBar input[type='text'] {
+  border: 1px solid #cecccc;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  height: 30px;
+  margin-top: 70px;
+  text-align: center;
+  width: 300px;
+}
+
+.searchBar input[type='text']:focus {
+  border: 2px solid #960051;
+  outline: none !important;
+}
+
+.searchBar input[type='radio'] {
+  border: 1px solid #4b4040;
+  height: 20px;
+  width: 20px;
+}
+
+.searchBar label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.searchBar button{
+  background-color: #960051;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  height: 40px;
+  margin-top: 5px;
+  width: 305px;
+}
+
+.searchBar button:hover {
+  background-color: #bd0165;
+  cursor: pointer;
+}
