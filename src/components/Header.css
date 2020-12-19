@@ -1,0 +1,43 @@
+.flex-container {
+  /* border: 1px solid; */
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between; 
+  background-color: rgb(229, 229, 229);
+}
+
+header button, h1 {
+  border: none;
+  background-color: rgb(229, 229, 229);
+  flex-grow: 1;
+}
+
+header h1 {
+  text-align: center;
+}
+
+section {
+  /* border: 1px solid; */
+  margin: 5px;
+}
+
+section input[type=text] {
+  border: 1px solid;
+  width: 98%;
+  font-size: 24px;
+}
+
+section input[type=radio] {
+  margin: 8px 10px;
+}
+
+section button {
+  border: none;
+  font-size: 20px;
+  margin: 3px 10px;
+}
