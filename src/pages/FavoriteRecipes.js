@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Header, FavFoodCard, FavDrinkCard } from '../components';
 
-
 class FavoriteRecipes extends React.Component {
   constructor() {
     super();
