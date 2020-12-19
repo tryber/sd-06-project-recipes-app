@@ -33,8 +33,15 @@ describe('Testar a página de receitas em progresso renderiza normalmente', () =
     for (let index = initLength; index < ingredientes.length; index += 1) {
       userEvent.click(screen.getByTestId(`${index}-ingredient-step`));
     }
+    const donRecipes = localStorage.getItem('doneRecipes');
+    expect(donRecipes).toBeNull();
+    const inProgressRecipes = JSON.parse(localStorage.getItem('inProgressRecipes'));
+    expect(typeof inProgressRecipes).toBe('object');
+    expect(inProgressRecipes.meals['52771']).toHaveLength(eightLength);
     expect(btnFinalizar).not.toBeDisabled();
     fireEvent.click(btnFinalizar);
     expect(history.location.pathname).toBe('/receitas-feitas');
+    const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
+    expect(doneRecipes).not.toBeNull();
   });
 });

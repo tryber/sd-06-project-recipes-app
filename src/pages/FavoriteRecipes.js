@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Header, FavFoodCard, FavDrinkCard } from '../components';
 
+
 class FavoriteRecipes extends React.Component {
   constructor() {
     super();
@@ -14,6 +15,7 @@ class FavoriteRecipes extends React.Component {
 
     this.setFilterState = this.setFilterState.bind(this);
     this.setFilterIndex = this.setFilterIndex.bind(this);
+    this.changeH1Width = this.changeH1Width.bind(this);
   }
 
   componentDidMount() {
