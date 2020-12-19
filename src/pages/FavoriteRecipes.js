@@ -14,6 +14,7 @@ class FavoriteRecipes extends React.Component {
 
     this.setFilterState = this.setFilterState.bind(this);
     this.setFilterIndex = this.setFilterIndex.bind(this);
+    this.changeH1Width = this.changeH1Width.bind(this);
   }
 
   componentDidMount() {

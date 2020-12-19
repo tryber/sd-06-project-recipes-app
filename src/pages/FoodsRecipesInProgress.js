@@ -28,6 +28,7 @@ class FoodsRecipesInProgress extends React.Component {
     this.check = this.check.bind(this);
     this.getRecipesLocalStorage = this.getRecipesLocalStorage.bind(this);
     this.setKeyLocalStorage = this.setKeyLocalStorage.bind(this);
+    this.recipeDone = this.recipeDone.bind(this);
   }
 
   async componentDidMount() {

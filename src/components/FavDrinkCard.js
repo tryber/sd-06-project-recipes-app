@@ -18,7 +18,7 @@ class FavDrinkCard extends React.Component {
     this.setFavoriteDrink = this.setFavoriteDrink.bind(this);
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     const drinks = JSON.parse(localStorage.getItem('favoriteRecipes'));
     if (drinks) {
       const filteredDrink = drinks.filter((element) => element.type === 'bebida');

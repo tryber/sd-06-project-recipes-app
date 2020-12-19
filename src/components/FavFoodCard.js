@@ -16,10 +16,13 @@ class FavFoodCard extends React.Component {
     };
     this.handleShareFood = this.handleShareFood.bind(this);
     this.setFavoriteFood = this.setFavoriteFood.bind(this);
+    this.getFullDate = this.getFullDate.bind(this);
+    this.setLocalState = this.setLocalState.bind(this);
+    this.changeFavoriteIcon = this.changeFavoriteIcon.bind(this);
   }
 
-  async componentDidMount() {
-    const foods = await JSON.parse(localStorage.getItem('favoriteRecipes'));
+  componentDidMount() {
+    const foods = JSON.parse(localStorage.getItem('favoriteRecipes'));
     if (foods) {
       const filteredFood = foods.filter((element) => element.type === 'comida');
       this.setFavoriteFood(filteredFood);
