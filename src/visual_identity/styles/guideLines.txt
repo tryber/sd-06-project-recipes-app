@@ -1,0 +1,63 @@
+0.helpers: variables; mixins; functions
+
+_____
+
+1. Base: Element selectors; descendent selectors; child selectors; resets
+
+Explanation:
+A Base rule is applied to an element using an element selector, a descendent selector, or a child selector, along with any pseudo-classes. It doesn’t include any class or ID selectors. It is defining the default styling for how that element should look in all occurrences on the page.
+
+Base styles include setting heading sizes, default link styles, default font styles, and body backgrounds. There should be no need to use !important in a Base style.
+
+I highly recommended that you specify a body background. Some users may define their own background as something other than white. If you work off the expectation that the background will be white, your design may look broken. Worse, your font colour choice may clash with the user’s setting and make your site unusable.
+
+Example:
+body, form {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #039;
+}
+
+a:hover {
+    color: #03F;    
+}
+
+_____
+
+2.Layout: IDs and classes which are used across components
+
+Explanation:
+CSS, by its very nature, is used to lay elements out on the page. However, there is a distinction between layouts dictating the major and minor components of a page. The minor components—such as a callout, or login form, or a navigation item—sit within the scope of major components such as a header or footer. I refer to the minor components as Modules and will dive into those in the next section. The major components are referred to as Layout styles.
+
+Layout styles can also be divided into major and minor styles based on reuse. Major layout styles such as header and footer are traditionally styled using ID selectors but take the time to think about the elements that are common across all components of the page and use class selectors where appropriate.
+
+Example:
+#header, #article, #footer {
+    width: 960px;
+    margin: auto;
+}
+
+#article {
+    border: solid #CCC;
+    border-width: 1px 0 0;
+}
+
+Detailing:
+Some sites may have a need for a more generalized layout framework (for example, 960.gs). These minor Layout styles will use class names instead of IDs so that the styles can be used multiple times on the page.
+
+Generally, a Layout style only has a single selector: a single ID or class name. However, there are times when a Layout needs to respond to different factors. For example, you may have different layouts based on user preference. This layout preference would still be declared as a Layout style and used in combination with other Layout styles.
+
+_____
+
+3.Modules: More specific widgets, sections or containers which can be reused
+
+_____
+
+4.Pages: CSS of specific pages
+
+_____
+
+Main: Import all other styles here

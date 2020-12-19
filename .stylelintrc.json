@@ -52,6 +52,7 @@
         "baseIndentLevel": 1
       }
     ],
+    "react/jsx-curly-spacing": [2, {"when": "never", "allowMultiline": false}],
     "keyframe-declaration-no-important": true,
     "length-zero-no-unit": true,
     "linebreaks": "unix",
