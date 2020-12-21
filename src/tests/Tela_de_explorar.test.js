@@ -1,19 +1,32 @@
 import React from 'react';
+// import userEvent from '@testing-library/user-event';
 import { screen, fireEvent } from '@testing-library/react';
 import App from '../App';
 import renderWithRouter from '../services/renderWithRouter';
-// import * as API from '../services/index';
+import * as API from '../services/index';
 // import oneMeal from '../../cypress/mocks/oneMeal';
-// import mealIngredients from '../../cypress/mocks/mealIngredients';
+import mealIngredients from '../../cypress/mocks/mealIngredients';
+import drinkIngredients from '../../cypress/mocks/drinkIngredients';
+// import areas from '../../cypress/mocks/areas';
 
 // jest.mock('../services/index');
 // const mockFetchFoodById = API
 //   .fetchMealsById.mockImplementation(() => Promise.resolve(oneMeal.meals));
 
+jest.mock('../services/index');
+const mockFetchFoodByIngredients = API
+  .foodsIngredientsRender.mockImplementation(() => Promise
+    .resolve(mealIngredients.meals));
+
+jest.mock('../services/index');
+const mockFetchDrinkByIngredients = API
+  .drinksIngredientsRender.mockImplementation(() => Promise
+    .resolve(drinkIngredients.drinks));
+
 // jest.mock('../services/index');
-// const mockFetchFoodByIngredients = API
-//   .foodsIngredientsRender.mockImplementation(() => Promise
-//     .resolve(mealIngredients.meals));
+// const mockFetchFoodByArea = API
+//   .fetchAreas.mockImplementation(() => Promise
+//     .resolve(areas.meals));
 
 describe('Testar a tela de explorar', () => {
   it('existem 2 botões de explorar Comidas e Bebidas;', () => {
@@ -58,32 +71,30 @@ describe('Testar a tela de explorar', () => {
     fireEvent.click(getByTestId('explore-by-ingredient'));
     expect(history.location.pathname).toBe('/explorar/comidas/ingredientes');
     expect(screen.getByText('Explorar Ingredientes')).toBeInTheDocument();
-    // await (() => expect(mockFetchFoodByIngredients).toHaveBeenCalled());
-    // expect(getByTestId('0-card-img')).toBeInTheDocument();
-    // expect(screen.getByText('Chicken')).toBeInTheDocument();
-    // expect(getByTestId('12-card-img')).not.toBeInTheDocument();
+    await (() => expect(mockFetchFoodByIngredients).toHaveBeenCalled());
+    expect(getByTestId('0-card-img')).toBeInTheDocument();
+    expect(screen.getByText('Chicken')).toBeInTheDocument();
   });
 
-  it('testa ao clicar em Explorar Comidas por Local de Origem', () => {
+  it('testa ao clicar em Explorar Comidas por Local de Origem', async () => {
     const { getByTestId, history } = renderWithRouter(<App />);
     history.push('/explorar/comidas');
     fireEvent.click(getByTestId('explore-by-area'));
     expect(history.location.pathname).toBe('/explorar/comidas/area');
     expect(screen.getByText('Explorar Origem')).toBeInTheDocument();
-    //   expect(getByTestId('0-card-img')).toBeInTheDocument(),
-    //   expect(screen.getByText('Chicken')).toBeInTheDocument(),
-    //   expect(getByTestId('12-card-img')).not.toBeInTheDocument();
+    // await (() => expect(mockFetchFoodByArea).toHaveBeenCalled());
+    // expect(screen.getByText('American')).toBeInTheDocument();
   });
 
-  it('testa ao clicar Me Supreenda! em comidas', async () => {
-    const { getByTestId, history } = renderWithRouter(<App />);
-    history.push('/explorar/comidas');
-    fireEvent.click(getByTestId('explore-surprise'));
-    // history.push('/comidas/52771');
-    // await (() => expect(mockFetchFoodById).toHaveBeenCalled());
-    // expect(screen.getAllByText('Spicy Arrabiata Penne'));
-    // expect(screen.getAllByText('Vegetarian'));
-  });
+  // it('testa ao clicar Me Supreenda! em comidas', async () => {
+  //   const { getByTestId, history } = renderWithRouter(<App />);
+  //   history.push('/explorar/comidas');
+  //   fireEvent.click(getByTestId('explore-surprise'));
+  //   history.push('/comidas/52771');
+  //   // await (() => expect(mockFetchFoodById).toHaveBeenCalled());
+  //   // expect(screen.getAllByText('Spicy Arrabiata Penne'));
+  //   // expect(screen.getAllByText('Vegetarian'));
+  // });
 
   it('testa ao clicar em Explorar Bebidas por Ingredientes', async () => {
     const { getByTestId, history } = renderWithRouter(<App />);
@@ -91,16 +102,18 @@ describe('Testar a tela de explorar', () => {
     fireEvent.click(getByTestId('explore-by-ingredient'));
     expect(history.location.pathname).toBe('/explorar/bebidas/ingredientes');
     expect(screen.getByText('Explorar Ingredientes')).toBeInTheDocument();
-
+    await (() => expect(mockFetchDrinkByIngredients).toHaveBeenCalled());
+    expect(getByTestId('0-card-img')).toBeInTheDocument();
+    expect(screen.getByText('Light rum')).toBeInTheDocument();
   });
 
-  it('testa ao clicar Me Supreenda! em bebidas;', async () => {
-    const { getByTestId, history } = renderWithRouter(<App />);
-    history.push('/explorar/bebidas');
-    fireEvent.click(getByTestId('explore-surprise'));
-    // history.push('/comidas/52771');
-    // await (() => expect(mockFetchFoodById).toHaveBeenCalled());
-    // expect(screen.getAllByText('Spicy Arrabiata Penne'));
-    // expect(screen.getAllByText('Vegetarian'));
-  });
+  // it('testa ao clicar Me Supreenda! em bebidas;', async () => {
+  //   const { getByTestId, history } = renderWithRouter(<App />);
+  //   history.push('/explorar/bebidas');
+  //   fireEvent.click(getByTestId('explore-surprise'));
+  //   // history.push('/comidas/52771');
+  //   // await (() => expect(mockFetchFoodById).toHaveBeenCalled());
+  //   // expect(screen.getAllByText('Spicy Arrabiata Penne'));
+  //   // expect(screen.getAllByText('Vegetarian'));
+  // });
 });
