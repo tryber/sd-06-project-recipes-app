@@ -4,16 +4,23 @@ import { screen, fireEvent } from '@testing-library/react';
 import App from '../App';
 import renderWithRouter from '../services/renderWithRouter';
 import * as API from '../services/index';
-// import oneMeal from '../../cypress/mocks/oneMeal';
+import oneMeal from '../../cypress/mocks/oneMeal';
 import mealIngredients from '../../cypress/mocks/mealIngredients';
 import drinkIngredients from '../../cypress/mocks/drinkIngredients';
 import areas from '../../cypress/mocks/areas';
-
-// jest.mock('../services/index');
-// const mockFetchFoodById = API
-//   .fetchMealsById.mockImplementation(() => Promise.resolve(oneMeal.meals));
+import cocoaDrinks from '../../cypress/mocks/cocoaDrinks';
 
 jest.mock('../services/index');
+
+const mockFetchFoodById = API
+  .fetchMealsById.mockImplementation(() => Promise.resolve(oneMeal.meals));
+
+const mockRandomFoods = API.randomRecipeFoods
+  .mockImplementation(() => Promise.resolve(oneMeal.meals));
+
+const mockRecomenDrinks = API
+  .fetchRecommendedDrinks.mockImplementation(() => Promise.resolve(cocoaDrinks.drinks));
+
 const mockFetchFoodByIngredients = API
   .foodsIngredientsRender.mockImplementation(() => Promise
     .resolve(mealIngredients.meals));
@@ -85,15 +92,18 @@ describe('Testar a tela de explorar', () => {
     await (() => expect(mockFetchFoodByArea).toHaveBeenCalled());
   });
 
-  // it('testa ao clicar Me Supreenda! em comidas', async () => {
-  //   const { getByTestId, history } = renderWithRouter(<App />);
-  //   history.push('/explorar/comidas');
-  //   fireEvent.click(getByTestId('explore-surprise'));
-  //   history.push('/comidas/52771');
-  //   // await (() => expect(mockFetchFoodById).toHaveBeenCalled());
-  //   // expect(screen.getAllByText('Spicy Arrabiata Penne'));
-  //   // expect(screen.getAllByText('Vegetarian'));
-  // });
+  it('testa ao clicar Me Supreenda! em comidas', async () => {
+    const { getByTestId, history } = renderWithRouter(<App />);
+    history.push('/explorar/comidas');
+    fireEvent.click(getByTestId('explore-surprise'));
+
+    history.push('/comidas/52771');
+    await (() => expect(mockRandomFoods).toHaveBeenCalled());
+    await (() => expect(mockFetchFoodById).toHaveBeenCalled());
+    await (() => expect(mockRecomenDrinks).toHaveBeenCalled());
+    expect(screen.getAllByText('Spicy Arrabiata Penne'));
+    expect(screen.getAllByText('Vegetarian'));
+  });
 
   it('testa ao clicar em Explorar Bebidas por Ingredientes', async () => {
     const { getByTestId, history } = renderWithRouter(<App />);
