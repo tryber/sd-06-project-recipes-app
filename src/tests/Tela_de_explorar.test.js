@@ -7,7 +7,7 @@ import * as API from '../services/index';
 // import oneMeal from '../../cypress/mocks/oneMeal';
 import mealIngredients from '../../cypress/mocks/mealIngredients';
 import drinkIngredients from '../../cypress/mocks/drinkIngredients';
-// import areas from '../../cypress/mocks/areas';
+import areas from '../../cypress/mocks/areas';
 
 // jest.mock('../services/index');
 // const mockFetchFoodById = API
@@ -23,10 +23,10 @@ const mockFetchDrinkByIngredients = API
   .drinksIngredientsRender.mockImplementation(() => Promise
     .resolve(drinkIngredients.drinks));
 
-// jest.mock('../services/index');
-// const mockFetchFoodByArea = API
-//   .fetchAreas.mockImplementation(() => Promise
-//     .resolve(areas.meals));
+jest.mock('../services/index');
+const mockFetchFoodByArea = API
+  .fetchAreas.mockImplementation(() => Promise
+    .resolve(areas.meals));
 
 describe('Testar a tela de explorar', () => {
   it('existem 2 botões de explorar Comidas e Bebidas;', () => {
@@ -82,8 +82,7 @@ describe('Testar a tela de explorar', () => {
     fireEvent.click(getByTestId('explore-by-area'));
     expect(history.location.pathname).toBe('/explorar/comidas/area');
     expect(screen.getByText('Explorar Origem')).toBeInTheDocument();
-    // await (() => expect(mockFetchFoodByArea).toHaveBeenCalled());
-    // expect(screen.getByText('American')).toBeInTheDocument();
+    await (() => expect(mockFetchFoodByArea).toHaveBeenCalled());
   });
 
   // it('testa ao clicar Me Supreenda! em comidas', async () => {
