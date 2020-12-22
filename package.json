@@ -51,6 +51,7 @@
   },
   "devDependencies": {
     "@stryker-mutator/core": "^4.2.0",
+    "@stryker-mutator/jest-runner": "^4.2.0",
     "clipboardy": "^2.1.0",
     "cypress": "^3.7.0",
     "cypress-multi-reporters": "^1.4.0",

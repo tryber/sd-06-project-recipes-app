@@ -5,21 +5,32 @@ import App from '../App';
 import renderWithRouter from '../services/renderWithRouter';
 import * as API from '../services/index';
 import oneMeal from '../../cypress/mocks/oneMeal';
+import oneDrink from '../../cypress/mocks/oneDrink';
 import mealIngredients from '../../cypress/mocks/mealIngredients';
 import drinkIngredients from '../../cypress/mocks/drinkIngredients';
 import areas from '../../cypress/mocks/areas';
 import cocoaDrinks from '../../cypress/mocks/cocoaDrinks';
+import chickenMeals from '../../cypress/mocks/chickenMeals';
 
 jest.mock('../services/index');
 
 const mockFetchFoodById = API
   .fetchMealsById.mockImplementation(() => Promise.resolve(oneMeal.meals));
 
+const mockFetchDrinkById = API
+  .fetchDrinksById.mockImplementation(() => Promise.resolve(oneDrink.drinks));
+
 const mockRandomFoods = API.randomRecipeFoods
   .mockImplementation(() => Promise.resolve(oneMeal.meals));
 
+const mockRandomDrinks = API.randomRecipeDrinks
+  .mockImplementation(() => Promise.resolve(oneDrink.drinks));
+
 const mockRecomenDrinks = API
   .fetchRecommendedDrinks.mockImplementation(() => Promise.resolve(cocoaDrinks.drinks));
+
+const mockRecomenFoods = API
+  .fetchRecommendedMeals.mockImplementation(() => Promise.resolve(chickenMeals.meals));
 
 const mockFetchFoodByIngredients = API
   .foodsIngredientsRender.mockImplementation(() => Promise
@@ -116,13 +127,16 @@ describe('Testar a tela de explorar', () => {
     expect(screen.getByText('Light rum')).toBeInTheDocument();
   });
 
-  // it('testa ao clicar Me Supreenda! em bebidas;', async () => {
-  //   const { getByTestId, history } = renderWithRouter(<App />);
-  //   history.push('/explorar/bebidas');
-  //   fireEvent.click(getByTestId('explore-surprise'));
-  //   // history.push('/comidas/52771');
-  //   // await (() => expect(mockFetchFoodById).toHaveBeenCalled());
-  //   // expect(screen.getAllByText('Spicy Arrabiata Penne'));
-  //   // expect(screen.getAllByText('Vegetarian'));
-  // });
+  it('testa ao clicar Me Supreenda! em bebidas;', async () => {
+    const { getByTestId, history } = renderWithRouter(<App />);
+    history.push('/explorar/bebidas');
+    fireEvent.click(getByTestId('explore-surprise'));
+
+    history.push('/bebidas/178319');
+    await (() => expect(mockRandomDrinks).toHaveBeenCalled());
+    await (() => expect(mockFetchDrinkById).toHaveBeenCalled());
+    await (() => expect(mockRecomenFoods).toHaveBeenCalled());
+    expect(screen.getAllByText('Aquamarine'));
+    expect(screen.getAllByText('Alcoholic'));
+  });
 });

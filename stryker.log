@@ -1,0 +1,276 @@
+11:48:48 (9220) INFO ConfigReader Using stryker.conf.js
+11:48:48 (9220) DEBUG BroadcastReporter Broadcasting to reporters ["progress","clear-text","html"]
+11:48:48 (9220) DEBUG ConfigReader Loading config C:\Users\berwa\sd-06-project-recipes-app\stryker.conf.js
+11:48:48 (9220) DEBUG ConfigReader Loaded config: {
+  "_comment": "This config was generated using a preset. Please see the handbook for more information: https://github.com/stryker-mutator/stryker-handbook/blob/master/stryker/guides/react.md#react",
+  "testRunner": "jest",
+  "reporters": [
+    "progress",
+    "clear-text",
+    "html"
+  ],
+  "coverageAnalysis": "off",
+  "jest": {
+    "projectType": "create-react-app"
+  },
+  "allowConsoleColors": true,
+  "checkers": [],
+  "maxTestRunnerReuse": 0,
+  "commandRunner": {
+    "command": "npm test"
+  },
+  "clearTextReporter": {
+    "allowColor": true,
+    "logTests": true,
+    "maxTestsToLog": 3
+  },
+  "dashboard": {
+    "baseUrl": "https://dashboard.stryker-mutator.io/api/reports",
+    "reportType": "full"
+  },
+  "eventReporter": {
+    "baseDir": "reports/mutation/events"
+  },
+  "fileLogLevel": "trace",
+  "logLevel": "debug",
+  "maxConcurrentTestRunners": 9007199254740991,
+  "mutate": [
+    "{src,lib}/**/!(*.+(s|S)pec|*.+(t|T)est).+(cjs|mjs|js|ts|jsx|tsx|html|vue)",
+    "!{src,lib}/**/__tests__/**/*.+(cjs|mjs|js|ts|jsx|tsx|html|vue)"
+  ],
+  "mutator": {
+    "plugins": null,
+    "excludedMutations": []
+  },
+  "plugins": [
+    "@stryker-mutator/*"
+  ],
+  "appendPlugins": [],
+  "jsonReporter": {
+    "fileName": "reports/mutation/mutation.json"
+  },
+  "disableTypeChecks": "{test,src,lib}/**/*.{js,ts,jsx,tsx,html,vue}",
+  "symlinkNodeModules": true,
+  "tempDirName": ".stryker-tmp",
+  "cleanTempDir": true,
+  "testRunnerNodeArgs": [],
+  "thresholds": {
+    "high": 80,
+    "low": 60,
+    "break": null
+  },
+  "timeoutFactor": 1.5,
+  "timeoutMS": 5000,
+  "dryRunTimeoutMinutes": 5,
+  "tsconfigFile": "tsconfig.json",
+  "warnings": true,
+  "configFile": "C:\\Users\\berwa\\sd-06-project-recipes-app\\stryker.conf.js"
+}
+11:48:48 (9220) DEBUG PluginLoader Loading @stryker-mutator/* from C:\Users\berwa\sd-06-project-recipes-app\node_modules\@stryker-mutator
+11:48:48 (9220) DEBUG PluginLoader Loading plugin "C:\Users\berwa\sd-06-project-recipes-app\node_modules\@stryker-mutator\instrumenter" (matched with expression @stryker-mutator/*)
+11:48:48 (9220) DEBUG PluginLoader Loading plugin "C:\Users\berwa\sd-06-project-recipes-app\node_modules\@stryker-mutator\jest-runner" (matched with expression @stryker-mutator/*)
+11:48:48 (9220) DEBUG PluginLoader Loading plugins C:\Users\berwa\sd-06-project-recipes-app\node_modules\@stryker-mutator\instrumenter
+11:48:48 (9220) DEBUG PluginLoader Loading plugins C:\Users\berwa\sd-06-project-recipes-app\node_modules\@stryker-mutator\jest-runner
+11:48:48 (9220) DEBUG PluginLoader Loading plugins C:\Users\berwa\sd-06-project-recipes-app\node_modules\@stryker-mutator\core\src\reporters\index.js
+11:48:48 (9220) DEBUG buildSchemaWithPluginContributions Contributing 1 schemas from plugins to options validation.
+11:48:49 (9220) INFO InputFileResolver Found 37 of 129 file(s) to be mutated.
+11:48:49 (9220) DEBUG InputFileResolver All input files: [
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\.eslintignore",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\.eslintrc.json",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\.github\\CODEOWNERS",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\.github\\workflows\\main.yml",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\.gitignore",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\.stylelintrc.json",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\.trybe\\requirements.json",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\README.md",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress.json",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\fixtures\\example.json",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\integration\\done_recipes_spec.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\integration\\explore_by_area_spec.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\integration\\explore_by_ingredient_spec.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\integration\\explore_drinks_or_meals_spec.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\integration\\explore_spec.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\integration\\favorite_recipes_spec.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\integration\\footer_spec.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\integration\\header_search_bar_spec.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\integration\\header_spec.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\integration\\login_spec.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\integration\\profile_spec.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\integration\\recipe_detail_spec.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\integration\\recipe_in_progress_spec.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\integration\\recipes_list_spec.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\integration\\test_coverage_spec.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\areas.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\beefMeals.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\breakfastMeals.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\chickenMeals.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\cocktailDrinks.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\cocoaDrinks.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\dessertMeals.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\drinkCategories.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\drinkIngredients.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\drinks.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\drinksByIngredient.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\emptyDrinks.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\emptyMeals.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\fetch.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\ginDrinks.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\goatMeals.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\italianMeals.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\japaneseMeals.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\mealCategories.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\mealIngredients.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\meals.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\mealsByIngredient.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\milkDrinks.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\oneDrink.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\oneMeal.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\ordinaryDrinks.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\otherDrinks.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\mocks\\soupMeals.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\plugins\\index.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\support\\commands.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\cypress\\support\\index.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\debug.log",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\package-lock.json",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\package.json",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\public\\favicon.ico",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\public\\index.html",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\public\\logo192.png",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\public\\logo512.png",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\public\\manifest.json",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\public\\robots.txt",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\pull-request-para-branch-do-grupo.png",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\reporter.json",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\App.css",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\App.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\App.test.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\Slider.scss",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\actions\\index.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\components\\DrinkCard.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\components\\FavDrinkCard.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\components\\FavFoodCard.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\components\\FoodCard.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\components\\Footer.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\components\\Header.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\components\\SearchInput.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\components\\index.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\images\\blackHeartIcon.svg",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\images\\drinkIcon.svg",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\images\\exploreIcon.svg",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\images\\mealIcon.svg",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\images\\profileIcon.svg",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\images\\searchIcon.svg",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\images\\shareIcon.svg",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\images\\whiteHeartIcon.svg",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\index.css",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\index.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\DoneRecipes.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\Drink.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\DrinksDetails.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\DrinksRecipesInProgress.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\Explore.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\ExploreDrinks.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\ExploreDrinksByIngredient.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\ExploreFoods.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\ExploreFoodsByArea.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\ExploreFoodsByIngredient.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\FavoriteRecipes.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\Foods.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\FoodsDetails.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\FoodsRecipesInProgress.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\Login.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\NotFound.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\Profile.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\index.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\reducers\\index.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\reducers\\menu.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\reducers\\user.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\serviceWorker.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\services\\index.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\services\\renderWithRouter.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\setupTests.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\store\\index.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\tests\\Barra_de_Busca.test.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\tests\\Footer.test.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\tests\\Header.test.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\tests\\Receitas_Favoritas.test.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\tests\\Receitas_feitas.test.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\tests\\Tela_de_Login.test.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\tests\\Tela_de_Perfil.test.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\tests\\Tela_de_detalhes.test.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\tests\\Tela_de_explorar.test.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\tests\\Tela_de_receitas_em_progresso.test.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\tests\\Tela_principal_de_receitas.test.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\stryker.conf.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\stryker.log"
+]
+11:48:49 (9220) DEBUG InputFileResolver Files to mutate: [
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\App.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\actions\\index.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\components\\DrinkCard.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\components\\FavDrinkCard.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\components\\FavFoodCard.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\components\\FoodCard.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\components\\Footer.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\components\\Header.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\components\\SearchInput.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\components\\index.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\index.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\DoneRecipes.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\Drink.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\DrinksDetails.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\DrinksRecipesInProgress.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\Explore.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\ExploreDrinks.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\ExploreDrinksByIngredient.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\ExploreFoods.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\ExploreFoodsByArea.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\ExploreFoodsByIngredient.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\FavoriteRecipes.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\Foods.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\FoodsDetails.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\FoodsRecipesInProgress.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\Login.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\NotFound.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\Profile.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\pages\\index.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\reducers\\index.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\reducers\\menu.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\reducers\\user.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\serviceWorker.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\services\\index.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\services\\renderWithRouter.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\setupTests.js",
+  "C:\\Users\\berwa\\sd-06-project-recipes-app\\src\\store\\index.js"
+]
+11:48:49 (9220) DEBUG TemporaryDirectory Using temp directory "C:\Users\berwa\sd-06-project-recipes-app\.stryker-tmp"
+11:48:49 (9220) DEBUG Instrumenter Instrumenting 37 source files with mutants
+11:48:49 (9220) DEBUG Stryker Not removing the temp dir because an error occurred
+11:48:49 (9220) ERROR Stryker SyntaxError: C:\Users\berwa\sd-06-project-recipes-app\src\App.js: Support for the experimental syntax 'jsx' isn't currently enabled (15:5):
+
+[0m [90m 13 | [39m[36mfunction[39m [33mApp[39m() {[0m
+[0m [90m 14 | [39m  [36mreturn[39m ([0m
+[0m[31m[1m>[22m[39m[90m 15 | [39m    [33m<[39m[33mdiv[39m className[33m=[39m[32m"master-container"[39m[33m>[39m[0m
+[0m [90m    | [39m    [31m[1m^[22m[39m[0m
+[0m [90m 16 | [39m      [33m<[39m[33mSwitch[39m[33m>[39m[0m
+[0m [90m 17 | [39m        [33m<[39m[33mRoute[39m exact path[33m=[39m[32m"/"[39m component[33m=[39m{ [33mLogin[39m } [33m/[39m[33m>[39m[0m
+[0m [90m 18 | [39m        [33m<[39m[33mRoute[39m[0m
+
+Add @babel/preset-react (https://git.io/JfeDR) to the 'presets' section of your Babel config to enable transformation.
+If you want to leave it as-is, add @babel/plugin-syntax-jsx (https://git.io/vb4yA) to the 'plugins' section to enable parsing.
+    at Object._raise (C:\Users\berwa\sd-06-project-recipes-app\node_modules\@stryker-mutator\instrumenter\node_modules\@babel\core\node_modules\@babel\parser\lib\index.js:748:17)
+    at Object.raiseWithData (C:\Users\berwa\sd-06-project-recipes-app\node_modules\@stryker-mutator\instrumenter\node_modules\@babel\core\node_modules\@babel\parser\lib\index.js:741:17)
+    at Object.expectOnePlugin (C:\Users\berwa\sd-06-project-recipes-app\node_modules\@stryker-mutator\instrumenter\node_modules\@babel\core\node_modules\@babel\parser\lib\index.js:9116:18)
+    at Object.parseExprAtom (C:\Users\berwa\sd-06-project-recipes-app\node_modules\@stryker-mutator\instrumenter\node_modules\@babel\core\node_modules\@babel\parser\lib\index.js:10569:22)
+    at Object.parseExprAtom (C:\Users\berwa\sd-06-project-recipes-app\node_modules\@stryker-mutator\instrumenter\node_modules\@babel\core\node_modules\@babel\parser\lib\index.js:7575:45)
+    at Object.parseExprSubscripts (C:\Users\berwa\sd-06-project-recipes-app\node_modules\@stryker-mutator\instrumenter\node_modules\@babel\core\node_modules\@babel\parser\lib\index.js:10150:23)
+    at Object.parseUpdate (C:\Users\berwa\sd-06-project-recipes-app\node_modules\@stryker-mutator\instrumenter\node_modules\@babel\core\node_modules\@babel\parser\lib\index.js:10130:21)
+    at Object.parseMaybeUnary (C:\Users\berwa\sd-06-project-recipes-app\node_modules\@stryker-mutator\instrumenter\node_modules\@babel\core\node_modules\@babel\parser\lib\index.js:10119:17)
+    at Object.parseExprOps (C:\Users\berwa\sd-06-project-recipes-app\node_modules\@stryker-mutator\instrumenter\node_modules\@babel\core\node_modules\@babel\parser\lib\index.js:9989:23)
+    at Object.parseMaybeConditional (C:\Users\berwa\sd-06-project-recipes-app\node_modules\@stryker-mutator\instrumenter\node_modules\@babel\core\node_modules\@babel\parser\lib\index.js:9963:23) {
+  loc: Position { line: 15, column: 4 },
+  pos: 464,
+  missingPlugin: [ 'jsx', 'flow', 'typescript' ],
+  code: 'BABEL_PARSE_ERROR'
+}
