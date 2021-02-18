@@ -5,18 +5,38 @@ import { Link } from 'react-router-dom';
 
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import '../css/explore.css';
 
 function Explore(props) {
   const { history: { location: { pathname } }, pageConfig } = props;
   const { header } = pageConfig;
   return (
-    <div>
+    <div className="explorar_container-page">
       <Header pathname={ pathname } componentConfig={ header } />
-      <Link to="/explorar/comidas" data-testid="explore-food">
-        Explorar Comidas
+      <Link
+        to="/explorar/comidas"
+        data-testid="explore-food"
+
+      >
+        <div className="explorar__container-recipeType">
+
+          <div className="explorar__element-background foodbackground" />
+          <p className="explorar__element-text">
+            Explorar Comidas
+          </p>
+        </div>
       </Link>
-      <Link to="/explorar/bebidas" data-testid="explore-drinks">
-        Explorar Bebidas
+      <Link
+        to="/explorar/bebidas"
+        data-testid="explore-drinks"
+      >
+        <div className="explorar__container-recipeType">
+
+          <div className="explorar__element-background drinkbackground" />
+          <p className="explorar__element-text">
+            Explorar Bebidas
+          </p>
+        </div>
       </Link>
       <Footer />
     </div>

@@ -2,15 +2,24 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function ButtonsExploreRecipes(props) {
-  const { pathname, title } = props;
+  const { pathname, title, className } = props;
 
-  const renderButton = (innerText, pagePathName, testId) => (
+  const renderButton = (innerText, pagePathName, testId, backgroundClassName) => (
     <Link to={ pagePathName } data-testid={ testId }>
-      {innerText}
+      <div className="explorar__container-recipeType">
+        <div
+          className={
+            `explorar__element-background ${testId}-${backgroundClassName}`
+          }
+        />
+        <p className="explorar__element-text">
+          {innerText}
+        </p>
+      </div>
     </Link>
   );
 
-  const renderButtons = (pageTitle, pagePathName) => {
+  const renderButtons = (pageTitle, pagePathName, classNam) => {
     let randomRecipePath;
     let randomId;
     const mockFoodRandomId = 52771;
@@ -28,14 +37,16 @@ export default function ButtonsExploreRecipes(props) {
 
     return (
       <>
-        {renderButton('Por Ingredientes', ingredientsPath, 'explore-by-ingredient')}
+        {renderButton('Por Ingredientes',
+          ingredientsPath, 'explore-by-ingredient', classNam)}
         {pageTitle === 'Explorar Comidas'
-          ? renderButton('Por Local de Origem', originAreaPath, 'explore-by-area')
+          ? renderButton('Por Local de Origem',
+            originAreaPath, 'explore-by-area', classNam)
           : null}
-        {renderButton('Me Surpreenda!', randomRecipePath, 'explore-surprise')}
+        {renderButton('Me Surpreenda!', randomRecipePath, 'explore-surprise', classNam)}
       </>
     );
   };
 
-  return renderButtons(title, pathname);
+  return renderButtons(title, pathname, `${className}`);
 }

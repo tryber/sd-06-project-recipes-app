@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { changeIsFetchin, sendData } from '../redux/actions/searchRecipes';
 
-function SearchRecipes({ dispatchFetching, dispatchData }) {
+function SearchRecipes({ dispatchFetching, dispatchData, setToogleSearch }) {
   const [inputText, setInputText] = useState('');
   const [radioSearchSelection, setRadioSearchSelection] = useState('ingredients');
 
@@ -14,6 +14,7 @@ function SearchRecipes({ dispatchFetching, dispatchData }) {
         inputText,
         radioSearchSelection,
       });
+      setToogleSearch(false);
     } else {
       alert('Sua busca deve conter somente 1 (um) caracter');
     }
@@ -98,6 +99,7 @@ function SearchRecipes({ dispatchFetching, dispatchData }) {
 
   const renderSubmitButton = () => (
     <button
+      className="main__search-button"
       type="button"
       data-testid="exec-search-btn"
       onClick={ () => handleSubmitSearch() }
@@ -131,5 +133,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(SearchRecipes);
 SearchRecipes.propTypes = {
   dispatchFetching: PropTypes.func.isRequired,
   dispatchData: PropTypes.func.isRequired,
+  setToogleSearch: PropTypes.func.isRequired,
 
 };

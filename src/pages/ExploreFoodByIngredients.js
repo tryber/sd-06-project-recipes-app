@@ -35,9 +35,12 @@ function ExploreFoodByIngredients(props) {
   };
 
   return (
-    <div>
+    <div className="explorar_container-page">
       <Header pathname={ pathname } componentConfig={ header } />
-      {renderIngredients(foodIngredients, isLoading, ingredientConfig)}
+      <div className="explore__ingredients-container">
+
+        {renderIngredients(foodIngredients, isLoading, ingredientConfig)}
+      </div>
 
       <Footer />
     </div>

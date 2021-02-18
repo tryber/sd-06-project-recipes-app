@@ -49,9 +49,8 @@ function CockTail(props) {
 
   return (
 
-    <>
+    <div className="drink__container-page">
 
-      {console.log(drinkRecipes) }
       <Header
         pathname={ pathname }
         componentConfig={ header }
@@ -66,7 +65,7 @@ function CockTail(props) {
         recipes={ drinkRecipes }
       />
       <Footer />
-    </>
+    </div>
   );
 }
 

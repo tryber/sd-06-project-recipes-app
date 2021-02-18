@@ -1,10 +1,15 @@
 body {
   width: 360px;
-  border: 1px solid green;
 }
 .button-position {
   position: fixed;
   bottom: 0;
+  width:95%;
+  padding:10px;
+  border:none;
+  color: #fff;
+  background-color: rgba(162,45,45, 0.9);
+  
 }
 .main-image {
   width: 100%;
@@ -12,12 +17,14 @@ body {
 .recomendation-image {
   display: flex;
   flex-direction: row;
-  border: 1px solid red;
   overflow: scroll;
+  margin-top:10px;
+  margin-right: 10px;
+
 }
 
 .recomendation-image li {
-  
+  margin-top:10px;
   width: 55%;
   margin: 0 8px;
   text-align: center;

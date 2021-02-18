@@ -67,6 +67,7 @@ function DrinkCategoriesButtons({ categories, dispatchRecipes, dispatchFilterCha
     const five = 5;
     return (
       <button
+        className="foodCategoriesButtons__element"
         type="button"
         data-testid="All-category-filter"
         onClick={ (e) => handleClick(e, five) }
@@ -79,6 +80,7 @@ function DrinkCategoriesButtons({ categories, dispatchRecipes, dispatchFilterCha
 
   const renderButtton = (category, index) => (
     <button
+      className="foodCategoriesButtons__element"
       type="button"
       key={ `${category.strCategory} ${index} ` }
       data-testid={ `${category.strCategory}-category-filter` }
@@ -89,7 +91,8 @@ function DrinkCategoriesButtons({ categories, dispatchRecipes, dispatchFilterCha
   );
 
   const renderCategoriesButtons = () => (
-    <div>
+    <div className="foodCategoriesButtons__container">
+      <div className="drinkCategoriesButton__element-background" />
       {categories.map((category, index) => renderButtton(category, index))}
       {renderAllCategoriesButton()}
     </div>);

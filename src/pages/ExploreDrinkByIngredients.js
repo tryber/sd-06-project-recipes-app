@@ -34,7 +34,7 @@ function ExploreDrinkByIngredients(props) {
   };
 
   return (
-    <div>
+    <div className="explorar_container-page">
       <Header pathname={ pathname } componentConfig={ header } />
       {renderIngredients(drinkIngredients, isLoading, ingredientConfig)}
 

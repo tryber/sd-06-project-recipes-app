@@ -7,8 +7,8 @@ import SearchRecipes from './SearchRecipes';
 
 function Header({ pathname, componentConfig }) {
   const [toggleSearch, setToogleSearch] = useState(false);
-  const { title, profileButton, searchButton } = componentConfig;
-
+  const { title, profileButton, searchButton, className } = componentConfig;
+  console.log(className);
   const renderProfileButton = () => {
     if (profileButton) {
       return (
@@ -19,6 +19,7 @@ function Header({ pathname, componentConfig }) {
           >
             <img
               src={ profileIcon }
+              className="profile-icon"
               alt="profile-icon"
               data-testid="profile-top-btn"
             />
@@ -55,13 +56,14 @@ function Header({ pathname, componentConfig }) {
   const renderSearchRecipeComponent = () => (
     toggleSearch ? (
       <SearchRecipes
+        setToogleSearch={ setToogleSearch }
         title={ title }
         pathname={ pathname }
       />) : null
   );
 
   return (
-    <div className="header__container">
+    <div className={ className }>
       {renderProfileButton()}
       {renderTitle()}
       {renderSearchButton()}
@@ -77,5 +79,6 @@ Header.propTypes = {
     profileButton: PropTypes.bool.isRequired,
     searchButton: PropTypes.bool.isRequired,
     title: PropTypes.string.isRequired,
+    className: PropTypes.string.isRequired,
   }).isRequired,
 };

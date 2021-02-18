@@ -2,12 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
+import DoneRecipesList from '../components/DoneRecipesList';
+import RecipeTypeButtons from '../components/RecipeTypeButtons';
 
 function DoneRecipes(props) {
   const { history: { location: { pathname } }, pageConfig } = props;
   const { header } = pageConfig;
   return (
-    <Header pathname={ pathname } componentConfig={ header } />
+    <>
+      <Header pathname={ pathname } componentConfig={ header } />
+      <RecipeTypeButtons />
+      <DoneRecipesList />
+    </>
   );
 }
 

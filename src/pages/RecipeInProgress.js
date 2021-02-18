@@ -40,6 +40,14 @@ function RecipeInProgress(props) {
     setMesuresItem(showMesures);
   };
 
+  const setRecipesInStorage = () => {
+    
+  };
+
+  const handleClick = () => {
+    setDoneRecipesInStorage();
+  };
+
   const fetchIdRecipe = async () => {
     if (path === '/bebidas/:id/in-progress') {
       const recipeType = 'drinks';
@@ -246,6 +254,7 @@ function RecipeInProgress(props) {
         <p data-testid="instructions">{instruction}</p>
         <Link to="/receitas-feitas">
           <button
+            onClick={ () => handleClick() }
             data-testid="finish-recipe-btn"
             type="button"
             disabled={ isDisable }

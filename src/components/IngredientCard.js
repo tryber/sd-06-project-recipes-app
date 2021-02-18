@@ -54,6 +54,7 @@ function IngredientCard({ name, index, pathname, dispatchFetchDrinkByIngredient,
           type="button"
           onClick={ () => handleClick(ingredientName, path) }
           data-testid={ `${ingredientIndex}-ingredient-card` }
+          className="explore__ingredient-card"
         >
 
           <p data-testid={ `${ingredientIndex}-card-name` }>{ingredientName}</p>

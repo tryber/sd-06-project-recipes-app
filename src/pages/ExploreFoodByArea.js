@@ -22,7 +22,7 @@ function ExploreFoodByArea(props) {
   }, []);
 
   return (
-    <>
+    <div className="food__container-page">
       <Header
         componentConfig={ header }
         pathname={ pathname }
@@ -37,7 +37,7 @@ function ExploreFoodByArea(props) {
         recipes={ foodRecipes }
       />
       <Footer />
-    </>
+    </div>
   );
 }
 

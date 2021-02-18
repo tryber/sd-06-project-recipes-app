@@ -1,0 +1,110 @@
+a {
+  text-decoration: none;
+}
+
+.explorar_container-page {
+  background-color: rgba(68, 40, 20,0.2);
+  min-height: 640px;
+}
+
+.explorar__header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width:100%;
+  background-color: #432323;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #eee;
+}
+
+.explorar__container-recipeType {
+  max-width: 100%;
+  max-height: 240px;
+  position: relative;
+  margin: 10px;
+  top:10px;
+}
+
+.explorar__element-text {
+  position: absolute;
+  padding: 10px;
+  background: #432323;
+  color: #eee;
+  top: 0;
+  z-index: 2;
+  border-radius: 10% 10%; 
+}
+
+.explore-by-ingredient-drink {
+  background: url('../images/drinkIngredients.jpg')
+}
+
+.explore-by-ingredient-food {
+  background: url('../images/ingredients.jpg')
+}
+
+.explore-by-area-food {
+  background: url('../images/exploreByArea.jpg')
+}
+
+.explore-surprise-food {
+  background: url('../images/surpriseFood.jpg')
+}
+
+.explore-surprise-drink {
+  background: url('../images/misteryDrink.jpg') no-repeat;
+  background-image: linear-gradient(rgba(255,255,255,0.65)), rgba(0,0,0,0.4);
+  display: flex;
+}
+
+.explore__ingredients-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  justify-items: space-evenly;
+  align-items: center;
+  width: 360px;
+}
+
+.explore__ingredient-card {
+  cursor: pointer;
+  opacity: 1;
+  background-color: rgba(73, 20, 20, 0.002);
+  outline: none;
+  border:none;
+  margin: 2px;
+  padding: 10px 5px;
+}
+
+.explore__ingredient-card p {
+  font-weight: 600;
+  word-wrap: break-word;
+  width: 70px;
+  margin:auto;
+}
+
+.explorar__element-background {
+  min-width:90% ;
+  height: 240px;
+  border: 2px solid  #432323;
+  margin-top: 10px;
+  border-radius: 10% 10%;
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.drinkIngredients {
+  background: url('../images/ingredients.jpg') no-repeat;
+
+}
+
+.drinkbackground {
+  background: url('../images/drinkBackground.jpg') no-repeat;
+}
+
+.foodbackground {
+  background: url('../images/foodBackground.jpg') no-repeat;
+}

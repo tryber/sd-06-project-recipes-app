@@ -6,22 +6,28 @@ import findMatchInKeys from '../helpers/assets';
 export default function RecipesList(props) {
   const { pathname,
     recipes, title, recipeConfig, isLoading, filter } = props;
-  console.log('filterActive', filter[title],
-    title, recipeConfig, isLoading, 'recipe', recipes);
+  const { className, recipeCardClassName } = recipeConfig;
 
   const renderRecipesResults = () => {
     const maxRecipesNumber = 12;
     console.log(recipes);
     if (recipes && recipes.length > 1) {
       return (
-        recipes.filter((_recipe, index) => index < maxRecipesNumber)
-          .map((recipe, index) => (<RecipeCard
-            pathname={ pathname }
-            recipe={ recipe }
-            key={ recipe[findMatchInKeys('id', recipe)] }
-            id={ recipe[findMatchInKeys('id', recipe)] }
-            recipeIndex={ index }
-          />))
+        <div className={ className }>
+
+          {
+
+            recipes.filter((_recipe, index) => index < maxRecipesNumber)
+              .map((recipe, index) => (<RecipeCard
+                pathname={ pathname }
+                className={ recipeCardClassName }
+                recipe={ recipe }
+                key={ recipe[findMatchInKeys('id', recipe)] }
+                id={ recipe[findMatchInKeys('id', recipe)] }
+                recipeIndex={ index }
+              />))
+          }
+        </div>
       );
     }
   };
@@ -39,6 +45,7 @@ export default function RecipesList(props) {
     if (recipes.length === 1) {
       return (
         <RecipeCard
+          className={ recipeCardClassName }
           pathname={ pathname }
           recipe={ recipe }
           recipeIndex={ 0 }
@@ -49,6 +56,8 @@ export default function RecipesList(props) {
 
   const renderSearchResults = () => (
     <>
+      <div className="food__recipes-background" />
+      <div className="foodRecipes__element-title">Recipes</div>
       {renderRedirectToSingleResult()}
       {renderRecipesResults()}
     </>

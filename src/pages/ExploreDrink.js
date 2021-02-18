@@ -7,10 +7,10 @@ import Header from '../components/Header';
 import ButtonsExploreRecipes from '../components/ButtonsExploreRecipes';
 import { addRecipes, addDrinkRecipes } from '../redux/actions/searchRecipes';
 
-function ExploreFood(props) {
+function ExploreDrink(props) {
   const { history: { location: { pathname } }, pageConfig,
     drinkRecipes, isLoading, dispatchInitialRecipes, dispatchRecipes } = props;
-  const { header } = pageConfig;
+  const { header, className } = pageConfig;
   const { title } = header;
 
   useEffect(() => {
@@ -18,15 +18,16 @@ function ExploreFood(props) {
     const recipes = JSON.parse(localStorage.getItem('drinkRecipes'));
     if (recipes !== null && drinkRecipes.length === zero) {
       dispatchRecipes(recipes);
-    } else if (drinkRecipes.length === zero) {
+    } else if (!drinkRecipes || drinkRecipes.length === zero) {
       dispatchInitialRecipes();
     }
   }, []);
 
   return (
-    <div>
+    <div className="explorar__container-page">
       <Header pathname={ pathname } componentConfig={ header } />
       { !isLoading ? <ButtonsExploreRecipes
+        className={ className }
         pathname={ pathname }
         title={ title }
         recipes={ drinkRecipes }
@@ -48,15 +49,16 @@ const mapDispatchToProps = (dispatch) => ({
   dispatchRecipes: (recipes) => dispatch(addRecipes(recipes)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ExploreFood);
+export default connect(mapStateToProps, mapDispatchToProps)(ExploreDrink);
 
-ExploreFood.propTypes = {
+ExploreDrink.propTypes = {
   pageConfig: PropTypes.shape({
     header: PropTypes.shape({
       title: PropTypes.string.isRequired,
       profileButton: PropTypes.bool.isRequired,
       searchButton: PropTypes.bool.isRequired,
     }),
+    className: PropTypes.string.isRequired,
   }).isRequired,
   history: PropTypes.shape({
     location: PropTypes.shape({

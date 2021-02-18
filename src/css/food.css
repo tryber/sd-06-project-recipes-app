@@ -1,0 +1,193 @@
+body {
+  font-family: Cabin;
+  background-color: #fff;
+}
+
+button:focus, button>:hover {
+  border:none;
+  outline: none;
+}
+
+.food__container-page {
+  max-width: 360px;
+  position: relative;
+  border:3px solid #fff;
+  min-height: 640px;
+  padding: 5px;
+
+}
+
+.drink__container-page {
+  max-width: 360px;
+  position: relative;
+  border:3px solid #fff;
+  min-height: 640px;
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(165,84,42,0.4) );
+  
+}
+
+
+
+div.food__header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  max-width:100%;
+  background-color: #432323;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #eee;
+}
+
+div.food__header-container button {
+  background-color: transparent;
+  border: none;
+  margin-left: 5px;
+}
+
+.foodCategoriesButton__element-background {
+  font-size: 24px;
+  font-weight: 600;
+  color: rgba(68, 40, 20,0.5);
+  width:100vw;
+  height: 200px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #432323;
+  background: url('../images/foodBackground.jpg') no-repeat;
+
+}
+
+.drinkCategoriesButton__element-background {
+  font-size: 24px;
+  font-weight: 600;
+  color: rgba(68, 40, 20,0.5);
+  width:100vw;
+  height: 200px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #432323;
+  background: url('../images/drinkBackground.jpg') no-repeat;
+}
+
+.foodRecipes__element-title {
+   font-size: 24px;
+  font-weight: 600;
+  color: rgba(255, 255, 255,0.5);
+  text-align: center;
+  width:100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #432323;
+}
+
+.foodCategoriesButtons__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding:14px;
+  box-shadow: 0 0 3px rgba(68, 40, 20,0.3);
+
+}
+
+.foodCategoriesButtons__element {
+  max-width: 1fr;
+  min-width: 100px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border: 1px solid white;
+  border-radius: 12% 12% ;
+  margin-top: 10px;
+  background-color: #fefefe;
+  box-shadow: 2px 2px 1px rgba(68, 40, 20,0.3);
+  color: rgba(68, 40, 20,0.5);
+  font-family: Cabin;
+  font-weight: 700;
+}
+
+.foodCategoriesButtons__element:hover {
+  cursor: pointer;
+}
+
+.foodRecipesList__container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  padding-bottom:50px;
+  position: relative;
+}
+
+.foodRecipeCard__container {
+  display: flex;
+  flex-direction: column;
+  max-width: 160px;
+  background-color: #fff;
+  border-radius: 25% 25%;
+  align-content: center ;
+  justify-items: center;
+  position: relative;
+  margin: 10px;
+  margin-top: 0;
+  box-shadow: 3px 3px 3px rgba(68, 40, 20,0.3);
+}
+
+.foodDetail-subtitle {
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  background-color: #fff;
+}
+
+.ingredients-list {
+  margin-bottom: 10px;
+}
+
+.instructions-text {
+  text-indent: 20px;
+  margin-bottom: 40px;
+}
+
+.action-icon {
+  border-radius: 50% 50%;
+  padding: 5px;
+  background-color: #fff;
+  outline: none;
+  border: none;
+}
+
+.foodRecipeCard__container img {
+  max-height: 140px;
+  border-radius: 25% 25%;
+}
+
+.food-videos {
+  margin-bottom: 10px;
+}
+
+.foodRecipeCard__container p {
+  font-style: normal;
+  color: #fff;
+  background-color: rgba(68, 40, 20,0.8);
+  border-radius: 20% 20%;
+  padding: 5px;
+  text-decoration: none;
+  text-align: center;
+  position: absolute;
+  top: 50px;
+}
+
+.food__recipes-background {
+  background: url('../images/recipesBackground.jpg') no-repeat;
+  position: absolute;
+  z-index: -1;
+  width:100%;
+  min-height: 950px;
+  max-height: 100%;
+  opacity: 0.4;
+}
+

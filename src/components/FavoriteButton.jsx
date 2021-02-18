@@ -53,6 +53,7 @@ function FavoriteButton(props) {
 
   return (
     <button
+      className="action-icon"
       data-testid="favorite-btn"
       type="button"
       onClick={ () => setFavoriteRecipe() }

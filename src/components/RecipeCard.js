@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import findMatchInKeys from '../helpers/assets';
 
-export default function RecipeCard({ recipe, recipeIndex, pathname, id }) {
+export default function RecipeCard({ recipe, recipeIndex, pathname, id, className }) {
   const [thumbKey, setthumbKey] = useState();
   const [name, setName] = useState();
 
@@ -50,7 +50,7 @@ export default function RecipeCard({ recipe, recipeIndex, pathname, id }) {
         return (
           <Link to={ `${pathname}/${id}` } replace>
             <div
-              className="main__page__recipe-card"
+              className={ className }
               data-testid={ `${recipeIndex}-recipe-card` }
             >
               {renderRecipeDetails()}
@@ -60,7 +60,7 @@ export default function RecipeCard({ recipe, recipeIndex, pathname, id }) {
       } return (
         <Link to={ `/comidas/${id}` } replace>
           <div
-            className="main__page__recipe-card"
+            className="foodRecipeCard__container"
             data-testid={ `${recipeIndex}-recipe-card` }
           >
             {renderRecipeDetails()}

@@ -10,7 +10,7 @@ import Footer from '../components/Footer';
 function ExploreFood(props) {
   const { history: { location: { pathname } }, pageConfig,
     foodRecipes, isLoading, dispatchInitialRecipes, dispatchRecipes } = props;
-  const { header } = pageConfig;
+  const { header, className } = pageConfig;
   const { title } = header;
 
   useEffect(() => {
@@ -19,7 +19,7 @@ function ExploreFood(props) {
     console.log(foodRecipes, recipes);
     if (recipes !== null && foodRecipes.length === zero) {
       dispatchRecipes(recipes);
-    } else if (foodRecipes.length === zero) {
+    } else if (!foodRecipes || foodRecipes.length === zero) {
       dispatchInitialRecipes();
     }
   }, []);
@@ -28,6 +28,7 @@ function ExploreFood(props) {
     <div>
       <Header pathname={ pathname } componentConfig={ header } />
       { !isLoading ? <ButtonsExploreRecipes
+        className={ className }
         pathname={ pathname }
         title={ title }
         recipes={ foodRecipes }
@@ -58,6 +59,7 @@ ExploreFood.propTypes = {
       profileButton: PropTypes.bool.isRequired,
       searchButton: PropTypes.bool.isRequired,
     }),
+    className: PropTypes.string.isRequired,
   }).isRequired,
   history: PropTypes.shape({
     location: PropTypes.shape({

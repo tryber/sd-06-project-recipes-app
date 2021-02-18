@@ -8,6 +8,8 @@ import {
   filterMatchInKeys,
   modifyResponse,
   modifyResponseToFavoriteBtn,
+  checkStorageDoneRecipes,
+  checkStorageInProgressRecipe,
 } from '../helpers/assets';
 import shareIcon from '../images/shareIcon.svg';
 import '../css/details.css';
@@ -22,10 +24,23 @@ function FoodDetail(props) {
   const [mesuresItem, setMesuresItem] = useState([]);
   const [recomendation, setRecomendation] = useState([]);
   const [shareMessege, setShareMessege] = useState('');
+  const [isDoneRecipe, setIsDoneRecipes] = useState(
+    () => checkStorageDoneRecipes(
+      id, JSON.parse(localStorage.getItem('doneRecipes')),
+    ),
+  );
+
+  const [isRecipeInProgress, setIsRecipesInProgress] = useState(
+    () => checkStorageInProgressRecipe(
+      id, JSON.parse(localStorage.getItem('inProgressRecipes')),
+    ),
+  );
+
   // const [objectRecipe, setObjectRecipe] = useState({});
   const [favoriteResponseModified, setFavoriteResponseModified] = useState();
-  // const [loading, setLoading] = useState(true);
 
+  // const [loading, setLoading] = useState(true);
+  console.log(isRecipeInProgress, isDoneRecipe);
   const getIngredientsAndMesures = (object) => {
     const ingredients = filterMatchInKeys(/strIngredient/i, object);
     const showIngredients = ingredients.map((ingred) => object[ingred])
@@ -153,25 +168,41 @@ function FoodDetail(props) {
     if (!fetchRecipe()) return <p>loading</p>;
     fetchRecipe();
     fetchRecomendation();
+    setIsRecipesInProgress(checkStorageInProgressRecipe(
+      id, JSON.parse(localStorage.getItem('inProgressRecipes')),
+    ));
+    setIsDoneRecipes(checkStorageDoneRecipes(
+      id, JSON.parse(localStorage.getItem('doneRecipes')),
+    ));
     // setFavoriteRecipe(objResponse)
   }, []);
 
-  const showVideo = () => {
+  const showVideo = (video) => {
     if (path === '/bebidas/:id') {
       return '';
     }
-    return (
-      <video
-        data-testid="video"
-        controls
-        src={ objResponse.video }
-      >
-        <track src={ objResponse.video } kind="captions" srcLang="en" />
-      </video>
-    );
+    if (video) {
+      const newVideo = video.split('=');
+      console.log(newVideo[1]);
+      return (
+        <iframe
+          className="food-video"
+          title="video"
+          data-testid="video"
+          width="350"
+          height="196"
+          src={ `https://www.youtube.com/embed/${newVideo[1]}` }
+          frameBorder="0"
+          allow="accelerometer;
+           autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      );
+    }
   };
+
   return (
-    <div>
+    <div className="food__container-page">
       <img
         className="main-image"
         data-testid="recipe-photo"
@@ -179,26 +210,43 @@ function FoodDetail(props) {
         alt={ objResponse.title }
         width="150"
       />
-      <h1 data-testid="recipe-title">{objResponse.title}</h1>
-      <button
-        data-testid="share-btn"
-        type="button"
-        onClick={ () => shareLinkButton() }
+      <div className="foodDetail-subtitle">
+
+        <h1 data-testid="recipe-title">{objResponse.title}</h1>
+        <div className="icons-container">
+          <button
+            data-testid="share-btn"
+            type="button"
+            onClick={ () => shareLinkButton() }
+            className="action-icon"
+          >
+
+            <img src={ shareIcon } alt="share" />
+            <p>{shareMessege}</p>
+          </button>
+          <FavoriteButton recipe={ favoriteResponseModified } id={ id } />
+        </div>
+      </div>
+      <div className="ingredients-list">
+
+        <h4 data-testid="recipe-category">{objResponse.category}</h4>
+        <ul>
+          {ingredientsItem.map((item, index) => (
+            <li key={ index } data-testid={ `${index}-ingredient-name-and-measure` }>
+              {`${item} - ${mesuresItem[index]}`}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <p
+        className="instructions-text"
+        data-testid="instructions"
       >
-        <img src={ shareIcon } alt="share" />
-      </button>
-      <p>{shareMessege}</p>
-      <FavoriteButton recipe={ favoriteResponseModified } id={ id } />
-      <h4 data-testid="recipe-category">{objResponse.category}</h4>
-      <ul>
-        {ingredientsItem.map((item, index) => (
-          <li key={ index } data-testid={ `${index}-ingredient-name-and-measure` }>
-            {`${item} - ${mesuresItem[index]}`}
-          </li>
-        ))}
-      </ul>
-      <p data-testid="instructions">{objResponse.instruction}</p>
-      {showVideo()}
+        {objResponse.instruction}
+      </p>
+
+      {showVideo(objResponse.video)}
+
       <ul className="recomendation-image">
         {recomendation
           .map((recipe, index) => (
@@ -225,8 +273,9 @@ function FoodDetail(props) {
           data-testid="start-recipe-btn"
           className="button-position"
           type="button"
+          hidden={ isDoneRecipe || isRecipeInProgress }
         >
-          Iniciar Receita
+          {isRecipeInProgress ? 'Continuar Receita' : 'Iniciar Receita'}
         </button>
       </Link>
 

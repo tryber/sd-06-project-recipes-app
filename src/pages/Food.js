@@ -8,6 +8,7 @@ import { addRecipes, addFoodRecipes,
 import useFetch from '../helpers/effects/useFetch';
 import Footer from '../components/Footer';
 import FoodCategoriesButtons from '../components/FoodCategoriesButtons';
+import '../css/food.css';
 
 function Food(props) {
   const { history: { location: { pathname } },
@@ -53,11 +54,12 @@ function Food(props) {
   // useFetchOnMount(fetchmap, title, dispatchRecipes);
   if (iscategoriesFetching) return <>Loading </>;
   return (
-    <>
+    <div className="food__container-page">
       {console.log(foodRecipes)}
       <Header
         pathname={ pathname }
         componentConfig={ header }
+
       />
       <FoodCategoriesButtons />
       <RecipesList
@@ -69,7 +71,7 @@ function Food(props) {
         recipes={ foodRecipes }
       />
       <Footer />
-    </>
+    </div>
   );
 }
 
